@@ -1,0 +1,32 @@
+date_range:
+  start: 2021-01-01
+  end: 2026-10-31
+
+user_agent: "dhq-claims-scoreboard/0.1 (research project; +https://github.com/malikbadmus79-max/dhq-claims-scoreboard)"
+
+min_delay_seconds: 5
+obey_robots_txt: true
+
+outlets:
+  - name: Defence Headquarters
+    domain: defencehq.mil.ng
+  - name: Voice of Nigeria
+    domain: von.gov.ng
+  - name: News Agency of Nigeria
+    domain: nannews.ng
+  - name: TheCable
+    domain: thecable.ng
+  - name: Premium Times
+    domain: premiumtimesng.com
+  - name: Leadership
+    domain: leadership.ng
+  - name: Blueprint
+    domain: blueprint.ng
+  - name: TheWill
+    domain: thewillnews.com
+  - name: Gazette
+    domain: gazettengr.com
+  - name: 21st Century Chronicle
+    domain: 21stcenturychronicle.com
+  - name: AllAfrica
+    domain: allafrica.com
