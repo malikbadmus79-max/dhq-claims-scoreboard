@@ -30,3 +30,11 @@ outlets:
     domain: 21stcenturychronicle.com
   - name: AllAfrica
     domain: allafrica.com
+
+wire_copy:
+  # Primary same_wire threshold (word 5-gram Jaccard, digits removed). 0.3 is the
+  # low-density gap in the 2024 pilot pair distribution: 7 of 179 pairs fall
+  # between 0.2 and 0.4 (outputs/tables/pilot_copy_similarity_2024.csv).
+  same_wire_threshold: 0.3
+  # Reported as sensitivity columns in pilot_copy_groups_<year>.csv.
+  sensitivity_thresholds: [0.45, 0.6]

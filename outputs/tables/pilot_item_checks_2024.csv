@@ -1,0 +1,231 @@
+url,outlet,briefing_group_id,fetch_status,api_status,text_source,body_words,nan_credit
+https://blueprint.ng/how-nigeria-military-neutralised-43-terrorists-arrested-115-official/,Blueprint,P2024-001,ok (text cached),,article page,249,False
+https://blueprint.ng/troops-neutralised-43-terrorists-arrest-115-in-one-week-dhq/,Blueprint,P2024-001,ok (text cached),,article page,409,False
+https://gazettengr.com/military-neutralised-43-terrorists-arrested-115-in-one-week-dhq/,Gazette,P2024-001,ok (text cached),,article page,417,True
+https://nannews.ng/military-neutralises-43-terroristsarrests-115/,News Agency of Nigeria,P2024-001,ok (text cached),,article page,423,True
+https://www.premiumtimesng.com/news/top-news/656485-military-kills-43-terrorists-arrests-115-others-dhq.html,Premium Times,P2024-001,JS challenge page,ok,WordPress API,436,False
+https://thewillnews.com/over-40-terrorists-killed-as-troops-arrest-115-others/,TheWill,P2024-001,ok (text cached),,article page,367,False
+https://21stcenturychronicle.com/86-terrorists-killed-101-others-arrested-in-one-week-dhq/,21st Century Chronicle,P2024-004,HTTP 500,ok,WordPress API,486,False
+https://blueprint.ng/kidnappings-military-operations-ongoing-to-flush-terrorists-out-of-fct-dhq/,Blueprint,P2024-002,ok (text cached),,article page,650,False
+https://gazettengr.com/86-boko-haram-iswap-terrorists-eliminated-in-one-week-dhq-says/,Gazette,P2024-004,ok (text cached),,article page,517,True
+https://nannews.ng/troops-eliminate-86-terrorists-apprehend-101-in-1-week/,News Agency of Nigeria,P2024-004,ok (text cached),,article page,526,True
+https://www.premiumtimesng.com/news/top-news/657896-military-troops-eliminate-86-terrorists-apprehend-101-others-dhq.html,Premium Times,P2024-004,JS challenge page,ok,WordPress API,534,True
+https://thewillnews.com/troops-neutralise-terrorists-arrest-others-in-abuja-niger/,TheWill,P2024-003,ok (text cached),,article page,364,False
+https://thewillnews.com/no-gree-for-terrorist-in-2024-military-charges-nigerians-as-troops-neutralise-86-arrest-over-100/,TheWill,P2024-004,ok (text cached),,article page,323,False
+https://gazettengr.com/military-neutralised-three-top-terrorist-commanders-43-others-in-one-week-dhq/,Gazette,P2024-005,ok (text cached),,article page,279,True
+https://nannews.ng/military-neutralises-3-top-terrorists-commanders-43-others-in-1-week-dhq/,News Agency of Nigeria,P2024-005,ok (text cached),,article page,290,True
+https://www.premiumtimesng.com/news/top-news/660503-military-neutralises-three-top-terrorists-commanders-43-others-dhq.html,Premium Times,P2024-005,JS challenge page,ok,WordPress API,296,True
+https://blueprint.ng/insecurity-we-have-deployed-special-forces-to-hotspots-dhq/,Blueprint,P2024-006,ok (text cached),,article page,568,False
+https://blueprint.ng/killings-military-debunks-allegations-of-bias-in-plateau/,Blueprint,P2024-007,ok (text cached),,article page,380,False
+https://gazettengr.com/we-killed-94-terrorists-arrested-214-suspected-kidnappers-others-dhq/,Gazette,P2024-008,ok (text cached),,article page,399,True
+https://thewillnews.com/plateau-killings-we-remain-neutral-stop-spreading-falsehood-military-warns-nigerians/,TheWill,P2024-009,ok (text cached),,article page,366,False
+https://21stcenturychronicle.com/troops-kill-185-terrorists-arrest-212-others-in-one-week-dhq/,21st Century Chronicle,P2024-010,HTTP 500,ok,WordPress API,692,False
+https://blueprint.ng/troops-kill-185-terrorists-arrest-212-others/,Blueprint,P2024-010,ok (text cached),,article page,247,False
+https://gazettengr.com/troops-killed-185-terrorists-apprehended-212-others-in-one-week-dhq/,Gazette,P2024-010,ok (text cached),,article page,696,True
+https://nannews.ng/troops-kill-185-terrorists-apprehend-212-others-in-1-week-dhq/,News Agency of Nigeria,P2024-010,ok (text cached),,article page,703,True
+https://www.premiumtimesng.com/news/top-news/664839-military-troops-kill-185-terrorists-apprehend-212-others-dhq.html,Premium Times,P2024-010,JS challenge page,ok,WordPress API,710,True
+https://thewillnews.com/over-180-terrorists-killed-as-troops-rescue-71-hostages/,TheWill,P2024-011,ok (text cached),,article page,413,False
+https://blueprint.ng/troops-neutralised-266-terrorists-arrest-463-in-january-dhq/,Blueprint,P2024-012,request failed,ok,WordPress API,414,False
+https://gazettengr.com/troops-killed-105-terrorists-arrested-140-others-in-one-week-dhq/,Gazette,P2024-014,request failed,ok,WordPress API,418,True
+https://nannews.ng/surrender-or-be-killed-no-third-option-dhq-tells-terrorists/,News Agency of Nigeria,P2024-013,ok (text cached),,article page,288,True
+https://nannews.ng/troops-eliminate-105-terrorists-arrest-140-others-in-1-week-dhq/,News Agency of Nigeria,P2024-014,request failed,ok,WordPress API,433,True
+https://21stcenturychronicle.com/troops-kill-105-terrorists-arrest-140-others-in-seven-days-dhq/,21st Century Chronicle,P2024-014,request failed,ok,WordPress API,422,False
+https://21stcenturychronicle.com/troops-kill-254-terrorists-arrest-368-others-in-one-week-dhq/,21st Century Chronicle,P2024-015,skipped after repeated failures,ok,WordPress API,634,False
+https://gazettengr.com/troops-killed-254-terrorists-arrested-368-others-in-one-week-dhq/,Gazette,P2024-015,request failed,ok,WordPress API,629,True
+https://blueprint.ng/troops-neutralised-286-terrorists-arrest-244-others-in-one-week-dhq/,Blueprint,P2024-016,request failed,ok,WordPress API,427,False
+https://gazettengr.com/troops-eliminated-286-terrorists-rescued-122-hostages-in-one-week-dhq/,Gazette,P2024-016,request failed,ok,WordPress API,619,True
+https://nannews.ng/troops-eliminate-286-terrorists-rescue-122-hostages-in-1-week/,News Agency of Nigeria,P2024-016,request failed,ok,WordPress API,631,True
+https://21stcenturychronicle.com/troops-kill-286-terrorists-arrest-244-others-in-seven-days-dhq/,21st Century Chronicle,P2024-016,ok (text cached),,article page,622,False
+https://21stcenturychronicle.com/soldiers-kill-three-iswap-commanders-22-fighters/,21st Century Chronicle,P2024-017,skipped after repeated failures,ok,WordPress API,327,False
+https://21stcenturychronicle.com/troops-kill-974-terrorists-arrest-621-in-one-month-dhq/,21st Century Chronicle,P2024-021,skipped after repeated failures,ok,WordPress API,409,False
+https://blueprint.ng/troops-neutralised-974-terrorists-arrest-621-in-february-dhq/,Blueprint,P2024-021,ok,,article page,500,False
+https://gazettengr.com/106-terrorists-killed-in-south-east-in-february-over-800-insurgents-eliminated-in-north-dhq/,Gazette,P2024-018,skipped after repeated failures,ok,WordPress API,402,True
+https://gazettengr.com/top-iswap-commanders-80-terrorists-killed-in-airstrikes-dhq-says/,Gazette,P2024-019,skipped after repeated failures,ok,WordPress API,330,True
+https://thewillnews.com/naf-airstrikes-neutralise-three-iswap-commanders-other-terrorists-in-borno/,TheWill,P2024-020,request failed,ok,WordPress API,285,False
+https://blueprint.ng/terrorists-kidnap-over-40-worshippers-in-zamfara-community-as-troops-sustain-operations/,Blueprint,P2024-022,ok,,article page,406,False
+https://nannews.ng/troops-neutralise-974-terrorists-apprehend-621-in-1-month-dhq/,News Agency of Nigeria,P2024-021,ok,,article page,420,True
+https://gazettengr.com/nigerian-military-eliminates-20-ipob-esn-terrorists-in-imo/,Gazette,P2024-023,skipped after repeated failures,ok,WordPress API,340,True
+https://thewillnews.com/military-vows-to-rescue-abducted-kaduna-school-pupils-teachers-admits-difficult-terrain/,TheWill,P2024-024,request failed,ok,WordPress API,517,False
+https://blueprint.ng/kaduna-abduction-defense-headquarters-assures-on-rescue-as-abductors-demand-n1bn-ransom/,Blueprint,P2024-025,ok,,article page,1406,False
+https://21stcenturychronicle.com/slain-soldiers-tinubu-orders-dhq-to-fish-out-killers/,21st Century Chronicle,P2024-026,skipped after repeated failures,ok,WordPress API,284,False
+https://blueprint.ng/dhq-reveals-identities-of-soldiers-killed-in-delta-community/,Blueprint,P2024-027,ok,,article page,158,False
+https://thewillnews.com/no-hiding-place-for-killers-of-military-personnel-in-delta-tinubu-authorises-dhq-cds-to-bring-perpetrators-to-justice/,TheWill,P2024-028,ok,,article page,746,False
+https://thewillnews.com/military-denies-reprisal-attacks-on-okuama-community-unveils-identities-of-slain-personnel/,TheWill,P2024-029,ok,,article page,974,False
+https://21stcenturychronicle.com/we-must-find-killers-of-16-soldiers-goc/,21st Century Chronicle,P2024-030,skipped after repeated failures,ok,WordPress API,280,False
+https://blueprint.ng/troops-neutralised-106-terrorist-apprehended-103-in-one-week-dhq/,Blueprint,P2024-032,ok,,article page,339,False
+https://gazettengr.com/106-terrorists-neutralised-103-arrested-in-one-week-dhq/,Gazette,P2024-032,skipped after repeated failures,ok,WordPress API,459,True
+https://gazettengr.com/dhq-vows-to-hunt-down-killers-of-soldiers-in-ukuama-community/,Gazette,P2024-031,skipped after repeated failures,ok,WordPress API,225,True
+https://21stcenturychronicle.com/military-kills-106-terrorists-in-seven-days/,21st Century Chronicle,P2024-032,skipped after repeated failures,ok,WordPress API,461,False
+https://gazettengr.com/troops-rescue-16-kidnapped-pupils-woman-in-sokoto/,Gazette,P2024-030,skipped after repeated failures,ok,WordPress API,254,True
+https://blueprint.ng/how-137-abducted-kaduna-students-were-rescued-in-zamfara-dhq/,Blueprint,P2024-035,ok,,article page,298,False
+https://gazettengr.com/kuriga-students-others-rescued-in-zamfara-dhq/,Gazette,P2024-033,skipped after repeated failures,ok,WordPress API,217,True
+https://nannews.ng/how-kuriga-school-students-were-rescued-dhq/,News Agency of Nigeria,P2024-034,ok,,article page,226,True
+https://www.premiumtimesng.com/regional/nwest/680415-how-137-kaduna-school-students-were-rescued-defence-headquarters.html,Premium Times,P2024-035,JS challenge page,ok,WordPress API,238,False
+https://21stcenturychronicle.com/kuriga-school-children-facilitate-rescue-operation-dhq/,21st Century Chronicle,P2024-036,skipped after repeated failures,HTTP 500,,0,False
+https://21stcenturychronicle.com/wanted-dhq-declares-professor-seven-others-wanted-over-killing-of-17-soldiers-in-delta/,21st Century Chronicle,P2024-039,skipped after repeated failures,ok,WordPress API,338,True
+https://blueprint.ng/dhq-declares-8-wanted-over-killings-of-17-soldiers-in-delta/,Blueprint,P2024-039,ok,,article page,47,False
+https://blueprint.ng/dhq-declares-prof-7-others-wanted-over-murder-of-soldiers-in-delta/,Blueprint,P2024-037,ok,,article page,846,False
+https://gazettengr.com/dhq-says-troops-killed-212-terrorists-captured-252-in-one-week-in-anambra-ebonyi-others/,Gazette,P2024-042,skipped after repeated failures,ok,WordPress API,600,True
+https://nannews.ng/military-declares-8-persons-wanted-for-killing-of-soldiers-in-delta/,News Agency of Nigeria,P2024-038,ok,,article page,349,True
+https://www.premiumtimesng.com/regional/south-south-regional/681582-military-declares-eight-wanted-over-killing-of-17-army-personnel-in-delta.html,Premium Times,P2024-039,JS challenge page,ok,WordPress API,329,False
+https://thewillnews.com/court-orders-release-of-313-suspected-terrorists-arrested-by-nigerian-army/,TheWill,P2024-040,ok,,article page,539,False
+https://thewillnews.com/okuama-dhq-declares-eight-suspects-wanted-over-murder-of-military-personnel/,TheWill,P2024-041,ok,,article page,322,False
+https://blueprint.ng/military-kills-212-terrorists-apprehends-252-others-official/,Blueprint,P2024-042,ok,,article page,220,False
+https://nannews.ng/okuama-tragedy-one-person-declared-wanted-by-dhq-surrenders/,News Agency of Nigeria,P2024-043,ok,,article page,159,True
+https://21stcenturychronicle.com/military-kills-2351-terrorists-in-three-months-dhq/,21st Century Chronicle,P2024-045,skipped after repeated failures,ok,WordPress API,302,False
+https://blueprint.ng/revealed-names-of-slain-terrorist-commanders-in-2024/,Blueprint,P2024-044,ok,,article page,176,False
+https://blueprint.ng/troops-neutralised-2351-terrorists-arrested-2308-in-3-months-dhq/,Blueprint,P2024-045,ok,,article page,456,False
+https://gazettengr.com/2351-terrorists-eliminated-in-nigeria-from-january-to-march-dhq/,Gazette,P2024-045,skipped after repeated failures,ok,WordPress API,326,True
+https://www.premiumtimesng.com/news/top-news/683298-nigerian-military-kills-2351-terrorists-apprehends-2308-others-dhq.html,Premium Times,P2024-045,JS challenge page,ok,WordPress API,352,True
+https://thewillnews.com/over-2300-terrorists-killed-2308-arrested-as-troops-rescue-1241-kidnapped-hostages-dhq/,TheWill,P2024-045,ok,,article page,357,False
+https://blueprint.ng/in-latest-triumphs-troops-kill-iswap-commander-mainok-2-350-others-in-3-months/,Blueprint,P2024-046,ok,,article page,794,False
+https://thewillnews.com/well-submit-position-paper-on-okuama-killings-gov-oborevwori/,TheWill,P2024-047,ok,,article page,433,False
+https://blueprint.ng/troops-kill-6-terrorists-loses-lieutenant-in-borno/,Blueprint,P2024-048,ok,,article page,179,False
+https://thewillnews.com/officer-four-soldiers-killed-as-terrorists-ambush-military-personnel-in-borno/,TheWill,P2024-049,ok,,article page,210,False
+https://gazettengr.com/boko-haram-killed-army-officer-in-borno-ambush-six-terrorists-eliminated-dhq/,Gazette,P2024-050,skipped after repeated failures,ok,WordPress API,121,True
+https://21stcenturychronicle.com/okuama-army-board-begins-sitting-in-warri/,21st Century Chronicle,P2024-051,skipped after repeated failures,ok,WordPress API,248,False
+https://21stcenturychronicle.com/slain-soldiers-armys-commission-of-inquiry-illegal-sans/,21st Century Chronicle,P2024-052,skipped after repeated failures,ok,WordPress API,434,False
+https://blueprint.ng/troops-neutralise188-terrorists-arrest-330-persons-dhq/,Blueprint,P2024-053,ok,,article page,351,False
+https://gazettengr.com/troops-killed-188-terrorists-arrested-330-others-in-one-week-dhq/,Gazette,P2024-053,skipped after repeated failures,ok,WordPress API,620,True
+https://blueprint.ng/dhq-warns-yoruba-nation-agitators-of-dire-consequences/,Blueprint,P2024-054,ok,,article page,589,False
+https://gazettengr.com/dhq-says-troops-eliminated-192-terrorists-captured-341-criminals-in-one-week/,Gazette,P2024-054,skipped after repeated failures,ok,WordPress API,409,True
+https://nannews.ng/troops-neutralise-192-terrorists-apprehend-341-others-in-1-week-dhq/,News Agency of Nigeria,P2024-054,ok,,article page,416,True
+https://www.premiumtimesng.com/news/top-news/687204-nigerian-military-kills192-terrorists-apprehends-341-others-official.html,Premium Times,P2024-054,JS challenge page,ok,WordPress API,431,False
+https://gazettengr.com/okuama-killings-senator-commends-dhq-for-release-of-detained-traditional-ruler/,Gazette,P2024-055,skipped after repeated failures,ok,WordPress API,265,True
+https://blueprint.ng/troops-neutralise-216-terrorists-arrest-332-in-one-week/,Blueprint,P2024-056,ok,,article page,344,False
+https://21stcenturychronicle.com/military-kills-715-terrorists-rescues-465-kidnap-victims-in-april-dhq/,21st Century Chronicle,P2024-058,skipped after repeated failures,ok,WordPress API,712,False
+https://blueprint.ng/tudun-biri-bombing-military-court-martial-2-personnel/,Blueprint,P2024-057,ok,,article page,225,False
+https://nannews.ng/military-kills-715-terrorists-rescues-465-kidnap-victims-in-april-dhq/,News Agency of Nigeria,P2024-058,ok,,article page,724,True
+https://www.premiumtimesng.com/news/top-news/690810-military-troops-kill-715-terrorists-rescue-465-kidnap-victims.html,Premium Times,P2024-058,JS challenge page,ok,WordPress API,731,True
+https://21stcenturychronicle.com/troops-kill-135-terrorists-arrest-182-others-in-one-week/,21st Century Chronicle,P2024-059,skipped after repeated failures,ok,WordPress API,545,False
+https://blueprint.ng/troops-neutralise-135-arrested-182-persons/,Blueprint,P2024-059,ok,,article page,360,False
+https://gazettengr.com/troops-neutralised-135-terrorists-apprehended-182-in-one-week-dhq/,Gazette,P2024-059,skipped after repeated failures,ok,WordPress API,549,True
+https://www.premiumtimesng.com/news/top-news/693226-nigerian-military-kills-135-terrorists-apprehends-182-others.html,Premium Times,P2024-059,JS challenge page,ok,WordPress API,568,False
+https://21stcenturychronicle.com/troops-kill-227-terrorists-arrests-529-others-in-one-week/,21st Century Chronicle,P2024-060,skipped after repeated failures,ok,WordPress API,461,False
+https://www.premiumtimesng.com/news/top-news/695066-nigerian-military-kills-227-terrorists-apprehends-529-others.html,Premium Times,P2024-060,JS challenge page,ok,WordPress API,489,False
+https://blueprint.ng/troops-neutralise-127-terrorists-gunmen-kidnap-135-kill-3-in-zamfara-nigerien-declared-wanted/,Blueprint,P2024-061,ok,,article page,812,False
+https://21stcenturychronicle.com/gunmen-kidnap-catholic-priest-in-adamawa/,21st Century Chronicle,P2024-062,skipped after repeated failures,ok,WordPress API,120,False
+https://blueprint.ng/troops-neutralse-253-arrest-172-in-one-week-dhq/,Blueprint,P2024-063,ok,,article page,382,False
+https://gazettengr.com/troops-killed-253-terrorists-apprehended-172-in-one-week-dhq/,Gazette,P2024-063,skipped after repeated failures,ok,WordPress API,338,True
+https://gazettengr.com/624-terrorists-killed-in-may-1000-captured-dhq/,Gazette,P2024-064,skipped after repeated failures,ok,WordPress API,458,True
+https://www.premiumtimesng.com/news/top-news/699086-nigerian-troops-kill-640-terrorists-arrest-1051-in-may-official.html,Premium Times,P2024-064,JS challenge page,ok,WordPress API,697,False
+https://21stcenturychronicle.com/military-promises-fierce-response-to-killing-of-soldiers-by-ipob/,21st Century Chronicle,P2024-065,skipped after repeated failures,ok,WordPress API,288,False
+https://blueprint.ng/dont-dare-us-dhq-warns-2-soldiers-killed-in-abia-ambush/,Blueprint,P2024-066,ok,,article page,675,False
+https://blueprint.ng/military-confirms-killing-of-5-soldiers-by-ipob-vows-to-retaliate/,Blueprint,P2024-067,ok,,article page,242,False
+https://blueprint.ng/troops-neutralised-624-terrorists-arrest-1051-in-may/,Blueprint,P2024-064,ok,,article page,460,False
+https://gazettengr.com/ipob-terrorists-overran-military-checkpoint-killed-soldiers-dhq/,Gazette,P2024-068,skipped after repeated failures,ok,WordPress API,278,True
+https://thewillnews.com/otti-condemns-attack-on-soldiers-places-n25m-bounty-on-killers/,TheWill,P2024-069,ok,,article page,725,False
+https://thewillnews.com/therell-be-fierce-response-against-ipob-for-killing-soldiers-in-abia-military-vows/,TheWill,P2024-070,ok,,article page,259,False
+https://thewillnews.com/its-barbaric-fg-vows-justice-for-killers-of-soldiers-in-abia/,TheWill,P2024-071,ok,,article page,291,False
+https://21stcenturychronicle.com/9303-terrorists-killed-9562-fighters-surrender-in-one-year-dhq/,21st Century Chronicle,P2024-072,skipped after repeated failures,HTTP 500,,0,False
+https://gazettengr.com/9000-boko-haram-iswap-terrorists-killed-nearly-7000-captured-in-one-year-dhq/,Gazette,P2024-073,skipped after repeated failures,ok,WordPress API,361,True
+https://blueprint.ng/troops-neutralise-202-terrorists-arrest-437-persons-in-one-week-dhq/,Blueprint,P2024-074,ok,,article page,360,False
+https://gazettengr.com/dhq-unsure-bello-turji-killed-in-naf-bombing-of-terrorist-leaders-camps/,Gazette,P2024-075,skipped after repeated failures,ok,WordPress API,244,True
+https://gazettengr.com/nigerian-troops-killed-197-terrorists-in-one-week-dhq/,Gazette,P2024-079,skipped after repeated failures,ok,WordPress API,480,True
+https://gazettengr.com/twenty-five-ipob-esn-suspects-arrested-in-abia-imo-anambra-dhq/,Gazette,P2024-076,skipped after repeated failures,ok,WordPress API,223,True
+https://www.premiumtimesng.com/news/top-news/703573-nigerian-military-kills-197-terrorists-loses-nine-soldiers-official.html,Premium Times,P2024-079,JS challenge page,ok,WordPress API,519,False
+https://www.premiumtimesng.com/regional/south-south-regional/703584-military-destroys-43-illegal-refining-sites-apprehends-32-suspected-oil-thieves-dhq.html,Premium Times,P2024-077,JS challenge page,ok,WordPress API,248,False
+https://thewillnews.com/weve-arrested-suspects-over-killing-of-soldiers-in-abia-dhq/,TheWill,P2024-078,ok,,article page,159,False
+https://21stcenturychronicle.com/troops-kill-197-terrorists-arrest-310-in-1-week-dhq/,21st Century Chronicle,P2024-079,skipped after repeated failures,ok,WordPress API,324,False
+https://blueprint.ng/troops-neutralised-220-criminals-arrested-395-dhq/,Blueprint,P2024-080,ok,,article page,381,False
+https://gazettengr.com/military-making-operational-adjustments-to-protect-farmers-during-rainy-season-dhq/,Gazette,P2024-081,skipped after repeated failures,ok,WordPress API,452,True
+https://www.premiumtimesng.com/news/top-news/705840-what-were-doing-to-protect-nigerian-farmers-from-terrorists-dhq.html,Premium Times,P2024-082,JS challenge page,ok,WordPress API,480,False
+https://gazettengr.com/180-ipob-esn-terrorists-killed-149-hostages-rescued-in-south-east-dhq/,Gazette,P2024-083,skipped after repeated failures,ok,WordPress API,756,True
+https://www.premiumtimesng.com/news/top-news/707736-nigerian-military-kills-2245-terrorists-apprehends-3682-others-dhq.html,Premium Times,P2024-084,JS challenge page,ok,WordPress API,838,False
+https://gazettengr.com/six-killed-15-injured-in-borno-suicide-attack/,Gazette,P2024-085,skipped after repeated failures,ok,WordPress API,181,True
+https://thewillnews.com/suicide-attacks-well-stop-at-nothing-to-take-terrorists-out-of-battlefield-dhq/,TheWill,P2024-086,ok,,article page,682,False
+https://gazettengr.com/military-neutralised-177-terrorists-apprehended-263-in-one-week-dhq/,Gazette,P2024-087,skipped after repeated failures,ok,WordPress API,454,True
+https://21stcenturychronicle.com/177-terrorists-killed-263-arrested-in-one-week-dhq/,21st Century Chronicle,P2024-087,skipped after repeated failures,ok,WordPress API,453,False
+https://blueprint.ng/troops-neutralised-187-arrested-183-dhq/,Blueprint,P2024-088,ok,,article page,459,False
+https://gazettengr.com/187-terrorists-killed-in-north-south-east-south-west-in-one-week-dhq-says/,Gazette,P2024-088,skipped after repeated failures,ok,WordPress API,669,True
+https://www.premiumtimesng.com/news/top-news/712018-nigerian-military-kills-187-terrorists-apprehends-183-others.html,Premium Times,P2024-088,JS challenge page,ok,WordPress API,718,False
+https://blueprint.ng/military-foil-attacks-on-critical-infrastructure/,Blueprint,P2024-089,ok,,article page,454,False
+https://21stcenturychronicle.com/troops-kill-125-terrorists-rescue-140-victims-in-one-week-dhq/,21st Century Chronicle,P2024-091,skipped after repeated failures,ok,WordPress API,453,False
+https://blueprint.ng/oil-theft-military-moves-to-ensure-transparency-by-iocs-others/,Blueprint,P2024-090,ok,,article page,428,False
+https://gazettengr.com/troops-neutralised-125-terrorists-rescued-140-victims-in-one-week-dhq/,Gazette,P2024-091,skipped after repeated failures,ok,WordPress API,449,True
+https://21stcenturychronicle.com/military-kills-106-terrorists-rescues-103-hostages-in-seven-days/,21st Century Chronicle,P2024-092,skipped after repeated failures,ok,WordPress API,538,False
+https://thewillnews.com/over-100-terrorists-neutralised-164-arrested-as-troops-rescue-103-hostages/,TheWill,P2024-092,ok,,article page,514,False
+https://21stcenturychronicle.com/military-kills-572-terrorists-arrests-790-in-july-dhq/,21st Century Chronicle,P2024-093,skipped after repeated failures,ok,WordPress API,539,False
+https://blueprint.ng/troops-neutralised-572-terrorists-arrested-790-in-july-dhq/,Blueprint,P2024-093,ok,,article page,291,False
+https://gazettengr.com/military-neutralised-572-terrorists-arrested-790-suspects-in-july-dhq/,Gazette,P2024-093,skipped after repeated failures,ok,WordPress API,536,True
+https://thewillnews.com/over-500-neutralised-as-troops-arrest-790-suspected-terrorists-rescue-579-hostages-in-july-dhq/,TheWill,P2024-093,ok,,article page,330,False
+https://21stcenturychronicle.com/military-kills-108-terrorists-rescues-214-hostages-in-one-week-dhq/,21st Century Chronicle,P2024-094,skipped after repeated failures,ok,WordPress API,170,False
+https://blueprint.ng/troops-neutralised-108-terrorists-rescued-214-hostages-in-one-week-dhq/,Blueprint,P2024-094,ok,,article page,416,False
+https://www.premiumtimesng.com/news/top-news/722654-nigerian-military-kills-108-suspected-terrorists-rescues-214-hostages-in-one-week-dhq.html,Premium Times,P2024-094,JS challenge page,ok,WordPress API,637,False
+https://blueprint.ng/our-rejigged-operations-in-niger-delta-responsible-for-improved-crude-production-dhq/,Blueprint,P2024-095,ok,,article page,386,False
+https://gazettengr.com/we-killed-147-terrorists-in-one-week-says-nigerian-military/,Gazette,P2024-096,skipped after repeated failures,ok,WordPress API,551,True
+https://blueprint.ng/troops-neutralised-171-arrested-302-in-one-week-dhq/,Blueprint,P2024-097,ok,,article page,296,False
+https://thewillnews.com/over-150-killed-as-troops-arrest-327-terrorists-oil-theft-suspects/,TheWill,P2024-098,ok,,article page,370,False
+https://blueprint.ng/troops-neutralised-over-16-terrorists-commanders-1166-others-in-august-dhq/,Blueprint,P2024-099,ok,,article page,390,False
+https://gazettengr.com/1166-terrorists-killed-2742-surrendered-across-nigeria-dhq/,Gazette,P2024-099,skipped after repeated failures,ok,WordPress API,561,True
+https://www.premiumtimesng.com/news/headlines/729328-nigerian-troops-kill-1166-terrorists-rescue-721-hostages-dhq.html,Premium Times,P2024-099,JS challenge page,ok,WordPress API,647,False
+https://thewillnews.com/over-1000-terrorist-commanders-foot-soldiers-killed-as-troops-rescue-721-hostages/,TheWill,P2024-099,ok,,article page,335,False
+https://21stcenturychronicle.com/military-kills-1166-terrorists-arrests-1096-others/,21st Century Chronicle,P2024-099,skipped after repeated failures,ok,WordPress API,501,False
+https://nannews.ng/military-neutralises-1166-terrorists-apprehends-1096-suspects-dhq/,News Agency of Nigeria,P2024-099,ok,,article page,646,True
+https://www.premiumtimesng.com/news/more-news/730473-troops-immobilised-combat-vehicles-destroyed-by-terrorists-in-viral-video-dhq.html,Premium Times,P2024-100,JS challenge page,ok,WordPress API,412,False
+https://thewillnews.com/mraps-displayed-by-terrorists-demobilised-by-troops-video-of-mass-killing-of-civilians-in-sokoto-fake-dhq/,TheWill,P2024-101,ok,,article page,464,False
+https://21stcenturychronicle.com/troops-kill-152-terrorists-arrest-109-others-in-one-week-dhq/,21st Century Chronicle,P2024-102,skipped after repeated failures,ok,WordPress API,568,False
+https://blueprint.ng/654661-2/,Blueprint,P2024-102,ok,,article page,301,False
+https://gazettengr.com/troops-eliminated-152-terrorists-apprehended-109-in-one-week-dhq/,Gazette,P2024-102,skipped after repeated failures,ok,WordPress API,560,True
+https://www.premiumtimesng.com/news/top-news/731999-military-troops-eliminate-152-terrorists-apprehend-109-others-dhq.html,Premium Times,P2024-102,JS challenge page,ok,WordPress API,605,False
+https://thewillnews.com/over-150-killed-as-troops-arrest-109-terrorists-rescue-91-hostages-in-one-week-dhq/,TheWill,P2024-102,ok,,article page,354,False
+https://21stcenturychronicle.com/troops-kill-159-terrorists-in-one-week/,21st Century Chronicle,P2024-103,skipped after repeated failures,ok,WordPress API,619,False
+https://gazettengr.com/troops-neutralised-159-terrorists-rescued-188-victims-in-one-week-dhq/,Gazette,P2024-103,skipped after repeated failures,ok,WordPress API,624,True
+https://www.premiumtimesng.com/news/headlines/736714-nigerian-soldiers-kill-159-terrorists-rescue-188-victims-in-one-week-official.html,Premium Times,P2024-103,JS challenge page,ok,WordPress API,626,False
+https://21stcenturychronicle.com/military-kills-1937-terrorists-arrests-2782-in-q3-dhq/,21st Century Chronicle,P2024-104,skipped after repeated failures,ok,WordPress API,507,False
+https://blueprint.ng/troops-neutralised-over-65-terrorists-commanders-1937-foot-soldiers-in-3rd-quarter-dhq/,Blueprint,P2024-104,ok,,article page,377,False
+https://gazettengr.com/military-killed-1937-terrorists-arrested-2782-suspects-rescued-1854-hostages-in-third-quarter-dhq/,Gazette,P2024-104,skipped after repeated failures,ok,WordPress API,503,True
+https://21stcenturychronicle.com/revealed-ex-seaman-abbas-fired-16-live-bullets-while-resisting-arrest-dhq/,21st Century Chronicle,P2024-105,skipped after repeated failures,ok,WordPress API,492,False
+https://blueprint.ng/troops-eliminate-118-terrorists-arrest-97/,Blueprint,P2024-106,ok,,article page,320,False
+https://blueprint.ng/troops-neutralised-165-terrorists-arrested-238-others-in-one-week-dhq/,Blueprint,P2024-107,ok,,article page,491,False
+https://gazettengr.com/troops-neutralise-165-terrorists-nab-238-others-in-one-week/,Gazette,P2024-107,skipped after repeated failures,ok,WordPress API,436,True
+https://21stcenturychronicle.com/military-kills-101-terrorists-arrests-182-dhq/,21st Century Chronicle,P2024-108,skipped after repeated failures,ok,WordPress API,489,False
+https://gazettengr.com/over-101-terrorists-killed-182-arrested-in-one-week-dhq/,Gazette,P2024-108,skipped after repeated failures,ok,WordPress API,495,True
+https://21stcenturychronicle.com/140-terrorists-killed-135-suspects-arrested-in-one-week-dhq/,21st Century Chronicle,P2024-109,skipped after repeated failures,ok,WordPress API,471,False
+https://blueprint.ng/troops-neutralise-140-terrorists-arrest-135/,Blueprint,P2024-109,ok,,article page,403,False
+https://gazettengr.com/military-killed-140-terrorists-arrested-135-suspects-in-one-week-defence-headquarters/,Gazette,P2024-109,skipped after repeated failures,ok,WordPress API,473,True
+https://www.premiumtimesng.com/news/top-news/748321-military-troops-kill-140-terrorists-apprehend-135-suspects-dhq.html,Premium Times,P2024-109,JS challenge page,ok,WordPress API,491,False
+https://blueprint.ng/minister-gives-fresh-directive-bello-turji-as-troops-unleash-on-terrorists-ipob-leaders/,Blueprint,P2024-110,ok,,article page,677,False
+https://blueprint.ng/nigerian-army-arrests-ipob-founding-father/,Blueprint,P2024-111,ok,,article page,248,False
+https://21stcenturychronicle.com/soldier-guns-down-colleague-in-katsina-dhq/,21st Century Chronicle,P2024-112,skipped after repeated failures,ok,WordPress API,161,False
+https://thewillnews.com/soldier-runs-amok-kills-colleague-in-katsina/,TheWill,P2024-113,ok,,article page,223,False
+https://21stcenturychronicle.com/military-kills-187-terrorists-arrests-262-in-on-week-dhq/,21st Century Chronicle,P2024-116,skipped after repeated failures,ok,WordPress API,374,False
+https://21stcenturychronicle.com/troops-arrest-bandit-kingpin-habu-dogo/,21st Century Chronicle,P2024-114,skipped after repeated failures,ok,WordPress API,204,False
+https://blueprint.ng/troops-capture-wanted-terrorist-leader-habu-dogo-7-ipob-commanders/,Blueprint,P2024-115,ok,,article page,467,False
+https://gazettengr.com/military-killed-over-187-terrorists-apprehended-262-suspects-in-one-week-defence-headquarters/,Gazette,P2024-116,skipped after repeated failures,ok,WordPress API,367,True
+https://gazettengr.com/troops-killed-481-terrorists-nabbed-741-suspects-freed-492-hostages-in-one-month-defence-headquarters/,Gazette,P2024-117,skipped after repeated failures,ok,WordPress API,511,True
+https://www.premiumtimesng.com/news/headlines/752638-nigerian-troops-killed-481-terrorists-apprehended-741-suspects-in-october-dhq.html,Premium Times,P2024-117,JS challenge page,ok,WordPress API,543,False
+https://21stcenturychronicle.com/military-kills-481-terrorists-arrests-741-in-one-month-dhq/,21st Century Chronicle,P2024-117,skipped after repeated failures,ok,WordPress API,467,False
+https://blueprint.ng/dhq-names-9-wanted-terrorists-leaders-troops-nuetralise-481-rescue-481-hostages/,Blueprint,P2024-117,ok,,article page,415,False
+https://21stcenturychronicle.com/naf-kills-over-70-terrorists-in-borno-airstrikes/,21st Century Chronicle,P2024-118,skipped after repeated failures,ok,WordPress API,319,False
+https://gazettengr.com/naf-airstrikes-killed-over-70-terrorists-in-borno-official/,Gazette,P2024-118,skipped after repeated failures,ok,WordPress API,318,True
+https://21stcenturychronicle.com/five-soldiers-insurgents-killed-four-soldiers-missing-in-surprise-attack-dhq/,21st Century Chronicle,P2024-119,skipped after repeated failures,ok,WordPress API,399,False
+https://thewillnews.com/dhq-confirms-terrorists-attack-on-military-camp-in-borno-says-five-soldiers-killed-four-others-missing-in-action/,TheWill,P2024-120,ok,,article page,284,False
+https://21stcenturychronicle.com/troops-kill-115-terrorists-in-one-week-dhq/,21st Century Chronicle,P2024-121,skipped after repeated failures,ok,WordPress API,396,False
+https://blueprint.ng/military-wants-simon-ekpa-extradited-to-nigeria-to-face-justice/,Blueprint,P2024-122,ok,,article page,172,False
+https://blueprint.ng/nigerian-defence-headquarters-speaks-on-extradition-of-simon-ekpa-to-nigeria/,Blueprint,P2024-123,ok,,article page,149,False
+https://gazettengr.com/troops-killed-notorious-terrorist-114-insurgents-in-one-week-defence-headquarters/,Gazette,P2024-124,skipped after repeated failures,ok,WordPress API,393,True
+https://www.premiumtimesng.com/news/top-news/756122-nigerian-military-troops-eliminate-notorious-terrorist-114-others-dhq.html,Premium Times,P2024-124,JS challenge page,ok,WordPress API,427,False
+https://blueprint.ng/dhq-to-finnish-government-extradite-simon-ekpa-to-face-justice-in-nigeria/,Blueprint,P2024-125,ok,,article page,631,False
+https://blueprint.ng/top-terrorists-leaders-jambros-alhaji-mallam-others-surrender-to-troops/,Blueprint,P2024-126,ok,,article page,398,False
+https://21stcenturychronicle.com/troops-kill-135-terrorists-arrest-185-suspects-in-seven-days/,21st Century Chronicle,P2024-127,skipped after repeated failures,ok,WordPress API,403,False
+https://gazettengr.com/troops-killed-135-terrorists-apprehended-185-suspects-in-week-defence-headquarters/,Gazette,P2024-127,skipped after repeated failures,ok,WordPress API,402,True
+https://gazettengr.com/military-killed-8034-terrorists-apprehended-11623-suspects-in-11-months-dhq/,Gazette,P2024-128,skipped after repeated failures,ok,WordPress API,370,True
+https://www.premiumtimesng.com/news/top-news/759432-nigerian-military-kills-8034-terrorists-apprehends-11623-suspects-dhq.html,Premium Times,P2024-128,JS challenge page,ok,WordPress API,389,False
+https://21stcenturychronicle.com/military-kills-8034-terrorists-arrests-11623-others-in-11-months/,21st Century Chronicle,P2024-128,skipped after repeated failures,ok,WordPress API,370,False
+https://blueprint.ng/how-troops-neutralised-over-500-terrorist-leaders-8034-others-in-2024-dhq/,Blueprint,P2024-128,ok,,article page,386,False
+https://blueprint.ng/troops-neutralised-over-500-terrorists-leaders-8034-others-in-2024-dhq/,Blueprint,P2024-128,ok,,article page,416,False
+https://21stcenturychronicle.com/bello-turjis-top-lieutenant-arrested-military/,21st Century Chronicle,P2024-129,skipped after repeated failures,ok,WordPress API,356,False
+https://gazettengr.com/212-terrorists-killed-152-hostages-freed-in-nationwide-operation-dhq/,Gazette,P2024-130,skipped after repeated failures,ok,WordPress API,323,True
+https://blueprint.ng/troops-arrest-high-profile-terrorists-neutralise-212/,Blueprint,P2024-130,ok,,article page,474,False
+https://21stcenturychronicle.com/sokoto-villagers-not-killed-by-military-strikes-dhq/,21st Century Chronicle,P2024-131,skipped after repeated failures,ok,WordPress API,404,False
+https://gazettengr.com/civilians-in-sokoto-killed-by-secondary-explosions-not-military-strikes-dhq/,Gazette,P2024-132,skipped after repeated failures,ok,WordPress API,426,True
+https://thewillnews.com/sokoto-villagers-died-from-secondary-explosion-dhq/,TheWill,P2024-133,ok,,article page,488,False
+https://gazettengr.com/troops-neutralised-148-terrorists-arrested-suppliers-of-ammunition-in-one-week-dhq/,Gazette,P2024-135,skipped after repeated failures,ok,WordPress API,249,True
+https://www.premiumtimesng.com/news/top-news/764026-military-troops-nab-two-terrorists-logistics-suppliers-256-others-dhq.html,Premium Times,P2024-134,ok,,article page,285,True
+https://blueprint.ng/troops-arrest-2-terrorists-collaborators-in-bauchi-neutralise-148/,Blueprint,P2024-135,ok,,article page,407,False
+https://www.premiumtimesng.com/news/top-news/764088-nigerian-troops-kill-148-terrorists-rescue-291-hostages-in-one-week-dhq.html,Premium Times,P2024-135,ok,,article page,281,True
+https://21stcenturychronicle.com/10937-terrorists-killed-12538-arrested-in-2024-dhq/,21st Century Chronicle,P2024-136,skipped after repeated failures,ok,WordPress API,500,False
+https://blueprint.ng/troops-neutralised-over-1-000-terrorists-leaders-10937-others-in-2024-dhq/,Blueprint,P2024-136,ok,,article page,472,False
+https://gazettengr.com/10937-terrorists-killed-16171-surrendered-to-troops-in-2024-dhq/,Gazette,P2024-136,skipped after repeated failures,ok,WordPress API,568,True
+https://thewillnews.com/over-1000-terrorist-commanders-10937-fighters-killed-in-2024-dhq/,TheWill,P2024-136,ok,,article page,329,False

@@ -1,0 +1,25 @@
+date,source,url_tested,result,notes
+2026-10-16,defencehq.mil.ng,https://defencehq.mil.ng/robots.txt,ConnectTimeout,"Discovery run; three attempts timed out, robots.txt treated as unreachable and the site skipped"
+2026-10-17,defencehq.mil.ng,https://defencehq.mil.ng/robots.txt,ConnectTimeout,"Discovery rerun; three attempts timed out, robots.txt treated as unreachable and the site skipped"
+2026-10-17,defencehq.mil.ng,https://defencehq.mil.ng/,did not load,"Homepage failed to load in a browser; premiumtimesng.com loaded in the same session"
+2026-10-17,defencehq.mil.ng,https://defencehq.mil.ng/index.php/2022/07/28/press-briefing-by-directorate-of-defence-media-operations-on-armed-forces-of-nigerias-military-operations-held-at-defence-headquarters-new-conference-room-on-28-july-2022,did not load,"2022 briefing page (S01) failed to load in a browser; premiumtimesng.com loaded in the same session"
+2026-10-16,thecable.ng,https://thecable.ng/wp-json/wp/v2/posts?per_page=1&_fields=date%2Clink%2Ctitle,HTTP 403,WordPress REST API probe refused
+2026-10-17,thecable.ng,https://thecable.ng/wp-json/wp/v2/posts?per_page=1&_fields=date%2Clink%2Ctitle%2Cexcerpt,HTTP 403,WordPress REST API probe refused
+2026-10-17,leadership.ng,https://leadership.ng/wp-json/wp/v2/posts?per_page=1&_fields=date%2Clink%2Ctitle%2Cexcerpt,HTTP 403,WordPress REST API probe refused
+2026-10-17,allafrica.com,https://allafrica.com/wp-json/wp/v2/posts?per_page=1&_fields=date%2Clink%2Ctitle%2Cexcerpt,HTTP 404,Not a WordPress site; no REST API
+2026-10-17,web.archive.org,https://web.archive.org/,did not load,Failed to load in a browser
+2026-10-17,von.gov.ng,https://von.gov.ng/wp-json/wp/v2/posts?search=DHQ&per_page=3&_fields=date%2Clink%2Ctitle,HTTP 200,"API answers without a date filter (X-WP-Total 67 for search DHQ); newest results dated 2026"
+2026-10-17,von.gov.ng,https://von.gov.ng/wp-json/wp/v2/posts?after=2024-01-01T00%3A00%3A00&before=2024-12-31T23%3A59%3A59&per_page=3&_fields=date%2Clink%2Ctitle,HTTP 200,"X-WP-Total 0 for the 2024 window, with or without a search term"
+2026-10-17,von.gov.ng,https://von.gov.ng/wp-json/wp/v2/posts?before=2025-01-01T00%3A00%3A00&order=desc&orderby=date&per_page=3&_fields=date%2Clink%2Ctitle,HTTP 200,"Latest post before 2025 is dated 2023-05-24; earliest post after 2024-01-01 is dated 2025-01-31; the API archive holds no 2024 posts"
+2026-10-17,21stcenturychronicle.com,https://21stcenturychronicle.com/86-terrorists-killed-101-others-arrested-in-one-week-dhq/,1 of 48 article pages fetched,"Wire-copy check 2024; failures: {'skipped after repeated failures': 44, 'HTTP 500': 2, 'request failed': 1}"
+2026-10-17,blueprint.ng,https://blueprint.ng/how-nigeria-military-neutralised-43-terrorists-arrested-115-official/,60 of 62 article pages fetched,Wire-copy check 2024; failures: {'request failed': 2}
+2026-10-17,gazettengr.com,https://gazettengr.com/military-neutralised-43-terrorists-arrested-115-in-one-week-dhq/,5 of 54 article pages fetched,"Wire-copy check 2024; failures: {'skipped after repeated failures': 46, 'request failed': 3}"
+2026-10-17,nannews.ng,https://nannews.ng/military-neutralises-43-terroristsarrests-115/,12 of 14 article pages fetched,Wire-copy check 2024; failures: {'request failed': 2}
+2026-10-17,thewillnews.com,https://thewillnews.com/over-40-terrorists-killed-as-troops-arrest-115-others/,29 of 31 article pages fetched,Wire-copy check 2024; failures: {'request failed': 2}
+2026-10-17,www.premiumtimesng.com,https://www.premiumtimesng.com/news/top-news/656485-military-kills-43-terrorists-arrests-115-others-dhq.html,2 of 28 article pages fetched,Wire-copy check 2024; failures: {'JS challenge page': 26}
+2026-10-17,premiumtimesng.com,"https://premiumtimesng.com/wp-json/wp/v2/posts?slug=<slug>&_fields=link,content",26 of 26 missing texts filled from WordPress API,API text fill 2024; statuses: {'ok': 26}
+2026-10-17,21stcenturychronicle.com,"https://21stcenturychronicle.com/wp-json/wp/v2/posts?slug=<slug>&_fields=link,content",44 of 47 missing texts filled from WordPress API,"API text fill 2024; statuses: {'ok': 44, 'HTTP 500': 3}"
+2026-10-17,blueprint.ng,"https://blueprint.ng/wp-json/wp/v2/posts?slug=<slug>&_fields=link,content",2 of 2 missing texts filled from WordPress API,API text fill 2024; statuses: {'ok': 2}
+2026-10-17,gazettengr.com,"https://gazettengr.com/wp-json/wp/v2/posts?slug=<slug>&_fields=link,content",49 of 49 missing texts filled from WordPress API,API text fill 2024; statuses: {'ok': 49}
+2026-10-17,nannews.ng,"https://nannews.ng/wp-json/wp/v2/posts?slug=<slug>&_fields=link,content",2 of 2 missing texts filled from WordPress API,API text fill 2024; statuses: {'ok': 2}
+2026-10-17,thewillnews.com,"https://thewillnews.com/wp-json/wp/v2/posts?slug=<slug>&_fields=link,content",2 of 2 missing texts filled from WordPress API,API text fill 2024; statuses: {'ok': 2}

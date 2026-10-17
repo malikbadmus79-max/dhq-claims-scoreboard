@@ -1,0 +1,12 @@
+outlet,domain,wp_api,search_hits,candidates
+Defence Headquarters,defencehq.mil.ng,not checked (robots.txt unreachable),0,0
+Voice of Nigeria,von.gov.ng,yes,0,0
+News Agency of Nigeria,nannews.ng,yes,424,14
+TheCable,thecable.ng,no API (HTTP 403),0,0
+Premium Times,premiumtimesng.com,yes,1396,28
+Leadership,leadership.ng,no API (HTTP 403),0,0
+Blueprint,blueprint.ng,yes,2403,59
+TheWill,thewillnews.com,yes,729,29
+Gazette,gazettengr.com,yes,1451,54
+21st Century Chronicle,21stcenturychronicle.com,yes,756,46
+AllAfrica,allafrica.com,no API (HTTP 404),0,0
