@@ -94,6 +94,16 @@ class Fetcher:
             self.skip_reason = "request failed"
         return resp
 
+    def check_robots(self, url: str) -> tuple[bool, str]:
+        """Whether robots.txt allows `url` for the configured user agent, and how robots.txt
+        answered: "HTTP <status>" or "unreachable"."""
+        allowed = self._allowed(url)
+        origin = "{0.scheme}://{0.netloc}".format(urlsplit(url))
+        if origin in self._robots_unreachable:
+            return allowed, "unreachable"
+        cached = self._read_cache(f"{origin}/robots.txt")
+        return allowed, f"HTTP {cached.status_code}" if cached else "unreachable"
+
     def _allowed(self, url: str) -> bool:
         parts = urlsplit(url)
         origin = f"{parts.scheme}://{parts.netloc}"

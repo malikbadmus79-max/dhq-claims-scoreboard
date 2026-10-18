@@ -23,3 +23,30 @@ date,source,url_tested,result,notes
 2026-10-17,gazettengr.com,"https://gazettengr.com/wp-json/wp/v2/posts?slug=<slug>&_fields=link,content",49 of 49 missing texts filled from WordPress API,API text fill 2024; statuses: {'ok': 49}
 2026-10-17,nannews.ng,"https://nannews.ng/wp-json/wp/v2/posts?slug=<slug>&_fields=link,content",2 of 2 missing texts filled from WordPress API,API text fill 2024; statuses: {'ok': 2}
 2026-10-17,thewillnews.com,"https://thewillnews.com/wp-json/wp/v2/posts?slug=<slug>&_fields=link,content",2 of 2 missing texts filled from WordPress API,API text fill 2024; statuses: {'ok': 2}
+2026-10-18,dailytrust.com,https://dailytrust.com/robots.txt,robots.txt HTTP 200,Source access check; /wp-json/wp/v2/posts allowed
+2026-10-18,dailytrust.com,https://dailytrust.com/wp-json/wp/v2/posts?per_page=1,"HTTP 200, API answers",Source access check; REST API probe
+2026-10-18,dailytrust.com,https://dailytrust.com/wp-json/wp/v2/posts?search=Defence+Headquarters&after=2024-03-01&before=2024-03-31,"HTTP 200, X-WP-Total 39",Source access check; test search 2024-03-01 to 2024-03-31; 3 pass the candidate filter
+2026-10-18,vanguardngr.com,https://vanguardngr.com/robots.txt,robots.txt HTTP 200,Source access check; /wp-json/wp/v2/posts allowed
+2026-10-18,vanguardngr.com,https://vanguardngr.com/wp-json/wp/v2/posts?per_page=1,no API (HTTP 403),Source access check; REST API probe
+2026-10-18,punchng.com,https://punchng.com/robots.txt,robots.txt HTTP 200,Source access check; /wp-json/wp/v2/posts allowed
+2026-10-18,punchng.com,https://punchng.com/wp-json/wp/v2/posts?per_page=1,no API (HTTP 403),Source access check; REST API probe
+2026-10-18,channelstv.com,https://channelstv.com/robots.txt,robots.txt HTTP 200,Source access check; /wp-json/wp/v2/posts allowed
+2026-10-18,channelstv.com,https://channelstv.com/wp-json/wp/v2/posts?per_page=1,"HTTP 200, API answers",Source access check; REST API probe
+2026-10-18,channelstv.com,https://channelstv.com/wp-json/wp/v2/posts?search=Defence+Headquarters&after=2024-03-01&before=2024-03-31,"HTTP 200, X-WP-Total 28",Source access check; test search 2024-03-01 to 2024-03-31; 1 pass the candidate filter
+2026-10-18,thenationonlineng.net,https://thenationonlineng.net/robots.txt,robots.txt HTTP 200,Source access check; /wp-json/wp/v2/posts allowed
+2026-10-18,thenationonlineng.net,https://thenationonlineng.net/wp-json/wp/v2/posts?per_page=1,no API (HTTP 403),Source access check; REST API probe
+2026-10-18,guardian.ng,https://guardian.ng/robots.txt,robots.txt HTTP 200,Source access check; /wp-json/wp/v2/posts allowed
+2026-10-18,guardian.ng,https://guardian.ng/wp-json/wp/v2/posts?per_page=1,"HTTP 200, API answers",Source access check; REST API probe
+2026-10-18,guardian.ng,https://guardian.ng/wp-json/wp/v2/posts?search=Defence Headquarters&after=2024-03-01&before=2024-03-31&page=1,HTTP 403,Source access check; test search
+2026-10-18,dailypost.ng,https://dailypost.ng/robots.txt,robots.txt HTTP 200,Source access check; /wp-json/wp/v2/posts allowed
+2026-10-18,dailypost.ng,https://dailypost.ng/wp-json/wp/v2/posts?per_page=1,"HTTP 200, API answers",Source access check; REST API probe
+2026-10-18,dailypost.ng,https://dailypost.ng/wp-json/wp/v2/posts?search=Defence+Headquarters&after=2024-03-01&before=2024-03-31,"HTTP 200, X-WP-Total 0",Source access check; test search 2024-03-01 to 2024-03-31; 10 pass the candidate filter
+2026-10-18,thisdaylive.com,https://thisdaylive.com/robots.txt,robots.txt HTTP 200,Source access check; /wp-json/wp/v2/posts allowed
+2026-10-18,thisdaylive.com,https://thisdaylive.com/wp-json/wp/v2/posts?per_page=1,"HTTP 200, API answers",Source access check; REST API probe
+2026-10-18,thisdaylive.com,https://thisdaylive.com/wp-json/wp/v2/posts?search=Defence+Headquarters&after=2024-03-01&before=2024-03-31,"HTTP 200, X-WP-Total 0",Source access check; test search 2024-03-01 to 2024-03-31; 0 pass the candidate filter
+2026-10-18,defencehq.mil.ng,https://defencehq.mil.ng/robots.txt,robots.txt unreachable,Retry before full collection; site skipped
+2026-10-18,web.archive.org,https://web.archive.org/robots.txt,robots.txt HTTP 404,Retry before full collection; /web/ allowed
+2026-10-18,archive.org,https://archive.org/wayback/available?url=https://blueprint.ng/how-nigeria-military-neutralised-43-terrorists-arrested-115-official/,"HTTP 200, snapshot found 20240721111223",Retry before full collection; availability API for one pilot URL
+2026-10-18,dailypost.ng,https://dailypost.ng/robots.txt,robots.txt HTTP 200,Source access check; /wp-json/wp/v2/posts allowed; re-read from cache, no new request
+2026-10-18,dailypost.ng,https://dailypost.ng/wp-json/wp/v2/posts?per_page=1,"HTTP 200, API answers",Source access check; REST API probe; re-read from cache, no new request
+2026-10-18,dailypost.ng,https://dailypost.ng/wp-json/wp/v2/posts?search=Defence+Headquarters&after=2024-03-01&before=2024-03-31,"HTTP 200, X-WP-Total 0, 44 posts returned","Source access check; test search 2024-03-01 to 2024-03-31; 10 pass the candidate filter; X-WP-Total header unreliable, hit count is posts returned"

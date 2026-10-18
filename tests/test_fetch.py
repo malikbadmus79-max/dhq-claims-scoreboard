@@ -122,3 +122,16 @@ def test_offline_mode_never_requests(tmp_path):
     assert fetcher.get("https://example.org/a") is None
     assert fetcher.skip_reason == OFFLINE_MISS
     assert session.calls == []
+
+
+def test_check_robots_reports_status_and_permission(tmp_path):
+    fetcher, session, _ = make_fetcher(tmp_path, ROBOTS_OK)
+    assert fetcher.check_robots("https://example.org/wp-json/wp/v2/posts") == (True, "HTTP 200")
+    assert fetcher.check_robots("https://example.org/private/x") == (False, "HTTP 200")
+    assert session.calls == ["https://example.org/robots.txt"]
+
+
+def test_check_robots_unreachable(tmp_path):
+    routes = {"https://down.example/robots.txt": FakeResponse(503)}
+    fetcher, _, _ = make_fetcher(tmp_path, routes)
+    assert fetcher.check_robots("https://down.example/") == (False, "unreachable")
