@@ -13,7 +13,7 @@ import pandas as pd
 
 from scoreboard.access_log import log_access
 from scoreboard.config import PROJECT_ROOT, load_config
-from scoreboard.fetch import OFFLINE_MISS, Fetcher
+from scoreboard.fetch import OFFLINE_MISS, Fetcher, full_url
 
 log = logging.getLogger(__name__)
 
@@ -100,7 +100,7 @@ def headline_figures(title: str) -> set[int]:
     return figures
 
 
-def assign_groups(df: pd.DataFrame) -> pd.Series:
+def assign_groups(df: pd.DataFrame, prefix: str = "P") -> pd.Series:
     """Link rows within GROUP_WINDOW_DAYS that share a headline figure; return group IDs."""
     parent = list(range(len(df)))
 
@@ -123,7 +123,7 @@ def assign_groups(df: pd.DataFrame) -> pd.Series:
         first_date[root] = min(first_date.get(root, d), d)
     order = sorted(first_date, key=lambda r: (first_date[r], r))
     year = dates[0].year if dates else 0
-    ids = {root: f"P{year}-{n:03d}" for n, root in enumerate(order, start=1)}
+    ids = {root: f"{prefix}{year}-{n:03d}" for n, root in enumerate(order, start=1)}
     return pd.Series([ids[r] for r in roots], index=df.index)
 
 
@@ -142,54 +142,122 @@ def probe_api(fetcher: Fetcher, domain: str) -> str:
     return "yes" if isinstance(body, list) else "no API (unexpected JSON)"
 
 
-def search_outlet(fetcher: Fetcher, domain: str, year: int) -> dict[str, dict]:
-    """Return {link: {title, excerpt, date, terms}} for all search hits in the year.
+INVALID_PAGE_CODE = "rest_post_invalid_page_number"
+# Stops that mean every available page was read (or the cap was reached). Any other stop, such
+# as a request that failed after retries, leaves the query incomplete.
+COMPLETE_STOPS = {"empty page", "invalid page number", "page cap"}
+# "invalid response" (not JSON, or not a JSON list) and "repeated page" (a page adding no new
+# links) are incomplete: the site may hold posts it did not serve.
 
-    Excerpts are held in memory for filtering only and are never written out.
-    """
+
+def _error_code(resp) -> str:
+    try:
+        body = resp.json()
+    except ValueError:
+        return ""
+    return body.get("code", "") if isinstance(body, dict) else ""
+
+
+def paginate(fetcher: Fetcher, domain: str, params: dict, label: str = "") -> dict:
+    """All posts for one REST API query. X-WP-Total and X-WP-TotalPages are not used, since some
+    sites send them as 0 or too low: pages are requested until one returns zero posts or the API
+    answers HTTP 400 with rest_post_invalid_page_number, up to MAX_PAGES. Posts are de-duplicated
+    by link; a page adding no new link stops paging ("repeated page"). A body that is not a JSON
+    list stops paging ("invalid response"). Posts dated outside the after/before window are
+    dropped and counted, and a log row records that the site ignores the date filter. A query
+    that reaches the cap is logged with pages requested and unique posts.
+
+    Returns {"posts", "pages", "stop", "capped", "cached_pages", "dropped_outside_window",
+    "complete"}; "pages" counts pages requested, "stop" is why paging ended."""
+    url = f"https://{domain}/wp-json/wp/v2/posts"
+    posts: list[dict] = []
+    seen: set[str] = set()
+    cached = dropped = requested = 0
+    after, before = params.get("after"), params.get("before")
+
+    def done(stop, capped=False):
+        if dropped:
+            log_access(domain, full_url(url, params), f"{dropped} posts outside the date window dropped",
+                       f"{label}; the site ignores the after/before date filter")
+        return {"posts": posts, "pages": requested, "stop": stop, "capped": capped, "cached_pages": cached,
+                "dropped_outside_window": dropped, "complete": stop in COMPLETE_STOPS}
+
+    for page in range(1, MAX_PAGES + 1):
+        resp = fetcher.get(url, params={**params, "per_page": PER_PAGE, "page": page})
+        if resp is None:
+            return done(fetcher.skip_reason or "request failed")
+        requested += 1
+        cached += int(getattr(resp, "from_cache", False))
+        if resp.status_code == 400 and _error_code(resp) == INVALID_PAGE_CODE:
+            return done("invalid page number")
+        if resp.status_code != 200:
+            return done(f"HTTP {resp.status_code}")
+        try:
+            batch = resp.json()
+        except ValueError:
+            return done("invalid response")
+        if not isinstance(batch, list):
+            return done("invalid response")
+        if not batch:
+            return done("empty page")
+        new = [p for p in batch if isinstance(p, dict) and p.get("link") and p["link"] not in seen]
+        if not new:
+            # The site serves the same posts again, e.g. it ignores the page parameter.
+            return done("repeated page")
+        for post in new:
+            seen.add(post["link"])
+            stamp = post.get("date", "")
+            if stamp and ((after and stamp <= after) or (before and stamp >= before)):
+                dropped += 1
+                continue
+            posts.append(post)
+    log_access(
+        domain,
+        full_url(url, params),
+        f"page cap reached ({requested} pages requested)",
+        f"{label}; {len(seen)} unique posts returned, {len(posts)} inside the date window; later pages not requested",
+    )
+    return done("page cap", capped=True)
+
+
+def search_window(fetcher: Fetcher, domain: str, after: str, before: str, label: str = "") -> tuple[dict, dict]:
+    """Search hits for every term between `after` and `before` (REST API date strings).
+
+    Returns ({link: {title, excerpt, date, terms}}, {"queries", "capped", "stops"}). Excerpts are
+    held in memory for filtering only and are never written out."""
     hits: dict[str, dict] = {}
+    stats = {"queries": 0, "capped": 0, "incomplete": 0, "pages": 0, "cached_pages": 0, "stops": []}
     for term in SEARCH_TERMS:
-        page, total_pages = 1, 1
-        while page <= min(total_pages, MAX_PAGES):
-            resp = fetcher.get(
-                f"https://{domain}/wp-json/wp/v2/posts",
-                params={
-                    "search": term,
-                    "after": f"{year - 1}-12-31T23:59:59",
-                    "before": f"{year + 1}-01-01T00:00:00",
-                    "per_page": PER_PAGE,
-                    "page": page,
-                    "_fields": FIELDS,
+        result = paginate(fetcher, domain, {"search": term, "after": after, "before": before, "_fields": FIELDS},
+                          label=f"{label} search '{term}'")
+        stats["queries"] += 1
+        stats["capped"] += int(result["capped"])
+        stats["incomplete"] += int(not result["complete"])
+        stats["pages"] += result["pages"]
+        stats["cached_pages"] += result["cached_pages"]
+        stats["stops"].append(result["stop"])
+        for post in result["posts"]:
+            link = post.get("link")
+            if not link:
+                continue
+            entry = hits.setdefault(
+                link,
+                {
+                    "title": clean_html(post.get("title", {}).get("rendered", "")),
+                    "excerpt": clean_html(post.get("excerpt", {}).get("rendered", "")),
+                    "date": post.get("date", "")[:10],
+                    "terms": [],
                 },
             )
-            if resp is None or resp.status_code != 200:
-                break
-            try:
-                posts = resp.json()
-            except ValueError:
-                break
-            if not isinstance(posts, list) or not posts:
-                break
-            headers = {k.lower(): v for k, v in resp.headers.items()}
-            total_pages = int(headers.get("x-wp-totalpages", page))
-            for post in posts:
-                link = post.get("link")
-                if not link:
-                    continue
-                entry = hits.setdefault(
-                    link,
-                    {
-                        "title": clean_html(post.get("title", {}).get("rendered", "")),
-                        "excerpt": clean_html(post.get("excerpt", {}).get("rendered", "")),
-                        "date": post.get("date", "")[:10],
-                        "terms": [],
-                    },
-                )
-                if term not in entry["terms"]:
-                    entry["terms"].append(term)
-            page += 1
-        if total_pages > MAX_PAGES:
-            log.warning("%s: '%s' has %d pages; capped at %d", domain, term, total_pages, MAX_PAGES)
+            if term not in entry["terms"]:
+                entry["terms"].append(term)
+    return hits, stats
+
+
+def search_outlet(fetcher: Fetcher, domain: str, year: int) -> dict[str, dict]:
+    """Return {link: {title, excerpt, date, terms}} for all search hits in the year."""
+    hits, _ = search_window(fetcher, domain, f"{year - 1}-12-31T23:59:59", f"{year + 1}-01-01T00:00:00",
+                            label=f"Discovery {year}")
     return hits
 
 

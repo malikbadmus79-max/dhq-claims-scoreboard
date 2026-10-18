@@ -1,3 +1,4 @@
+import json
 import pytest
 
 from scoreboard.config import load_config
@@ -135,3 +136,149 @@ def test_check_robots_unreachable(tmp_path):
     routes = {"https://down.example/robots.txt": FakeResponse(503)}
     fetcher, _, _ = make_fetcher(tmp_path, routes)
     assert fetcher.check_robots("https://down.example/") == (False, "unreachable")
+
+
+# Per-domain delays and HTTP 429
+
+
+class SequenceSession(FakeSession):
+    """Serves a list of responses per URL, one per request, repeating the last."""
+
+    def get(self, url, timeout=None):
+        self.calls.append(url)
+        seq = self.routes.get(url)
+        if seq is None:
+            return FakeResponse(404)
+        return seq.pop(0) if len(seq) > 1 else seq[0]
+
+
+def make_seq_fetcher(tmp_path, routes, config=None):
+    clock = FakeClock()
+    session = SequenceSession(routes)
+    fetcher = Fetcher(config or load_config(), cache_dir=tmp_path, session=session, clock=clock, sleep=clock.sleep)
+    return fetcher, session, clock
+
+
+def test_domain_delay_for_wayback_and_default_elsewhere(tmp_path):
+    fetcher, _, _ = make_fetcher(tmp_path, ROBOTS_OK)
+    assert fetcher.delay_for("archive.org") == 15
+    assert fetcher.delay_for("web.archive.org") == 15
+    assert fetcher.delay_for("www.archive.org") == 15
+    assert fetcher.delay_for("blueprint.ng") == 5
+
+
+def test_domain_delay_applied_between_requests(tmp_path):
+    routes = {
+        "https://archive.org/robots.txt": FakeResponse(200, ""),
+        "https://archive.org/a": FakeResponse(200, "a"),
+        "https://archive.org/b": FakeResponse(200, "b"),
+    }
+    fetcher, _, clock = make_fetcher(tmp_path, routes)
+    fetcher.get("https://archive.org/a")
+    fetcher.get("https://archive.org/b")
+    assert clock.sleeps == [15, 15]
+
+
+def test_429_obeys_retry_after_and_retries_once(tmp_path, isolated_access_log):
+    url = "https://example.org/a"
+    routes = {"https://example.org/robots.txt": [FakeResponse(200, "")],
+              url: [FakeResponse(429, "", {"Retry-After": "7"}), FakeResponse(200, "body")]}
+    fetcher, session, clock = make_seq_fetcher(tmp_path, routes)
+    resp = fetcher.get(url)
+    assert resp.status_code == 200 and resp.text == "body"
+    assert session.calls.count(url) == 2
+    assert 7 in clock.sleeps
+    log = isolated_access_log.read_text(encoding="utf-8")
+    assert "HTTP 429" in log and "Retry-After: 7" in log
+
+
+def test_429_without_header_waits_60(tmp_path):
+    url = "https://example.org/a"
+    routes = {"https://example.org/robots.txt": [FakeResponse(200, "")],
+              url: [FakeResponse(429), FakeResponse(200, "ok")]}
+    fetcher, _, clock = make_seq_fetcher(tmp_path, routes)
+    assert fetcher.get(url).status_code == 200
+    assert 60 in clock.sleeps
+
+
+def test_429_retry_after_capped_at_300(tmp_path):
+    url = "https://example.org/a"
+    routes = {"https://example.org/robots.txt": [FakeResponse(200, "")],
+              url: [FakeResponse(429, "", {"Retry-After": "3600"}), FakeResponse(200, "ok")]}
+    fetcher, _, clock = make_seq_fetcher(tmp_path, routes)
+    fetcher.get(url)
+    assert 300 in clock.sleeps and 3600 not in clock.sleeps
+
+
+def test_429_twice_returns_429_uncached_and_logs_both(tmp_path, isolated_access_log):
+    url = "https://example.org/a"
+    routes = {"https://example.org/robots.txt": [FakeResponse(200, "")], url: [FakeResponse(429)]}
+    fetcher, session, _ = make_seq_fetcher(tmp_path, routes)
+    resp = fetcher.get(url)
+    assert resp.status_code == 429
+    assert session.calls.count(url) == 2
+    rows = [r for r in isolated_access_log.read_text(encoding="utf-8").splitlines() if "HTTP 429" in r]
+    assert len(rows) == 2 and "giving up" in rows[1]
+    # Not cached: a second fetcher on the same cache must request again.
+    again, again_session, _ = make_seq_fetcher(tmp_path, {url: [FakeResponse(200, "later")]})
+    assert again.get(url).text == "later"
+
+
+def test_retry_after_http_date():
+    from datetime import datetime, timezone
+
+    from scoreboard.fetch import retry_after_seconds
+    now = datetime(2026, 10, 18, 12, 0, 0, tzinfo=timezone.utc)
+    assert retry_after_seconds({"Retry-After": "Sun, 18 Oct 2026 12:00:45 GMT"}, now=now) == 45
+    assert retry_after_seconds({"retry-after": "soon"}) == 60
+    assert retry_after_seconds({}) == 60
+
+
+# Only 2xx responses are cached
+
+
+def test_500_not_cached_and_requested_again(tmp_path):
+    url = "https://example.org/a"
+    routes = {**ROBOTS_OK, url: FakeResponse(500, "server error")}
+    fetcher, session, _ = make_fetcher(tmp_path, routes)
+    first = fetcher.get(url)
+    assert first.status_code == 500 and not first.from_cache  # final reply after the retries
+    calls_after_first = session.calls.count(url)
+    assert calls_after_first == 3
+    second = fetcher.get(url)
+    assert second.status_code == 500 and not second.from_cache
+    assert session.calls.count(url) == 2 * calls_after_first  # requested again, not read from cache
+    assert not list(tmp_path.glob("*.json")) or all(
+        json.loads(p.read_text(encoding="utf-8"))["status_code"] == 200 for p in tmp_path.glob("*.json"))
+
+
+def test_4xx_not_cached(tmp_path):
+    url = "https://example.org/missing"
+    routes = {**ROBOTS_OK, url: FakeResponse(404, "not found")}
+    fetcher, session, _ = make_fetcher(tmp_path, routes)
+    assert fetcher.get(url).status_code == 404
+    again, again_session, _ = make_fetcher(tmp_path, {url: FakeResponse(200, "now here")})
+    assert again.get(url).text == "now here"
+    assert again_session.calls.count(url) == 1
+
+
+def test_400_invalid_page_not_cached(tmp_path):
+    url = "https://example.org/wp-json/wp/v2/posts?page=9"
+    routes = {**ROBOTS_OK, url: FakeResponse(400, '{"code": "rest_post_invalid_page_number"}')}
+    fetcher, session, _ = make_fetcher(tmp_path, routes)
+    fetcher.get(url)
+    fetcher.get(url)
+    assert session.calls.count(url) == 2
+
+
+def test_check_robots_status_without_cached_robots(tmp_path):
+    routes = {"https://web.archive.org/robots.txt": FakeResponse(404)}
+    fetcher, session, _ = make_fetcher(tmp_path, routes)
+    assert fetcher.check_robots("https://web.archive.org/web/") == (True, "HTTP 404")
+    assert not list(tmp_path.glob("*.json"))
+
+
+def test_robots_429_counts_as_unreachable(tmp_path):
+    routes = {"https://rl.example/robots.txt": FakeResponse(429)}
+    fetcher, _, _ = make_fetcher(tmp_path, routes)
+    assert fetcher.check_robots("https://rl.example/") == (False, "unreachable")

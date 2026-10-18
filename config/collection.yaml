@@ -5,6 +5,11 @@ date_range:
 user_agent: "dhq-claims-scoreboard/0.1 (research project; +https://github.com/malikbadmus79-max/dhq-claims-scoreboard)"
 
 min_delay_seconds: 5
+# Longer delays for named domains; every other domain uses min_delay_seconds. The Wayback
+# Machine answered HTTP 429 at 5 seconds on 2026-10-18 (docs/source_access_log.csv).
+domain_delay_seconds:
+  web.archive.org: 15
+  archive.org: 15
 obey_robots_txt: true
 
 outlets:
@@ -30,6 +35,12 @@ outlets:
     domain: 21stcenturychronicle.com
   - name: AllAfrica
     domain: allafrica.com
+  - name: Daily Trust
+    domain: dailytrust.com
+  - name: Daily Post
+    domain: dailypost.ng
+  - name: Channels TV
+    domain: channelstv.com
 
 wire_copy:
   # Primary same_wire threshold (word 5-gram Jaccard, digits removed). 0.3 is the

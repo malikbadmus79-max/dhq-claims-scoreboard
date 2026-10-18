@@ -8,7 +8,7 @@ def test_config_loads():
     assert config["date_range"]["start"] == datetime.date(2021, 1, 1)
     assert config["date_range"]["end"] == datetime.date(2026, 10, 31)
     assert "github.com/malikbadmus79-max/dhq-claims-scoreboard" in config["user_agent"]
-    assert len(config["outlets"]) == 11
+    assert len(config["outlets"]) == 14
 
 
 def test_delay_at_least_five_seconds():
