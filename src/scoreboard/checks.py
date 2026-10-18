@@ -1,23 +1,32 @@
-"""Three arithmetic checks on the pilot briefing and operation tables.
+"""Arithmetic and plausibility checks on the pilot briefing and operation tables.
 
 Usage: python -m scoreboard.checks --year 2024
 
 Reads outputs/tables/pilot_briefings_<year>.csv and pilot_operations_<year>.csv and writes
-outputs/tables/pilot_checks_<year>.csv.
+outputs/tables/pilot_checks_<year>.csv and pilot_week_coverage_<year>.csv. The rules are set
+out in docs/audit_rules.md.
 
   a. within_briefing: sum of operation figures against the stated national total.
   b. quarter_months, month_weeks, annual: a period total against the sum of the totals of
-     the shorter periods inside it.
+     the shorter periods inside it (period rule).
+  b. implied_residual: with weeks missing, the total minus the known weeklies, per missing
+     week, against the largest weekly figure of the same calendar year.
+  b. coverage_variant: a monthly or quarterly total against the sum of the weekly briefings
+     dated within its period.
   c. period_end: a total announced before the end of the period it names.
 
 Status:
-  consistent   both sides complete and equal (a and b), or the period had ended (c).
-  gap          both sides complete and different; or, with parts missing, the parts present
-               already exceed the total; or the total was announced before the period ended (c).
-  not testable a side has no value, or parts are missing and the parts present do not exceed
-               the total.
-A gap on a side resting on one independent copy is a media-relay difference until a second
-independent copy or DHQ's own text confirms the figure (both_sides_2plus_copies).
+  consistent           both sides complete and equal (a and b), the period had ended (c), or
+                       the implied residual is within the largest weekly figure.
+  gap                  both sides complete and different; or, with parts missing, the parts
+                       present already exceed the total; or the total was announced before the
+                       period ended (c).
+  implausible residual the implied value per missing week exceeds the largest weekly figure.
+  not testable         a side has no value, or parts are missing and the parts present do not
+                       exceed the total.
+
+Evidence grade (worst over every figure in the row): 1 = DHQ's own text; 2 = two or more
+independent copies; 3 = one independent copy. Grade 3 rows are media-relay level.
 """
 
 import argparse
@@ -27,7 +36,7 @@ from datetime import date, timedelta
 import pandas as pd
 
 from scoreboard.discover import TABLES_DIR
-from scoreboard.extract import OPERATION_BRIEFINGS, OPERATION_OUTCOMES, OUTCOMES
+from scoreboard.extract import MINOR_SHARE, OPERATION_BRIEFINGS, OPERATION_OUTCOMES, OUTCOMES
 
 MIN_COPIES = 2
 DATE_COLUMNS = ["briefing_date", "period_start", "period_end", "stated_period_end"]
@@ -46,9 +55,20 @@ CHECK_COLUMNS = [
     "both_sides_2plus_copies",
     "missing_parts",
     "incomplete_parts",
+    "implied_per_missing_week",
+    "largest_weekly_figure",
+    "residual_ratio",
+    "complete_set_stated",
     "status",
+    "evidence_grade",
+    "label",
     "note",
 ]
+# MINOR_SHARE (imported from scoreboard.extract) sets the minor-difference threshold.
+# Years whose data set the extraction rules and the same_wire threshold.
+DEVELOPMENT_YEARS = {2024}
+DEVELOPMENT_LABEL = "development year"
+WEEK_COLUMNS = ["iso_week", "week_start", "week_end", "weekly_found", "weekly_briefings", "other_briefings"]
 
 
 def load_briefings(path) -> pd.DataFrame:
@@ -67,6 +87,26 @@ def load_operations(path) -> pd.DataFrame:
     return df
 
 
+def effective_end(row) -> date:
+    """The earlier of the stated (else inferred) period end and the briefing date."""
+    end = row.get("stated_period_end") or row["period_end"]
+    return min(end, row["briefing_date"])
+
+
+def with_effective_end(briefings: pd.DataFrame) -> pd.DataFrame:
+    """Briefings with period_end replaced by the effective end, for the arithmetic checks. The
+    original end is kept as period_end_given."""
+    df = briefings.copy()
+    df["period_end_given"] = df["period_end"]
+    df["period_end"] = [effective_end(r) for r in df.to_dict("records")]
+    return df
+
+
+def gap_or_minor(a: int, b: int) -> str:
+    """"minor difference" when |a - b| is at most MINOR_SHARE of the larger side, else "gap"."""
+    return "minor difference" if abs(a - b) <= MINOR_SHARE * max(abs(a), abs(b)) else "gap"
+
+
 def _records(df: pd.DataFrame) -> list[dict]:
     """Rows as dicts with outcome values as int, or None when missing (NaN in a frame built in memory)."""
     rows = df.to_dict("records")
@@ -79,6 +119,18 @@ def _records(df: pd.DataFrame) -> list[dict]:
 
 def _copies(row, outcome) -> int:
     return int(row[f"{outcome}_independent_copies_agreeing"] or 0)
+
+
+def part_grade(row, outcome) -> int:
+    """Evidence grade of one figure: 1 DHQ's own text, 2 two or more independent copies, 3 otherwise."""
+    if row.get(f"{outcome}_dhq_text") is True:
+        return 1
+    return 2 if _copies(row, outcome) >= MIN_COPIES else 3
+
+
+def grade(rows, outcome) -> int:
+    """A row's grade is its weakest figure's grade. A row with no figures is grade 3."""
+    return max((part_grade(r, outcome) for r in rows), default=3)
 
 
 def _qualifiers(rows, outcome) -> list[str]:
@@ -100,8 +152,8 @@ def compare(total: int | None, parts: list[int | None], complete: bool) -> tuple
         return None, side_b, "not testable"
     diff = total - side_b
     if complete and len(present) == len(parts):
-        return diff, side_b, "consistent" if diff == 0 else "gap"
-    return diff, side_b, "gap" if side_b > total else "not testable"
+        return diff, side_b, "consistent" if diff == 0 else gap_or_minor(total, side_b)
+    return diff, side_b, gap_or_minor(total, side_b) if side_b > total else "not testable"
 
 
 def coverage(windows: list[tuple[date, date]], start: date, end: date) -> dict:
@@ -138,7 +190,7 @@ def coverage(windows: list[tuple[date, date]], start: date, end: date) -> dict:
 
 
 def _row(check_id, check, subject, outcome, side_a, a, side_b, b, diff, a_ok, b_ok, status, note="",
-         missing="", incomplete=""):
+         missing="", incomplete="", evidence_grade=3, per_week="", largest="", ratio="", complete_set=""):
     return {
         "check_id": check_id,
         "check": check,
@@ -154,7 +206,13 @@ def _row(check_id, check, subject, outcome, side_a, a, side_b, b, diff, a_ok, b_
         "both_sides_2plus_copies": bool(a_ok and b_ok),
         "missing_parts": missing,
         "incomplete_parts": incomplete,
+        "implied_per_missing_week": per_week,
+        "largest_weekly_figure": largest,
+        "residual_ratio": ratio,
+        "complete_set_stated": complete_set,
         "status": status,
+        "evidence_grade": evidence_grade,
+        "label": "",
         "note": note,
     }
 
@@ -173,9 +231,13 @@ def within_briefing_checks(briefings: pd.DataFrame, operations: pd.DataFrame, gr
             diff, side_b, status = compare(b[outcome], [o[outcome] for o in with_value], complete=True)
             if not with_value:
                 status = "not testable"
+            status = direction_status(status, b[outcome], side_b)
+            complete_set = b.get("operations_complete_set_stated") or ""
             names = ", ".join(f"{o['operation']} {o[outcome]}" for o in with_value)
             without = [o["operation"] for o in ops if o[outcome] is None]
             notes = [f"Operations: {names}." if names else "No operation figures."]
+            if complete_set:
+                notes.append(f"Text states the listed operations are the complete set: {complete_set}.")
             if without:
                 notes.append(f"No {outcome} figure for {', '.join(without)}.")
             quals = _qualifiers(with_value, outcome)
@@ -188,8 +250,22 @@ def within_briefing_checks(briefings: pd.DataFrame, operations: pd.DataFrame, gr
                 _copies(b, outcome) >= MIN_COPIES,
                 bool(with_value) and all(_copies(o, outcome) >= MIN_COPIES for o in with_value),
                 status, " ".join(notes),
+                evidence_grade=max(grade([b], outcome), grade(with_value, outcome)),
+                complete_set=complete_set,
             ))
     return rows
+
+
+PARTS_EXCEED = "gap (parts exceed total)"
+SHORTFALL = "shortfall (listed operations may be incomplete)"
+
+
+def direction_status(status: str, total: int | None, parts_sum: int | None) -> str:
+    """Within-briefing direction: a gap becomes "gap (parts exceed total)" when the operation
+    sum is larger, and a shortfall when the national total is larger."""
+    if status != "gap":
+        return status
+    return PARTS_EXCEED if parts_sum > total else SHORTFALL
 
 
 # b. Across briefings
@@ -204,8 +280,12 @@ def quarter_checks(briefings: pd.DataFrame) -> list[dict]:
     monthly = {_month_key(r["period_start"]): r for r in _records(briefings[briefings["period_type"] == "monthly"])}
     for q in _records(briefings[briefings["period_type"] == "quarterly"]):
         months = [(q["period_start"].year, m) for m in range(q["period_start"].month, q["period_end"].month + 1)]
-        parts = [monthly.get(m) for m in months]
-        missing = [calendar.month_name[m] for (_, m), p in zip(months, parts) if p is None]
+        # A month counts only when it lies wholly inside the quarter's effective period.
+        inside = [calendar.monthrange(y, m)[1] <= q["period_end"].day or m < q["period_end"].month
+                  for y, m in months]
+        parts = [monthly.get(m) if ok else None for m, ok in zip(months, inside)]
+        missing = [calendar.month_name[m] + ("" if ok else f" (effective period ends {q['period_end']})")
+                   for (_, m), p, ok in zip(months, parts, inside) if p is None]
         present = [p for p in parts if p is not None]
         for outcome in OUTCOMES:
             values = [p[outcome] if p else None for p in parts]
@@ -225,6 +305,7 @@ def quarter_checks(briefings: pd.DataFrame) -> list[dict]:
                 _copies(q, outcome) >= MIN_COPIES,
                 bool(present) and all(_copies(p, outcome) >= MIN_COPIES for p in present),
                 status, " ".join(notes), missing=len(missing), incomplete="",
+                evidence_grade=max(grade([q], outcome), grade(present, outcome)),
             ))
     return rows
 
@@ -256,7 +337,7 @@ def _sum_against_weeklies(check, subject, total_row, total_label, base_rows, wee
         # can show a gap: together with the base they cannot exceed the total.
         inner = [w for w in weeklies if w["period_start"] >= start and w["period_end"] <= end]
         inner_sum = sum(v for v in [*(p[outcome] for p in base_rows), *(w[outcome] for w in inner)] if v is not None)
-        status = "gap" if inner_sum > total_row[outcome] else "not testable"
+        status = gap_or_minor(total_row[outcome], inner_sum) if inner_sum > total_row[outcome] else "not testable"
         notes.append(f"Base plus weeklies wholly inside the window: {inner_sum}." if base_rows
                      else f"Weeklies wholly inside the month: {inner_sum}.")
     if any(v is None for v in values):
@@ -272,7 +353,168 @@ def _sum_against_weeklies(check, subject, total_row, total_label, base_rows, wee
         _copies(total_row, outcome) >= MIN_COPIES,
         bool(parts) and all(_copies(p, outcome) >= MIN_COPIES for p in parts),
         status, " ".join(notes), missing=cov["missing_weeks"], incomplete=cov["incomplete"],
+        evidence_grade=max(grade([total_row], outcome), grade(parts, outcome)),
     )
+
+
+# b. Implied residual (period rule, weeks missing)
+
+
+def largest_weekly(briefings: pd.DataFrame, year: int, outcome: str) -> dict | None:
+    """The weekly briefing with the largest figure for `outcome` dated in `year`."""
+    weekly = [w for w in _records(briefings[briefings["period_type"] == "weekly"])
+              if w["briefing_date"].year == year and w[outcome] is not None]
+    return max(weekly, key=lambda w: w[outcome], default=None)
+
+
+def implied_residual(check_subject, total_row, total_label, base_rows, weeklies, start, end, outcome, largest):
+    """Total minus the known parts (base plus weeklies wholly inside [start, end]), divided by the
+    missing weeks (days of the window not covered by those weeklies, over 7). None when no day
+    is missing."""
+    inner = [w for w in weeklies if w["period_start"] >= start and w["period_end"] <= end]
+    cov = coverage([(w["period_start"], w["period_end"]) for w in inner], start, end)
+    uncovered = cov["days"] - cov["days_covered"]
+    if uncovered == 0:
+        return None
+    missing_weeks = uncovered / 7
+    known = [*base_rows, *inner]
+    total = total_row[outcome]
+    values = [k[outcome] for k in known]
+    notes = [
+        f"Known parts: {_listing(known, outcome)}.",
+        f"{uncovered} of {cov['days']} days from {start} to {end} are not covered by the inferred periods "
+        f"of weeklies wholly inside the window ({missing_weeks:.2f} weeks).",
+    ]
+    per_week, ratio, side_b, diff = "", "", None, None
+    largest_value = largest[outcome] if largest else ""
+    if largest:
+        notes.append(f"Largest weekly {outcome} figure in {largest['briefing_date'].year}: "
+                     f"{largest['confirmed_group_id']} {largest[outcome]}.")
+    if total is None or any(v is None for v in values) or not largest:
+        status = "not testable"
+        if any(v is None for v in values):
+            notes.append("A known part has no value for this outcome.")
+    else:
+        side_b = sum(values)
+        diff = total - side_b
+        if diff < 0:
+            status = gap_or_minor(total, side_b)
+        else:
+            per_week = round(diff / missing_weeks, 1)
+            ratio = round(per_week / largest[outcome], 2)
+            status = "implausible residual" if per_week > largest[outcome] else "consistent"
+    return _row(
+        "", "b. implied_residual", check_subject, outcome,
+        total_label, total, f"sum of {len(known)} known parts", side_b, diff,
+        _copies(total_row, outcome) >= MIN_COPIES,
+        bool(known) and all(_copies(k, outcome) >= MIN_COPIES for k in known),
+        status, " ".join(notes), missing=round(missing_weeks, 2), incomplete="",
+        evidence_grade=max(grade([total_row], outcome), grade(known, outcome)),
+        per_week=per_week, largest=largest_value, ratio=ratio,
+    )
+
+
+def residual_checks(briefings: pd.DataFrame) -> list[dict]:
+    rows = []
+    windows = [(m, [], m["period_start"], m["period_end"], f"{m['confirmed_group_id']} monthly total")
+               for m in _records(briefings[briefings["period_type"] == "monthly"])]
+    ytd = _records(briefings[briefings["period_type"] == "year to date"])
+    for a in _records(briefings[briefings["period_type"] == "annual"]):
+        base = [y for y in ytd if y["period_start"].year == a["period_start"].year]
+        if base:
+            windows.append((a, [base[-1]], base[-1]["period_end"] + timedelta(days=1), a["period_end"],
+                            f"{a['confirmed_group_id']} annual total"))
+    for total_row, base, start, end, label in windows:
+        weeklies = _weekly_parts(briefings, start, end)
+        for outcome in OUTCOMES:
+            row = implied_residual(
+                f"{total_row['confirmed_group_id']} ({total_row['period_label']})", total_row, label,
+                base, weeklies, start, end, outcome, largest_weekly(briefings, end.year, outcome),
+            )
+            if row:
+                rows.append(row)
+    return rows
+
+
+# b. Coverage-based variant
+
+
+def iso_weeks(start: date, end: date) -> list[tuple[date, date]]:
+    """Monday-to-Sunday weeks whose Thursday falls in [start, end]."""
+    monday = start - timedelta(days=start.weekday())
+    weeks = []
+    while monday <= end:
+        if start <= monday + timedelta(days=3) <= end:
+            weeks.append((monday, monday + timedelta(days=6)))
+        monday += timedelta(days=7)
+    return weeks
+
+
+def coverage_variant_checks(briefings: pd.DataFrame) -> list[dict]:
+    """A monthly or quarterly total taken as the sum of the weekly briefings dated within its
+    period. Missing weeks are weeks (Thursday inside the period) with no such briefing; with
+    weeks missing and the sum below the total, the row is not testable."""
+    rows = []
+    totals = _records(briefings[briefings["period_type"].isin(["monthly", "quarterly"])])
+    for t in totals:
+        start, end = t["period_start"], t["period_end"]
+        weeklies = _weekly_parts(briefings, start, end)
+        missing = [w for w in iso_weeks(start, end)
+                   if not any(w[0] <= x["briefing_date"] <= w[1] for x in weeklies)]
+        for outcome in OUTCOMES:
+            values = [w[outcome] for w in weeklies]
+            total = t[outcome]
+            side_b = sum(v for v in values if v is not None) if weeklies else None
+            diff = None
+            if total is None or not weeklies or any(v is None for v in values):
+                status = "not testable"
+            else:
+                diff = total - side_b
+                if diff == 0:
+                    status = "consistent"
+                elif side_b > total or not missing:
+                    status = gap_or_minor(total, side_b)
+                else:
+                    status = "not testable"
+            notes = [f"Weekly briefings dated within the period: {_listing(weeklies, outcome)}."]
+            if missing:
+                notes.append("Weeks with no weekly briefing found: "
+                             f"{', '.join(f'{m[0].isocalendar()[0]}-W{m[0].isocalendar()[1]:02d}' for m in missing)}.")
+            if any(v is None for v in values):
+                notes.append("A part has no value for this outcome.")
+            rows.append(_row(
+                "", "b. coverage_variant", f"{t['confirmed_group_id']} ({t['period_label']})", outcome,
+                f"{t['confirmed_group_id']} {t['period_type']} total", total,
+                f"sum of {len(weeklies)} weekly totals dated within the period", side_b, diff,
+                _copies(t, outcome) >= MIN_COPIES,
+                bool(weeklies) and all(_copies(w, outcome) >= MIN_COPIES for w in weeklies),
+                status, " ".join(notes), missing=len(missing), incomplete="",
+                evidence_grade=max(grade([t], outcome), grade(weeklies, outcome)),
+            ))
+    return rows
+
+
+def week_coverage(briefings: pd.DataFrame, year: int) -> pd.DataFrame:
+    """One row per Monday-to-Sunday week overlapping `year`, with the briefings dated in it."""
+    records = _records(briefings)
+    monday = date(year, 1, 1) - timedelta(days=date(year, 1, 1).weekday())
+    rows = []
+    while monday <= date(year, 12, 31):
+        sunday = monday + timedelta(days=6)
+        inside = [r for r in records if monday <= r["briefing_date"] <= sunday]
+        weekly = [r["confirmed_group_id"] for r in inside if r["period_type"] == "weekly"]
+        other = [f"{r['confirmed_group_id']} ({r['period_type']})" for r in inside if r["period_type"] != "weekly"]
+        iso = monday.isocalendar()
+        rows.append({
+            "iso_week": f"{iso[0]}-W{iso[1]:02d}",
+            "week_start": monday,
+            "week_end": sunday,
+            "weekly_found": bool(weekly),
+            "weekly_briefings": "; ".join(weekly),
+            "other_briefings": "; ".join(other),
+        })
+        monday += timedelta(days=7)
+    return pd.DataFrame(rows, columns=WEEK_COLUMNS)
 
 
 def month_week_checks(briefings: pd.DataFrame) -> list[dict]:
@@ -305,7 +547,10 @@ def annual_checks(briefings: pd.DataFrame) -> list[dict]:
                 "b. annual", f"{a['confirmed_group_id']} ({a['period_label']})", a,
                 f"{a['confirmed_group_id']} annual total", [base], weeklies, start, end, outcome,
             )
-            row["note"] += f" {base['confirmed_group_id']} period taken as {base['period_start']} to {base['period_end']} ({base['period_flag']})."
+            row["note"] += (
+                f" {base['confirmed_group_id']} period taken as {base['period_start']} to {base['period_end']}"
+                f" (effective end: earlier of the stated or inferred end and the briefing date)."
+            )
             rows.append(row)
     return rows
 
@@ -319,26 +564,35 @@ def period_checks(briefings: pd.DataFrame) -> list[dict]:
         end = b["stated_period_end"]
         days = (end - b["briefing_date"]).days
         ok = int(b["independent_copies"]) >= MIN_COPIES
+        evidence_grade = 1 if int(b.get("dhq_copies") or 0) > 0 else 2 if ok else 3
         rows.append(_row(
             "", "c. period_end", f"{b['confirmed_group_id']} ({b['period_label']})", "",
             "briefing date", str(b["briefing_date"]), "stated period end", str(end), days,
             ok, ok, "gap" if days > 0 else "consistent",
             f"Announced {days} day{'s' if days != 1 else ''} before the stated period ended." if days > 0 else "",
+            evidence_grade=evidence_grade,
         ))
     return rows
 
 
 def run_checks(briefings: pd.DataFrame, operations: pd.DataFrame, op_groups: list[str]) -> pd.DataFrame:
+    # Arithmetic checks use the effective end; the period_end check uses the period as stated.
+    effective = with_effective_end(briefings)
     rows = [
-        *within_briefing_checks(briefings, operations, op_groups),
-        *quarter_checks(briefings),
-        *month_week_checks(briefings),
-        *annual_checks(briefings),
+        *within_briefing_checks(effective, operations, op_groups),
+        *quarter_checks(effective),
+        *month_week_checks(effective),
+        *annual_checks(effective),
         *period_checks(briefings),
+        # Appended after the original checks so their IDs stay stable.
+        *residual_checks(effective),
+        *coverage_variant_checks(effective),
     ]
     # Object dtype keeps whole numbers as int next to blanks and dates.
     df = pd.DataFrame(rows, columns=CHECK_COLUMNS, dtype=object)
     df["check_id"] = [f"C{n:03d}" for n in range(1, len(df) + 1)]
+    years = {r["confirmed_group_id"]: r["briefing_date"].year for r in briefings.to_dict("records")}
+    df["label"] = [DEVELOPMENT_LABEL if years.get(s.split()[0]) in DEVELOPMENT_YEARS else "" for s in df["subject"]]
     for col in ["side_a_value", "side_b_value", "difference"]:
         df[col] = df[col].map(lambda v: "" if v is None else v)
     return df
@@ -352,7 +606,8 @@ def main(argv=None):
     operations = load_operations(TABLES_DIR / f"pilot_operations_{args.year}.csv")
     checks = run_checks(briefings, operations, OPERATION_BRIEFINGS.get(args.year, []))
     checks.to_csv(TABLES_DIR / f"pilot_checks_{args.year}.csv", index=False)
-    print(checks["status"].value_counts().to_string())
+    week_coverage(briefings, args.year).to_csv(TABLES_DIR / f"pilot_week_coverage_{args.year}.csv", index=False)
+    print(pd.crosstab(checks["status"], checks["evidence_grade"]).to_string())
 
 
 if __name__ == "__main__":

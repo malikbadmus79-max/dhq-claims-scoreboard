@@ -32,6 +32,7 @@ from scoreboard.discover import TABLES_DIR
 from scoreboard.wirecheck import (
     REVIEW_DIR,
     SAME_WIRE_THRESHOLD,
+    UnionFind,
     has_nan_credit,
     independent_copies,
     load_bodies,
@@ -45,6 +46,8 @@ EVIDENCE_CHARS = 300
 OUTCOMES = ["neutralised", "arrested", "rescued"]
 OPERATION_OUTCOMES = ["neutralised", "arrested"]
 OPERATION_BRIEFINGS = {2024: ["B2024-035", "B2024-038"]}
+# Copies from these outlets are DHQ's own text (evidence grade 1).
+DHQ_OUTLETS = {"Defence Headquarters"}
 
 # The keyword may run into a number ("apprehended103"), so the right edge is "no letter follows".
 KEYWORDS = {
@@ -69,7 +72,10 @@ QUALIFIERS = [
     "almost",
 ]
 QUAL = "|".join(re.escape(q) for q in QUALIFIERS)
-VAGUE = r"several|scores"
+# Vague terms that can stand in for a count next to an outcome word. The rest of the RQ3
+# dictionary ("a cache of", "assorted" and similar) describes recoveries, not outcomes; see
+# scoreboard.language.
+VAGUE = r"several|scores|dozens|many|a large number"
 FILLER = r"(?:a total of|an additional|another)"
 AFTER_RE = re.compile(
     rf"^\s*(?:{FILLER}\s+)?(?:(?P<q>{QUAL})\s+)?(?:{FILLER}\s+)?(?P<n>{NUM})(?P<rest>(?:\s+\S+){{0,3}})", re.I
@@ -264,6 +270,22 @@ def national_total(text: str, outcome: str) -> dict | None:
     return None
 
 
+# A sentence presenting the operation figures as a full breakdown of the national total.
+COMPLETE_SET_RE = re.compile(
+    r"\b(?:breakdown|broken down|as follows|made up of|comprising|distributed (?:as|across))\b", re.I
+)
+COMPLETE_SET_CONTEXT_RE = re.compile(r"\boperations?\b|\btheatres?\b", re.I)
+RECOVERY_RE = re.compile(r"\brecover|\bweapons?\b|\bammunitions?\b|\brifles?\b|\blitres\b", re.I)
+
+
+def complete_set_sentence(text: str) -> str:
+    """The first sentence stating that the listed operations make up the national figures, or ""."""
+    for s in split_sentences(text):
+        if COMPLETE_SET_RE.search(s) and COMPLETE_SET_CONTEXT_RE.search(s) and not RECOVERY_RE.search(s):
+            return s[:EVIDENCE_CHARS]
+    return ""
+
+
 def operation_name(raw: str) -> str:
     for name in KNOWN_OPERATIONS:
         if raw.lower().startswith(name.lower()):
@@ -312,6 +334,41 @@ def count_independent(urls: list[str], pairs: list[tuple[str, str]], nan_urls: s
     return independent_copies(
         list(urls), [(a, b) for a, b in pairs if a in keep and b in keep], [u for u in urls if u in nan_urls]
     )
+
+
+# |difference| at or below this share of the larger value is a minor difference (checks and
+# copy conflicts alike).
+MINOR_SHARE = 0.01
+
+
+def is_minor(a: int, b: int) -> bool:
+    return abs(a - b) <= MINOR_SHARE * max(abs(a), abs(b))
+
+
+def conflict_material(values: list[int], majority_value: int | None) -> bool:
+    """True when a conflicting value differs from the majority value by more than MINOR_SHARE of
+    the larger of the two. With no majority (a tie), true when any two reported values differ by
+    more than that."""
+    distinct = sorted(set(values))
+    if len(distinct) < 2:
+        return False
+    if majority_value is not None:
+        return any(not is_minor(v, majority_value) for v in distinct if v != majority_value)
+    return any(not is_minor(a, b) for i, a in enumerate(distinct) for b in distinct[i + 1:])
+
+
+def independent_groups(urls: list[str], pairs: list[tuple[str, str]], nan_urls: set[str]) -> dict[str, int]:
+    """Group number per copy: copies joined by same_wire or by the NAN merge share a number.
+    Numbers follow the order of `urls`."""
+    uf = UnionFind(urls)
+    for a, b in pairs:
+        if a in uf.parent and b in uf.parent:
+            uf.union(a, b)
+    credited = [u for u in urls if u in nan_urls]
+    for a, b in zip(credited, credited[1:]):
+        uf.union(a, b)
+    numbers: dict[str, int] = {}
+    return {u: numbers.setdefault(uf.find(u), len(numbers) + 1) for u in urls}
 
 
 def majority(values: dict[str, int | None], pairs, nan_urls: set[str]) -> dict:
@@ -431,6 +488,7 @@ def build_briefings(items: pd.DataFrame, copies: pd.DataFrame, bodies: pd.Series
         wire[gid] = (pairs, nan_urls)
         briefing = min(date.fromisoformat(d) for d in grp["publish_date"])
         notes = list(grp["notes"])
+        dhq_urls = set(grp.loc[grp["outlet"].isin(DHQ_OUTLETS), "url"])
         row = {
             "confirmed_group_id": gid,
             "briefing_date": briefing,
@@ -438,6 +496,7 @@ def build_briefings(items: pd.DataFrame, copies: pd.DataFrame, bodies: pd.Series
             "copies": len(urls),
             "copies_with_text": sum(bool(bodies[u]) for u in urls),
             "independent_copies": count_independent(urls, pairs, nan_urls),
+            "dhq_copies": len(dhq_urls),
         }
         gc = copies[copies["confirmed_group_id"] == gid]
         for outcome in OUTCOMES:
@@ -451,7 +510,10 @@ def build_briefings(items: pd.DataFrame, copies: pd.DataFrame, bodies: pd.Series
                 f"{outcome}_copies_reporting": m["copies_reporting"],
                 f"{outcome}_independent_copies_agreeing": m["independent_copies_agreeing"],
                 f"{outcome}_conflict": m["conflict"],
+                f"{outcome}_conflict_material": conflict_material(
+                    [v for v in vals.values() if v is not None], m["value"]),
                 f"{outcome}_tie": m["tie"],
+                f"{outcome}_dhq_text": bool(dhq_urls & set(m["agreeing_urls"])),
                 f"{outcome}_values": m["values"],
             })
         rows.append(row)
@@ -488,6 +550,7 @@ def build_operations(op_copies: pd.DataFrame, items: pd.DataFrame, wire: dict) -
     for (gid, op), grp in op_copies.groupby(["confirmed_group_id", "operation"], sort=False):
         pairs, nan_urls = wire[gid]
         group_urls = list(items.loc[items["confirmed_group_id"] == gid, "url"])
+        dhq_urls = set(grp.loc[grp["outlet"].isin(DHQ_OUTLETS), "url"])
         row = {
             "confirmed_group_id": gid,
             "operation": op,
@@ -505,6 +568,7 @@ def build_operations(op_copies: pd.DataFrame, items: pd.DataFrame, wire: dict) -
                 f"{outcome}_copies_reporting": m["copies_reporting"],
                 f"{outcome}_independent_copies_agreeing": m["independent_copies_agreeing"],
                 f"{outcome}_conflict": m["conflict"],
+                f"{outcome}_dhq_text": bool(dhq_urls & set(m["agreeing_urls"])),
                 f"{outcome}_values": m["values"],
             })
         rows.append(row)
@@ -520,15 +584,35 @@ def run(year: int, tables_dir=TABLES_DIR, review_dir=REVIEW_DIR, extract_dir=EXT
     bodies = load_bodies(items["url"])
     copies = extract_copies(items, bodies)
     briefings, wire = build_briefings(items, copies, bodies)
-    op_copies = extract_operations(items, bodies, OPERATION_BRIEFINGS.get(year, []))
+    op_groups = OPERATION_BRIEFINGS.get(year, [])
+    op_copies = extract_operations(items, bodies, op_groups)
     operations = build_operations(op_copies, items, wire)
+    complete = {u: complete_set_sentence(bodies[u]) for u in items.loc[items["confirmed_group_id"].isin(op_groups), "url"]}
+    briefings["operations_complete_set_stated"] = briefings["confirmed_group_id"].map(
+        lambda g: "" if g not in op_groups else
+        "yes" if any(complete[u] for u in items.loc[items["confirmed_group_id"] == g, "url"]) else "no"
+    )
+
+    # Imported here: both modules build on this one.
+    from scoreboard.language import build_language, language_measures
+    from scoreboard.relay import build_relay
+
+    language, language_evidence = build_language(items, copies, bodies, wire, briefings)
+    relay = build_relay(review, items, copies, briefings, bodies)
 
     extract_dir.mkdir(parents=True, exist_ok=True)
     copies.to_csv(extract_dir / f"pilot_national_copies_{year}.csv", index=False)
     op_copies.to_csv(extract_dir / f"pilot_operation_copies_{year}.csv", index=False)
+    pd.DataFrame(
+        [{"url": u, "evidence": s} for u, s in complete.items() if s], columns=["url", "evidence"]
+    ).to_csv(extract_dir / f"pilot_complete_set_{year}.csv", index=False)
+    language_evidence.to_csv(extract_dir / f"pilot_language_evidence_{year}.csv", index=False)
     tables_dir.mkdir(parents=True, exist_ok=True)
     briefings.to_csv(tables_dir / f"pilot_briefings_{year}.csv", index=False)
     operations.to_csv(tables_dir / f"pilot_operations_{year}.csv", index=False)
+    language.to_csv(tables_dir / f"pilot_language_{year}.csv", index=False)
+    language_measures(language).to_csv(tables_dir / f"pilot_language_measures_{year}.csv", index=False)
+    relay.to_csv(tables_dir / f"pilot_relay_{year}.csv", index=False)
     return briefings, operations
 
 

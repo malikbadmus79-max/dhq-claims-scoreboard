@@ -1,0 +1,38 @@
+confirmed_group_id,relay_type,outcome,outlet,url,copy_value,copy_qualifier,body_value,majority_value,direction,label,review_coded,detected_by
+B2024-001,headline-body difference,neutralised,TheWill,https://thewillnews.com/over-40-terrorists-killed-as-troops-arrest-115-others/,40,over,43,43,lower,rounded,no,rule
+B2024-002,headline-body difference,arrested,TheWill,https://thewillnews.com/no-gree-for-terrorist-in-2024-military-charges-nigerians-as-troops-neutralise-86-arrest-over-100/,100,over,101,101,lower,rounded,no,rule
+B2024-004,copy conflict,arrested,Blueprint,https://blueprint.ng/insecurity-we-have-deployed-special-forces-to-hotspots-dhq/,171,,171,,no majority,differs,,extraction
+B2024-004,copy conflict,arrested,Gazette,https://gazettengr.com/we-killed-94-terrorists-arrested-214-suspected-kidnappers-others-dhq/,214,,214,,no majority,differs,,extraction
+B2024-005,headline-body difference,neutralised,TheWill,https://thewillnews.com/over-180-terrorists-killed-as-troops-rescue-71-hostages/,180,over,185,185,lower,rounded,no,rule
+B2024-012,headline-body difference,arrested,Blueprint,https://blueprint.ng/military-kills-212-terrorists-apprehends-252-others-official/,252,,253,253,lower,differs,yes,rule and review
+B2024-012,headline-body difference,arrested,Gazette,https://gazettengr.com/dhq-says-troops-killed-212-terrorists-captured-252-in-one-week-in-anambra-ebonyi-others/,252,,253,253,lower,differs,yes,rule and review
+B2024-012,headline-body difference,neutralised,Blueprint,https://blueprint.ng/military-kills-212-terrorists-apprehends-252-others-official/,212,,121,121,higher,differs,yes,rule and review
+B2024-012,headline-body difference,neutralised,Gazette,https://gazettengr.com/dhq-says-troops-killed-212-terrorists-captured-252-in-one-week-in-anambra-ebonyi-others/,212,,121,121,higher,differs,yes,rule and review
+B2024-013,copy conflict,neutralised,21st Century Chronicle,https://21stcenturychronicle.com/military-kills-2351-terrorists-in-three-months-dhq/,2352,no fewer than,2352,2351,higher,minor difference,,extraction
+B2024-013,copy conflict,neutralised,Gazette,https://gazettengr.com/2351-terrorists-eliminated-in-nigeria-from-january-to-march-dhq/,2352,no fewer than,2352,2351,higher,minor difference,,extraction
+B2024-013,copy conflict,neutralised,Premium Times,https://www.premiumtimesng.com/news/top-news/683298-nigerian-military-kills-2351-terrorists-apprehends-2308-others-dhq.html,2352,no fewer than,2352,2351,higher,minor difference,,extraction
+B2024-013,headline-body difference,neutralised,Gazette,https://gazettengr.com/2351-terrorists-eliminated-in-nigeria-from-january-to-march-dhq/,2351,,2352,2351,equal,differs,yes,rule and review
+B2024-013,headline-body difference,neutralised,Premium Times,https://www.premiumtimesng.com/news/top-news/683298-nigerian-military-kills-2351-terrorists-apprehends-2308-others-dhq.html,2351,,2352,2351,equal,differs,yes,rule and review
+B2024-013,headline-body difference,neutralised,TheWill,https://thewillnews.com/over-2300-terrorists-killed-2308-arrested-as-troops-rescue-1241-kidnapped-hostages-dhq/,2300,over,2351,2351,lower,rounded,no,rule
+B2024-019,headline-body difference,neutralised,Blueprint,https://blueprint.ng/troops-neutralise-127-terrorists-gunmen-kidnap-135-kill-3-in-zamfara-nigerien-declared-wanted/,127,,227,227,lower,differs,yes,rule and review
+B2024-021,copy conflict,neutralised,Blueprint,https://blueprint.ng/troops-neutralised-624-terrorists-arrest-1051-in-may/,624,,624,,no majority,differs,,extraction
+B2024-021,copy conflict,neutralised,Gazette,https://gazettengr.com/624-terrorists-killed-in-may-1000-captured-dhq/,640,no fewer than,640,,no majority,differs,,extraction
+B2024-021,copy conflict,neutralised,Premium Times,https://www.premiumtimesng.com/news/top-news/699086-nigerian-troops-kill-640-terrorists-arrest-1051-in-may-official.html,640,no fewer than,640,,no majority,differs,,extraction
+B2024-021,headline-body difference,arrested,Gazette,https://gazettengr.com/624-terrorists-killed-in-may-1000-captured-dhq/,1000,,1051,1051,lower,differs,yes,rule and review
+B2024-021,headline-body difference,neutralised,Gazette,https://gazettengr.com/624-terrorists-killed-in-may-1000-captured-dhq/,624,,640,,no majority,differs,yes,rule and review
+B2024-022,headline-body difference,arrested,Gazette,https://gazettengr.com/9000-boko-haram-iswap-terrorists-killed-nearly-7000-captured-in-one-year-dhq/,7000,nearly,6998,6998,higher,rounded,no,rule
+B2024-030,headline-body difference,neutralised,TheWill,https://thewillnews.com/over-100-terrorists-neutralised-164-arrested-as-troops-rescue-103-hostages/,100,over,106,106,lower,rounded,no,rule
+B2024-031,headline-body difference,neutralised,TheWill,https://thewillnews.com/over-500-neutralised-as-troops-arrest-790-suspected-terrorists-rescue-579-hostages-in-july-dhq/,500,over,572,572,lower,rounded,yes,rule and review
+B2024-031,headline-body difference,rescued,TheWill,https://thewillnews.com/over-500-neutralised-as-troops-arrest-790-suspected-terrorists-rescue-579-hostages-in-july-dhq/,579,,479,479,higher,differs,yes,rule and review
+B2024-032,copy conflict,arrested,Blueprint,https://blueprint.ng/troops-neutralised-108-terrorists-rescued-214-hostages-in-one-week-dhq/,172,,172,204,lower,differs,,extraction
+B2024-034,copy conflict,arrested,Blueprint,https://blueprint.ng/troops-neutralised-171-arrested-302-in-one-week-dhq/,302,,302,,no majority,differs,,extraction
+B2024-034,copy conflict,arrested,TheWill,https://thewillnews.com/over-150-killed-as-troops-arrest-327-terrorists-oil-theft-suspects/,327,,327,,no majority,differs,,extraction
+B2024-034,headline-body difference,neutralised,TheWill,https://thewillnews.com/over-150-killed-as-troops-arrest-327-terrorists-oil-theft-suspects/,150,over,171,171,lower,differs,no,rule
+B2024-036,headline-body difference,neutralised,TheWill,https://thewillnews.com/over-150-killed-as-troops-arrest-109-terrorists-rescue-91-hostages-in-one-week-dhq/,150,over,152,152,lower,rounded,no,rule
+B2024-044,headline-body difference,rescued,Blueprint,https://blueprint.ng/dhq-names-9-wanted-terrorists-leaders-troops-nuetralise-481-rescue-481-hostages/,481,,492,492,lower,differs,yes,review
+B2024-048,copy conflict,arrested,Blueprint,https://blueprint.ng/troops-arrest-high-profile-terrorists-neutralise-212/,272,,272,,no majority,differs,,extraction
+B2024-048,copy conflict,arrested,Gazette,https://gazettengr.com/212-terrorists-killed-152-hostages-freed-in-nationwide-operation-dhq/,317,,317,,no majority,differs,,extraction
+B2024-049,copy conflict,arrested,Blueprint,https://blueprint.ng/troops-arrest-2-terrorists-collaborators-in-bauchi-neutralise-148/,258,,258,,no majority,minor difference,,extraction
+B2024-049,copy conflict,arrested,Gazette,https://gazettengr.com/troops-neutralised-148-terrorists-arrested-suppliers-of-ammunition-in-one-week-dhq/,256,plus 2 named,256,,no majority,minor difference,,extraction
+B2024-049,copy conflict,arrested,Premium Times,https://www.premiumtimesng.com/news/top-news/764026-military-troops-nab-two-terrorists-logistics-suppliers-256-others-dhq.html,256,plus 2 named,256,,no majority,minor difference,,extraction
+B2024-049,copy conflict,arrested,Premium Times,https://www.premiumtimesng.com/news/top-news/764088-nigerian-troops-kill-148-terrorists-rescue-291-hostages-in-one-week-dhq.html,256,plus 2 named,256,,no majority,minor difference,,extraction
