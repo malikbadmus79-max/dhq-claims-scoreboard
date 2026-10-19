@@ -1,0 +1,67 @@
+outlet,year,api_posts_returned,candidates,incomplete_queries,complete
+Voice of Nigeria,2021,916,15,0,True
+News Agency of Nigeria,2021,162,5,0,True
+Premium Times,2021,1538,4,0,True
+Leadership,2021,1,0,0,True
+Blueprint,2021,2407,22,0,True
+TheWill,2021,854,19,0,True
+Gazette,2021,914,5,0,True
+21st Century Chronicle,2021,683,15,0,True
+Daily Trust,2021,3537,21,0,True
+Daily Post,2021,2427,41,0,True
+Channels TV,2021,981,8,0,True
+Voice of Nigeria,2022,0,0,0,True
+News Agency of Nigeria,2022,5,0,0,True
+Premium Times,2022,2017,34,0,True
+Leadership,2022,2393,25,0,True
+Blueprint,2022,3056,36,0,True
+TheWill,2022,1428,27,0,True
+Gazette,2022,1549,7,0,True
+21st Century Chronicle,2022,872,15,0,True
+Daily Trust,2022,4299,32,0,True
+Daily Post,2022,3426,32,0,True
+Channels TV,2022,1430,10,0,True
+Voice of Nigeria,2023,657,10,0,True
+News Agency of Nigeria,2023,744,22,0,True
+Premium Times,2023,2064,34,0,True
+Leadership,2023,3956,76,0,True
+Blueprint,2023,2874,49,0,True
+TheWill,2023,1116,23,0,True
+Gazette,2023,1716,31,0,True
+21st Century Chronicle,2023,993,24,0,True
+Daily Trust,2023,3950,29,0,True
+Daily Post,2023,3243,45,0,True
+Channels TV,2023,1373,9,0,True
+Voice of Nigeria,2024,0,0,0,True
+News Agency of Nigeria,2024,424,14,0,True
+Premium Times,2024,1396,28,0,True
+Leadership,2024,3586,100,0,True
+Blueprint,2024,2403,59,0,True
+TheWill,2024,729,29,0,True
+Gazette,2024,1451,54,0,True
+21st Century Chronicle,2024,756,46,2,False
+Daily Trust,2024,3326,39,0,True
+Daily Post,2024,2731,79,0,True
+Channels TV,2024,1051,13,0,True
+Voice of Nigeria,2025,832,10,0,True
+News Agency of Nigeria,2025,784,7,0,True
+Premium Times,2025,1680,20,0,True
+Leadership,2025,4364,87,0,True
+Blueprint,2025,2654,30,0,True
+TheWill,2025,700,14,0,True
+Gazette,2025,1659,35,0,True
+21st Century Chronicle,2025,304,21,4,False
+Daily Trust,2025,3534,18,0,True
+Daily Post,2025,4110,67,0,True
+Channels TV,2025,1162,11,0,True
+Voice of Nigeria,2026,922,9,0,True
+News Agency of Nigeria,2026,860,15,0,True
+Premium Times,2026,1764,17,0,True
+Leadership,2026,4693,45,0,True
+Blueprint,2026,2636,20,0,True
+TheWill,2026,688,8,0,True
+Gazette,2026,1673,21,0,True
+21st Century Chronicle,2026,389,19,1,False
+Daily Trust,2026,3378,17,0,True
+Daily Post,2026,3596,45,0,True
+Channels TV,2026,954,8,0,True
