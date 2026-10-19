@@ -146,6 +146,8 @@ INVALID_PAGE_CODE = "rest_post_invalid_page_number"
 # Stops that mean every available page was read (or the cap was reached). Any other stop, such
 # as a request that failed after retries, leaves the query incomplete.
 COMPLETE_STOPS = {"empty page", "invalid page number", "page cap"}
+# Stop recorded when the caller's should_stop() turns true (time budget spent); incomplete.
+BUDGET_STOP = "time budget exceeded"
 # "invalid response" (not JSON, or not a JSON list) and "repeated page" (a page adding no new
 # links) are incomplete: the site may hold posts it did not serve.
 
@@ -158,14 +160,15 @@ def _error_code(resp) -> str:
     return body.get("code", "") if isinstance(body, dict) else ""
 
 
-def paginate(fetcher: Fetcher, domain: str, params: dict, label: str = "") -> dict:
+def paginate(fetcher: Fetcher, domain: str, params: dict, label: str = "", should_stop=None) -> dict:
     """All posts for one REST API query. X-WP-Total and X-WP-TotalPages are not used, since some
     sites send them as 0 or too low: pages are requested until one returns zero posts or the API
     answers HTTP 400 with rest_post_invalid_page_number, up to MAX_PAGES. Posts are de-duplicated
     by link; a page adding no new link stops paging ("repeated page"). A body that is not a JSON
     list stops paging ("invalid response"). Posts dated outside the after/before window are
     dropped and counted, and a log row records that the site ignores the date filter. A query
-    that reaches the cap is logged with pages requested and unique posts.
+    that reaches the cap is logged with pages requested and unique posts. When `should_stop()` is
+    true before a page is read, or after a request fails, paging stops with BUDGET_STOP.
 
     Returns {"posts", "pages", "stop", "capped", "cached_pages", "dropped_outside_window",
     "complete"}; "pages" counts pages requested, "stop" is why paging ended."""
@@ -182,10 +185,13 @@ def paginate(fetcher: Fetcher, domain: str, params: dict, label: str = "") -> di
         return {"posts": posts, "pages": requested, "stop": stop, "capped": capped, "cached_pages": cached,
                 "dropped_outside_window": dropped, "complete": stop in COMPLETE_STOPS}
 
+    stopped = should_stop or (lambda: False)
     for page in range(1, MAX_PAGES + 1):
+        if stopped():
+            return done(BUDGET_STOP)
         resp = fetcher.get(url, params={**params, "per_page": PER_PAGE, "page": page})
         if resp is None:
-            return done(fetcher.skip_reason or "request failed")
+            return done(BUDGET_STOP if stopped() else fetcher.skip_reason or "request failed")
         requested += 1
         cached += int(getattr(resp, "from_cache", False))
         if resp.status_code == 400 and _error_code(resp) == INVALID_PAGE_CODE:
@@ -220,7 +226,8 @@ def paginate(fetcher: Fetcher, domain: str, params: dict, label: str = "") -> di
     return done("page cap", capped=True)
 
 
-def search_window(fetcher: Fetcher, domain: str, after: str, before: str, label: str = "") -> tuple[dict, dict]:
+def search_window(fetcher: Fetcher, domain: str, after: str, before: str, label: str = "",
+                  should_stop=None) -> tuple[dict, dict]:
     """Search hits for every term between `after` and `before` (REST API date strings).
 
     Returns ({link: {title, excerpt, date, terms}}, {"queries", "capped", "stops"}). Excerpts are
@@ -229,7 +236,7 @@ def search_window(fetcher: Fetcher, domain: str, after: str, before: str, label:
     stats = {"queries": 0, "capped": 0, "incomplete": 0, "pages": 0, "cached_pages": 0, "stops": []}
     for term in SEARCH_TERMS:
         result = paginate(fetcher, domain, {"search": term, "after": after, "before": before, "_fields": FIELDS},
-                          label=f"{label} search '{term}'")
+                          label=f"{label} search '{term}'", should_stop=should_stop)
         stats["queries"] += 1
         stats["capped"] += int(result["capped"])
         stats["incomplete"] += int(not result["complete"])

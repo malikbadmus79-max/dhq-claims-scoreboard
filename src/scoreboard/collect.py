@@ -9,21 +9,34 @@ filter (including the "Buba Marwa" exclusion). An outlet whose API probe fails i
 never searched. Requests go through the polite fetcher (robots.txt, configured delay and user
 agent); outlets run in parallel, one fetcher each, so each domain keeps its own delay.
 
-Writes outputs/tables/full_inventory_<year>.csv and full_yield_by_outlet_year.csv. Pilot tables
-are not touched. Excerpts are held in memory for the filter only.
+Each outlet-year has a time budget (outlet_year_budget_minutes in config/collection.yaml) that
+covers its retries; an outlet-year past it is stopped, logged ("time budget exceeded") and
+marked incomplete, its counts kept as lower bounds.
+
+Each outlet-year is saved as soon as it finishes: its rows replace that outlet's rows in
+outputs/tables/full_inventory_<year>.csv (briefing groups are then reassigned for the year), and
+its row replaces the row with the same outlet and year in full_yield_by_outlet_year.csv, so both
+tables merge across runs. On Ctrl+C, outlet-years already finished stay saved, unfinished ones
+are not written, and the run exits with status 130. Pilot tables are not touched. Excerpts are
+held in memory for the filter only.
 """
 
 import argparse
 import logging
+import sys
+import threading
 import time
-from concurrent.futures import ThreadPoolExecutor
+from collections import Counter
 from datetime import date, timedelta
 
 import pandas as pd
 
+from scoreboard import access_log
 from scoreboard.access_log import log_access
 from scoreboard.config import load_config
 from scoreboard.discover import (
+    BUDGET_STOP,
+    COMPLETE_STOPS,
     INVENTORY_COLUMNS,
     TABLES_DIR,
     _satisfies,
@@ -40,8 +53,10 @@ log = logging.getLogger(__name__)
 DHQ_DOMAIN = "defencehq.mil.ng"
 RETRY_PASSES = 2
 RETRY_WAIT_SECONDS = 60
+YIELD_FILE = "full_yield_by_outlet_year.csv"
 # complete is False when any search for the outlet-year still ended incomplete after the retry
-# passes; its counts are then lower bounds, and blank (never 0) when no post was returned.
+# passes, or the outlet-year ran past its time budget; its counts are then lower bounds, and
+# blank (never 0) when no post was returned.
 YIELD_COLUMNS = ["outlet", "year", "api_posts_returned", "candidates", "incomplete_queries", "complete"]
 
 
@@ -55,9 +70,11 @@ def api_bounds(first: date, last: date) -> tuple[str, str]:
     return f"{first - timedelta(days=1)}T23:59:59", f"{last + timedelta(days=1)}T00:00:00"
 
 
-def _search_year(fetcher: Fetcher, domain: str, year: int, first: date, last: date, attempt: str) -> tuple[dict, dict]:
+def _search_year(fetcher: Fetcher, domain: str, year: int, first: date, last: date, attempt: str,
+                 should_stop=None) -> tuple[dict, dict]:
     after, before = api_bounds(first, last)
-    hits, stats = search_window(fetcher, domain, after, before, label=f"Full discovery {year}")
+    hits, stats = search_window(fetcher, domain, after, before, label=f"Full discovery {year}",
+                                should_stop=should_stop)
     stops = pd.Series(stats["stops"]).value_counts().to_dict()
     log_access(domain, f"https://{domain}/wp-json/wp/v2/posts?search=<term>&after={after}&before={before}",
                f"{len(hits)} unique posts returned",
@@ -68,27 +85,93 @@ def _search_year(fetcher: Fetcher, domain: str, year: int, first: date, last: da
     return hits, stats
 
 
-def collect_outlet(outlet: dict, windows, sleep=time.sleep, fetcher=None) -> dict:
+def _merge_hits(into: dict, new: dict) -> None:
+    """Union of posts across passes, so a retry cut short by the budget never lowers a count."""
+    for link, h in new.items():
+        entry = into.setdefault(link, {**h, "terms": list(h.get("terms", []))})
+        entry["terms"] += [t for t in h.get("terms", []) if t not in entry["terms"]]
+
+
+def incomplete_reason(stops: list[str]) -> str:
+    """Why an outlet-year is incomplete: the time budget, or the stops of its incomplete queries."""
+    if BUDGET_STOP in stops:
+        return BUDGET_STOP
+    return "; ".join(f"{s} x{n}" for s, n in Counter(s for s in stops if s not in COMPLETE_STOPS).items())
+
+
+def collect_outlet(outlet: dict, windows, budget_seconds: float = float("inf"), sleep=time.sleep, fetcher=None,
+                   clock=time.monotonic, on_done=None, stop: threading.Event | None = None) -> dict:
     """API probe and per-year search for one outlet. An outlet whose probe does not return
     "yes" is logged and never searched. Years with incomplete searches are searched again up to
-    RETRY_PASSES times; pages already read come from the cache."""
+    RETRY_PASSES times; pages already read come from the cache, and posts are pooled across
+    passes. An outlet-year's clock starts at its first search; once budget_seconds have passed,
+    retries and retry waits included, it is stopped at the next page (or before its next pass)
+    and logged. on_done(outlet, year, hits, incomplete) is called as each outlet-year finishes;
+    its hits are then dropped from memory and out["years"][year] keeps the post count. When
+    `stop` is set, the outlet returns at the next page without finishing the year in progress."""
     fetcher = fetcher or Fetcher()
     domain = outlet["domain"]
     api = probe_api(fetcher, domain)
-    out = {"outlet": outlet, "api": api, "years": {}, "capped": {}, "incomplete": {}}
+    out = {"outlet": outlet, "api": api, "years": {}, "capped": {}, "incomplete": {}, "reasons": {}}
     if api != "yes":
         log_access(domain, f"https://{domain}/wp-json/wp/v2/posts?per_page=1", api,
                    "Full discovery: outlet skipped, no WordPress REST API; not searched")
         return out
+    interrupted = stop.is_set if stop else (lambda: False)
+    started, hits, stops = {}, {}, {}
+
+    def finish(year, over_budget):
+        incomplete = out["incomplete"].get(year, 0)
+        if over_budget:
+            incomplete = out["incomplete"][year] = max(incomplete, 1)
+            log_access(domain, f"https://{domain}/wp-json/wp/v2/posts?search=<term>", BUDGET_STOP,
+                       f"Full discovery {year}: outlet-year stopped after {clock() - started[year]:.0f} s "
+                       f"(budget {budget_seconds:.0f} s, retries included); {incomplete} incomplete queries; "
+                       f"{len(hits.get(year, {}))} posts kept as a lower bound")
+            out["reasons"][year] = BUDGET_STOP
+        elif incomplete:
+            out["reasons"][year] = incomplete_reason(stops[year])
+        year_hits = hits.pop(year, {})
+        if on_done:
+            on_done(outlet, year, year_hits, incomplete)
+        out["years"][year] = len(year_hits)
+
     pending = list(windows)
     for attempt in range(RETRY_PASSES + 1):
         if attempt:
             sleep(RETRY_WAIT_SECONDS)
         label = "first pass" if attempt == 0 else f"retry {attempt}"
-        for year, first, last in pending:
-            hits, stats = _search_year(fetcher, domain, year, first, last, label)
-            out["years"][year], out["capped"][year], out["incomplete"][year] = hits, stats["capped"], stats["incomplete"]
-        pending = [w for w in windows if out["incomplete"][w[0]]]
+        retry = []
+        for window in pending:
+            if interrupted():
+                return out
+            year, first, last = window
+            started.setdefault(year, clock())
+
+            def over_budget(year=year):
+                return clock() - started[year] > budget_seconds
+
+            if over_budget():
+                finish(year, True)
+                continue
+
+            def should_stop(over_budget=over_budget):
+                return interrupted() or over_budget()
+
+            if hasattr(fetcher, "cancel"):
+                fetcher.cancel = should_stop
+            new, stats = _search_year(fetcher, domain, year, first, last, label, should_stop)
+            if interrupted():
+                return out
+            _merge_hits(hits.setdefault(year, {}), new)
+            out["capped"][year], out["incomplete"][year], stops[year] = stats["capped"], stats["incomplete"], stats["stops"]
+            if BUDGET_STOP in stats["stops"]:
+                finish(year, True)
+            elif stats["incomplete"] and attempt < RETRY_PASSES:
+                retry.append(window)
+            else:
+                finish(year, False)
+        pending = retry
         if not pending:
             break
     return out
@@ -128,23 +211,72 @@ def yield_row(name: str, year: int, posts: int, candidates: int, incomplete: int
     }
 
 
-def build_yield(results: list[dict], inventories: dict, windows) -> pd.DataFrame:
-    rows = []
-    for res in results:
-        if res["api"] != "yes":
-            continue
-        name = res["outlet"]["name"]
-        for year, _, _ in windows:
-            inv = inventories[year]
-            rows.append(yield_row(name, year, len(res["years"].get(year, {})),
-                                  int((inv["outlet"] == name).sum()), res["incomplete"].get(year, 0)))
-    return pd.DataFrame(rows, columns=YIELD_COLUMNS)
+def _read_table(path) -> pd.DataFrame | None:
+    if not path.exists() or path.stat().st_size == 0:
+        return None
+    return pd.read_csv(path, dtype=str, keep_default_na=False)
 
 
-def run(start: date, end: date, tables_dir=TABLES_DIR, fetcher_factory=Fetcher) -> dict:
+class Saver:
+    """Writes each finished outlet-year to the inventory and yield tables, merging with what
+    earlier runs wrote. One writer at a time; after close() nothing more is written."""
+
+    def __init__(self, tables_dir, outlet_order: list[str]):
+        self.tables_dir = tables_dir
+        self.order = {name: i for i, name in enumerate(outlet_order)}
+        self.lock = threading.Lock()
+        self.closed = False
+        self.saved: list[tuple[str, int]] = []
+
+    def close(self) -> None:
+        with self.lock:
+            self.closed = True
+
+    def save(self, outlet: dict, year: int, hits: dict, incomplete: int) -> None:
+        name = outlet["name"]
+        rows = candidate_rows(name, hits)
+        with self.lock:
+            if self.closed:
+                return
+            self._write_inventory(name, year, rows)
+            self._write_yield(yield_row(name, year, len(hits), len(rows), incomplete))
+            self.saved.append((name, year))
+
+    def _write_inventory(self, name: str, year: int, rows: list[dict]) -> None:
+        path = self.tables_dir / f"full_inventory_{year}.csv"
+        inv = pd.DataFrame(rows, columns=INVENTORY_COLUMNS[:-2]).astype(str)
+        old = _read_table(path)
+        if old is not None:
+            inv = pd.concat([old.loc[old["outlet"] != name, INVENTORY_COLUMNS[:-2]], inv], ignore_index=True)
+        inv = inv.sort_values(["publish_date", "outlet", "url"]).reset_index(drop=True)
+        inv["briefing_group_id"] = assign_groups(inv, prefix="F") if len(inv) else []
+        inv["grouping_status"] = "provisional"
+        inv[INVENTORY_COLUMNS].to_csv(path, index=False)
+
+    def _write_yield(self, row: dict) -> None:
+        path = self.tables_dir / YIELD_FILE
+        table = pd.DataFrame([row], columns=YIELD_COLUMNS).astype(str)
+        old = _read_table(path)
+        if old is not None:
+            same = (old["outlet"] == row["outlet"]) & (old["year"] == str(row["year"]))
+            table = pd.concat([old.loc[~same, YIELD_COLUMNS], table], ignore_index=True)
+        rank = table["outlet"].map(lambda o: self.order.get(o, len(self.order)))
+        table = table.assign(_y=table["year"].astype(int), _r=rank).sort_values(["_y", "_r", "outlet"])
+        table[YIELD_COLUMNS].to_csv(path, index=False)
+
+
+def _join(threads: list[threading.Thread]) -> None:
+    # Short joins, so Ctrl+C reaches the main thread on Windows.
+    for t in threads:
+        while t.is_alive():
+            t.join(0.5)
+
+
+def run(start: date, end: date, tables_dir=TABLES_DIR, fetcher_factory=Fetcher, clock=time.monotonic) -> dict:
     """`fetcher_factory` builds one fetcher per outlet (tests pass a recording fake)."""
     config = load_config()
     windows = year_windows(start, end)
+    budget = float(config["outlet_year_budget_minutes"]) * 60
 
     # defencehq.mil.ng: one robots.txt retry at the start; skipped while unreachable.
     dhq_ok, dhq_status = fetcher_factory(config).check_robots(f"https://{DHQ_DOMAIN}/")
@@ -153,26 +285,44 @@ def run(start: date, end: date, tables_dir=TABLES_DIR, fetcher_factory=Fetcher) 
                f"Full discovery {start} to {end}: retry at start of run; site {'skipped' if skip_dhq else 'included'}")
     outlets = [o for o in config["outlets"] if not (o["domain"] == DHQ_DOMAIN and skip_dhq)]
 
-    with ThreadPoolExecutor(max_workers=len(outlets)) as pool:
-        results = list(pool.map(lambda o: collect_outlet(o, windows, fetcher=fetcher_factory()), outlets))
+    saver = Saver(tables_dir, [o["name"] for o in config["outlets"]])
+    stop = threading.Event()
+    results, errors = [None] * len(outlets), []
 
-    inventories = {}
-    for year, _, _ in windows:
-        rows = [r for res in results for r in candidate_rows(res["outlet"]["name"], res["years"].get(year, {}))]
-        inv = pd.DataFrame(rows, columns=INVENTORY_COLUMNS[:-2])
-        inv = inv.sort_values(["publish_date", "outlet", "url"]).reset_index(drop=True)
-        inv["briefing_group_id"] = assign_groups(inv, prefix="F") if len(inv) else []
-        inv["grouping_status"] = "provisional"
-        inventories[year] = inv[INVENTORY_COLUMNS]
-        inventories[year].to_csv(tables_dir / f"full_inventory_{year}.csv", index=False)
+    def work(i, outlet):
+        try:
+            results[i] = collect_outlet(outlet, windows, budget, sleep=stop.wait, fetcher=fetcher_factory(),
+                                        clock=clock, on_done=saver.save, stop=stop)
+        except Exception as exc:  # re-raised in the main thread
+            log.exception("%s failed", outlet["domain"])
+            errors.append(exc)
 
-    yield_table = build_yield(results, inventories, windows)
-    yield_table.to_csv(tables_dir / "full_yield_by_outlet_year.csv", index=False)
+    # Daemon threads: after Ctrl+C the process exits without waiting for requests in flight.
+    threads = [threading.Thread(target=work, args=(i, o), daemon=True) for i, o in enumerate(outlets)]
+    for t in threads:
+        t.start()
+    interrupted = False
+    try:
+        _join(threads)
+    except KeyboardInterrupt:
+        saver.close()
+        stop.set()
+        interrupted = True
+        log_access("all outlets", "", "interrupted",
+                   f"Full discovery {start} to {end}: stopped by Ctrl+C; {len(saver.saved)} outlet-years saved, "
+                   "unfinished outlet-years not written")
+    if errors and not interrupted:
+        raise errors[0]
+
+    done = [r for r in results if r is not None]
     return {
-        "yield": yield_table,
-        "capped": sum(sum(r["capped"].values()) for r in results),
+        "yield": _read_table(tables_dir / YIELD_FILE),
+        "saved": saver.saved,
+        "interrupted": interrupted,
+        "capped": sum(sum(r["capped"].values()) for r in done),
+        "reasons": {(r["outlet"]["name"], y): why for r in done for y, why in r["reasons"].items()},
         "dhq": dhq_status,
-        "skipped": {r["outlet"]["domain"]: r["api"] for r in results if r["api"] != "yes"},
+        "skipped": {r["outlet"]["domain"]: r["api"] for r in done if r["api"] != "yes"},
     }
 
 
@@ -183,11 +333,23 @@ def main(argv=None):
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
     out = run(args.start, args.end)
-    print("YIELD")
-    print(out["yield"].to_string(index=False))
+    years = {str(y) for y, _, _ in year_windows(args.start, args.end)}
+    table = out["yield"]
+    if out["interrupted"]:
+        print(f"INTERRUPTED: {len(out['saved'])} outlet-years saved: {out['saved']}")
+    print("YIELD (this run's years)")
+    print("none" if table is None else table[table["year"].isin(years)].to_string(index=False))
+    print("INCOMPLETE OUTLET-YEARS")
+    for (name, year), why in sorted(out["reasons"].items(), key=lambda kv: (kv[0][1], kv[0][0])):
+        print(f"  {name} {year}: {why}")
     print(f"QUERIES AT PAGE CAP: {out['capped']}")
     print(f"DHQ ROBOTS: {out['dhq']}")
     print(f"OUTLETS SKIPPED (API probe): {out['skipped']}")
+    if out["interrupted"]:
+        # Daemon workers may still be running: hold the access-log lock so none is cut off
+        # mid-row when the process exits.
+        access_log._LOCK.acquire()
+        sys.exit(130)
 
 
 if __name__ == "__main__":

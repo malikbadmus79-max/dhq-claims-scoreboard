@@ -12,6 +12,10 @@ domain_delay_seconds:
   archive.org: 15
 obey_robots_txt: true
 
+# Full discovery: wall-clock limit per outlet-year, retries included. An outlet-year past it is
+# stopped, logged ("time budget exceeded") and marked incomplete; its counts are lower bounds.
+outlet_year_budget_minutes: 15
+
 outlets:
   - name: Defence Headquarters
     domain: defencehq.mil.ng

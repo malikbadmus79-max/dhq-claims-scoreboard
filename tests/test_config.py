@@ -23,3 +23,7 @@ def test_outlet_domains_present_and_unique():
     domains = [outlet.get("domain") for outlet in load_config()["outlets"]]
     assert all(domains)
     assert len(domains) == len(set(domains))
+
+
+def test_outlet_year_budget_is_15_minutes():
+    assert load_config()["outlet_year_budget_minutes"] == 15

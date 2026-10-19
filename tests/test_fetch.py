@@ -282,3 +282,68 @@ def test_robots_429_counts_as_unreachable(tmp_path):
     routes = {"https://rl.example/robots.txt": FakeResponse(429)}
     fetcher, _, _ = make_fetcher(tmp_path, routes)
     assert fetcher.check_robots("https://rl.example/") == (False, "unreachable")
+
+
+# Hard request deadline
+
+
+class HangingSession(FakeSession):
+    """Hangs on `url` for the first `hangs` requests (until released), then answers 200."""
+
+    def __init__(self, routes, url, hangs):
+        super().__init__(routes)
+        import threading
+        self.url, self.hangs, self.release = url, hangs, threading.Event()
+
+    def get(self, url, timeout=None):
+        if url == self.url:
+            self.calls.append(url)
+            if self.calls.count(url) <= self.hangs:
+                self.release.wait(5)
+            return FakeResponse(200, "late body")
+        return super().get(url, timeout)
+
+
+def make_hanging_fetcher(tmp_path, hangs, monkeypatch):
+    import scoreboard.fetch as fetch
+    monkeypatch.setattr(fetch, "REQUEST_DEADLINE_SECONDS", 0.05)
+    clock = FakeClock()
+    session = HangingSession(ROBOTS_OK, "https://example.org/slow", hangs)
+    fetcher = Fetcher(load_config(), cache_dir=tmp_path, session=session, clock=clock, sleep=clock.sleep)
+    return fetcher, session
+
+
+def test_request_past_deadline_fails_after_retries(tmp_path, monkeypatch):
+    from scoreboard.fetch import BACKOFF_SECONDS, MAX_RETRIES
+    fetcher, session = make_hanging_fetcher(tmp_path, hangs=99, monkeypatch=monkeypatch)
+    assert fetcher.get("https://example.org/slow") is None
+    assert fetcher.skip_reason == "request failed"
+    assert session.calls.count("https://example.org/slow") == MAX_RETRIES + 1
+    assert BACKOFF_SECONDS in fetcher.sleep.__self__.sleeps
+    session.release.set()
+
+
+def test_request_past_deadline_is_retried(tmp_path, monkeypatch):
+    fetcher, session = make_hanging_fetcher(tmp_path, hangs=1, monkeypatch=monkeypatch)
+    resp = fetcher.get("https://example.org/slow")
+    assert resp is not None and resp.text == "late body"
+    assert session.calls.count("https://example.org/slow") == 2
+    session.release.set()
+
+
+def test_cancel_sends_no_request(tmp_path):
+    routes = {**ROBOTS_OK, "https://example.org/a": FakeResponse(200, "a")}
+    fetcher, session, _ = make_fetcher(tmp_path, routes)
+    fetcher.cancel = lambda: True
+    assert fetcher.get("https://example.org/a") is None
+    assert fetcher.skip_reason == "cancelled"
+    assert "https://example.org/a" not in session.calls
+
+
+def test_cancel_never_marks_robots_unreachable(tmp_path):
+    routes = {**ROBOTS_OK, "https://example.org/a": FakeResponse(200, "a")}
+    fetcher, session, _ = make_fetcher(tmp_path, routes)
+    fetcher.cancel = lambda: True
+    fetcher.get("https://example.org/a")
+    fetcher.cancel = None
+    assert fetcher.get("https://example.org/a").text == "a"

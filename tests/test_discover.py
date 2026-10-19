@@ -276,3 +276,19 @@ def test_paginate_cap_message_separates_pages_and_unique_posts(monkeypatch):
     result, notes = logged[0][2], logged[0][3]
     assert result == "page cap reached (2 pages requested)"
     assert "160 unique posts returned" in notes
+
+
+def test_paginate_stops_when_budget_spent():
+    from scoreboard.discover import BUDGET_STOP, paginate
+    fetcher = PagedFetcher([_posts(100), _posts(100, 100), _posts(10, 200)])
+    result = paginate(fetcher, "x.ng", {"search": "DHQ"}, should_stop=lambda: len(fetcher.requested) >= 1)
+    assert fetcher.requested == [1]
+    assert result["stop"] == BUDGET_STOP and not result["complete"]
+    assert len(result["posts"]) == 100
+
+
+def test_search_window_counts_queries_stopped_by_budget_as_incomplete():
+    from scoreboard.discover import BUDGET_STOP, SEARCH_TERMS, search_window
+    _, stats = search_window(PagedFetcher([_posts(5)]), "x.ng", "a", "b", should_stop=lambda: True)
+    assert stats["stops"] == [BUDGET_STOP] * len(SEARCH_TERMS)
+    assert stats["incomplete"] == len(SEARCH_TERMS)

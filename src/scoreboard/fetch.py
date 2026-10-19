@@ -3,6 +3,7 @@
 import hashlib
 import json
 import logging
+import threading
 import time
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
@@ -27,6 +28,10 @@ BACKOFF_SECONDS = 10
 RATE_LIMIT_WAIT = 60
 RETRY_AFTER_CAP = 300
 TIMEOUT = (10, 30)
+# Hard limit on one request, whatever the connect and read timeouts (a slow body can outlast the
+# read timeout). Past it the request counts as failed and takes the normal retry path; the worker
+# thread is abandoned and ends when its own timeouts fire.
+REQUEST_DEADLINE_SECONDS = 90
 OFFLINE_MISS = "offline: not in cache"
 
 
@@ -101,6 +106,9 @@ class Fetcher:
         self._robots_status: dict[str, int] = {}
         self.skip_reason: str | None = None
         self.offline = offline
+        # Optional callable; when it returns true no further request is sent (e.g. a caller's time
+        # budget is spent) and get() returns None with skip_reason "cancelled".
+        self.cancel = None
 
     def get(self, url: str, params: dict | None = None) -> Response | None:
         """Fetch a URL, or return None if robots.txt disallows it or the request fails."""
@@ -112,6 +120,9 @@ class Fetcher:
         if self.offline:
             self.skip_reason = OFFLINE_MISS
             return None
+        if self._cancelled():
+            self.skip_reason = "cancelled"
+            return None
         if self.obey_robots and not self._allowed(url):
             origin = "{0.scheme}://{0.netloc}".format(urlsplit(url))
             if origin in self._robots_unreachable:
@@ -122,8 +133,11 @@ class Fetcher:
             return None
         resp = self._fetch(url)
         if resp is None:
-            self.skip_reason = "request failed"
+            self.skip_reason = "cancelled" if self._cancelled() else "request failed"
         return resp
+
+    def _cancelled(self) -> bool:
+        return bool(self.cancel and self.cancel())
 
     def check_robots(self, url: str) -> tuple[bool, str]:
         """Whether robots.txt allows `url` for the configured user agent, and how robots.txt
@@ -141,7 +155,8 @@ class Fetcher:
         if origin not in self._robots:
             parser = RobotFileParser()
             robots_url = f"{origin}/robots.txt"
-            resp = self._read_cache(robots_url) or self._fetch(robots_url)
+            # Never cancelled: a cancelled fetch would leave robots.txt "unreachable" for good.
+            resp = self._read_cache(robots_url) or self._fetch(robots_url, cancellable=False)
             if resp is not None:
                 self._robots_status[origin] = resp.status_code
             # A rate-limit reply says nothing about the rules, so it counts as unreachable.
@@ -170,17 +185,19 @@ class Fetcher:
                 self.sleep(remaining)
         self._last_request[domain] = self.clock()
 
-    def _fetch(self, url: str) -> Response | None:
+    def _fetch(self, url: str, cancellable: bool = True) -> Response | None:
         domain = urlsplit(url).netloc
         rate_limited_once = False
         attempt = 0
         while attempt <= MAX_RETRIES:
             if attempt:
                 self.sleep(BACKOFF_SECONDS * 2 ** (attempt - 1))
+            if cancellable and self._cancelled():
+                return None
             self._wait(domain)
             try:
-                raw = self.session.get(url, timeout=TIMEOUT)
-            except requests.RequestException as exc:
+                raw = self._get_within_deadline(url)
+            except (requests.RequestException, TimeoutError) as exc:
                 log.warning("request failed (%s): %s", exc.__class__.__name__, url)
                 attempt += 1
                 continue
@@ -205,6 +222,28 @@ class Fetcher:
             return resp
         log.error("giving up after %d retries: %s", MAX_RETRIES, url)
         return None
+
+    def _get_within_deadline(self, url: str):
+        """session.get in a daemon thread; TimeoutError if it has not returned, body included,
+        within REQUEST_DEADLINE_SECONDS."""
+        box = {}
+
+        def work():
+            try:
+                raw = self.session.get(url, timeout=TIMEOUT)
+                raw.text  # read the body inside the deadline
+                box["raw"] = raw
+            except BaseException as exc:  # handed to the caller
+                box["exc"] = exc
+
+        worker = threading.Thread(target=work, daemon=True)
+        worker.start()
+        worker.join(REQUEST_DEADLINE_SECONDS)
+        if worker.is_alive():
+            raise TimeoutError(f"no complete response within {REQUEST_DEADLINE_SECONDS} s")
+        if "exc" in box:
+            raise box["exc"]
+        return box["raw"]
 
     def forget(self, url: str) -> bool:
         """Remove a cached response, e.g. a bot-challenge page that is not content."""
