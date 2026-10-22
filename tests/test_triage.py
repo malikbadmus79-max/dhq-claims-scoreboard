@@ -68,3 +68,11 @@ def test_carry_over_copies_pilot_labels_and_keeps_other_sources(tmp_path, monkey
     assert out[["url", "is_operational_briefing", "pilot_item_id"]].values.tolist() == [["u1", "yes", "P2024-r001"]]
     saved = pd.read_csv(labels, dtype=str, keep_default_na=False)
     assert sorted(saved["label_source"]) == ["hand", "pilot"]
+
+
+def test_guard_only_turns_no_into_hand_review():
+    briefing = Item("Troops arrest 2 suspects", "Defence Media Operations said in its update between 6 and 20 October.")
+    assert triage.guard(briefing, "no") == ""
+    assert triage.guard(briefing, "yes") == "yes" and triage.guard(briefing, "") == ""
+    assert triage.guard(Item("Troops arrest 2", "The Police said in a briefing."), "no") == "no"
+    assert triage.guard(Item("DHQ: troops arrest 2", "DHQ said troops arrested two suspects."), "no") == "no"

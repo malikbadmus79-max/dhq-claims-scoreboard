@@ -1,0 +1,61 @@
+check_id,year,url,decision,rules_fired,seed
+TC-001,2026,https://21stcenturychronicle.com/africom-naf-resume-bombings-of-isis-terrorists/,no,no_national_no_period,20261022
+TC-002,2023,https://gazettengr.com/troops-eliminated-99-terrorists-apprehended-198-others-in-one-week-dhq/,yes,title_period_number; title_number_body_period,20261022
+TC-003,2021,https://blueprint.ng/gunmen-kill-soldier-abduct-housewife-8-kids-in-kaduna/,no,no_number_no_period; no_national_no_period,20261022
+TC-004,2023,https://www.channelstv.com/2023/08/25/coas-present-as-22-military-personnel-killed-in-niger-set-for-burial/,no,no_national_no_period,20261022
+TC-005,2022,https://thewillnews.com/troops-killed-1910-criminals-terrorists-in-2021-dhq/,yes,title_period_number,20261022
+TC-006,2022,https://dailypost.ng/2022/04/17/benue-killings-well-track-killers-of-villagers-at-tiortyu-dhq/,no,no_number_no_period; no_national_no_period,20261022
+TC-007,2022,https://thewillnews.com/how-nigerian-troops-raided-borno-yobe-neutralise-over-49-terrorists-dhq/,yes,title_number_body_period,20261022
+TC-008,2025,https://www.premiumtimesng.com/regional/nwest/807966-police-arrest-bandit-recover-gun-in-sokoto.html,no,no_number_no_period; no_national_no_period,20261022
+TC-009,2023,https://nannews.ng/military-neutralise-28-terrorists-apprehend-113-others-rescue-82-hostages-dhq/,yes,title_number_body_period,20261022
+TC-010,2022,https://leadership.ng/military-arrests-2-fake-nimc-officials-registering-non-nigerians/,no,no_number_no_period,20261022
+TC-011,2022,https://dailytrust.com/1755-terrorists-surrender-29-killed-in-two-weeks-military/,yes,title_period_number; title_number_body_period,20261022
+TC-012,2026,https://dailypost.ng/2026/05/15/troops-neutralise-suspected-lakurawa-terrorists-recover-arms-ammunition-in-sokoto-operation/,no,no_number_no_period; no_national_no_period,20261022
+TC-013,2022,https://dailytrust.com/dhq-clarifies-identities-of-arrested-owo-church-attack-suspects/,no,no_national_no_period,20261022
+TC-014,2023,https://dailytrust.com/troops-killed-77-terrorists-in-northern-nigeria-in-14-days-dhq/,yes,title_number_body_period,20261022
+TC-015,2022,https://dailytrust.com/owo-church-attack-security-operatives-apprehend-2-more-suspects/,no,no_number_no_period; no_national_no_period,20261022
+TC-016,2023,https://thewillnews.com/over-400-suspects-arrested-as-troops-kill-151-terrorists-rescue-76-kidnap-victims/,yes,title_number_body_period,20261022
+TC-017,2025,https://thewillnews.com/army-records-major-victory-against-bandits-in-north-west/,no,no_number_no_period; no_national_no_period,20261022
+TC-018,2026,https://gazettengr.com/military-killed-30-terrorists-rescued-victims-in-one-week-dhq/,yes,title_period_number; title_number_body_period,20261022
+TC-019,2026,https://nannews.ng/troops-neutralise-216-terrorists-apprehend-284-across-theatres-in-april-dhq/,yes,title_period_number,20261022
+TC-020,2023,https://dailypost.ng/2023/04/10/troops-neutralize-bandits-recover-arms-ammunition-2/,no,no_number_no_period; no_national_no_period,20261022
+TC-021,2026,https://blueprint.ng/dhq-confirms-rescue-of-gen-rabes-wife/,no,no_number_no_period; no_national_no_period,20261022
+TC-022,2026,https://dailypost.ng/2026/07/16/why-north-aligned-with-peter-obi-despite-opposition-buba-galadima/,no,no_number_no_period; no_national_no_period,20261022
+TC-023,2021,https://thewillnews.com/troops-neutralise-90-terrorists-arrest-21-as-996-surrender-dhq/,yes,title_number_body_period,20261022
+TC-024,2023,https://dailytrust.com/50-terrorists-killed-114-apprehended-in-one-week-dhq/,yes,title_period_number; title_number_body_period,20261022
+TC-025,2026,https://gazettengr.com/dhq-says-troops-killed-324-terrorists-rescued-610-kidnap-victims-in-august/,yes,title_period_number,20261022
+TC-026,2025,https://leadership.ng/rep-condemns-ngalda-robbery-attack-urges-investigation/,no,no_number_no_period; no_national_no_period,20261022
+TC-027,2023,https://thewillnews.com/troops-neutralise-52-terrorists-arrest-60-dhq/,yes,title_number_body_period,20261022
+TC-028,2023,https://gazettengr.com/military-neutralised-28-terrorists-rescued-82-hostages-in-two-weeks-dhq/,yes,title_period_number; title_number_body_period,20261022
+TC-029,2021,https://dailypost.ng/2021/09/02/15-bandits-killed-66-criminals-arrested-in-northwest-dhq/,no,no_national_no_period,20261022
+TC-030,2026,https://dailypost.ng/2026/05/13/zamfara-airstrike-casualties-yet-to-be-verified-dhq/,no,no_number_no_period,20261022
+TC-031,2022,https://dailypost.ng/2022/01/23/police-local-hunters-dislodge-bandits-in-adamawa/,no,no_number_no_period; no_national_no_period,20261022
+TC-032,2023,https://gazettengr.com/troops-eliminated-53-terrorists-rescued-118-victims-in-2-weeks-dhq/,yes,title_number_body_period,20261022
+TC-033,2021,https://dailypost.ng/2021/01/06/military-attacks-boko-haram-kills-scores-in-borno/,no,no_number_no_period; no_national_no_period,20261022
+TC-034,2023,https://gazettengr.com/troops-neutralised-39-terrorists-arrested-157-rescued-109-hostages-in-two-weeks-dhq/,yes,title_period_number; title_number_body_period,20261022
+TC-035,2022,https://leadership.ng/troops-arrest-5-suspected-gunrunners-kidnappers-in-plateau/,no,no_number_no_period,20261022
+TC-036,2023,https://www.channelstv.com/2023/06/12/troops-kill-three-bandits-recover-arms-in-zamfara/,no,no_number_no_period,20261022
+TC-037,2025,https://gazettengr.com/military-killed-156-terrorists-arrested-464-suspects-in-one-week-dhq/,yes,title_period_number; title_number_body_period,20261022
+TC-038,2025,https://blueprint.ng/troops-rescued-318-kidnapped-victims-foiled-oil-theft-in-november-dhq/,yes,title_period_number,20261022
+TC-039,2025,https://von.gov.ng/dhq-begins-empowerment-programme-for-north-east-military-veterans/,no,no_number_no_period; no_national_no_period,20261022
+TC-040,2023,https://blueprint.ng/troops-neutralised-40-terrorists-arrest-191-in-one-week-dhq/,yes,title_period_number; title_number_body_period,20261022
+TC-041,2021,https://dailypost.ng/2021/01/18/nigerian-army-kills-35-bandits-recover-rustled-cows/,no,no_national_no_period,20261022
+TC-042,2026,https://leadership.ng/nigeria-us-joint-airstrikes-killed-175-terrorists-dhq/,no,no_national_no_period,20261022
+TC-043,2026,https://blueprint.ng/2027-how-troops-neutralised-201-terrorists-arrested-284-rescued-188-in-april-dhq/,yes,title_period_number,20261022
+TC-044,2025,https://gazettengr.com/troops-killed-scores-of-terrorists-rescued-67-kidnap-victims-dhq/,yes,title_number_body_period,20261022
+TC-045,2026,https://leadership.ng/bauchi-security-operatives-arrest-4-kidnap-suspects-rescue-2-victims/,no,no_number_no_period; no_national_no_period,20261022
+TC-046,2023,https://dailypost.ng/2023/09/19/non-kinetic-operations-yielding-results-bandits-surrendering-army/,no,no_number_no_period; no_national_no_period,20261022
+TC-047,2023,https://dailytrust.com/151-terrorists-killed-456-apprehended-in-2-weeks-military/,yes,title_number_body_period,20261022
+TC-048,2025,https://www.channelstv.com/2025/01/10/troops-neutralize-120-terrorists-nab-105-others-dhq/,yes,title_number_body_period,20261022
+TC-049,2023,https://dailypost.ng/2023/10/12/troops-neutralise-50-terrorists-apprehend-114-in-one-week/,yes,title_period_number; title_number_body_period,20261022
+TC-050,2023,https://dailytrust.com/troops-neutralise-84-terrorists-in-ne-nw-rescue-122-victims-in-2-weeks/,yes,title_number_body_period,20261022
+TC-051,2022,https://blueprint.ng/troops-kill-57-terrorists-1652-others-surrendered-in-2-weeks-dhq/,yes,title_number_body_period,20261022
+TC-052,2023,https://leadership.ng/hoodlums-kill-man-in-attempt-to-snatch-wife/,no,no_number_no_period; no_national_no_period,20261022
+TC-053,2023,https://blueprint.ng/how-troops-neutralised-scores-of-terrorists-rescued-115-abductees-in-3-weeks-defence-headquarters/,yes,title_number_body_period,20261022
+TC-054,2026,https://dailypost.ng/2026/02/10/troops-neutralise-over-30-terrorists-repatriate-700-refugees-in-one-week-dhq/,yes,title_period_number; title_number_body_period,20261022
+TC-055,2021,https://www.premiumtimesng.com/news/top-news/492197-70-bandits-eliminated-in-two-weeks-dhq.html,yes,title_period_number; title_number_body_period,20261022
+TC-056,2021,https://dailypost.ng/2021/02/03/three-bandits-killed-in-katsina/,no,no_number_no_period; no_national_no_period,20261022
+TC-057,2022,https://dailypost.ng/2022/06/27/374-suspected-drug-traffickers-arrested-in-edo/,no,no_national_no_period,20261022
+TC-058,2023,https://blueprint.ng/kogi-2023-igala-bassa-nationalities-storm-dhq-protest-ethnic-cleansing/,no,no_number_no_period; no_national_no_period,20261022
+TC-059,2023,https://leadership.ng/troops-killed-6886-terrorists-arrested-6970-rescued-4488-hostages-in-2023-dhq/,yes,title_period_number,20261022
+TC-060,2023,https://leadership.ng/troops-raid-gun-factory-arrest-suspected-gunrunners-in-taraba/,no,no_number_no_period,20261022

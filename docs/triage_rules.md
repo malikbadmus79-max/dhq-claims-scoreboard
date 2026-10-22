@@ -38,3 +38,33 @@ The rejected rules show where body text alone misleads: single-incident statemen
 ## Limitation
 
 The rules were set on the same 230 pilot items they are evaluated on, so their pilot precision overstates what can be expected on other years. Their error rate on 2021–2026 is checked by the blind validation sample. The rules have not been applied to the full collection.
+
+## Triage check
+
+Sample. 30 items decided yes and 30 decided no by the four accepted rules, drawn from the full-collection triage of 2021–2023 and 2025–2026 (outputs/tables/full_triage_<year>.csv), excluding 2024, with the fixed seed 20261022 (src/scoreboard/triage_check.py). By year, auto-yes/auto-no: 2021 2/5, 2022 4/7, 2023 15/7, 2025 4/4, 2026 5/7 (data/review/triage_check_key.csv).
+
+Coding. Claude, an AI assistant, coded each item from the article text without seeing the key or the triage tables, following docs/triage_check.md. Hand codes and notes: data/review/triage_check_coded.csv.
+
+Pass rule. The pass rule (at most 1 disagreement in each group of 30) was set in the planning notes on 2026-10-22 before the sample was drawn, and recorded in this file only after scoring. "Unsure" codes are reported separately and are not counted as errors.
+
+Results (outputs/tables/triage_check_result.csv):
+
+| Group | Items | Agreements | Disagreements | Unsure | Outcome |
+|---|---|---|---|---|---|
+| auto-yes | 30 | 30 | 0 | 0 | pass |
+| auto-no | 30 | 28 | 2 | 0 | fail |
+
+Disagreements, both in the auto-no group and both coded yes by hand:
+
+- TC-010 (2022), decided no by no_number_no_period. The article reports a DHQ bi-weekly update covering 6 to 20 October 2022 but leads with a single arrest, so neither the title nor the body text read by the rule carries an outcome number with a stated period.
+- TC-029 (2023), decided no by no_national_no_period. The article reports a DHQ update on Operation Hadarin Daji results "within the last three weeks", a regional section of a periodic update; the rule found no national marker, no period phrase it recognises and no briefing phrase.
+
+Outcome. The auto-yes decisions pass. The auto-no decisions fail; the rules responsible are no_number_no_period (TC-010) and no_national_no_period (TC-029). Each fired alone on its disagreement item.
+
+## Guard for auto-no
+
+The guard was added because both disagreements in the triage check were DHQ periodic updates decided "no": TC-010 leads with a single arrest from a bi-weekly update, and TC-029 reports a regional section of a periodic update. The accepted rules are unchanged. The guard runs after them: an item decided "no" is left for hand review when its title or body names "Defence Media Operations", "Defence Headquarters" or "DHQ" and contains a briefing or period phrase ("briefing", "biweekly", "bi-weekly", "weekly", "update", "news conference", "press conference", "within the last", "in the last", "past two weeks", or "between" two dates). It never turns an item into "yes". Code: guard() in src/scoreboard/triage.py.
+
+Applied to the full collection, the guard moves auto-no items to hand review (column guard = "moved" in outputs/tables/full_triage_<year>.csv), including TC-010 and TC-029. Of the 30 auto-no items in the first check, it moves 5 (TC-010, TC-029, TC-035, TC-042, TC-060); the other three were coded no by hand.
+
+The guard was written after the first check was scored, so that check cannot test it. It is tested on a fresh sample of 30 auto-no items decided after the guard, drawn from 2021–2023 and 2025–2026 with seed 20261023, excluding the 60 items of the first check (data/review/triage_check2_sheet.csv, key data/review/triage_check2_key.csv, IDs TC2-001 to TC2-030). Pass rule, set before that sample was drawn: at most 1 disagreement in 30. The sample has not yet been coded.

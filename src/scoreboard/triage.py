@@ -9,6 +9,8 @@ decision), with a reason. A rule is accepted only if it fires on at least MIN_FI
 precision of at least MIN_PRECISION. With the accepted rules, an item is decided when every
 accepted rule that fires agrees; items with no firing rule, or with conflicting rules, are left for
 hand review. The rules were set on the same 230 pilot items they are evaluated on (docs/triage_rules.md).
+After the accepted rules, guard() sends a "no" back to hand review when the text names DHQ and has a
+briefing or period phrase; it never produces "yes".
 
 Pilot item IDs are P2024-r<row>, the 1-based row in data/review/pilot_review_2024.csv.
 """
@@ -49,6 +51,11 @@ BODY_PERIOD = re.compile(r"\b(?:in the (?:last|past) (?:one |two |three )?weeks?
 OTHER_SOURCE = re.compile(r"\bPolice\b|\bNDLEA\b|\bEFCC\b|\bCustoms\b|\bNSCDC\b|\bImmigration\b|\bCommissioner\b", re.I)
 NON_BRIEFING_TITLE = re.compile(r"\bdenies\b|\bdebunks?\b|\bwanted\b|\bcourt\b|\bvows?\b|\bassures?\b|\bcondemns?\b|"
                                 r"\binquiry\b|\bcourt[- ]martial\b|\bwarns?\b|\bopinion\b|\beditorial\b|\btribute\b", re.I)
+# Guard for auto-no, added after the triage check (docs/triage_rules.md, "Triage check").
+GUARD_DHQ = re.compile(r"Defen[cs]e Media Operations|Defen[cs]e Headquarters|\bDHQ\b", re.I)
+GUARD_PHRASE = re.compile(r"\bbriefing|\bbi-?weekly\b|\bweekly\b|\bupdates?\b|\b(?:news|press) conference|"
+                          r"\bwithin the last\b|\bin the last\b|\bpast two weeks\b|"
+                          r"\bbetween (?:\w+ )?\d{1,2}(?:st|nd|rd|th)? and (?:\w+ )?\d{1,2}", re.I)
 
 
 @dataclass
@@ -136,6 +143,13 @@ def combine(decisions: pd.DataFrame, accepted: list[str]) -> pd.Series:
         votes = {v for v in row[accepted] if isinstance(v, str)}
         return votes.pop() if len(votes) == 1 else ""
     return decisions.apply(one, axis=1) if accepted else pd.Series("", index=decisions.index)
+
+
+def guard(item: Item, decision: str) -> str:
+    """'' (hand review) for a "no" whose text names DHQ and has a briefing or period phrase."""
+    if decision == "no" and GUARD_DHQ.search(item.text) and GUARD_PHRASE.search(item.text):
+        return ""
+    return decision
 
 
 def carry_over(tables_dir=TABLES_DIR, labels_path=FULL_LABELS) -> pd.DataFrame:

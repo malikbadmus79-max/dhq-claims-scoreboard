@@ -1,0 +1,31 @@
+check_id,year,url,decision,rules_fired,seed
+TC2-001,2023,https://dailytrust.com/community-seeks-training-of-youths-on-petroleum-industry-skills/,no,no_number_no_period; no_national_no_period,20261023
+TC2-002,2025,https://leadership.ng/police-nab-bandit-recover-ak-49-rifle-ammunition/,no,no_number_no_period; no_national_no_period,20261023
+TC2-003,2021,https://thewillnews.com/boko-haram-leaders-killed-in-alagarno-sambisa-forest-dhq/,no,no_number_no_period; no_national_no_period,20261023
+TC2-004,2026,https://thewillnews.com/dhq-us-africom-intensify-air-assaults-eliminate-over-20-isis-fighters-in-north-east/,no,no_number_no_period,20261023
+TC2-005,2026,https://gazettengr.com/20-terrorists-killed-in-borno-airstrikes-dhq/,no,no_national_no_period,20261023
+TC2-006,2026,https://thewillnews.com/plateau-killings-gov-mutfwang-briefs-tinubu-seeks-deeper-collaboration-on-jos-security/,no,no_number_no_period; no_national_no_period,20261023
+TC2-007,2021,https://dailytrust.com/police-kill-three-bandits-in-katsina/,no,no_number_no_period; no_national_no_period,20261023
+TC2-008,2022,https://leadership.ng/just-in-military-arrests-2-more-suspects-behind-ondo-church-massacre/,no,no_national_no_period,20261023
+TC2-009,2023,https://21stcenturychronicle.com/kaduna-bomb-attack-we-have-learnt-our-lesson-military-apologises-again/,no,no_number_no_period,20261023
+TC2-010,2023,https://thewillnews.com/we-take-every-civilian-death-in-cause-of-operation-as-tragedy-dhq-apologises-over-kaduna-bombing/,no,no_number_no_period,20261023
+TC2-011,2026,https://leadership.ng/katsina-steps-up-efforts-to-rescue-retired-general-wife-others/,no,no_number_no_period; no_national_no_period,20261023
+TC2-012,2026,https://leadership.ng/nis-arrests-2-suspected-kidnappers-recovers-n34m/,no,no_national_no_period,20261023
+TC2-013,2022,https://dailytrust.com/police-arrest-2-robbers-recover-bike-laptop/,no,no_number_no_period; no_national_no_period,20261023
+TC2-014,2026,https://www.channelstv.com/2026/04/09/gallant-soldiers-killed-as-troops-repel-terrorists-in-borno-attack/,no,no_number_no_period,20261023
+TC2-015,2022,https://www.channelstv.com/2022/07/18/troops-neutralise-two-terrorists-three-bandits-in-katsina-benue/,no,no_number_no_period,20261023
+TC2-016,2021,https://dailytrust.com/police-gun-down-38-bandits-in-katsina/,no,no_national_no_period,20261023
+TC2-017,2025,https://gazettengr.com/police-confirm-killing-of-naval-officer-by-hoodlum-in-kaduna/,no,no_number_no_period; no_national_no_period,20261023
+TC2-018,2022,https://www.channelstv.com/2022/08/11/two-more-iswap-terrorists-linked-to-owo-church-attack-arrested-dhq/,no,no_number_no_period; no_national_no_period,20261023
+TC2-019,2021,https://dailypost.ng/2021/01/22/troops-kill-5-boko-haram-terrorists/,no,no_number_no_period,20261023
+TC2-020,2022,https://21stcenturychronicle.com/son-pays-assassin-n110000-to-kill-father/,no,no_number_no_period; no_national_no_period,20261023
+TC2-021,2025,https://dailypost.ng/2025/07/04/troops-neutralize-bandits-in-plateau-clearance-operations/,no,no_number_no_period; no_national_no_period,20261023
+TC2-022,2021,https://blueprint.ng/group-welcomes-dhqs-skill-acquisition-training-for-retired-military-personnel/,no,no_number_no_period; no_national_no_period,20261023
+TC2-023,2025,https://thewillnews.com/five-soldiers-killed-as-troops-neutralise-six-lakurawa-terrorists-in-sokoto/,no,no_number_no_period; no_national_no_period,20261023
+TC2-024,2026,https://dailypost.ng/2026/05/20/nigerian-newspapers-10-things-you-need-to-know-wednesday-morning-129/,no,no_number_no_period; no_national_no_period,20261023
+TC2-025,2026,https://dailypost.ng/2026/06/16/prophet-el-buba-calls-for-urgent-action-to-end-killings-insecurity-in-nigeria/,no,no_number_no_period,20261023
+TC2-026,2026,https://dailypost.ng/2026/09/19/notorious-bandit-samagi-reportedly-captured-in-katsina-video/,no,no_number_no_period; no_national_no_period,20261023
+TC2-027,2025,https://21stcenturychronicle.com/military-kills-turjis-son-in-zamfara/,no,no_number_no_period,20261023
+TC2-028,2023,https://thewillnews.com/troops-neutralise-three-bandits-recover-weapons-in-zamfara/,no,no_number_no_period,20261023
+TC2-029,2025,https://thewillnews.com/troops-kill-turjis-son-other-terrorists-rescue-kidnapped-hostages-in-zamfara/,no,no_number_no_period,20261023
+TC2-030,2023,https://dailypost.ng/2023/04/29/troops-raid-gun-factory-arrest-two-recover-weapons/,no,no_number_no_period,20261023
