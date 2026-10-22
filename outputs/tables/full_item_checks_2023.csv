@@ -1,0 +1,355 @@
+url,outlet,briefing_group_id,fetch_status,api_status,text_source,body_words,nan_credit
+https://dailytrust.com/how-son-contracted-assassin-to-kill-father-over-inheritance/,Daily Trust,F2023-001,ok (text cached),,article page,115,False
+https://thewillnews.com/troops-neutralise-four-bandits-recover-weapons-in-kaduna/,TheWill,F2023-002,ok (text cached),,article page,168,False
+https://blueprint.ng/troops-of-operation-forest-sanity-neutralize-4-bandits-recover-arms-in-kaduna/,Blueprint,F2023-003,ok (text cached),,article page,194,False
+https://von.gov.ng/nigerian-troops-neutralise-terrorists-recover-arms-in-kaduna-state/,Voice of Nigeria,F2023-004,ok (text cached),,article page,182,False
+https://dailytrust.com/police-arrest-5-bandits-informant/,Daily Trust,F2023-005,ok (text cached),,article page,252,False
+https://blueprint.ng/troops-neutralize-52-terrorists-rescue-115-abducted-civilians/,Blueprint,F2023-008,ok (text cached),,article page,427,False
+https://dailypost.ng/2023/01/12/defence-headquarters-confirm-troops-eliminated-over-50-terrorists/,Daily Post,F2023-006,ok (text cached),,article page,387,False
+https://gazettengr.com/troops-eliminated-over-50-terrorists-in-three-weeks-dhq/,Gazette,F2023-006,ok (text cached),,article page,631,True
+https://thewillnews.com/over-50-terrorists-killed-in-three-weeks-dhq/,TheWill,F2023-006,ok (text cached),,article page,644,False
+https://von.gov.ng/troops-of-operation-hadin-kai-neutralise-over-forty-terrorists/,Voice of Nigeria,F2023-007,ok (text cached),,article page,980,False
+https://21stcenturychronicle.com/dhq-troops-rescue-115-kidnapped-civilians/,21st Century Chronicle,F2023-008,ok,,article page,312,False
+https://blueprint.ng/how-troops-neutralised-scores-of-terrorists-rescued-115-abductees-in-3-weeks-defence-headquarters/,Blueprint,F2023-008,ok (text cached),,article page,421,False
+https://21stcenturychronicle.com/10-terrorists-killed-in-katsina-kebbi-zamfara/,21st Century Chronicle,F2023-009,ok,,article page,216,False
+https://leadership.ng/troops-kill-10-terrorists-in-kebbi-zamfara/,Leadership,F2023-009,ok (text cached),,article page,275,False
+https://blueprint.ng/troops-neutralize-144-terrorists-arrest-115-in-2-weeks-dhq/,Blueprint,F2023-010,ok (text cached),,article page,282,False
+https://nannews.ng/military-destroys-39-illegal-refineries-apprehends-oil-thieves-vandals/,News Agency of Nigeria,F2023-012,ok (text cached),,article page,317,True
+https://www.premiumtimesng.com/news/more-news/578070-nigerian-military-destroys-39-illegal-refineries-apprehends-oil-thieves-vandals.html,Premium Times,F2023-012,JS challenge page,ok,WordPress API,324,False
+https://von.gov.ng/troops-of-operation-safe-haven-rescue-over-60-kidnapped-civilians/,Voice of Nigeria,F2023-011,ok (text cached),,article page,377,False
+https://dailypost.ng/2023/01/27/military-destroys-39-illegal-refineries-arrest-oil-thieves/,Daily Post,F2023-012,ok (text cached),,article page,223,False
+https://dailytrust.com/troops-neutralise-84-terrorists-in-ne-nw-rescue-122-victims-in-2-weeks/,Daily Trust,F2023-013,ok (text cached),,article page,577,True
+https://leadership.ng/troops-arrest-2-gunrunners-recover-6-ak-47-rifles-in-katsina/,Leadership,F2023-014,ok (text cached),,article page,171,False
+https://thewillnews.com/troops-arrest-2-gunrunners-in-katsina/,TheWill,F2023-015,ok (text cached),,article page,139,False
+https://leadership.ng/troops-arrest-2-gunrunners-recover-rifles-in-kaduna/,Leadership,F2023-016,ok (text cached),,article page,121,False
+https://21stcenturychronicle.com/troops-kill-77-terrorists-in-2-weeks/,21st Century Chronicle,F2023-019,ok,,article page,558,False
+https://blueprint.ng/troops-neutralize-87-terrorists-rescue-59-civilians/,Blueprint,F2023-017,ok (text cached),,article page,375,False
+https://dailypost.ng/2023/02/09/nigerian-army-kills-4-ipob-members/,Daily Post,F2023-018,ok (text cached),,article page,192,False
+https://dailytrust.com/troops-killed-77-terrorists-in-northern-nigeria-in-14-days-dhq/,Daily Trust,F2023-019,ok (text cached),,article page,608,True
+https://leadership.ng/340-surrender-as-troops-kill-77-terrorists-arrest-41-suspects-dhq/,Leadership,F2023-019,ok (text cached),,article page,356,False
+https://nannews.ng/military-destroys-40-illegal-refining-sites-apprehends-53-suspects/,News Agency of Nigeria,F2023-020,ok (text cached),,article page,789,True
+https://nannews.ng/troops-neutralised-77-terrorists-in-2-weeks/,News Agency of Nigeria,F2023-019,ok (text cached),,article page,591,True
+https://thewillnews.com/troops-neutralise-77-terror-suspects-arrest-41-dhq/,TheWill,F2023-019,ok (text cached),,article page,362,False
+https://dailytrust.com/troops-destroy-40-illegal-refining-sites-arrest-53/,Daily Trust,F2023-020,ok (text cached),,article page,318,True
+https://21stcenturychronicle.com/military-kills-over-100-terrorists-in-2-weeks-dhq/,21st Century Chronicle,F2023-024,ok,,article page,450,True
+https://blueprint.ng/troops-arrest-mastermind-of-abuja-kaduna-train-attack/,Blueprint,F2023-021,ok (text cached),,article page,384,False
+https://dailypost.ng/2023/02/23/army-arrests-mastermind-of-abuja-kaduna-train-attack/,Daily Post,F2023-022,ok (text cached),,article page,273,False
+https://dailytrust.com/dhq-how-we-arrested-recovered-5000-from-mastermind-of-abuja-kaduna-train-attack/,Daily Trust,F2023-023,ok (text cached),,article page,323,False
+https://dailytrust.com/over-100-terrorists-killed-in-2-weeks-dhq/,Daily Trust,F2023-024,ok (text cached),,article page,495,True
+https://nannews.ng/military-apprehends-mastermind-of-abuja-kaduna-train-attack/,News Agency of Nigeria,F2023-025,ok (text cached),,article page,281,True
+https://thewillnews.com/dss-makes-key-arrests-declares-readiness-for-elections/,TheWill,F2023-026,ok (text cached),,article page,1177,False
+https://leadership.ng/252-terrorists-surrender-troops-kill-69-arrest-71-dhq/,Leadership,F2023-027,ok (text cached),,article page,640,False
+https://blueprint.ng/troops-neutralize-two-terrorists-rescue-kidnapped-victims-in-niger/,Blueprint,F2023-028,ok (text cached),,article page,118,False
+https://von.gov.ng/troops-neutralise-terrorist-rescue-kidnapped-victims/,Voice of Nigeria,F2023-029,ok (text cached),,article page,130,False
+https://blueprint.ng/troops-foil-terrorists-plans-to-disrupt-presidential-nass-elections-dhq/,Blueprint,F2023-030,ok (text cached),,article page,434,False
+https://leadership.ng/troops-arrest-35-terrorists-kill-21-as-1332-surrender/,Leadership,F2023-032,ok (text cached),,article page,474,False
+https://nannews.ng/1332-terrorists-families-surrender-to-troops/,News Agency of Nigeria,F2023-032,ok (text cached),,article page,395,True
+https://von.gov.ng/over-1330-terrorists-surrender-to-troops-of-operation-hadin-kai/,Voice of Nigeria,F2023-031,ok (text cached),,article page,781,False
+https://leadership.ng/troops-arrest-35-terrorists-kill-21/,Leadership,F2023-032,ok (text cached),,article page,472,False
+https://www.channelstv.com/2023/03/18/viral-video-doguwa-fired-ak-47-in-falgore-forest-says-dhq/,Channels TV,F2023-033,ok (text cached),,article page,436,False
+https://21stcenturychronicle.com/107-illegal-refineries-destroyed-46-terrorists-killed-dhq/,21st Century Chronicle,F2023-036,ok,,article page,698,False
+https://blueprint.ng/troops-neutralize-45-terrorists-rescued-119-kidnapped-victims/,Blueprint,F2023-035,ok (text cached),,article page,385,False
+https://www.channelstv.com/2023/03/23/military-rescues-201-kidnap-victims-in-borno-kaduna/,Channels TV,F2023-034,ok (text cached),,article page,253,False
+https://nannews.ng/troops-eliminate-46-terrorists-apprehend-50-in-2-weeks-dhq/,News Agency of Nigeria,F2023-036,ok (text cached),,article page,666,True
+https://blueprint.ng/how-troops-neutralised-45-terrorists-rescued-119-kidnap-victims-official/,Blueprint,F2023-035,ok (text cached),,article page,1238,False
+https://leadership.ng/military-arrests-9-oil-thieves-deactivates-107-illegal-refineries/,Leadership,F2023-036,ok (text cached),,article page,459,False
+https://leadership.ng/troops-kill-35-terrorists-arrest-46-logistics-suppliers-rescue-220-civilians/,Leadership,F2023-036,ok (text cached),,article page,630,False
+https://www.premiumtimesng.com/news/top-news/589863-nigerian-troops-eliminate-46-terrorists-apprehend-50-others-dhq.html,Premium Times,F2023-036,JS challenge page,ok,WordPress API,683,False
+https://von.gov.ng/army-ends-2023-refresher-training-course/,Voice of Nigeria,F2023-037,ok (text cached),,article page,285,False
+https://leadership.ng/troops-kill-5-terrorists-recover-weapons-in-kaduna/,Leadership,F2023-038,ok (text cached),,article page,178,False
+https://leadership.ng/troops-kill-5-terrorists-recover-weapons-in-kaduna-2/,Leadership,F2023-039,ok (text cached),,article page,152,False
+https://von.gov.ng/troops-neutralize-11-terrorists-in-kaduna-state/,Voice of Nigeria,F2023-040,ok (text cached),,article page,159,False
+https://gazettengr.com/11-terrorists-killed-weapons-seized-in-kaduna-defence-headquarters/,Gazette,F2023-040,ok (text cached),,article page,141,True
+https://www.premiumtimesng.com/news/top-news/591442-nigerian-soldiers-battle-terrorists-kill-11-official.html,Premium Times,F2023-040,JS challenge page,ok,WordPress API,178,True
+https://21stcenturychronicle.com/troops-kill-53-terrorists-rescue-118-victims-dhq/,21st Century Chronicle,F2023-045,ok,,article page,517,True
+https://blueprint.ng/troops-neutralize-45-terrorists-rescue-97-kidnapped-civilians/,Blueprint,F2023-044,ok (text cached),,article page,453,False
+https://www.channelstv.com/2023/04/06/troops-neutralize-48-terrorists-as-974-others-surrender/,Channels TV,F2023-041,ok (text cached),,article page,1162,False
+https://dailytrust.com/troops-killed-53-terrorists-rescued-118-victims-in-2-weeks-dhq/,Daily Trust,F2023-045,ok (text cached),,article page,566,True
+https://gazettengr.com/troops-eliminated-53-terrorists-rescued-118-victims-in-2-weeks-dhq/,Gazette,F2023-045,ok (text cached),,article page,516,True
+https://www.premiumtimesng.com/news/more-news/592086-military-destroys-50-illegal-refining-sites-in-niger-delta-dhq.html,Premium Times,F2023-042,JS challenge page,ok,WordPress API,421,True
+https://thewillnews.com/troops-kill-53-terrorists-rescue-118-abducted-victims-dhq/,TheWill,F2023-045,ok (text cached),,article page,530,False
+https://von.gov.ng/nigerian-military-neutralises-over-28-terrorists-recover-arms/,Voice of Nigeria,F2023-043,ok (text cached),,article page,992,False
+https://von.gov.ng/nigerian-military-neutralizes-over-28-terrorists-recover-arms/,Voice of Nigeria,F2023-043,ok (text cached),,article page,384,False
+https://leadership.ng/troops-kill-45-terrorists-arrest-59/,Leadership,F2023-044,ok,,article page,410,False
+https://www.premiumtimesng.com/news/top-news/592144-nigerian-military-eliminates-53-terrorists-in-two-weeks-dhq.html,Premium Times,F2023-045,JS challenge page,ok,WordPress API,534,False
+https://dailypost.ng/2023/04/10/troops-neutralize-bandits-recover-arms-ammunition-2/,Daily Post,F2023-046,ok (text cached),,article page,147,False
+https://leadership.ng/troops-kill-3-terrorists-recover-arms-in-katsina-zamfara/,Leadership,F2023-047,ok (text cached),,article page,201,False
+https://www.premiumtimesng.com/news/more-news/592628-police-kill-suspected-kidnapper-in-adamawa-rescue-2-victims.html,Premium Times,F2023-048,JS challenge page,ok,WordPress API,250,False
+https://leadership.ng/troops-kill-terrorists-arrest-errand-boy-with-1000-ammos-in-kaduna/,Leadership,F2023-049,ok (text cached),,article page,209,False
+https://leadership.ng/troops-intercept-driver-with-arms-ammunition-in-kaduna/,Leadership,F2023-050,ok (text cached),,article page,167,False
+https://von.gov.ng/nigerian-troops-arrest-suspected-bandit-recover-arms/,Voice of Nigeria,F2023-051,ok (text cached),,article page,139,False
+https://blueprint.ng/troops-neutralize-54-terrorists-rescue-216-civilians/,Blueprint,F2023-053,ok,,article page,386,False
+https://leadership.ng/military-denies-supporting-herders-killings-in-benue/,Leadership,F2023-052,ok (text cached),,article page,1012,False
+https://leadership.ng/troops-kill-54-terrorists-rescue-216-civilians-as-501-surrender-in-2-weeks-dhq/,Leadership,F2023-053,ok (text cached),,article page,463,False
+https://www.premiumtimesng.com/news/headlines/594371-nigerian-military-kills-54-terrorists-rescues-over-400-victims-dhq.html,Premium Times,F2023-053,JS challenge page,ok,WordPress API,537,True
+https://nannews.ng/troops-rescue-468-victims-eliminate-54-terrorists-in-2-weeks-dhq/,News Agency of Nigeria,F2023-053,ok (text cached),,article page,531,True
+https://dailypost.ng/2023/04/23/troops-kill-7-bandits-in-zamfara/,Daily Post,F2023-054,ok (text cached),,article page,163,False
+https://dailypost.ng/2023/04/24/troops-arrest-seven-suspected-bandits-recover-arms-ammunition-in-zamfara/,Daily Post,F2023-055,ok (text cached),,article page,161,False
+https://dailytrust.com/2-minors-detained-for-killing-boy-in-gombe/,Daily Trust,F2023-056,ok (text cached),,article page,250,False
+https://dailypost.ng/2023/04/29/troops-raid-gun-factory-arrest-two-recover-weapons/,Daily Post,F2023-057,ok (text cached),,article page,131,False
+https://dailytrust.com/gunrunners-nabbed-in-taraba/,Daily Trust,F2023-058,ok (text cached),,article page,181,True
+https://leadership.ng/troops-raid-gun-factory-arrest-suspected-gunrunners-in-taraba/,Leadership,F2023-059,ok (text cached),,article page,194,False
+https://21stcenturychronicle.com/soldiers-arrest-gun-runners-in-taraba/,21st Century Chronicle,F2023-060,ok,,article page,131,False
+https://blueprint.ng/troops-arrest-gunrunners-recover-weapons-in-taraba/,Blueprint,F2023-061,ok (text cached),,article page,143,False
+https://blueprint.ng/troops-neutralize-3-bandits-recover-arms-ammunitions/,Blueprint,F2023-062,ok (text cached),,article page,123,False
+https://dailypost.ng/2023/04/30/troops-neutralize-three-bandits-recover-arms-ammunition-in-zamfara/,Daily Post,F2023-063,ok (text cached),,article page,128,False
+https://dailytrust.com/troops-kill-3-bandits-recover-weapons-in-zamfara/,Daily Trust,F2023-064,ok (text cached),,article page,174,True
+https://leadership.ng/troops-raid-gun-factory-arrest-suspected-gunrunners-in-taraba-2/,Leadership,F2023-065,ok (text cached),,article page,192,False
+https://thewillnews.com/troops-neutralise-three-bandits-recover-weapons-in-zamfara/,TheWill,F2023-066,ok (text cached),,article page,115,False
+https://blueprint.ng/troops-neutralize-70-terrorists-rescue-2-chibok-girls-158-others-in-2-weeks-dhq/,Blueprint,F2023-067,ok (text cached),,article page,429,False
+https://gazettengr.com/we-rescued-two-additional-chibok-girls-131-abductees-in-two-weeks-dhq/,Gazette,F2023-068,ok (text cached),,article page,410,True
+https://leadership.ng/troops-kill-65-terrorists-arrest-63-rescue-135-captives-dhq/,Leadership,F2023-070,ok (text cached),,article page,698,False
+https://www.premiumtimesng.com/news/top-news/596744-troops-eliminate-30-terrorists-apprehend-48.html,Premium Times,F2023-069,JS challenge page,ok,WordPress API,340,False
+https://thewillnews.com/troops-neutralise-65-terrorists-arrest-63-dhq/,TheWill,F2023-070,ok (text cached),,article page,612,False
+https://leadership.ng/troops-kill-65-terrorists-arrest-63-rescue-135-civilians/,Leadership,F2023-070,ok (text cached),,article page,664,False
+https://blueprint.ng/troops-neutralize-26-terrorists-apprehend-25-logistics-suppliers/,Blueprint,F2023-071,ok (text cached),,article page,384,False
+https://www.channelstv.com/2023/05/18/511-boko-haram-terrorists-surrender-troops-rescue-chibok-girl-dhq/,Channels TV,F2023-072,ok (text cached),,article page,303,False
+https://gazettengr.com/troops-destroyed-38-refineries-apprehended-29-oil-thieves-in-two-weeks-dhq/,Gazette,F2023-073,ok (text cached),,article page,326,True
+https://leadership.ng/plateau-attack-dhq-seeks-cooperation-to-end-killings/,Leadership,F2023-074,ok (text cached),,article page,447,False
+https://leadership.ng/troops-kill-46-arrest-89-terrorists-logistics-suppliers/,Leadership,F2023-075,ok (text cached),,article page,352,False
+https://thewillnews.com/troops-destroy-38-illegal-refineries-apprehend-29-oil-thieves-dhq/,TheWill,F2023-073,ok (text cached),,article page,324,True
+https://dailypost.ng/2023/06/01/troops-destroy-47-refineries-arrest-65-suspects/,Daily Post,F2023-078,ok (text cached),,article page,337,False
+https://gazettengr.com/troops-eliminated-58-terrorists-apprehended-161-others-in-two-weeks-dhq/,Gazette,F2023-077,ok (text cached),,article page,372,True
+https://leadership.ng/troops-arrest-65-oil-thieves-confiscate-n600m-worth-of-stolen-products/,Leadership,F2023-078,ok (text cached),,article page,340,False
+https://leadership.ng/troops-rescue-16-civilians-from-terrorists-enclave-kill-26-arrests-24/,Leadership,F2023-076,ok (text cached),,article page,574,False
+https://www.premiumtimesng.com/news/top-news/601960-nigerian-military-eliminates-58-terrorists-apprehends-161-others-official.html,Premium Times,F2023-077,JS challenge page,ok,WordPress API,370,False
+https://www.premiumtimesng.com/news/top-news/601979-military-troops-destroy-47-illegal-refineries-apprehend-65-suspects-dhq.html,Premium Times,F2023-078,JS challenge page,ok,WordPress API,377,False
+https://thewillnews.com/troops-arrest-65-oil-thieves-recover-186000-litres-of-stolen-crude/,TheWill,F2023-078,ok (text cached),,article page,310,False
+https://21stcenturychronicle.com/suicide-bomber-arrested-in-borno/,21st Century Chronicle,F2023-079,ok,,article page,253,False
+https://blueprint.ng/troops-neutralise-51-terrorists-arrest-63-in-2-weeks/,Blueprint,F2023-080,ok (text cached),,article page,387,False
+https://leadership.ng/dhq-proposes-political-solution-to-benue-killings/,Leadership,F2023-081,ok (text cached),,article page,292,False
+https://leadership.ng/troops-arrest-65-oil-thieves-confiscate-186000-litres-of-crude-oil/,Leadership,F2023-078,ok (text cached),,article page,340,False
+https://leadership.ng/troops-kill-3-terrorists-recover-weapons-in-kaduna/,Leadership,F2023-082,ok (text cached),,article page,154,False
+https://dailypost.ng/2023/06/07/troops-neutralise-four-bandits-recover-arms-ammunition-in-zamfara/,Daily Post,F2023-083,ok (text cached),,article page,180,False
+https://leadership.ng/troops-kill-4-terrorists-recover-weapons-in-zamfara/,Leadership,F2023-084,ok (text cached),,article page,154,False
+https://dailypost.ng/2023/06/10/troops-neutralise-six-bandits-recover-arms-ammunition-in-kaduna/,Daily Post,F2023-085,ok,,article page,172,False
+https://leadership.ng/troops-kill-6-terrorists-recover-arms-in-kaduna/,Leadership,F2023-086,ok (text cached),,article page,177,False
+https://thewillnews.com/troops-neutralise-six-terrorists-recover-arms-in-kaduna/,TheWill,F2023-087,ok (text cached),,article page,144,False
+https://dailypost.ng/2023/06/11/gunmen-abduct-two-bauchi-rulers-kill-one-person/,Daily Post,F2023-088,ok (text cached),,article page,301,False
+https://leadership.ng/troops-kill-6-terrorists-recover-arms-in-kaduna-2/,Leadership,F2023-089,ok (text cached),,article page,173,False
+https://www.channelstv.com/2023/06/12/troops-kill-three-bandits-recover-arms-in-zamfara/,Channels TV,F2023-090,ok (text cached),,article page,170,False
+https://leadership.ng/troops-kill-3-terrorists-recover-arms-in-zamfara/,Leadership,F2023-091,ok,,article page,156,False
+https://dailytrust.com/troops-eliminate-42-bandits-apprehend-96-others/,Daily Trust,F2023-092,ok (text cached),,WordPress API,314,True
+https://nannews.ng/several-terrorists-killed-others-apprehended-in-2-weeks-dhq/,News Agency of Nigeria,F2023-093,ok (text cached),,article page,364,True
+https://blueprint.ng/troops-neutralise-58-terrorists-arrest-40-logistics-suppliers-57-illegal-crude-refining-sites-destroyed/,Blueprint,F2023-094,ok (text cached),,article page,493,False
+https://leadership.ng/58-terrorists-killed-57-arrested-743-surrender-says-dhq/,Leadership,F2023-094,ok,,article page,484,False
+https://leadership.ng/troops-destroy-57-illegal-refineries-arrest-16-suspects/,Leadership,F2023-094,ok,,article page,260,False
+https://dailytrust.com/ndlea-in-12-months-we-arrested-463-suspects-convicted-42-in-edo/,Daily Trust,F2023-095,ok (text cached),,article page,316,False
+https://blueprint.ng/kogi-2023-igala-bassa-nationalities-storm-dhq-protest-ethnic-cleansing/,Blueprint,F2023-096,ok (text cached),,article page,423,False
+https://dailytrust.com/butcher-murdered-over-alleged-blasphemy-buried-in-sokoto/,Daily Trust,F2023-097,ok (text cached),,article page,434,False
+https://leadership.ng/ndlea-arrests-463-suspects-convicts-42-in-edo/,Leadership,F2023-095,ok,,article page,300,False
+https://leadership.ng/military-destroys-30-illegal-refineries-arrests-42-suspects-in-3-weeks/,Leadership,F2023-100,ok,,article page,238,False
+https://leadership.ng/troops-kill-terrorist-cammander-5-others-crossing-into-nigeria-from-cameroon/,Leadership,F2023-098,ok,,article page,270,False
+https://www.premiumtimesng.com/news/top-news/608406-nigerian-military-eliminates-35-terrorists-apprehends-others.html,Premium Times,F2023-099,JS challenge page,ok,WordPress API,282,False
+https://blueprint.ng/troops-neutralise-43-terrorists-nab-39-collaborators-967-surrender/,Blueprint,F2023-101,ok (text cached),,article page,658,False
+https://leadership.ng/military-destroys-30-illegal-refineries-arrest-42-suspects/,Leadership,F2023-100,ok,,article page,254,False
+https://leadership.ng/troops-kill-51-terrorists-arrest-168-others/,Leadership,F2023-102,ok,,article page,557,False
+https://leadership.ng/troops-kill-terrorist-commander-5-others/,Leadership,F2023-103,ok,,article page,243,False
+https://dailypost.ng/2023/07/20/troops-knock-out-several-terrorists-bandits-in-ground-air-operations/,Daily Post,F2023-104,ok (text cached),,article page,375,False
+https://gazettengr.com/troops-eliminated-several-terrorists-bandits-in-ground-air-operations-dhq/,Gazette,F2023-105,ok (text cached),,article page,457,True
+https://leadership.ng/troops-kill-6-arrest-high-profile-terrorist-collaborator-suri-7-others-in-borno/,Leadership,F2023-106,ok,,article page,182,False
+https://www.premiumtimesng.com/news/top-news/610856-troops-neutralise-several-terrorists-bandits-in-ground-air-operations-dhq.html,Premium Times,F2023-107,JS challenge page,ok,WordPress API,465,False
+https://thewillnews.com/six-killed-as-troops-arrest-high-profile-terrorist-collaborator-suri-7-others-in-borno/,TheWill,F2023-108,ok (text cached),,WordPress API,148,False
+https://blueprint.ng/troops-gear-for-war-eliminate-23-terrorists-nab-72-collaborators/,Blueprint,F2023-109,ok (text cached),,article page,1207,False
+https://leadership.ng/mt-tura-11-destroyed-in-line-with-operating-procedure-dhq/,Leadership,F2023-110,ok,,article page,457,False
+https://leadership.ng/troops-kill-21-arrest-40-terrorists-collaborators/,Leadership,F2023-111,ok,,article page,563,False
+https://nannews.ng/troops-knock-out-several-terrorists-bandits-in-ground-air-operations-dhq/,News Agency of Nigeria,F2023-112,ok (text cached),,article page,465,True
+https://blueprint.ng/troops-neutralize-59-terrorists-rescue-88/,Blueprint,F2023-113,ok (text cached),,article page,206,False
+https://gazettengr.com/military-neutralised-59-terrorists-apprehended-88-dhq/,Gazette,F2023-113,ok (text cached),,article page,840,True
+https://leadership.ng/just-in-troops-kill-59-terrorists-rescue-88-hostages/,Leadership,F2023-113,ok,,article page,236,False
+https://nannews.ng/military-neuralises-59-terrorists-apprehends-88-dhq/,News Agency of Nigeria,F2023-113,ok (text cached),,article page,846,True
+https://www.premiumtimesng.com/news/top-news/612566-nigerian-military-neuralises-59-terrorists-apprehends-88-criminals-dhq.html,Premium Times,F2023-113,JS challenge page,ok,WordPress API,852,True
+https://dailypost.ng/2023/07/29/troops-arrest-dismissed-soldier-recover-weapons/,Daily Post,F2023-114,ok (text cached),,article page,187,False
+https://blueprint.ng/troops-neutralize-36-terrorists-arrest-137-rescue-140-hostages-dhq/,Blueprint,F2023-115,ok (text cached),,article page,440,False
+https://dailypost.ng/2023/08/03/military-neutralises-36-terrorists-arrests-163-criminals/,Daily Post,F2023-115,ok (text cached),,article page,311,False
+https://leadership.ng/troops-kill-36-terrorists-arrests-163-rescue-140-hostages-in-2-weeks/,Leadership,F2023-115,ok,,article page,341,False
+https://nannews.ng/military-neutralises-36-terrorists-arrests-163-criminals-dhq/,News Agency of Nigeria,F2023-115,ok (text cached),,article page,703,True
+https://nannews.ng/troops-destroy-36-illegal-refining-sites-apprehend-22-suspects/,News Agency of Nigeria,F2023-115,ok (text cached),,WordPress API,348,True
+https://www.premiumtimesng.com/news/top-news/613984-nigeria-military-neutralises-36-terrorists-arrests-163-criminals-dhq.html,Premium Times,F2023-115,JS challenge page,ok,WordPress API,711,True
+https://thewillnews.com/troops-destroy-36-illegal-refining-sites-arrest-suspects/,TheWill,F2023-115,ok (text cached),,article page,286,False
+https://dailypost.ng/2023/08/07/nscdc-arrests-two-suspected-cattle-rustlers-in-jigawa/,Daily Post,F2023-116,ok (text cached),,article page,185,False
+https://dailytrust.com/nscdc-nabs-suspected-rustlers-in-jigawa/,Daily Trust,F2023-117,ok (text cached),,article page,288,False
+https://21stcenturychronicle.com/military-kills-38-terrorists-arrests-242-others-dhq/,21st Century Chronicle,F2023-118,request failed,ok,WordPress API,643,False
+https://blueprint.ng/troops-neutralize-38-terrorists-arrest-175-gunmen/,Blueprint,F2023-118,ok (text cached),,article page,338,False
+https://leadership.ng/troops-kill-38-terrorists-rescue-89-hostages-arrests-collaborators/,Leadership,F2023-118,ok,,article page,454,False
+https://nannews.ng/military-eliminates-38-terrorists-apprehends-242-suspects-dhq/,News Agency of Nigeria,F2023-118,ok (text cached),,article page,654,True
+https://www.premiumtimesng.com/news/top-news/615671-nigerian-soldiers-kill-38-terrorists-apprehend-242-suspects-dhq.html,Premium Times,F2023-118,JS challenge page,ok,WordPress API,663,False
+https://thewillnews.com/over-80-hostages-rescued-as-troops-neutralise-38-terrorists-arrest-175-gunmen/,TheWill,F2023-118,ok (text cached),,article page,403,False
+https://gazettengr.com/military-killed-38-terrorists-apprehended-175-gunmen-in-one-week-dhq/,Gazette,F2023-118,ok (text cached),,article page,545,True
+https://leadership.ng/89-hostages-rescued-as-troops-kill-38-terrorists-arrest-205/,Leadership,F2023-118,ok,,article page,224,False
+https://21stcenturychronicle.com/bandits-kill-three-officers-22-soldiers-in-niger-military/,21st Century Chronicle,F2023-122,request failed,HTTP 500,,0,False
+https://blueprint.ng/breaking-not-21-military-reveals-exact-number-of-soldiers-killed-in-niger-terrorists-attack/,Blueprint,F2023-119,ok (text cached),,article page,154,False
+https://blueprint.ng/troops-neutralize-28-terrorists-arrest-92-others/,Blueprint,F2023-123,ok (text cached),,article page,559,False
+https://blueprint.ng/we-lost-36-personnel-in-niger-ambush-helicopter-crash-dhq/,Blueprint,F2023-123,ok (text cached),,article page,481,False
+https://www.channelstv.com/2023/08/17/breaking-36-military-officers-killed-in-niger-state-says-dhq/,Channels TV,F2023-123,ok (text cached),,article page,155,False
+https://dailypost.ng/2023/08/17/36-military-officers-killed-in-niger-dhq/,Daily Post,F2023-123,ok (text cached),,article page,143,False
+https://dailypost.ng/2023/08/17/military-kills-28-terrorists-apprehends-113-others-rescues-82-hostages-dhq/,Daily Post,F2023-123,ok (text cached),,article page,191,False
+https://dailytrust.com/just-in-military-reveals-number-of-troops-killed-by-terrorists-in-niger/,Daily Trust,F2023-120,ok (text cached),,article page,539,False
+https://gazettengr.com/military-neutralised-28-terrorists-rescued-82-hostages-in-two-weeks-dhq/,Gazette,F2023-123,ok (text cached),,article page,627,True
+https://gazettengr.com/terrorists-ambushed-killed-36-military-officers-in-niger-dhq-says/,Gazette,F2023-123,ok (text cached),,article page,287,False
+https://leadership.ng/just-in-3-officers-22-soldiers-killed-in-niger-ambush-dhq/,Leadership,F2023-122,ok,,article page,164,False
+https://leadership.ng/troops-kill-28-terrorists-arrest-114-rescue-82-hostages-dhq/,Leadership,F2023-123,ok,,article page,466,False
+https://thewillnews.com/we-lost-36-officers-in-niger-dhq/,TheWill,F2023-121,ok (text cached),,article page,212,False
+https://dailytrust.com/military-says-3-officers-22-soldiers-killed-by-terrorists-in-niger/,Daily Trust,F2023-122,ok (text cached),,article page,257,False
+https://leadership.ng/troops-kill-28-terrorists-lost-36-personnel-aircraft-in-niger-dhq/,Leadership,F2023-123,ok,,article page,749,False
+https://nannews.ng/3-officers-22-soldiers-killed-in-niger-ambush-says-dhq/,News Agency of Nigeria,F2023-122,ok (text cached),,article page,407,True
+https://nannews.ng/military-neutralise-28-terrorists-apprehend-113-others-rescue-82-hostages-dhq/,News Agency of Nigeria,F2023-123,ok (text cached),,article page,632,True
+https://www.premiumtimesng.com/news/top-news/616671-nigerian-military-neutralises-28-terrorists-apprehend-113-others-dhq.html,Premium Times,F2023-123,JS challenge page,ok,WordPress API,639,True
+https://www.premiumtimesng.com/regional/north-central/616667-how-36-officers-soldiers-were-killed-in-niger-ambush-helicopter-crash-dhq.html,Premium Times,F2023-123,JS challenge page,ok,WordPress API,416,True
+https://blueprint.ng/troops-neutralize-23-terrorists-rescue-41-hostages-dhq/,Blueprint,F2023-125,ok (text cached),,article page,674,False
+https://www.channelstv.com/2023/08/25/coas-present-as-22-military-personnel-killed-in-niger-set-for-burial/,Channels TV,F2023-124,ok (text cached),,article page,173,False
+https://dailypost.ng/2023/08/25/tears-as-nigerian-military-buries-22-officers-killed-in-niger/,Daily Post,F2023-124,ok (text cached),,article page,133,False
+https://thewillnews.com/military-buries-22-officers-killed-in-helicopter-crash-combat-in-niger/,TheWill,F2023-124,ok (text cached),,article page,181,False
+https://dailypost.ng/2023/08/26/troops-neutralise-23-terrorists-apprehend-137-suspects-rescue-41/,Daily Post,F2023-125,ok (text cached),,article page,300,False
+https://dailytrust.com/military-neutralises-23-terrorists-apprehends-137-suspects-rescues-41-dhq/,Daily Trust,F2023-125,ok (text cached),,article page,348,True
+https://gazettengr.com/military-neutralised-23-terrorists-apprehended-137-suspects-rescued-41-in-nine-weeks-dhq/,Gazette,F2023-125,ok,,article page,302,True
+https://www.premiumtimesng.com/news/headlines/617922-nigerian-military-kills-23-terrorists-apprehends-137-suspects.html,Premium Times,F2023-125,JS challenge page,ok,WordPress API,321,False
+https://blueprint.ng/nigerian-military-kills-23-terrorists-nab-137-suspects/,Blueprint,F2023-125,ok (text cached),,article page,306,False
+https://blueprint.ng/troops-neutralise-39-terrorists-arrest-157-others-dhq/,Blueprint,F2023-126,ok (text cached),,article page,452,False
+https://dailytrust.com/39-terrorists-killed-159-arrested-in-borno-yobe-others/,Daily Trust,F2023-126,ok (text cached),,article page,585,False
+https://gazettengr.com/troops-neutralised-39-terrorists-arrested-157-rescued-109-hostages-in-two-weeks-dhq/,Gazette,F2023-126,ok (text cached),,article page,420,True
+https://leadership.ng/troops-kill-39-terrorists-arrest-157-rescue-109-hostages/,Leadership,F2023-126,ok,,article page,326,False
+https://blueprint.ng/troops-kill-814-terrorists-arrest-1326-criminals-in-3-month/,Blueprint,F2023-127,ok (text cached),,article page,331,False
+https://dailytrust.com/dhq-troops-eliminated-817-terrorists-apprehended-1326-suspects-in-3-months/,Daily Trust,F2023-127,ok (text cached),,article page,681,True
+https://leadership.ng/troops-kill-814-terrorists-arrest-1903-in-3-months-dhq/,Leadership,F2023-127,ok,,article page,673,False
+https://www.premiumtimesng.com/news/top-news/620149-nigerian-military-eliminates-817-terrorists-apprehends-1326-suspects-dhq.html,Premium Times,F2023-127,JS challenge page,ok,WordPress API,786,True
+https://blueprint.ng/troops-kill-814-terrorists-arrest-1326-criminals-in-3-months-rescue-721-kidnap-victims-recover-over-6m-litres-of-crude/,Blueprint,F2023-127,ok (text cached),,article page,760,False
+https://dailytrust.com/troops-eliminated-817-terrorists-arrested-1326-in-3-months-dhq/,Daily Trust,F2023-127,ok (text cached),,article page,508,True
+https://leadership.ng/troops-kill-814-terrorists-arrest-1903-in-3-months/,Leadership,F2023-127,ok,,article page,507,False
+https://21stcenturychronicle.com/military-kills-151-terrorists-arrests-456-in-2-weeks-dhq/,21st Century Chronicle,F2023-129,HTTP 500,HTTP 500,,0,False
+https://blueprint.ng/troops-neutralise-151-terrorists-arrest-456-in-1-week76-hostages-rescued-oil-thieves-denied-n1bn-crude/,Blueprint,F2023-129,ok (text cached),,article page,451,False
+https://dailypost.ng/2023/09/14/military-neutralises-151-terrorists-apprehends-456-in-2-weeks-defence-headquarters/,Daily Post,F2023-129,ok (text cached),,article page,368,True
+https://dailytrust.com/151-terrorists-killed-456-apprehended-in-2-weeks-military/,Daily Trust,F2023-129,ok (text cached),,article page,411,True
+https://gazettengr.com/military-destroyed-89-illegal-refining-sites-in-two-weeks-dhq/,Gazette,F2023-128,ok (text cached),,article page,264,True
+https://leadership.ng/troops-kill-151-terrorists-arrest-456-rescue-76-kidnap-victims/,Leadership,F2023-129,ok,,article page,337,False
+https://www.premiumtimesng.com/news/top-news/625567-nigerian-armed-forces-kill-151-terrorists-apprehend-456-dhq.html,Premium Times,F2023-129,JS challenge page,ok,WordPress API,378,True
+https://thewillnews.com/over-400-suspects-arrested-as-troops-kill-151-terrorists-rescue-76-kidnap-victims/,TheWill,F2023-129,ok (text cached),,article page,314,False
+https://nannews.ng/military-neutralises-151-terrorists-apprehends-456-in-2-weeks-dhq/,News Agency of Nigeria,F2023-129,ok (text cached),,article page,359,True
+https://dailypost.ng/2023/09/19/non-kinetic-operations-yielding-results-bandits-surrendering-army/,Daily Post,F2023-130,ok (text cached),,article page,217,False
+https://blueprint.ng/imo-dhq-nscdc-npf-mum-as-gunmen-kill-8-soldiers-cops-civil-defenders/,Blueprint,F2023-131,ok,,article page,355,False
+https://blueprint.ng/troops-neutralize-52-terrorists-arrest-53-criminals-dhq/,Blueprint,F2023-132,ok,,article page,368,False
+https://gazettengr.com/military-neutralised-52-terrorists-apprehended-60-dhq/,Gazette,F2023-132,ok (text cached),,article page,473,True
+https://21stcenturychronicle.com/military-kills-52-terrorists-arrests-60-dhq/,21st Century Chronicle,F2023-132,skipped after repeated failures,HTTP 500,,0,False
+https://leadership.ng/troops-kill-52-terrorists-rescue-62-hostages/,Leadership,F2023-132,ok,,article page,235,False
+https://nannews.ng/military-neutralises-52-terrorists-apprehends-60-dhq/,News Agency of Nigeria,F2023-132,ok (text cached),,article page,483,True
+https://www.premiumtimesng.com/news/more-news/627801-nigerian-military-troops-kill-52-terrorists-apprehend-60-dhq.html,Premium Times,F2023-132,JS challenge page,ok,WordPress API,488,True
+https://thewillnews.com/troops-neutralise-52-terrorists-arrest-60-dhq/,TheWill,F2023-132,ok (text cached),,article page,462,False
+https://21stcenturychronicle.com/military-kills-191-terrorists-arrests-184-dhq/,21st Century Chronicle,F2023-134,skipped after repeated failures,ok,WordPress API,596,True
+https://blueprint.ng/troops-neutralise-191-terrorists-arrest-184-in-one-week-dhq/,Blueprint,F2023-134,ok,,article page,524,False
+https://dailypost.ng/2023/09/28/troops-neuneutralise1-terrorists-arrest-184-rescue-91-kidnapped-hostages/,Daily Post,F2023-134,ok (text cached),,article page,596,False
+https://gazettengr.com/military-neutralised-191-terrorists-apprehended-184-dhq/,Gazette,F2023-134,ok (text cached),,article page,601,True
+https://leadership.ng/troops-kill-191-terrorists-arrest-184-in-2-weeks/,Leadership,F2023-134,ok,,article page,576,False
+https://nannews.ng/military-neutralises-191-terrorists-apprehends-184-dhq/,News Agency of Nigeria,F2023-134,ok (text cached),,article page,606,True
+https://www.premiumtimesng.com/news/more-news/629076-nigerian-military-destroys-34-illegal-refining-sites-apprehends-59-suspects.html,Premium Times,F2023-133,JS challenge page,ok,WordPress API,262,True
+https://www.premiumtimesng.com/news/top-news/629070-nigerian-military-troops-kill-191-terrorists-apprehend-184-dhq.html,Premium Times,F2023-134,JS challenge page,ok,WordPress API,625,True
+https://leadership.ng/apc-has-foisted-poverty-hunger-on-nigerians-amshi/,Leadership,F2023-135,ok,,article page,262,False
+https://leadership.ng/troops-kill-31-terrorists-arrest-81-others/,Leadership,F2023-136,ok,,article page,203,False
+https://21stcenturychronicle.com/troops-kill-31-terrorists-arrest-81-in-one-week-dhq/,21st Century Chronicle,F2023-136,skipped after repeated failures,ok,WordPress API,414,False
+https://blueprint.ng/troops-neutralise-31-terrorists-arrest-92-dhq/,Blueprint,F2023-136,ok,,article page,329,False
+https://dailypost.ng/2023/10/08/nigerian-troops-eliminate-31-terrorists-arrest-81/,Daily Post,F2023-136,ok (text cached),,article page,410,False
+https://dailytrust.com/31-terrorists-killed-81-apprehended-in-one-week-dhq/,Daily Trust,F2023-136,ok (text cached),,article page,406,True
+https://gazettengr.com/troops-eliminated-31-terrorists-apprehended-81-more-in-one-week-dhq/,Gazette,F2023-136,ok (text cached),,article page,413,True
+https://leadership.ng/nigeria-news-trending-news-today-leadership-newspapers-sunday-october-8-2023/,Leadership,F2023-137,ok,,article page,283,False
+https://nannews.ng/troops-eliminate-31-terrorists-apprehend-81-in-1-week-dhq/,News Agency of Nigeria,F2023-136,ok (text cached),,article page,424,False
+https://21stcenturychronicle.com/troops-discover-53-illegal-refineries-arrest-19-suspects-in-seven-days/,21st Century Chronicle,F2023-138,skipped after repeated failures,ok,WordPress API,332,False
+https://www.channelstv.com/2023/10/12/troops-kill-50-terrorists-arrest-114-others-dhq/,Channels TV,F2023-139,ok (text cached),,article page,263,False
+https://dailypost.ng/2023/10/12/oil-theft-nigerian-military-deactivates-53-illegal-refining-sites/,Daily Post,F2023-138,ok (text cached),,article page,347,False
+https://dailypost.ng/2023/10/12/troops-neutralise-50-terrorists-apprehend-114-in-one-week/,Daily Post,F2023-139,ok (text cached),,article page,324,False
+https://dailytrust.com/50-terrorists-killed-114-apprehended-in-one-week-dhq/,Daily Trust,F2023-139,ok (text cached),,article page,489,True
+https://gazettengr.com/nigerian-soldiers-kill-50-militants-arrest-114-in-fresh-assault-dhq/,Gazette,F2023-139,ok (text cached),,article page,439,True
+https://www.premiumtimesng.com/news/top-news/633078-nigerian-military-troops-kill-50-terrorists-apprehend-114-dhq.html,Premium Times,F2023-139,JS challenge page,ok,WordPress API,462,True
+https://blueprint.ng/troops-neutralise-50-terrorists-arrest-114-bungle-n-09bn-oil-deal/,Blueprint,F2023-139,ok,,article page,1074,False
+https://leadership.ng/dhq-names-national-parks-game-reserves-terrorists-haven/,Leadership,F2023-140,ok,,article page,462,False
+https://leadership.ng/troops-arrest-26-criminals-oil-bunkerers-in-abuja/,Leadership,F2023-141,ok,,article page,232,False
+https://21stcenturychronicle.com/military-kills-37-terrorists-arrests-124-in-one-week/,21st Century Chronicle,F2023-142,skipped after repeated failures,ok,WordPress API,714,False
+https://blueprint.ng/troops-neutralise-37-terrorists-arrest-95-in-one-week-dhq/,Blueprint,F2023-142,ok,,article page,411,False
+https://dailypost.ng/2023/10/20/military-neutralises-37-terrorists-apprehends-124-in-one-week/,Daily Post,F2023-142,ok (text cached),,article page,801,True
+https://gazettengr.com/military-neutralised-37-terrorists-apprehended-124-in-one-week-official/,Gazette,F2023-142,ok (text cached),,article page,806,True
+https://nannews.ng/military-neutralises-37-terrorists-apprehends-124-in-one-week-official/,News Agency of Nigeria,F2023-142,ok (text cached),,article page,811,True
+https://leadership.ng/troops-kill-37-terrorists-arrest-95-rescue-53-victims/,Leadership,F2023-142,ok,,article page,335,False
+https://dailypost.ng/2023/10/26/naf-airstrikes-kill-over-100-terrorists-in-niger-zamfara/,Daily Post,F2023-143,ok (text cached),,article page,364,False
+https://dailytrust.com/naf-airstrikes-kill-over-100-terrorists-in-niger-zamfara-dhq/,Daily Trust,F2023-143,ok (text cached),,article page,643,True
+https://gazettengr.com/naf-airstrikes-eliminated-over-100-terrorists-in-niger-zamfara-dhq/,Gazette,F2023-143,ok (text cached),,article page,606,True
+https://leadership.ng/troops-arrest-182-terrorists-kill-73-rescue-68-hostages-in-1-week-dhq/,Leadership,F2023-144,ok,,article page,325,False
+https://nannews.ng/naf-airstrikes-eliminate-over-100-terrorists-in-niger-zamfara-dhq/,News Agency of Nigeria,F2023-143,ok (text cached),,article page,604,True
+https://www.premiumtimesng.com/news/top-news/637414-nigerian-air-force-airstrikes-eliminate-over-100-terrorists-in-niger-zamfara-dhq.html,Premium Times,F2023-143,JS challenge page,ok,WordPress API,616,True
+https://blueprint.ng/troops-neutralise-73-terrorists-182-in-one-week-week/,Blueprint,F2023-144,ok,,article page,380,False
+https://dailytrust.com/ndlea-nabs-252-drug-dealers-traffickers-in-edo/,Daily Trust,F2023-145,ok (text cached),,article page,157,False
+https://leadership.ng/ndlea-arrests-252-suspects-in-edo/,Leadership,F2023-145,ok,,article page,286,False
+https://leadership.ng/troops-kill-73-arrest-182-terrorists/,Leadership,F2023-144,ok,,article page,325,False
+https://dailypost.ng/2023/11/02/bauchi-man-killed-for-resisting-attempt-to-snatch-wife/,Daily Post,F2023-146,ok (text cached),,article page,233,False
+https://gazettengr.com/military-destroyed-96-illegal-refining-sites-arrested-57-suspects-in-one-week-dhq/,Gazette,F2023-147,ok (text cached),,article page,306,True
+https://leadership.ng/hoodlums-kill-bauchi-man-in-failed-attempt-to-snatch-wife/,Leadership,F2023-148,ok,,article page,224,False
+https://blueprint.ng/troops-neutralise-67-terrorists-arrest-190-dhq/,Blueprint,F2023-150,ok,,article page,298,False
+https://leadership.ng/hoodlums-kill-man-in-attempt-to-snatch-wife/,Leadership,F2023-149,ok,,article page,170,False
+https://leadership.ng/troops-kill-67-terrorists-arrest-190-in-one-week-dhq/,Leadership,F2023-150,ok,,article page,270,False
+https://dailypost.ng/2023/11/09/nigerian-army-neutralize-113-terrorists-arrest-25-oil-thieves/,Daily Post,F2023-152,ok (text cached),,article page,341,False
+https://gazettengr.com/113-terrorists-eliminated-300-others-arrested-in-one-week-dhq/,Gazette,F2023-152,ok (text cached),,article page,578,True
+https://leadership.ng/troops-kill-113-terrorists-arrest-300-rescue-91-hostages-dhq/,Leadership,F2023-152,ok,,article page,561,False
+https://thewillnews.com/troops-neutralise-over-100-terrorists-recover-arms-ammunition/,TheWill,F2023-151,ok (text cached),,article page,293,False
+https://leadership.ng/troops-kill-113-terrorists-arrest-300-rescue-91-hostages/,Leadership,F2023-152,ok,,article page,547,False
+https://www.premiumtimesng.com/news/top-news/641580-nigerian-military-eliminates-113-terrorists-nabs-300-others-dhq.html,Premium Times,F2023-152,JS challenge page,ok,WordPress API,599,False
+https://leadership.ng/troops-arrest-122-terrorists-rescue-189-hostages-in-one-week-dhq/,Leadership,F2023-153,ok,,article page,389,False
+https://blueprint.ng/troops-neutralised-50-terrorists-rescued-182-kidnapped-hostages/,Blueprint,F2023-154,ok,,article page,424,False
+https://gazettengr.com/military-targeting-terrorists-leaders-counterterrorism-operations-yielding-results-dhq/,Gazette,F2023-155,ok (text cached),,article page,522,True
+https://dailypost.ng/2023/11/20/troops-after-terrorists-that-ambushed-yobe-governors-convoy-dhq/,Daily Post,F2023-156,ok (text cached),,article page,180,False
+https://21stcenturychronicle.com/military-kills-99-terrorists-arrests-98-others-in-one-week-dhq/,21st Century Chronicle,F2023-158,skipped after repeated failures,ok,WordPress API,548,False
+https://dailypost.ng/2023/11/23/troops-deactivate-50-illegal-oil-refining-sites-apprehend-51-suspects-dhq/,Daily Post,F2023-157,ok,,article page,323,True
+https://dailypost.ng/2023/11/23/troops-eliminate-99-terrorists-arrest-198-others-in-one-week-dhq/,Daily Post,F2023-158,ok,,article page,581,False
+https://dailytrust.com/military-deactivates-50-illegal-oil-refining-sites-apprehends-51-suspects-dhq/,Daily Trust,F2023-157,ok (text cached),,article page,383,True
+https://gazettengr.com/military-destroyed-50-illegal-oil-refining-sites-apprehended-51-suspects-dhq/,Gazette,F2023-157,ok (text cached),,article page,307,True
+https://gazettengr.com/troops-eliminated-99-terrorists-apprehended-198-others-in-one-week-dhq/,Gazette,F2023-158,ok (text cached),,article page,542,True
+https://www.premiumtimesng.com/news/top-news/645823-military-destroys-50-illegal-oil-refining-sites-arrests-51-suspects-dhq.html,Premium Times,F2023-157,JS challenge page,ok,WordPress API,338,False
+https://www.premiumtimesng.com/news/top-news/645845-nigerian-military-kills-99-terrorists-arrests-198-others-in-fresh-onslaught-dhq.html,Premium Times,F2023-158,JS challenge page,ok,WordPress API,594,True
+https://blueprint.ng/troops-neutralised-99-terrorists-arrest-198-in-one-week-dhq/,Blueprint,F2023-158,ok,,article page,501,False
+https://dailypost.ng/2023/11/24/military-apprehends-bandits-commanders-arms-suppliers-in-zamfara/,Daily Post,F2023-159,ok,,article page,247,False
+https://leadership.ng/troops-arrest-198-terrorists-kill-99/,Leadership,F2023-158,ok,,article page,557,False
+https://blueprint.ng/troops-arrest-terrorists-leader-204-others/,Blueprint,F2023-161,ok,,article page,351,False
+https://dailypost.ng/2023/12/01/dss-army-arrest-iswap-leader/,Daily Post,F2023-160,ok,,article page,159,False
+https://dailypost.ng/2023/12/01/military-eliminates-over-180-terrorists-in-one-week-dhq/,Daily Post,F2023-161,ok,,article page,611,False
+https://dailypost.ng/2023/12/01/troops-kill-52-terrorists-arrest-iswap-leader-in-bauchi-dhq/,Daily Post,F2023-161,ok,,article page,413,False
+https://dailypost.ng/2023/12/02/180-terrorists-killed-204-arrested-234-victims-rescued-in-seven-days-nigerian-military/,Daily Post,F2023-161,ok,,article page,298,False
+https://leadership.ng/troops-kill-52-terrorists-arrest-204-rescue-234-hostages/,Leadership,F2023-161,ok,,article page,226,False
+https://www.premiumtimesng.com/news/top-news/648260-nigerian-military-troops-kill-over-180-terrorists-arrest-204-others-dhq.html,Premium Times,F2023-161,JS challenge page,ok,WordPress API,638,False
+https://blueprint.ng/bombing-of-civilians-in-kaduna-community-unwanted-tragedy-dhq/,Blueprint,F2023-162,ok,,article page,356,False
+https://www.channelstv.com/2023/12/05/kaduna-bombing-terrorists-embedded-with-civilians-dhq-breaks-silence/,Channels TV,F2023-163,ok (text cached),,article page,280,False
+https://gazettengr.com/nigerian-military-says-kaduna-civilians-bombed-with-bandits-to-protect-key-infrastructure/,Gazette,F2023-164,ok (text cached),,article page,892,False
+https://thewillnews.com/we-take-every-civilian-death-in-cause-of-operation-as-tragedy-dhq-apologises-over-kaduna-bombing/,TheWill,F2023-165,ok (text cached),,article page,271,False
+https://21stcenturychronicle.com/kaduna-bomb-attack-we-have-learnt-our-lesson-military-apologises-again/,21st Century Chronicle,F2023-166,skipped after repeated failures,ok,WordPress API,257,False
+https://blueprint.ng/tudun-biri-bombing-we-will-review-operational-protocols-procedures-to-avoid-reoccurrence-dhq/,Blueprint,F2023-167,ok,,article page,647,False
+https://gazettengr.com/456-suspected-terrorists-oil-thieves-arrested-80-insurgents-killed-in-one-week-dhq-claims/,Gazette,F2023-170,ok (text cached),,article page,435,True
+https://leadership.ng/kaduna-bombing-military-apologises-again-vows-to-improve-operational-process/,Leadership,F2023-168,ok,,article page,482,False
+https://leadership.ng/kaduna-dhq-confirms-81-civilians-killed-70-injured-in-accidental-bombing/,Leadership,F2023-169,ok,,article page,731,False
+https://www.premiumtimesng.com/news/top-news/649720-nigerian-military-kills-80-terrorists-apprehends-304-others-dhq.html,Premium Times,F2023-170,JS challenge page,ok,WordPress API,465,True
+https://dailytrust.com/community-seeks-training-of-youths-on-petroleum-industry-skills/,Daily Trust,F2023-171,ok (text cached),,article page,335,False
+https://blueprint.ng/troops-eliminate-38-terrorist-commanders-foot-soldiers-in-one-week-dhq/,Blueprint,F2023-172,ok,,article page,476,False
+https://leadership.ng/military-kills-terrorists-kingpin-bomb-expert-38-others-in-niger/,Leadership,F2023-172,ok,,article page,652,False
+https://thewillnews.com/troops-kill-terrorists-kingpin-bomb-expert-38-others-in-niger/,TheWill,F2023-172,ok (text cached),,article page,575,False
+https://21stcenturychronicle.com/military-eliminates-four-bandit-kingpins-dhq/,21st Century Chronicle,F2023-173,skipped after repeated failures,ok,WordPress API,518,False
+https://dailypost.ng/2023/12/16/military-kills-kachalla-three-other-notorious-terrorist-commanders/,Daily Post,F2023-174,ok,,article page,206,False
+https://dailytrust.com/military-kills-kachalla-3-other-terrorist-commanders-dhq/,Daily Trust,F2023-175,ok (text cached),,article page,581,True
+https://gazettengr.com/troops-killed-terrorist-leader-kachalla-38-others-dhq/,Gazette,F2023-172,ok (text cached),,article page,522,True
+https://21stcenturychronicle.com/oyenusi-anini-shekau-and-dogo-gide/,21st Century Chronicle,F2023-176,skipped after repeated failures,ok,WordPress API,1624,False
+https://21stcenturychronicle.com/troops-kill-40-terrorists-arrest-259-others-in-seven-days/,21st Century Chronicle,F2023-178,skipped after repeated failures,ok,WordPress API,396,False
+https://dailypost.ng/2023/12/21/nigerian-troops-eliminate-40-terrorists-apprehend-259-others/,Daily Post,F2023-178,ok,,article page,394,False
+https://gazettengr.com/military-deactivated-68-illegal-refining-sites-in-niger-delta-dhq-says/,Gazette,F2023-177,ok,,article page,449,True
+https://gazettengr.com/troops-eliminated-40-terrorists-apprehended-259-others-in-one-week-dhq/,Gazette,F2023-178,ok,,article page,400,True
+https://leadership.ng/troops-kill-40-terrorists-arrest-191-rescue-80-hostages/,Leadership,F2023-178,ok,,article page,334,False
+https://www.premiumtimesng.com/news/top-news/653256-nigerian-military-kills-40-terrorists-apprehends-259-others.html,Premium Times,F2023-178,JS challenge page,ok,WordPress API,416,False
+https://blueprint.ng/troops-neutralised-40-terrorists-arrest-191-in-one-week-dhq/,Blueprint,F2023-178,ok,,article page,398,False
+https://dailypost.ng/2023/12/28/plateau-christmas-eve-attacks-halt-carnage-or-we-resort-to-self-help-prophet-el-buba-warns/,Daily Post,F2023-179,ok,,article page,407,False
+https://21stcenturychronicle.com/military-kills-6880-terrorists-arrests-6970-in-2023-dhq/,21st Century Chronicle,F2023-182,skipped after repeated failures,ok,WordPress API,476,False
+https://21stcenturychronicle.com/plateau-killings-why-we-couldnt-respond-to-distress-calls-dhq/,21st Century Chronicle,F2023-180,skipped after repeated failures,ok,WordPress API,441,False
+https://blueprint.ng/troops-neutralised-6886-terrorists-nabbed-6970-suspects-in-2023-dhq/,Blueprint,F2023-182,ok,,article page,353,False
+https://dailypost.ng/2023/12/29/plateau-killings-group-re-echoes-demand-for-state-police/,Daily Post,F2023-181,ok,,article page,237,False
+https://gazettengr.com/6880-terrorists-criminals-eliminated-6970-apprehended-in-2023-says-dhq/,Gazette,F2023-182,ok,,article page,585,True
+https://nannews.ng/military-eliminates-6880-terrorists-criminals-apprehends-6970-in-2023-dhq/,News Agency of Nigeria,F2023-182,ok (text cached),,article page,596,True
+https://21stcenturychronicle.com/plateau-killings-how-soldiers-intervened-in-19-villages-dhq/,21st Century Chronicle,F2023-184,skipped after repeated failures,ok,WordPress API,404,False
+https://dailypost.ng/2023/12/30/military-eliminates-6880-terrorists-criminals-apprehends-6970-in-2023-dhq/,Daily Post,F2023-182,ok,,article page,285,False
+https://dailypost.ng/2023/12/30/plateau-killings-bandits-attacked-villagers-from-different-fronts-dhq/,Daily Post,F2023-183,ok,,article page,212,False
+https://leadership.ng/troops-killed-6886-terrorists-arrested-6970-rescued-4488-hostages-in-2023-dhq/,Leadership,F2023-182,ok,,article page,515,False
+https://www.premiumtimesng.com/news/top-news/655027-nigerian-soldiers-killed-6880-terrorists-criminals-in-2023-dhq.html,Premium Times,F2023-182,JS challenge page,ok,WordPress API,600,True
+https://www.premiumtimesng.com/news/top-news/655078-military-eliminates-6880-terrorists-criminals-apprehends-6970-in-2023-dhq.html,Premium Times,F2023-182,JS challenge page,ok,WordPress API,598,True
+https://www.premiumtimesng.com/news/top-news/655136-plateau-killings-how-troops-intervened-in-19-villages-dhq.html,Premium Times,F2023-184,JS challenge page,ok,WordPress API,425,True
+https://thewillnews.com/troops-killed-6886-terrorists-arrested-6970-rescued-4488-hostages-in-2023-dhq/,TheWill,F2023-182,ok (text cached),,article page,326,False
+https://thewillnews.com/military-eliminates-6880-terrorists-apprehends-6970-criminals-in-2023-says-dhq/,TheWill,F2023-182,ok (text cached),,article page,278,False
