@@ -9,6 +9,7 @@ The three hand columns in data/review/pilot_review_2024.csv are coded from the a
 - yes: a DHQ statement that reports troop results (neutralised, arrested, rescued, surrendered, recovered) over a stated period, such as one week, two weeks, a month or the year to date.
 - no: incident statements about a single event, denials and clarifications, and statements from other agencies (NDLEA, EFCC, Police, Customs, NSCDC, Immigration, or Navy and Air Force statements not issued through DHQ).
 - unsure: the article does not show whether the statement came from DHQ or whether it covers a stated period. A short note is required.
+- In data/review/full_review_sheet.csv, items with has_text False are coded "unsure" with the note "no text".
 
 ## confirmed_group_id
 
