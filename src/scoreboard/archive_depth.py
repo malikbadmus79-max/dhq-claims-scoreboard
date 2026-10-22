@@ -1,18 +1,23 @@
 """Archive-depth check: whether each outlet's REST API serves posts for each year at all.
 
-Usage: python -m scoreboard.archive_depth
+Usage: python -m scoreboard.archive_depth [--reclassify]
 
 For every configured outlet and year 2021-2026, page 1 of /wp-json/wp/v2/posts is requested with
 only after/before set (no search term), per_page=100 and _fields=date,link, through the polite
 fetcher. Each outlet's earliest and latest served post dates come from order=asc and order=desc
 with per_page=1. Writes outputs/tables/full_archive_depth.csv.
 
-classification: "archive present" when page 1 holds posts dated inside the year, "archive
-missing" when page 1 holds none, and "not checked (<reason>)" when no JSON list was returned.
-posts_outside_window counts page-1 posts dated outside the requested year (a site that ignores
-the date filter).
+classification, from the page-1 posts dated inside the year: "thin" when page 1 holds 1 to 99
+(so the whole year holds fewer than 100 posts), or when page 1 is full (100 posts) but its
+earliest post is dated in January of that year (the API lists newest first, so the whole year
+then holds little more than 100 posts); "archive present" when page 1 is full and its earliest
+post is dated after January; "archive missing" when it holds none; and "not checked (<reason>)"
+when no JSON list was returned. posts_outside_window counts page-1 posts dated outside the
+requested year (a site that ignores the date filter). --reclassify applies these classes to the
+saved table without sending any request, keeping one row per outlet and year (the last).
 """
 
+import argparse
 import logging
 import threading
 from datetime import date
@@ -22,7 +27,7 @@ import pandas as pd
 from scoreboard.access_log import log_access
 from scoreboard.collect import api_bounds
 from scoreboard.config import load_config
-from scoreboard.discover import TABLES_DIR
+from scoreboard.discover import PER_PAGE, TABLES_DIR
 from scoreboard.fetch import Fetcher
 
 log = logging.getLogger(__name__)
@@ -63,10 +68,8 @@ def outlet_rows(outlet: dict, fetcher: Fetcher) -> list[dict]:
         status, body = _list(fetcher, url, {"after": after, "before": before, "per_page": 100, "_fields": FIELDS})
         dates = sorted(p.get("date", "")[:10] for p in body or [] if isinstance(p, dict))
         inside = [d for d in dates if str(first) <= d <= str(last)]
-        if body is None:
-            classification = f"not checked ({status})"
-        else:
-            classification = "archive present" if inside else "archive missing"
+        classification = classify(status, len(inside) if body is not None else None, year,
+                                  inside[0] if inside else "")
         rows.append({
             "outlet": outlet["name"], "domain": domain, "year": year, "status": status,
             "posts_on_page_1": len(dates) if body is not None else "",
@@ -79,6 +82,34 @@ def outlet_rows(outlet: dict, fetcher: Fetcher) -> list[dict]:
                    f"Archive-depth check {year}: {classification}; {len(dates)} posts on page 1, "
                    f"{len(dates) - len(inside)} outside the year")
     return rows
+
+
+def classify(status: str, posts_in_year: int | None, year: int | None = None, earliest: str = "") -> str:
+    """Class of an outlet-year from its page-1 posts dated inside the year (None: no JSON list)
+    and the earliest of those posts' dates (YYYY-MM-DD)."""
+    if posts_in_year is None:
+        return f"not checked ({status})"
+    if posts_in_year == 0:
+        return "archive missing"
+    if posts_in_year < PER_PAGE or (year is not None and earliest.startswith(f"{year}-01")):
+        return "thin"
+    return "archive present"
+
+
+def reclassify(tables_dir=TABLES_DIR) -> pd.DataFrame:
+    """Applies classify() to the saved table, keeping one row per outlet and year (the last);
+    no request is sent."""
+    path = tables_dir / "full_archive_depth.csv"
+    table = pd.read_csv(path, dtype=str, keep_default_na=False)
+    table = table.drop_duplicates(["outlet", "year"], keep="last").reset_index(drop=True)
+    listed = table["posts_on_page_1"] != ""
+    inside = pd.to_numeric(table["posts_on_page_1"], errors="coerce") - pd.to_numeric(
+        table["posts_outside_window"], errors="coerce")
+    table["classification"] = [
+        classify(s, int(n) if ok else None, int(y), e)
+        for s, n, ok, y, e in zip(table["status"], inside, listed, table["year"], table["earliest_on_page_1"])]
+    table.to_csv(path, index=False)
+    return table
 
 
 def run(tables_dir=TABLES_DIR, fetcher_factory=Fetcher) -> pd.DataFrame:
@@ -103,10 +134,14 @@ def run(tables_dir=TABLES_DIR, fetcher_factory=Fetcher) -> pd.DataFrame:
     return table
 
 
-def main():
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--reclassify", action="store_true", help="reclassify the saved table; no requests")
+    args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
     pd.set_option("display.width", 250)
-    table = run()
+    table = reclassify() if args.reclassify else run()
+    table["year"] = table["year"].astype(int)
     print(table.drop(columns=["domain"]).to_string(index=False))
     print("FLAGGED OUTLET-YEARS")
     for name, year in WATCH:

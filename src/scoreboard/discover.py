@@ -26,10 +26,8 @@ GROUP_WINDOW_DAYS = 3
 
 # "Buba" names the DHQ spokesman, except in "Buba Marwa" (chairman of the NDLEA).
 BUBA = r"\bbuba\b(?![\s-]+marwa\b)"
-DHQ_RE = re.compile(
-    rf"\bdhq\b|defen[cs]e headquarters|defen[cs]e media operations|defen[cs]e information|{BUBA}",
-    re.I,
-)
+DHQ_CORE = r"\bdhq\b|defen[cs]e headquarters|defen[cs]e media operations|defen[cs]e information"
+DHQ_RE = re.compile(rf"{DHQ_CORE}|{BUBA}", re.I)
 OUTCOME_RE = re.compile(
     r"neutrali[sz]|kill|eliminat|arrest|apprehend|rescu|surrender", re.I
 )
@@ -53,24 +51,25 @@ INVENTORY_COLUMNS = [
 ]
 
 
-def _satisfies(text: str) -> bool:
-    return bool(DHQ_RE.search(text) and OUTCOME_RE.search(text))
+def _satisfies(text: str, dhq_re: re.Pattern = DHQ_RE) -> bool:
+    return bool(dhq_re.search(text) and OUTCOME_RE.search(text))
 
 
-def _has_terms(text: str) -> bool:
-    return bool(DHQ_RE.search(text) or OUTCOME_RE.search(text))
+def _has_terms(text: str, dhq_re: re.Pattern = DHQ_RE) -> bool:
+    return bool(dhq_re.search(text) or OUTCOME_RE.search(text))
 
 
-def match_field(title: str, excerpt: str = "") -> str | None:
+def match_field(title: str, excerpt: str = "", dhq_re: re.Pattern = DHQ_RE) -> str | None:
     """Return "title", "excerpt" or "both" for a candidate, or None if the rule fails.
 
     The rule: title or excerpt names DHQ (or its media office or spokesman), and
     title or excerpt contains an outcome word. "title" or "excerpt" means that
     field alone holds every matched term; "both" means matched terms occur in both.
+    `dhq_re` is DHQ_RE except in the spokesperson coverage check (scoreboard.spokesperson).
     """
-    if not _satisfies(f"{title} {excerpt}"):
+    if not _satisfies(f"{title} {excerpt}", dhq_re):
         return None
-    in_title, in_excerpt = _has_terms(title), _has_terms(excerpt)
+    in_title, in_excerpt = _has_terms(title, dhq_re), _has_terms(excerpt, dhq_re)
     if in_title and in_excerpt:
         return "both"
     return "title" if in_title else "excerpt"
@@ -227,14 +226,15 @@ def paginate(fetcher: Fetcher, domain: str, params: dict, label: str = "", shoul
 
 
 def search_window(fetcher: Fetcher, domain: str, after: str, before: str, label: str = "",
-                  should_stop=None) -> tuple[dict, dict]:
-    """Search hits for every term between `after` and `before` (REST API date strings).
+                  should_stop=None, terms=SEARCH_TERMS) -> tuple[dict, dict]:
+    """Search hits for every term in `terms` between `after` and `before` (REST API date
+    strings). stats["stops"] holds one stop per term, in the order of `terms`.
 
     Returns ({link: {title, excerpt, date, terms}}, {"queries", "capped", "stops"}). Excerpts are
     held in memory for filtering only and are never written out."""
     hits: dict[str, dict] = {}
     stats = {"queries": 0, "capped": 0, "incomplete": 0, "pages": 0, "cached_pages": 0, "stops": []}
-    for term in SEARCH_TERMS:
+    for term in terms:
         result = paginate(fetcher, domain, {"search": term, "after": after, "before": before, "_fields": FIELDS},
                           label=f"{label} search '{term}'", should_stop=should_stop)
         stats["queries"] += 1

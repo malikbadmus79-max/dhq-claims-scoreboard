@@ -22,6 +22,7 @@ held in memory for the filter only.
 """
 
 import argparse
+import json
 import logging
 import sys
 import threading
@@ -33,11 +34,12 @@ import pandas as pd
 
 from scoreboard import access_log
 from scoreboard.access_log import log_access
-from scoreboard.config import load_config
+from scoreboard.config import PROJECT_ROOT, load_config
 from scoreboard.discover import (
     BUDGET_STOP,
     COMPLETE_STOPS,
     INVENTORY_COLUMNS,
+    SEARCH_TERMS,
     TABLES_DIR,
     _satisfies,
     assign_groups,
@@ -54,10 +56,19 @@ DHQ_DOMAIN = "defencehq.mil.ng"
 RETRY_PASSES = 2
 RETRY_WAIT_SECONDS = 60
 YIELD_FILE = "full_yield_by_outlet_year.csv"
+# Per outlet-year: links returned and whether each term's search was complete. Lets a run with
+# --terms --merge add one term at a time; links only, kept in data_raw/ and never committed.
+STATE_DIR = PROJECT_ROOT / "data_raw" / "discovery_state"
 # complete is False when any search for the outlet-year still ended incomplete after the retry
 # passes, or the outlet-year ran past its time budget; its counts are then lower bounds, and
 # blank (never 0) when no post was returned.
 YIELD_COLUMNS = ["outlet", "year", "api_posts_returned", "candidates", "incomplete_queries", "complete"]
+# full_inventory_<year>.csv: the pilot inventory columns plus added_by, "discovery" for rows from
+# REST API discovery and the name of a later check (e.g. "spokesperson_check") for rows it added.
+# Yield candidates count discovery rows only.
+DISCOVERY = "discovery"
+FULL_INVENTORY_COLUMNS = INVENTORY_COLUMNS + ["added_by"]
+ROW_COLUMNS = INVENTORY_COLUMNS[:-2] + ["added_by"]
 
 
 def year_windows(start: date, end: date) -> list[tuple[int, date, date]]:
@@ -71,14 +82,15 @@ def api_bounds(first: date, last: date) -> tuple[str, str]:
 
 
 def _search_year(fetcher: Fetcher, domain: str, year: int, first: date, last: date, attempt: str,
-                 should_stop=None) -> tuple[dict, dict]:
+                 should_stop=None, terms=SEARCH_TERMS) -> tuple[dict, dict]:
     after, before = api_bounds(first, last)
     hits, stats = search_window(fetcher, domain, after, before, label=f"Full discovery {year}",
-                                should_stop=should_stop)
+                                should_stop=should_stop, terms=terms)
     stops = pd.Series(stats["stops"]).value_counts().to_dict()
+    scope = "" if list(terms) == SEARCH_TERMS else f"terms {list(terms)}; "
     log_access(domain, f"https://{domain}/wp-json/wp/v2/posts?search=<term>&after={after}&before={before}",
                f"{len(hits)} unique posts returned",
-               f"Full discovery {year} ({attempt}); {stats['queries']} queries; stops: {stops}; "
+               f"Full discovery {year} ({attempt}); {scope}{stats['queries']} queries; stops: {stops}; "
                f"{stats['incomplete']} incomplete; {stats['capped']} hit the page cap; "
                f"{stats['pages'] - stats['cached_pages']} pages requested, {stats['cached_pages']} read from cache")
     log.info("%s %d (%s): %d posts, %d incomplete queries", domain, year, attempt, len(hits), stats["incomplete"])
@@ -100,13 +112,15 @@ def incomplete_reason(stops: list[str]) -> str:
 
 
 def collect_outlet(outlet: dict, windows, budget_seconds: float = float("inf"), sleep=time.sleep, fetcher=None,
-                   clock=time.monotonic, on_done=None, stop: threading.Event | None = None) -> dict:
+                   clock=time.monotonic, on_done=None, stop: threading.Event | None = None,
+                   terms=SEARCH_TERMS) -> dict:
     """API probe and per-year search for one outlet. An outlet whose probe does not return
     "yes" is logged and never searched. Years with incomplete searches are searched again up to
     RETRY_PASSES times; pages already read come from the cache, and posts are pooled across
     passes. An outlet-year's clock starts at its first search; once budget_seconds have passed,
     retries and retry waits included, it is stopped at the next page (or before its next pass)
-    and logged. on_done(outlet, year, hits, incomplete) is called as each outlet-year finishes;
+    and logged. on_done(outlet, year, hits, incomplete, term_complete) is called as each
+    outlet-year finishes, term_complete mapping each term to whether its last search was complete;
     its hits are then dropped from memory and out["years"][year] keeps the post count. When
     `stop` is set, the outlet returns at the next page without finishing the year in progress."""
     fetcher = fetcher or Fetcher()
@@ -132,8 +146,10 @@ def collect_outlet(outlet: dict, windows, budget_seconds: float = float("inf"), 
         elif incomplete:
             out["reasons"][year] = incomplete_reason(stops[year])
         year_hits = hits.pop(year, {})
+        last_stops = stops.get(year) or [BUDGET_STOP] * len(terms)
+        term_complete = {t: s in COMPLETE_STOPS for t, s in zip(terms, last_stops)}
         if on_done:
-            on_done(outlet, year, year_hits, incomplete)
+            on_done(outlet, year, year_hits, incomplete, term_complete)
         out["years"][year] = len(year_hits)
 
     pending = list(windows)
@@ -160,7 +176,7 @@ def collect_outlet(outlet: dict, windows, budget_seconds: float = float("inf"), 
 
             if hasattr(fetcher, "cancel"):
                 fetcher.cancel = should_stop
-            new, stats = _search_year(fetcher, domain, year, first, last, label, should_stop)
+            new, stats = _search_year(fetcher, domain, year, first, last, label, should_stop, terms=terms)
             if interrupted():
                 return out
             _merge_hits(hits.setdefault(year, {}), new)
@@ -217,41 +233,129 @@ def _read_table(path) -> pd.DataFrame | None:
     return pd.read_csv(path, dtype=str, keep_default_na=False)
 
 
+def read_inventory(path) -> pd.DataFrame | None:
+    """A full inventory's row columns (group columns dropped); rows written before added_by
+    existed are discovery rows."""
+    old = _read_table(path)
+    if old is None:
+        return None
+    if "added_by" not in old.columns:
+        old["added_by"] = DISCOVERY
+    return old[ROW_COLUMNS]
+
+
+def write_inventory(path, inv: pd.DataFrame) -> pd.DataFrame:
+    """Sort, reassign provisional briefing groups across the year, and write."""
+    inv = inv[ROW_COLUMNS].sort_values(["publish_date", "outlet", "url"]).reset_index(drop=True)
+    inv["briefing_group_id"] = assign_groups(inv, prefix="F") if len(inv) else []
+    inv["grouping_status"] = "provisional"
+    inv = inv[FULL_INVENTORY_COLUMNS]
+    inv.to_csv(path, index=False)
+    return inv
+
+
+def _merge_term_hits(a: str, b: str) -> str:
+    terms = [t for t in a.split("; ") if t]
+    return "; ".join(terms + [t for t in b.split("; ") if t and t not in terms])
+
+
 class Saver:
     """Writes each finished outlet-year to the inventory and yield tables, merging with what
-    earlier runs wrote. One writer at a time; after close() nothing more is written."""
+    earlier runs wrote. One writer at a time; after close() nothing more is written.
 
-    def __init__(self, tables_dir, outlet_order: list[str]):
+    By default an outlet-year's rows replace that outlet's earlier rows. With merge=True they
+    are added to them (a run over some terms only): rows are unioned by URL with their
+    search_term_hits combined, api_posts_returned counts the union of links in the outlet-year's
+    state file, and incomplete_queries counts the terms whose last search was incomplete.
+
+    A complete row is never replaced by an incomplete one: when the saved row for the outlet-year
+    is complete and the new result is not, nothing is written (inventory, yield or state) and an
+    access-log row records the rerun instead."""
+
+    def __init__(self, tables_dir, outlet_order: list[str], merge: bool = False, state_dir=STATE_DIR):
         self.tables_dir = tables_dir
         self.order = {name: i for i, name in enumerate(outlet_order)}
+        self.merge = merge
+        self.state_dir = state_dir
         self.lock = threading.Lock()
         self.closed = False
         self.saved: list[tuple[str, int]] = []
+        self.kept: list[tuple[str, int]] = []
 
     def close(self) -> None:
         with self.lock:
             self.closed = True
 
-    def save(self, outlet: dict, year: int, hits: dict, incomplete: int) -> None:
+    def save(self, outlet: dict, year: int, hits: dict, incomplete: int, term_complete: dict | None = None) -> None:
         name = outlet["name"]
+        domain = outlet.get("domain", name)
         rows = candidate_rows(name, hits)
         with self.lock:
             if self.closed:
                 return
-            self._write_inventory(name, year, rows)
-            self._write_yield(yield_row(name, year, len(hits), len(rows), incomplete))
+            posts, state = len(hits), None
+            if term_complete is not None:
+                state = self._next_state(domain, year, hits, term_complete)
+                posts = len(state["links"])
+                incomplete = sum(not ok for ok in state["terms"].values())
+            saved = self._saved_row(name, year)
+            if incomplete and saved is not None and saved["complete"] == "True":
+                log_access(domain, f"https://{domain}/wp-json/wp/v2/posts?search=<term>", "incomplete rerun not saved",
+                           f"Full discovery {year}: rerun ended with {incomplete} incomplete queries and {posts} posts; "
+                           f"the complete row ({saved['api_posts_returned']} posts, {saved['candidates']} candidates) "
+                           "is kept")
+                self.kept.append((name, year))
+                return
+            if state is not None:
+                self._write_state(domain, year, state)
+            candidates = self._write_inventory(name, year, rows)
+            self._write_yield(yield_row(name, year, posts, candidates, incomplete))
             self.saved.append((name, year))
 
-    def _write_inventory(self, name: str, year: int, rows: list[dict]) -> None:
+    def _saved_row(self, name: str, year: int) -> dict | None:
+        old = _read_table(self.tables_dir / YIELD_FILE)
+        if old is None:
+            return None
+        match = old[(old["outlet"] == name) & (old["year"] == str(year))]
+        return match.iloc[0].to_dict() if len(match) else None
+
+    def _state_path(self, domain: str, year: int):
+        return self.state_dir / str(year) / f"{domain}.json"
+
+    def _next_state(self, domain: str, year: int, hits: dict, term_complete: dict) -> dict:
+        path = self._state_path(domain, year)
+        state = {"links": [], "terms": {}}
+        if self.merge and path.exists():
+            state = json.loads(path.read_text(encoding="utf-8"))
+        links = set(state["links"]) | set(hits)
+        return {"links": sorted(links), "terms": {**state["terms"], **term_complete}}
+
+    def _write_state(self, domain: str, year: int, state: dict) -> None:
+        path = self._state_path(domain, year)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(state), encoding="utf-8")
+
+    def _write_inventory(self, name: str, year: int, rows: list[dict]) -> int:
+        """Writes the year's inventory and returns the outlet's discovery candidate count. Only
+        the outlet's "discovery" rows are replaced; rows added by a check are kept unless
+        discovery now finds the same link."""
         path = self.tables_dir / f"full_inventory_{year}.csv"
-        inv = pd.DataFrame(rows, columns=INVENTORY_COLUMNS[:-2]).astype(str)
-        old = _read_table(path)
+        inv = pd.DataFrame(rows, columns=ROW_COLUMNS[:-1]).astype(str).assign(added_by=DISCOVERY)
+        old = read_inventory(path)
         if old is not None:
-            inv = pd.concat([old.loc[old["outlet"] != name, INVENTORY_COLUMNS[:-2]], inv], ignore_index=True)
-        inv = inv.sort_values(["publish_date", "outlet", "url"]).reset_index(drop=True)
-        inv["briefing_group_id"] = assign_groups(inv, prefix="F") if len(inv) else []
-        inv["grouping_status"] = "provisional"
-        inv[INVENTORY_COLUMNS].to_csv(path, index=False)
+            mine = (old["outlet"] == name) & (old["added_by"] == DISCOVERY)
+            if self.merge:
+                earlier = old.loc[mine].set_index("url")
+                for i, row in inv.iterrows():
+                    if row["url"] in earlier.index:
+                        inv.loc[i, "search_term_hits"] = _merge_term_hits(
+                            earlier.loc[row["url"], "search_term_hits"], row["search_term_hits"])
+                kept = old.loc[~old["url"].isin(inv["url"])]
+            else:
+                kept = old.loc[~mine & ~old["url"].isin(inv["url"])]
+            inv = pd.concat([kept, inv], ignore_index=True)
+        write_inventory(path, inv)
+        return int(((inv["outlet"] == name) & (inv["added_by"] == DISCOVERY)).sum())
 
     def _write_yield(self, row: dict) -> None:
         path = self.tables_dir / YIELD_FILE
@@ -272,27 +376,40 @@ def _join(threads: list[threading.Thread]) -> None:
             t.join(0.5)
 
 
-def run(start: date, end: date, tables_dir=TABLES_DIR, fetcher_factory=Fetcher, clock=time.monotonic) -> dict:
-    """`fetcher_factory` builds one fetcher per outlet (tests pass a recording fake)."""
+def run(start: date, end: date, tables_dir=TABLES_DIR, fetcher_factory=Fetcher, clock=time.monotonic,
+        terms=None, merge: bool = False, state_dir=STATE_DIR, outlets=None) -> dict:
+    """`fetcher_factory` builds one fetcher per outlet (tests pass a recording fake). `terms`
+    defaults to SEARCH_TERMS; with `merge`, results are added to the saved outlet-years
+    (see Saver) rather than replacing them. `outlets` (names or domains) limits the run to those
+    outlets, so a rerun sends no request to the others."""
+    terms = list(terms or SEARCH_TERMS)
     config = load_config()
     windows = year_windows(start, end)
     budget = float(config["outlet_year_budget_minutes"]) * 60
+    selected = [o for o in config["outlets"] if not outlets or o["name"] in outlets or o["domain"] in outlets]
+    if outlets and len(selected) != len(set(outlets)):
+        raise ValueError(f"unknown outlet in {outlets}")
 
-    # defencehq.mil.ng: one robots.txt retry at the start; skipped while unreachable.
-    dhq_ok, dhq_status = fetcher_factory(config).check_robots(f"https://{DHQ_DOMAIN}/")
-    skip_dhq = dhq_status == "unreachable" or not dhq_ok
-    log_access(DHQ_DOMAIN, f"https://{DHQ_DOMAIN}/robots.txt", f"robots.txt {dhq_status}",
-               f"Full discovery {start} to {end}: retry at start of run; site {'skipped' if skip_dhq else 'included'}")
-    outlets = [o for o in config["outlets"] if not (o["domain"] == DHQ_DOMAIN and skip_dhq)]
+    # defencehq.mil.ng: one robots.txt retry at the start, when it is among the outlets run;
+    # skipped while unreachable.
+    dhq_status = "not requested"
+    if any(o["domain"] == DHQ_DOMAIN for o in selected):
+        dhq_ok, dhq_status = fetcher_factory(config).check_robots(f"https://{DHQ_DOMAIN}/")
+        skip_dhq = dhq_status == "unreachable" or not dhq_ok
+        log_access(DHQ_DOMAIN, f"https://{DHQ_DOMAIN}/robots.txt", f"robots.txt {dhq_status}",
+                   f"Full discovery {start} to {end}: retry at start of run; site "
+                   f"{'skipped' if skip_dhq else 'included'}")
+        selected = [o for o in selected if not (o["domain"] == DHQ_DOMAIN and skip_dhq)]
+    outlets = selected
 
-    saver = Saver(tables_dir, [o["name"] for o in config["outlets"]])
+    saver = Saver(tables_dir, [o["name"] for o in config["outlets"]], merge=merge, state_dir=state_dir)
     stop = threading.Event()
     results, errors = [None] * len(outlets), []
 
     def work(i, outlet):
         try:
             results[i] = collect_outlet(outlet, windows, budget, sleep=stop.wait, fetcher=fetcher_factory(),
-                                        clock=clock, on_done=saver.save, stop=stop)
+                                        clock=clock, on_done=saver.save, stop=stop, terms=terms)
         except Exception as exc:  # re-raised in the main thread
             log.exception("%s failed", outlet["domain"])
             errors.append(exc)
@@ -318,6 +435,7 @@ def run(start: date, end: date, tables_dir=TABLES_DIR, fetcher_factory=Fetcher, 
     return {
         "yield": _read_table(tables_dir / YIELD_FILE),
         "saved": saver.saved,
+        "kept": saver.kept,
         "interrupted": interrupted,
         "capped": sum(sum(r["capped"].values()) for r in done),
         "reasons": {(r["outlet"]["name"], y): why for r in done for y, why in r["reasons"].items()},
@@ -330,9 +448,13 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--start", type=date.fromisoformat, required=True)
     parser.add_argument("--end", type=date.fromisoformat, required=True)
+    parser.add_argument("--terms", nargs="+", help="search only these terms (default: all full-collection terms)")
+    parser.add_argument("--merge", action="store_true",
+                        help="add results to the saved outlet-years instead of replacing them")
+    parser.add_argument("--outlets", nargs="+", help="run only these outlets (names or domains)")
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
-    out = run(args.start, args.end)
+    out = run(args.start, args.end, terms=args.terms, merge=args.merge, outlets=args.outlets)
     years = {str(y) for y, _, _ in year_windows(args.start, args.end)}
     table = out["yield"]
     if out["interrupted"]:
@@ -342,6 +464,7 @@ def main(argv=None):
     print("INCOMPLETE OUTLET-YEARS")
     for (name, year), why in sorted(out["reasons"].items(), key=lambda kv: (kv[0][1], kv[0][0])):
         print(f"  {name} {year}: {why}")
+    print(f"COMPLETE ROWS KEPT (incomplete rerun not saved): {out['kept']}")
     print(f"QUERIES AT PAGE CAP: {out['capped']}")
     print(f"DHQ ROBOTS: {out['dhq']}")
     print(f"OUTLETS SKIPPED (API probe): {out['skipped']}")
