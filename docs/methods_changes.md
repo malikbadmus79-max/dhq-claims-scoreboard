@@ -19,3 +19,9 @@ Method. Each name was searched per year, 2021–2026, on every outlet with a RES
 Result. Under the current filter the check found 0 new candidates. With the names as DHQ references it found 11 distinct links, all in 2021–2023 (5 in 2021, 4 in 2022, 2 in 2023), against 725 existing candidates for those years. These 11 were added from the cached search pages, without new requests, to outputs/tables/full_inventory_2021.csv, full_inventory_2022.csv and full_inventory_2023.csv, flagged added_by "spokesperson_check"; every other row is added_by "discovery". Yield counts (outputs/tables/full_yield_by_outlet_year.csv) count discovery rows only and are unchanged.
 
 Limits. Names are matched as full names: a report naming only a surname (for example "Enenche said") is not matched unless it also names DHQ or its media office. Spellings not found in the inventory text are not searched. 11 of the 396 searches ended incomplete (column complete), all on 21st Century Chronicle, so the check is a lower bound for that outlet. Added rows passed the filter only; they have not been reviewed by hand.
+
+## 2026-10-24: hand coding of the uncertain triage items
+
+Change. The 1,005 items the triage left undecided (decision "uncertain" or "no text"; data/review/full_review_sheet.csv, batches B01 to B17) were hand-coded with AI assistance under the conventions in docs/review_guide.md. src/scoreboard/review_merge.py checks and merges the batches into data/review/full_review_coded.csv and joins them with the triage auto-yes and auto-no items in data/review/full_classification.csv; counts are in outputs/tables/full_classification_summary.csv.
+
+Validation. A blind human validation sample of 15 percent, including auto-no items, follows.

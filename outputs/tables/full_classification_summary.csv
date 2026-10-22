@@ -1,0 +1,207 @@
+year,outlet,decided_by,is_operational_briefing,items
+2021,21st Century Chronicle,auto_no,no,8
+2021,21st Century Chronicle,hand,unsure,3
+2021,21st Century Chronicle,hand,yes,5
+2021,Blueprint,auto_no,no,5
+2021,Blueprint,auto_yes,yes,2
+2021,Blueprint,hand,no,2
+2021,Blueprint,hand,yes,13
+2021,Channels TV,auto_no,no,2
+2021,Channels TV,auto_yes,yes,2
+2021,Channels TV,hand,no,1
+2021,Channels TV,hand,yes,3
+2021,Daily Post,auto_no,no,21
+2021,Daily Post,auto_yes,yes,2
+2021,Daily Post,hand,no,9
+2021,Daily Post,hand,yes,9
+2021,Daily Trust,auto_no,no,9
+2021,Daily Trust,auto_yes,yes,3
+2021,Daily Trust,hand,no,5
+2021,Daily Trust,hand,yes,5
+2021,Gazette,auto_no,no,1
+2021,Gazette,auto_yes,yes,1
+2021,Gazette,hand,yes,5
+2021,News Agency of Nigeria,auto_no,no,3
+2021,News Agency of Nigeria,auto_yes,yes,1
+2021,News Agency of Nigeria,hand,no,1
+2021,Premium Times,auto_yes,yes,1
+2021,Premium Times,hand,yes,3
+2021,TheWill,auto_no,no,5
+2021,TheWill,auto_yes,yes,3
+2021,TheWill,hand,no,3
+2021,TheWill,hand,yes,8
+2021,Voice of Nigeria,auto_no,no,10
+2021,Voice of Nigeria,hand,no,1
+2021,Voice of Nigeria,hand,yes,5
+2022,21st Century Chronicle,auto_no,no,4
+2022,21st Century Chronicle,auto_yes,yes,1
+2022,21st Century Chronicle,hand,unsure,5
+2022,21st Century Chronicle,hand,yes,5
+2022,Blueprint,auto_no,no,3
+2022,Blueprint,auto_yes,yes,2
+2022,Blueprint,hand,no,8
+2022,Blueprint,hand,yes,23
+2022,Channels TV,auto_no,no,2
+2022,Channels TV,hand,no,1
+2022,Channels TV,hand,yes,7
+2022,Daily Post,auto_no,no,11
+2022,Daily Post,auto_yes,yes,5
+2022,Daily Post,hand,no,4
+2022,Daily Post,hand,yes,12
+2022,Daily Trust,auto_no,no,13
+2022,Daily Trust,auto_yes,yes,5
+2022,Daily Trust,hand,no,5
+2022,Daily Trust,hand,yes,11
+2022,Gazette,auto_no,no,1
+2022,Gazette,auto_yes,yes,1
+2022,Gazette,hand,no,3
+2022,Gazette,hand,yes,4
+2022,Leadership,auto_no,no,2
+2022,Leadership,hand,no,10
+2022,Leadership,hand,yes,13
+2022,Premium Times,auto_no,no,1
+2022,Premium Times,auto_yes,yes,2
+2022,Premium Times,hand,no,4
+2022,Premium Times,hand,yes,27
+2022,TheWill,auto_no,no,5
+2022,TheWill,auto_yes,yes,8
+2022,TheWill,hand,no,1
+2022,TheWill,hand,yes,13
+2023,21st Century Chronicle,auto_no,no,4
+2023,21st Century Chronicle,auto_yes,yes,1
+2023,21st Century Chronicle,hand,no,2
+2023,21st Century Chronicle,hand,unsure,3
+2023,21st Century Chronicle,hand,yes,14
+2023,Blueprint,auto_no,no,4
+2023,Blueprint,auto_yes,yes,17
+2023,Blueprint,hand,no,4
+2023,Blueprint,hand,yes,24
+2023,Channels TV,auto_no,no,2
+2023,Channels TV,auto_yes,yes,1
+2023,Channels TV,hand,no,3
+2023,Channels TV,hand,yes,3
+2023,Daily Post,auto_no,no,13
+2023,Daily Post,auto_yes,yes,2
+2023,Daily Post,hand,no,6
+2023,Daily Post,hand,yes,24
+2023,Daily Trust,auto_no,no,10
+2023,Daily Trust,auto_yes,yes,7
+2023,Daily Trust,hand,no,1
+2023,Daily Trust,hand,yes,11
+2023,Gazette,auto_no,no,1
+2023,Gazette,auto_yes,yes,19
+2023,Gazette,hand,no,2
+2023,Gazette,hand,yes,9
+2023,Leadership,auto_no,no,6
+2023,Leadership,auto_yes,yes,3
+2023,Leadership,hand,no,21
+2023,Leadership,hand,yes,48
+2023,News Agency of Nigeria,auto_yes,yes,2
+2023,News Agency of Nigeria,hand,no,1
+2023,News Agency of Nigeria,hand,yes,19
+2023,Premium Times,auto_no,no,2
+2023,Premium Times,auto_yes,yes,1
+2023,Premium Times,hand,no,2
+2023,Premium Times,hand,yes,29
+2023,TheWill,auto_no,no,4
+2023,TheWill,auto_yes,yes,7
+2023,TheWill,hand,no,4
+2023,TheWill,hand,yes,8
+2023,Voice of Nigeria,auto_no,no,3
+2023,Voice of Nigeria,hand,no,2
+2023,Voice of Nigeria,hand,yes,5
+2024,Channels TV,auto_no,no,3
+2024,Channels TV,hand,no,4
+2024,Channels TV,hand,yes,6
+2024,Daily Post,auto_no,no,19
+2024,Daily Post,auto_yes,yes,17
+2024,Daily Post,hand,no,12
+2024,Daily Post,hand,yes,31
+2024,Daily Trust,auto_no,no,13
+2024,Daily Trust,auto_yes,yes,10
+2024,Daily Trust,hand,no,9
+2024,Daily Trust,hand,yes,7
+2024,Leadership,auto_no,no,5
+2024,Leadership,auto_yes,yes,5
+2024,Leadership,hand,no,33
+2024,Leadership,hand,yes,57
+2025,21st Century Chronicle,auto_no,no,1
+2025,21st Century Chronicle,hand,no,2
+2025,21st Century Chronicle,hand,unsure,15
+2025,21st Century Chronicle,hand,yes,3
+2025,Blueprint,auto_no,no,3
+2025,Blueprint,auto_yes,yes,7
+2025,Blueprint,hand,no,7
+2025,Blueprint,hand,yes,13
+2025,Channels TV,auto_no,no,2
+2025,Channels TV,auto_yes,yes,2
+2025,Channels TV,hand,no,5
+2025,Channels TV,hand,yes,2
+2025,Daily Post,auto_no,no,28
+2025,Daily Post,auto_yes,yes,4
+2025,Daily Post,hand,no,9
+2025,Daily Post,hand,yes,26
+2025,Daily Trust,auto_no,no,7
+2025,Daily Trust,auto_yes,yes,1
+2025,Daily Trust,hand,no,4
+2025,Daily Trust,hand,yes,6
+2025,Gazette,auto_no,no,4
+2025,Gazette,auto_yes,yes,16
+2025,Gazette,hand,no,5
+2025,Gazette,hand,yes,10
+2025,Leadership,auto_no,no,11
+2025,Leadership,auto_yes,yes,2
+2025,Leadership,hand,no,27
+2025,Leadership,hand,yes,47
+2025,News Agency of Nigeria,auto_yes,yes,1
+2025,News Agency of Nigeria,hand,yes,6
+2025,Premium Times,auto_no,no,2
+2025,Premium Times,hand,no,1
+2025,Premium Times,hand,yes,17
+2025,TheWill,auto_no,no,5
+2025,TheWill,auto_yes,yes,1
+2025,TheWill,hand,no,4
+2025,TheWill,hand,yes,4
+2025,Voice of Nigeria,auto_no,no,2
+2025,Voice of Nigeria,hand,no,2
+2025,Voice of Nigeria,hand,yes,6
+2026,21st Century Chronicle,auto_no,no,1
+2026,21st Century Chronicle,auto_yes,yes,1
+2026,21st Century Chronicle,hand,no,1
+2026,21st Century Chronicle,hand,unsure,7
+2026,21st Century Chronicle,hand,yes,9
+2026,Blueprint,auto_no,no,2
+2026,Blueprint,auto_yes,yes,6
+2026,Blueprint,hand,no,3
+2026,Blueprint,hand,yes,9
+2026,Channels TV,auto_no,no,2
+2026,Channels TV,auto_yes,yes,1
+2026,Channels TV,hand,no,4
+2026,Channels TV,hand,yes,1
+2026,Daily Post,auto_no,no,22
+2026,Daily Post,auto_yes,yes,3
+2026,Daily Post,hand,no,8
+2026,Daily Post,hand,yes,12
+2026,Daily Trust,auto_no,no,10
+2026,Daily Trust,hand,no,6
+2026,Daily Trust,hand,yes,1
+2026,Gazette,auto_no,no,2
+2026,Gazette,auto_yes,yes,12
+2026,Gazette,hand,no,3
+2026,Gazette,hand,yes,4
+2026,Leadership,auto_no,no,7
+2026,Leadership,hand,no,15
+2026,Leadership,hand,yes,23
+2026,News Agency of Nigeria,auto_no,no,1
+2026,News Agency of Nigeria,auto_yes,yes,2
+2026,News Agency of Nigeria,hand,no,2
+2026,News Agency of Nigeria,hand,yes,10
+2026,Premium Times,auto_yes,yes,2
+2026,Premium Times,hand,no,5
+2026,Premium Times,hand,yes,10
+2026,TheWill,auto_no,no,4
+2026,TheWill,auto_yes,yes,1
+2026,TheWill,hand,no,2
+2026,TheWill,hand,yes,1
+2026,Voice of Nigeria,auto_no,no,2
+2026,Voice of Nigeria,hand,yes,7
