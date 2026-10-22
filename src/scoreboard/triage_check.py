@@ -24,7 +24,9 @@ data/review/triage_check2_key.csv in the same blind format, with check IDs TC2-0
 
 `score` compares the hand codes (data/review/triage_check_coded.csv) with the key by check_id and
 applies the pass rule: at most MAX_ERRORS disagreements in each decision group. "unsure" codes are
-counted separately and are not errors. Writes outputs/tables/triage_check_result.csv.
+counted separately and are not errors. The second check (data/review/triage_check2_coded.csv against
+its key) is scored the same way as group "auto-no after guard". Writes
+outputs/tables/triage_check_result.csv, one row per group.
 """
 
 import argparse
@@ -44,6 +46,7 @@ REVIEW_DIR = PROJECT_ROOT / "data" / "review"
 SHEET = REVIEW_DIR / "triage_check_sheet.csv"
 KEY = REVIEW_DIR / "triage_check_key.csv"
 CODED = REVIEW_DIR / "triage_check_coded.csv"
+CODED2 = REVIEW_DIR / "triage_check2_coded.csv"
 SHEET2 = REVIEW_DIR / "triage_check2_sheet.csv"
 KEY2 = REVIEW_DIR / "triage_check2_key.csv"
 RESULT = "triage_check_result.csv"
@@ -142,14 +145,14 @@ def compare(coded=CODED, key=KEY) -> pd.DataFrame:
     return merged
 
 
-def score(merged: pd.DataFrame) -> pd.DataFrame:
+def score(merged: pd.DataFrame, groups=(("yes", "auto-yes"), ("no", "auto-no"))) -> pd.DataFrame:
     rows = []
-    for decision in ("yes", "no"):
+    for decision, label in groups:
         group = merged[merged["decision"] == decision]
         n = group["outcome"].value_counts()
         wrong = group[group["outcome"] == "disagree"]
         rules = sorted({r for fired in wrong["rules_fired"] for r in fired.split("; ") if r})
-        rows.append({"group": f"auto-{decision}", "items": len(group), "agreements": int(n.get("agree", 0)),
+        rows.append({"group": label, "items": len(group), "agreements": int(n.get("agree", 0)),
                      "disagreements": int(n.get("disagree", 0)), "unsure": int(n.get("unsure", 0)),
                      "uncoded": int(n.get("uncoded", 0)), "max_errors": MAX_ERRORS,
                      "result": "pass" if len(wrong) <= MAX_ERRORS and not n.get("uncoded", 0) else "fail",
@@ -170,8 +173,9 @@ def main(argv=None):
         print(f"accepted rules: {[r.name for r in accepted_rules()]}")
         print(apply_all().to_string(index=False))
     elif args.cmd == "score":
-        merged = compare()
-        result = score(merged)
+        first, second = compare(), compare(coded=CODED2, key=KEY2)
+        result = pd.concat([score(first), score(second, groups=(("no", "auto-no after guard"),))], ignore_index=True)
+        merged = pd.concat([first, second], ignore_index=True)
         result.to_csv(TABLES_DIR / RESULT, index=False)
         print(result.to_string(index=False))
         cols = ["check_id", "title", "decision", "rules_fired", "is_operational_briefing", "notes"]

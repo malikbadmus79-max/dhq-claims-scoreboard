@@ -37,7 +37,7 @@ The rejected rules show where body text alone misleads: single-incident statemen
 
 ## Limitation
 
-The rules were set on the same 230 pilot items they are evaluated on, so their pilot precision overstates what can be expected on other years. Their error rate on 2021–2026 is checked by the blind validation sample. The rules have not been applied to the full collection.
+The rules were set on the same 230 pilot items they are evaluated on, so their pilot precision overstates what can be expected on other years. Their error rate on 2021–2026 is checked by the blind validation sample. The accepted rules and the auto-no guard have been applied to every full-collection item without a pilot label (outputs/tables/full_triage_<year>.csv); the decisions there are triage decisions, not hand codes.
 
 ## Triage check
 
@@ -67,4 +67,16 @@ The guard was added because both disagreements in the triage check were DHQ peri
 
 Applied to the full collection, the guard moves auto-no items to hand review (column guard = "moved" in outputs/tables/full_triage_<year>.csv), including TC-010 and TC-029. Of the 30 auto-no items in the first check, it moves 5 (TC-010, TC-029, TC-035, TC-042, TC-060); the other three were coded no by hand.
 
-The guard was written after the first check was scored, so that check cannot test it. It is tested on a fresh sample of 30 auto-no items decided after the guard, drawn from 2021–2023 and 2025–2026 with seed 20261023, excluding the 60 items of the first check (data/review/triage_check2_sheet.csv, key data/review/triage_check2_key.csv, IDs TC2-001 to TC2-030). Pass rule, set before that sample was drawn: at most 1 disagreement in 30. The sample has not yet been coded.
+The guard was written after the first check was scored, so that check cannot test it. It is tested on a fresh sample of 30 auto-no items decided after the guard, drawn from 2021–2023 and 2025–2026 with seed 20261023, excluding the 60 items of the first check (data/review/triage_check2_sheet.csv, key data/review/triage_check2_key.csv, IDs TC2-001 to TC2-030). Pass rule, set before that sample was drawn: at most 1 disagreement in 30.
+
+### Second triage check
+
+Sample. 30 auto-no items after the guard (2021 5, 2022 5, 2023 5, 2025 6, 2026 9), seed 20261023, IDs TC2-001 to TC2-030 (data/review/triage_check2_key.csv).
+
+Coding. Claude, an AI assistant, coded each item from the article text without seeing the key, following docs/triage_check.md. Hand codes and notes: data/review/triage_check2_coded.csv.
+
+Result (outputs/tables/triage_check_result.csv, group "auto-no after guard"): 30 items, 30 agreements, 0 disagreements, 0 unsure.
+
+Outcome. The auto-no decisions after the guard pass.
+
+Limitation. The second sample held only auto-no items, and the coder knew this from the documentation, so the check is a weaker test than the first, mixed check: a coder who knows every item was decided "no" is not blind to the decision. The blind validation by the author will include auto-no items to cover this.

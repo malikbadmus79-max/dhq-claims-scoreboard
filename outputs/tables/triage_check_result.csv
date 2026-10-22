@@ -1,3 +1,4 @@
 group,items,agreements,disagreements,unsure,uncoded,max_errors,result,rules_in_disagreements,disagreement_ids
 auto-yes,30,30,0,0,0,1,pass,,
 auto-no,30,28,2,0,0,1,fail,no_national_no_period; no_number_no_period,TC-010; TC-029
+auto-no after guard,30,30,0,0,0,1,pass,,

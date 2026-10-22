@@ -89,3 +89,11 @@ def test_second_sample_is_auto_no_only_and_excludes_first(tables):
                            decisions=("no",), exclude=set(k1["url"]), prefix="TC2")
     assert len(k2) == 30 and set(k2["decision"]) == {"no"} and 2024 not in set(k2["year"])
     assert not k2["url"].isin(k1["url"]).any() and k2["check_id"].iloc[0] == "TC2-001"
+
+
+def test_score_labels_a_single_group():
+    merged = pd.DataFrame({"check_id": ["TC2-001", "TC2-002"], "decision": ["no", "no"],
+                           "rules_fired": ["no_number_no_period"] * 2, "outcome": ["agree", "unsure"]})
+    result = tc.score(merged, groups=(("no", "auto-no after guard"),))
+    assert result["group"].tolist() == ["auto-no after guard"]
+    assert result.loc[0, ["items", "agreements", "unsure", "result"]].tolist() == [2, 1, 1, "pass"]
