@@ -1,0 +1,12 @@
+rule,decision,description,fires,correct,precision,accepted,wrong_item_ids
+title_period_number,yes,title states a period and an outcome number; text attributed to DHQ,57,57,1.0,True,
+title_number_body_period,yes,"outcome number in the title, a period stated in the body, DHQ named",52,52,1.0,True,
+title_number_national,yes,"outcome number in the title, a national marker, DHQ named",77,75,0.974,False,P2024-r061; P2024-r200
+national_results,yes,"DHQ named, a national marker and an outcome number anywhere",157,141,0.898,False,P2024-r028; P2024-r045; P2024-r048; P2024-r057; P2024-r061; P2024-r064; P2024-r130; P2024-r131; P2024-r141; P2024-r142; P2024-r154; P2024-r187; P2024-r199; P2024-r200; P2024-r208; P2024-r217
+briefing_format,yes,briefing-format phrase and an outcome number anywhere,166,138,0.831,False,P2024-r028; P2024-r038; P2024-r041; P2024-r045; P2024-r046; P2024-r048; P2024-r057; P2024-r059; P2024-r060; P2024-r061; P2024-r062; P2024-r064; P2024-r069; P2024-r082; P2024-r113; P2024-r130; P2024-r131; P2024-r135; P2024-r141; P2024-r142; P2024-r154; P2024-r187; P2024-r192; P2024-r199; P2024-r200; P2024-r201; P2024-r202; P2024-r208
+dhq_outcome_number,yes,DHQ named and an outcome number anywhere,189,154,0.815,False,P2024-r028; P2024-r038; P2024-r040; P2024-r041; P2024-r045; P2024-r046; P2024-r048; P2024-r050; P2024-r051; P2024-r057; P2024-r059; P2024-r060; P2024-r061; P2024-r062; P2024-r064; P2024-r069; P2024-r073; P2024-r082; P2024-r086; P2024-r095; P2024-r113; P2024-r130; P2024-r131; P2024-r135; P2024-r141; P2024-r142; P2024-r154; P2024-r187; P2024-r192; P2024-r199; P2024-r200; P2024-r201; P2024-r202; P2024-r208; P2024-r217
+no_number_no_period,no,no outcome number and no stated period in title or body,36,36,1.0,True,
+no_national_no_period,no,"no national marker, no stated period and no briefing phrase",22,22,1.0,True,
+no_outcome_number,no,no outcome verb next to a number in title or body,41,40,0.976,False,P2024-r008
+non_briefing_title,no,"title is a denial, warning, vow, court, inquiry, wanted list or opinion",25,22,0.88,False,P2024-r089; P2024-r105; P2024-r198
+other_agency_source,no,police or another agency named and DHQ not named,0,0,,False,
