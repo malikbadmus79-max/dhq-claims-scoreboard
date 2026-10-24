@@ -7,7 +7,7 @@ import scoreboard.group_candidates as gc
 def items(*rows):
     """Rows of (date, period_note, neutralised, arrested); outlet and url follow the row order."""
     return pd.DataFrame([{"review_id": f"R{i:04d}", "decided_by": "hand", "date": d, "outlet": f"O{i}",
-                          "title": f"t{i}", "url": f"https://x.ng/{i}/", "period_note": p,
+                          "title": f"t{i}", "url": f"https://x.ng/{i}/", "period_note": p, "period_source": "notes",
                           "neutralised": n, "arrested": a, "rescued": None}
                          for i, (d, p, n, a) in enumerate(rows)])
 
@@ -18,17 +18,17 @@ def groups(df):
 
 
 def test_items_within_the_gap_share_a_group():
-    assert len(set(groups(items(("2024-01-05", "weekly", 43, 115), ("2024-01-08", "weekly", 43, 115))))) == 1
+    assert len(set(groups(items(("2024-01-05", "weekly", 43, 115), ("2024-01-07", "weekly", 43, 115))))) == 1
 
 
 def test_items_beyond_the_gap_are_split():
-    g = groups(items(("2024-01-05", "weekly", 43, 115), ("2024-01-09", "weekly", 43, 115)))
+    g = groups(items(("2024-01-05", "weekly", 43, 115), ("2024-01-08", "weekly", 43, 115)))
     assert g[0] != g[1]
 
 
-def test_no_chain_across_the_gap():
-    """Day 0 and day 2 match, day 2 and day 4 match, but day 0 and day 4 are 4 days apart."""
-    g = groups(items(("2024-01-01", "", None, None), ("2024-01-03", "", None, None), ("2024-01-05", "", None, None)))
+def test_gap_counts_from_the_earliest_item_not_through_a_chain():
+    """Day 0, 2 and 3: day 3 is within 2 days of day 2 but 3 days after the group's earliest item."""
+    g = groups(items(("2024-01-01", "", None, None), ("2024-01-03", "", None, None), ("2024-01-04", "", None, None)))
     assert g[0] == g[1] and g[2] != g[0]
     sheet = gc.build_sheet(items(*[(f"2024-01-{d:02d}", "", None, None) for d in range(1, 15)]))
     spans = sheet.groupby("candidate_group")["date"].agg(lambda d: (pd.to_datetime(d).max() - pd.to_datetime(d).min()).days)
@@ -45,16 +45,31 @@ def test_missing_period_conflicts_with_none():
     assert g[0] == g[1]
 
 
-def test_figures_may_differ_on_one_outcome_but_not_two():
-    one = groups(items(("2024-01-05", "weekly", 40, 115), ("2024-01-05", "weekly", 43, 115)))
-    two = groups(items(("2024-01-05", "weekly", 40, 110), ("2024-01-05", "weekly", 43, 115)))
-    assert one[0] == one[1] and two[0] != two[1]
+def test_figures_never_keep_items_apart_and_are_flagged():
+    df = items(("2024-01-05", "weekly", 40, 1326), ("2024-01-05", "weekly", 43, 1903), ("2024-01-05", "weekly", 43, None))
+    sheet = gc.build_sheet(df)
+    assert sheet["candidate_group"].nunique() == 1
+    assert sheet["figure_flag"].eq("neutralised: 40 vs 43; arrested: 1,326 vs 1,903").all()
 
 
-def test_missing_figures_held_as_nan_do_not_disagree():
+def test_agreeing_figures_leave_no_flag():
+    sheet = gc.build_sheet(items(("2024-01-05", "weekly", 43, 115), ("2024-01-05", "weekly", 43, None)))
+    assert sheet["figure_flag"].eq("").all()
+
+
+def test_figures_break_a_tie_between_open_groups():
+    """A weekly and a monthly group are both open; an item without a period could join either and goes
+    to the group whose figures it shares."""
+    g = groups(items(("2024-01-05", "weekly", 43, 115), ("2024-01-05", "monthly", 500, 900),
+                     ("2024-01-06", "", 500, None)))
+    assert g[0] != g[1] and g[2] == g[1]
+
+
+def test_missing_figures_held_as_nan_do_not_count():
     df = items(("2024-01-05", "weekly", 43, 115), ("2024-01-05", "weekly", None, None))
     df[["neutralised", "arrested"]] = df[["neutralised", "arrested"]].astype(float)
-    assert len(set(groups(df))) == 1
+    sheet = gc.build_sheet(df)
+    assert sheet["candidate_group"].nunique() == 1 and sheet["figure_flag"].eq("").all()
 
 
 def test_groups_numbered_in_date_order():
@@ -62,20 +77,30 @@ def test_groups_numbered_in_date_order():
     assert sheet["candidate_group"].tolist() == ["C0001", "C0002"] and sheet["date"].tolist() == ["2024-01-01", "2024-02-01"]
 
 
-@pytest.mark.parametrize("note,period", [
+@pytest.mark.parametrize("text,period", [
     ("Period: weekly.", "weekly"),
+    ("Troops kill 84 terrorists, arrest 38 in 2 weeks", "biweekly"),
     ("DHQ bi-weekly briefing (Onyeuko), last two weeks", "biweekly"),
-    ("DHQ briefing (Kangye) of 8 May 2025, month of April", "monthly"),
-    ("Period: quarterly: January to March", "quarterly"),
-    ("Period: year to date: 11 months", "year"),
-    ("DHQ statement (Kangye) of 3 October 2025, May 2023 to date; cumulative period", "cumulative"),
+    ("Troops killed 102 terrorists, rescued 393 kidnap victims in July: DHQ", "monthly"),
+    ("Military kills 2,351 terrorists in three months", "quarterly"),
+    ("Military Says It Eliminated 10, 937 Terrorists In 2024", "year"),
+    ("2025: Military destroys 503 illegal refineries, arrests 778 suspects", "year"),
+    ("Troops have neutralised 300 terrorists so far", "cumulative"),
     ("DHQ update (Onyeuko), 11 to 25 November 2021", "biweekly"),
-    ("DHQ briefing (Danmadami), 20 April to 4 May 2023", "biweekly"),
     ("DHQ review (Onyeuko), 20 May 2021 to 6 January 2022", "cumulative"),
+    ("DHQ update (Onyeuko), 10 to 24 March 2022; also cumulative surrenders since September 2021", "biweekly"),
+    ("The Defence Headquarters says troops killed 50 terrorists within one week.", "weekly"),
     ("Denial", ""),
 ])
-def test_period_of(note, period):
-    assert gc.period_of(note) == period
+def test_period_of(text, period):
+    assert gc.period_of(text) == period
+
+
+def test_period_source_order():
+    assert gc.period_with_source("Period: weekly.", "in May", "two weeks") == ("weekly", "notes")
+    assert gc.period_with_source("", "in May", "two weeks") == ("monthly", "title")
+    assert gc.period_with_source("", "Troops kill 50", "in the last two weeks") == ("biweekly", "body")
+    assert gc.period_with_source("", "Troops kill 50", "x" * gc.BODY_CHARS + " one week") == ("", "none")
 
 
 @pytest.mark.parametrize("title,figures", [

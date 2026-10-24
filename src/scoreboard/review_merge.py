@@ -14,7 +14,9 @@ item ID) to give one row per item in data/review/full_classification.csv (decide
 hand or pilot). Pilot items take recheck_code from data/review/pilot_recheck_coded.csv, checked against
 data/review/pilot_recheck_sheet.csv: RECHECK_ITEMS rows numbered P001 upward, urls matching the sheet,
 recheck_code yes or no, changed "yes" exactly when recheck_code differs from pilot_code, no empty notes.
-The original pilot label is kept in original_pilot_code; the label files are not changed. Counts by year,
+The original pilot label is kept in original_pilot_code; the label files are not changed. Codes listed in
+data/review/classification_overrides.csv (url, from_code, to_code, reason) are then applied, with decided_by
+kept and overridden "yes"; an override whose from_code does not match stops the run. Counts by year,
 outlet, decided_by and code go to outputs/tables/full_classification_summary.csv.
 Discovered items (outputs/tables/full_inventory_<year>.csv) in none of these sets are counted by reason;
 the run stops if any item falls in more than one.
@@ -36,12 +38,14 @@ CODES = ("yes", "no", "unsure")
 RECHECK_CODES = ("yes", "no")
 MERGED = REVIEW_DIR / "full_review_coded.csv"
 RECHECK_CODED = REVIEW_DIR / "pilot_recheck_coded.csv"
+OVERRIDES = REVIEW_DIR / "classification_overrides.csv"
+OVERRIDE_COLUMNS = ["url", "from_code", "to_code", "reason"]
 CLASSIFICATION = REVIEW_DIR / "full_classification.csv"
 SUMMARY = TABLES_DIR / "full_classification_summary.csv"
 MERGED_COLUMNS = ["review_id", "batch", "year", "outlet", "date", "title", "url", "has_text",
                   "is_operational_briefing", "notes"]
 CLASSIFICATION_COLUMNS = ["year", "outlet", "date", "url", "decided_by", "is_operational_briefing", "review_id",
-                          "original_pilot_code"]
+                          "original_pilot_code", "overridden"]
 SUMMARY_COLUMNS = ["year", "outlet", "decided_by", "is_operational_briefing", "items"]
 AUTO = {"yes": "auto_yes", "no": "auto_no"}
 
@@ -159,7 +163,7 @@ def classify(merged: pd.DataFrame, recheck: pd.DataFrame, tables_dir=TABLES_DIR,
                   .assign(decided_by="pilot", review_id=lambda d: d["pilot_item_id"],
                           is_operational_briefing=lambda d: d["recheck_code"]))
     out = (pd.concat([auto_rows, hand_rows, pilot_rows], ignore_index=True)
-           .assign(original_pilot_code=lambda d: d["original_pilot_code"].fillna(""))[CLASSIFICATION_COLUMNS]
+           .assign(original_pilot_code=lambda d: d["original_pilot_code"].fillna(""), overridden="no")[CLASSIFICATION_COLUMNS]
            .sort_values(["date", "outlet", "url"], ignore_index=True))
 
     rest = inventory[~inventory["url"].isin(out["url"])]
@@ -172,18 +176,40 @@ def classify(merged: pd.DataFrame, recheck: pd.DataFrame, tables_dir=TABLES_DIR,
     return out, unclassified
 
 
+def apply_overrides(classification: pd.DataFrame, overrides: pd.DataFrame) -> pd.DataFrame:
+    """Sets to_code on each override url whose current code is from_code; decided_by is kept and
+    overridden is "yes". Stops on an override whose url is not classified or whose from_code does not match."""
+    out = classification.assign(overridden="no")
+    if overrides["url"].duplicated().any():
+        raise MergeError("an override url appears more than once")
+    for o in overrides.itertuples():
+        hit = out["url"] == o.url
+        if hit.sum() != 1:
+            raise MergeError(f"override url not classified: {o.url}")
+        if out.loc[hit, "is_operational_briefing"].iloc[0] != o.from_code:
+            raise MergeError(f"override from_code {o.from_code} does not match the code of {o.url}")
+        if o.to_code not in CODES or not o.reason.strip():
+            raise MergeError(f"override for {o.url} needs a to_code in {', '.join(CODES)} and a reason")
+        out.loc[hit, ["is_operational_briefing", "overridden"]] = [o.to_code, "yes"]
+    return out
+
+
 def summary(classification: pd.DataFrame) -> pd.DataFrame:
     return (classification.groupby(SUMMARY_COLUMNS[:-1]).size().rename("items").reset_index()[SUMMARY_COLUMNS])
 
 
 def run(sheet_path=SHEET, review_dir=REVIEW_DIR, tables_dir=TABLES_DIR, labels_path=FULL_LABELS,
         merged_path=MERGED, classification_path=CLASSIFICATION, summary_path=SUMMARY, expected=EXPECTED_ITEMS,
-        recheck_sheet_path=RECHECK_SHEET, recheck_path=RECHECK_CODED, recheck_expected=RECHECK_ITEMS):
+        recheck_sheet_path=RECHECK_SHEET, recheck_path=RECHECK_CODED, recheck_expected=RECHECK_ITEMS,
+        overrides_path=OVERRIDES):
     sheet = pd.read_csv(sheet_path, keep_default_na=False, dtype=str)
     merged = merge(sheet, read_batches(sheet, review_dir), expected)
     recheck = check_recheck(pd.read_csv(recheck_sheet_path, keep_default_na=False, dtype=str),
                             pd.read_csv(recheck_path, keep_default_na=False, dtype=str), recheck_expected)
     classification, unclassified = classify(merged, recheck, tables_dir, labels_path)
+    overrides = (pd.read_csv(overrides_path, keep_default_na=False, dtype=str) if overrides_path.exists()
+                 else pd.DataFrame(columns=OVERRIDE_COLUMNS))
+    classification = apply_overrides(classification, overrides)
     table = summary(classification)
     merged.to_csv(merged_path, index=False)
     classification.to_csv(classification_path, index=False)
@@ -199,7 +225,8 @@ def main(argv=None):
         raise SystemExit(f"review merge failed: {e}")
     pilot = classification[classification["decided_by"] == "pilot"]
     changed = int((pilot["is_operational_briefing"] != pilot["original_pilot_code"]).sum())
-    print(f"merged rows: {len(merged)}; classified items: {len(classification)}; pilot codes changed by recheck: {changed}")
+    print(f"merged rows: {len(merged)}; classified items: {len(classification)}; pilot codes changed by recheck: {changed}; "
+          f"overridden: {int((classification['overridden'] == 'yes').sum())}")
     print(pd.crosstab([classification["year"], classification["decided_by"]],
                       classification["is_operational_briefing"], margins=True).to_string())
     print("\nnot classified:")

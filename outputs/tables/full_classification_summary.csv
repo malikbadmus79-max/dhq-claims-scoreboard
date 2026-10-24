@@ -11,7 +11,8 @@ year,outlet,decided_by,is_operational_briefing,items
 2021,Channels TV,hand,no,1
 2021,Channels TV,hand,yes,3
 2021,Daily Post,auto_no,no,21
-2021,Daily Post,auto_yes,yes,2
+2021,Daily Post,auto_yes,no,1
+2021,Daily Post,auto_yes,yes,1
 2021,Daily Post,hand,no,9
 2021,Daily Post,hand,yes,9
 2021,Daily Trust,auto_no,no,9

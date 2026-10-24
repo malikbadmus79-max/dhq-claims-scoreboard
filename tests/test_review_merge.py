@@ -47,7 +47,12 @@ def run(files):
     return rm.run(sheet_path=files / "sheet.csv", review_dir=files, tables_dir=files, labels_path=files / "labels.csv",
                   merged_path=files / "merged.csv", classification_path=files / "class.csv",
                   summary_path=files / "summary.csv", expected=N, recheck_sheet_path=files / "recheck_sheet.csv",
-                  recheck_path=files / "recheck_coded.csv", recheck_expected=len(YEARS))
+                  recheck_path=files / "recheck_coded.csv", recheck_expected=len(YEARS),
+                  overrides_path=files / "overrides.csv")
+
+
+def write_overrides(files, *rows):
+    pd.DataFrame(rows, columns=rm.OVERRIDE_COLUMNS).to_csv(files / "overrides.csv", index=False)
 
 
 def edit(files, batch_file, path=None, **changes):
@@ -209,4 +214,31 @@ def test_recheck_changed_flag_wrong(files, row, value):
 def test_recheck_empty_notes(files):
     recheck_edit(files, notes={3: " "})
     with pytest.raises(rm.MergeError, match="empty notes: P004"):
+        run(files)
+
+
+def test_override_recodes_and_keeps_decided_by(files):
+    url = f"https://x.ng/{YEARS[0]}/yes/"
+    write_overrides(files, (url, "yes", "no", "Police statement, not DHQ"))
+    _, classification, table, _ = run(files)
+    row = classification.set_index("url").loc[url]
+    assert row["is_operational_briefing"] == "no" and row["decided_by"] == "auto_yes" and row["overridden"] == "yes"
+    assert classification["overridden"].eq("yes").sum() == 1
+    assert table.loc[(table["decided_by"] == "auto_yes") & (table["is_operational_briefing"] == "no"), "items"].sum() == 1
+
+
+def test_no_override_file_overrides_nothing(files):
+    _, classification, _, _ = run(files)
+    assert classification["overridden"].eq("no").all()
+
+
+@pytest.mark.parametrize("row,message", [
+    (("https://x.ng/none/", "yes", "no", "r"), "not classified"),
+    ((f"https://x.ng/{YEARS[0]}/yes/", "no", "yes", "r"), "does not match"),
+    ((f"https://x.ng/{YEARS[0]}/yes/", "yes", "maybe", "r"), "needs a to_code"),
+    ((f"https://x.ng/{YEARS[0]}/yes/", "yes", "no", " "), "needs a to_code"),
+])
+def test_bad_override_stops_the_run(files, row, message):
+    write_overrides(files, row)
+    with pytest.raises(rm.MergeError, match=message):
         run(files)
