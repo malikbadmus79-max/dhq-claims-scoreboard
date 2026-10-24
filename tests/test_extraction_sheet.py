@@ -163,10 +163,9 @@ def test_national_or_unnamed_sentence_is_not_regional(sentence):
 
 def test_theatre_sentence_does_not_count_as_no_region_named():
     text = ("The Defence Headquarters gave the results of operations on Thursday. "
-            "He said troops also apprehended 18 terrorists across the theatre during the period. "
-            "He said the troops had within the period apprehended 19 terrorists.")
+            "He said troops also apprehended 18 terrorists across the theatre during the period.")
     f = es.body_figure(text, "arrested")
-    assert (f["value"], f["rule"]) == (19, "no region named")
+    assert (f["value"], f["rule"]) == (18, "first mention")
     only_theatre = "Troops of Hadin Kai arrested 18 terrorists."
     assert es.body_figure(only_theatre, "arrested")["rule"] == "first mention"
 
@@ -184,3 +183,28 @@ def test_check_coded_counts_and_failures():
         es.check_coded(sheet, coded.assign(confirmed_headline_body_check=["differs", "same", "", ""]))
     with pytest.raises(ValueError, match="empty extraction_notes"):
         es.check_coded(sheet, coded.assign(extraction_notes=["n", " ", "n", "n"]))
+
+
+def test_sentence_inside_an_operation_section_is_not_no_region_named():
+    """B2021-017: the theatre figure follows the sentence opening the Operation Hadarin Daji section."""
+    text = ("The Defence Headquarters gave an update on military operations across the country on Thursday. "
+            "Under Operation Hadarin Daji, the troops sustained land and air offensives. "
+            "According to him, a total of 33 bandits were neutralised in the course of the operations.")
+    f = es.body_figure(text, "neutralised")
+    assert (f["value"], f["rule"]) == (33, "first mention")
+
+
+def test_national_marker_ends_a_section():
+    text = ("Under Operation Hadin Kai, troops carried out several operations. "
+            "Across the theatres of operation, troops kept up the offensive. "
+            "The DHQ said troops arrested 284 suspects during the month.")
+    f = es.body_figure(text, "arrested")
+    assert (f["value"], f["rule"]) == (284, "no region named")
+
+
+def test_pilot_rule_without_sections_is_unchanged():
+    from scoreboard.extract import national_total
+    text = ("The Defence Headquarters gave an update on Thursday. Under Operation Hadarin Daji, troops attacked. "
+            "A total of 33 bandits were neutralised.")
+    assert national_total(text, "neutralised")["rule"] == "no region named"
+    assert national_total(text, "neutralised", sections=True) is None

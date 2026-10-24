@@ -3,13 +3,16 @@
 Usage: python -m scoreboard.extraction_sheet
 
 Reads data/review/group_review_coded.csv and the stored body text in data_raw/text/ (no requests) and
-writes data/review/extraction_sheet_v2.csv, one row per item ordered by briefing_id, date, outlet and url,
-with automatic proposals for hand confirmation, and data_private/extraction_snippets_v2.csv, which holds
+writes data/review/extraction_sheet_v3.csv, one row per item ordered by briefing_id, date, outlet and url,
+with automatic proposals for hand confirmation, and data_private/extraction_snippets_v3.csv, which holds
 the evidence sentences and is not committed (.gitignore). The field definitions are the pilot's
 (docs/audit_rules.md, Extraction rules), applied with the pilot code itself, plus the version 2 parser
 fixes (normalise, is_regional_v2): day numbers in dates are not counts, numbers in words take their
-bracketed digits, and a sentence naming a theatre or operation is not "no region named". Version 1
-(data/review/extraction_sheet.csv, data_private/extraction_snippets.csv) is left as it was.
+bracketed digits, and a sentence naming a theatre or operation is not "no region named". Version 3
+adds sections (scoreboard.extract.national_total, sections=True): a sentence after one naming a region or
+operation, up to the next sentence with a national marker, is not "no region named" either. Versions 1
+and 2 (data/review/extraction_sheet.csv, extraction_sheet_v2.csv and their snippet files) are left as
+they were.
 - headline_<outcome>: scoreboard.relay.headline_figures on the title.
 - body_<outcome>: scoreboard.extract.national_total on the body (first sentence with a national marker,
   else the first naming no region, state or operation, else a vague-only sentence); failing all three,
@@ -18,7 +21,7 @@ bracketed digits, and a sentence naming a theatre or operation is not "no region
 - Values are counts; qualifiers ("over", "no fewer than", "plus 1 named") are kept in
   <field>_qualifier, and a vague term ("scores", "several") is a qualifier with no value.
 - snippets: the sentence each body figure came from, one per value, cut to EVIDENCE_CHARS characters,
-  in data_private/extraction_snippets_v2.csv (briefing_id, url, outcome, snippet; url and outcome are the
+  in data_private/extraction_snippets_v3.csv (briefing_id, url, outcome, snippet; url and outcome are the
   key). The public sheet holds only snippet_ref, the outcomes of that row with a snippet.
 - proposed_headline_body_check: "differs" when a headline figure is absent from the body or differs
   from the body figure for the same outcome, unless the headline only rounds it ("over 40" for 43,
@@ -45,9 +48,10 @@ from scoreboard.relay import headline_figures, is_rounded, numbers_in
 from scoreboard.triage_check import REVIEW_DIR
 from scoreboard.wirecheck import text_path
 
-# Version 2 (parser fixes in normalise and is_regional_v2); version 1 files are kept as they were.
-EXTRACTION_SHEET = REVIEW_DIR / "extraction_sheet_v2.csv"
-SNIPPETS = PROJECT_ROOT / "data_private" / "extraction_snippets_v2.csv"
+# Version 3 (version 2 parser fixes in normalise and is_regional_v2, plus region and operation sections);
+# version 1 and 2 files are kept as they were.
+EXTRACTION_SHEET = REVIEW_DIR / "extraction_sheet_v3.csv"
+SNIPPETS = PROJECT_ROOT / "data_private" / "extraction_snippets_v3.csv"
 SNIPPET_COLUMNS = ["briefing_id", "url", "outcome", "snippet"]
 FIGURE_COLUMNS = [c for o in OUTCOMES for c in (f"headline_{o}", f"headline_{o}_qualifier", f"body_{o}",
                                                  f"body_{o}_qualifier", f"body_{o}_rule")]
@@ -110,7 +114,7 @@ def body_figure(text: str, outcome: str) -> dict:
     if not text:
         return {"value": None, "qualifier": "", "rule": "no text", "evidence": ""}
     norm = normalise(text)
-    f = national_total(norm, outcome, regional=is_regional_v2) or first_mention(norm, outcome)
+    f = national_total(norm, outcome, regional=is_regional_v2, sections=True) or first_mention(norm, outcome)
     if not f:
         return {"value": None, "qualifier": "", "rule": "not reported", "evidence": ""}
     published = dict(zip((s[:EVIDENCE_CHARS] for s in split_sentences(norm)), split_sentences(text)))

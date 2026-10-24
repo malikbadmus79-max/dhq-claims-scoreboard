@@ -45,6 +45,10 @@ Items share a confirmed_group_id when they report the same briefing: the same br
 
 Record "differs" when a headline figure differs from the figure in the same outlet's body, and give both figures in notes. These are media-relay observations, not DHQ inconsistencies. Left blank when headline and body agree.
 
+### "rounded", 2026-10-24
+
+Record "rounded" when the headline gives a rounded or qualified figure (for example, "over 150" or "1,000") and the outlet's body gives the exact figure it rounds (171 or 1,051). It is recorded separately from "differs".
+
 ### "not stated", 2026-10-24
 
 Record "not stated" when the headline figure appears nowhere in the outlet's body. This includes a headline figure that is the outlet's own sum of figures given separately in the body (for example, theatre figures added together), since the body does not state that total. It is recorded separately from "differs", which applies where the body states a different figure for the same total.
