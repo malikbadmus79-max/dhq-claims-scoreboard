@@ -1,0 +1,33 @@
+briefing_id,outcome,auto_value,conflicting_copies,decision
+B2022-001,neutralised,1910,21st Century Chronicle: 537; Gazette: 858,"Kept: 1,910 is the national figure in three independent copies; 537 and 858 are bandit and North-West/North-Central subtotals."
+B2022-001,arrested,912,Gazette: 2318,"Kept: 912 is national in three independent copies; 2,318 is the North-West/North-Central figure (Premium Times)."
+B2022-001,rescued,729,Gazette: 554,Kept: 729 is national; 554 is the North-West/North-Central figure.
+B2022-008,rescued,798,Daily Trust: 619,"Kept: 798 is ""across the country"" (Blueprint); 619 is Operation Hadin Kai (Premium Times)."
+B2023-020,arrested,22,Blueprint: 109,Corrected: see data/review/figures_corrections.csv.
+B2023-023,arrested,456,Gazette: 59,Kept: 456 in all national copies; Gazette 59 is oil thieves and other criminals.
+B2023-027,arrested,114,21st Century Chronicle: 19; Channels TV: 19; Leadership: 26,Kept: 114 national; 19 is oil-theft arrests and 26 an FCT section.
+B2023-032,arrested,122,Gazette: 49,Kept: 122 national; 49 is oil-theft arrests.
+B2023-038,neutralised,6886,21st Century Chronicle: 6880; Gazette: 6880; News Agency of Nigeria: 6880; Daily Post: 6880; Premium Times: 6880; Premium Times: 6880; TheWill: 6880,"Kept: 6,886 (Blueprint, Leadership, TheWill) against 6,880 (NAN wire, one independent copy)."
+B2024-004,arrested,171,Daily Post: 214; Gazette: 214,"Kept: headline 171 (Blueprint, Leadership); NAN wire 214 includes 43 oil-theft arrests listed separately."
+B2024-016,arrested,330,Leadership: 36,Kept: 330 national; 36 is oil-theft arrests.
+B2024-019,arrested,146,21st Century Chronicle: 1146; Daily Trust: 1146; News Agency of Nigeria: 1146; Premium Times: 1146,Corrected: see data/review/figures_corrections.csv.
+B2024-023,neutralised,624,Daily Post: 640; Daily Trust: 640; Gazette: 640; Premium Times: 640,"Kept: 624 (Blueprint, Leadership) against no fewer than 640 (NAN wire, one independent copy)."
+B2024-025,arrested,437,Leadership: 30,Kept: 437 national; 30 is oil-theft arrests.
+B2024-034,arrested,172,21st Century Chronicle: 204; Daily Post: 204; Premium Times: 204,Kept: headline 172 (Blueprint); NAN wire 204 adds 32 oil-theft arrests listed separately.
+B2024-041,neutralised,65,21st Century Chronicle: 1937; Blueprint: 1937; Daily Post: 1937; Gazette: 1937,Corrected: see data/review/figures_corrections.csv.
+B2024-045,neutralised,101,Leadership: 96; Leadership: 96,Corrected: see data/review/figures_corrections.csv.
+B2024-045,arrested,182,Leadership: 226; Leadership: 226,Corrected: see data/review/figures_corrections.csv.
+B2024-051,neutralised,114,Daily Post: 238,Kept: a named commander and 114 others; Daily Post 238 is the arrest figure in a run-on list.
+B2024-056,arrested,258,Daily Post: 256; Gazette: 256; Leadership: 256; Premium Times: 256; Leadership: 256; Premium Times: 256,Corrected: see data/review/figures_corrections.csv.
+B2025-001,neutralised,109,Channels TV: 120; Daily Post: 120,"Kept: 109 (Blueprint, Leadership, NAN wire) against 120 (Channels TV, one Daily Post copy)."
+B2025-001,arrested,81,Channels TV: 105; Daily Post: 105,"Kept: 81 (Blueprint, Leadership, NAN wire) against 105 (Channels TV, one Daily Post copy)."
+B2025-004,arrested,431,Leadership: 59,Kept: 431 national; 59 is oil-theft arrests.
+B2025-029,rescued,170,Leadership: 139,Corrected: see data/review/figures_corrections.csv.
+B2025-036,rescued,41,Daily Trust: 39; Leadership: 39,Corrected: see data/review/figures_corrections.csv.
+B2025-039,arrested,62,Voice of Nigeria: 35,"Kept: 62 ""across all theatres"" (Premium Times); VON over 35 reports one operation."
+B2025-039,rescued,30,Voice of Nigeria: 20,Kept: 30 national (Premium Times); VON more than 20 reports one operation.
+B2025-041,arrested,88,Gazette: 94,Corrected: see data/review/figures_corrections.csv.
+B2026-023,neutralised,662,Gazette: 224; Blueprint: 129,"Kept: 662 national (Blueprint, Leadership); 224 and 129 cover named operations."
+B2026-023,arrested,1084,Gazette: 423,"Kept: 1,084 national; 423 covers named operations."
+B2026-023,rescued,951,Gazette: 279,Kept: 951 national; 279 covers named operations.
+B2026-029,arrested,373,Premium Times: 354,"Kept: 373 (NAN wire, Leadership, Blueprint) against 354 (Premium Times, one copy)."

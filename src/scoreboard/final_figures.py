@@ -29,12 +29,14 @@ from scoreboard.triage_check import REVIEW_DIR
 
 HAND_CODED = REVIEW_DIR / "figures_hand_coded.csv"
 CORRECTIONS = REVIEW_DIR / "figures_corrections.csv"
+CONFLICT_REVIEW = REVIEW_DIR / "conflict_review_round2.csv"
+CONFLICT_REVIEW_TAG = "round-2 conflict review"
 FINAL_FIGURES = BRIEFINGS.parent / "briefing_figures_final.csv"
 HAND_ROWS = 357
 HAND_STATUSES = ("conflict", "majority", "needs hand extraction")
 CONFIRMED_STATUSES = ("reported", "vague", "not reported", "unresolved")
-CORRECTED_STATUSES = ("reported", "vague", "not reported")
-VAGUE_TERMS = ("several", "scores", "dozens", "many")
+CORRECTED_STATUSES = CONFIRMED_STATUSES
+VAGUE_TERMS = ("several", "scores", "dozens", "many", "thousands")
 QUALIFIERS = ("over", "no fewer than", "at least", *VAGUE_TERMS, "summed categories")
 PLUS_RE = re.compile(r"plus [1-9]\d*")
 POSITIVE_INT_RE = re.compile(r"[1-9]\d*")
@@ -80,7 +82,7 @@ def check_corrections(corrections: pd.DataFrame, auto: pd.DataFrame) -> list[str
     failures += [f"{key(r)}: duplicate key" for r in dupes.drop_duplicates(["briefing_id", "outcome"]).itertuples()]
     auto = auto.set_index(["briefing_id", "outcome"])
     for r in corrections.itertuples():
-        status, value = r.corrected_status, r.corrected_value.strip()
+        status, value, qualifier = r.corrected_status, r.corrected_value.strip(), r.corrected_qualifier
         if (r.briefing_id, r.outcome) not in auto.index:
             failures.append(f"{key(r)}: not in briefing_figures.csv")
         else:
@@ -95,9 +97,23 @@ def check_corrections(corrections: pd.DataFrame, auto: pd.DataFrame) -> list[str
             failures.append(f"{key(r)}: reported but corrected_value {value!r} is not a positive integer")
         if status != "reported" and value:
             failures.append(f"{key(r)}: corrected_value {value!r} given with status {status!r}")
+        if qualifier and qualifier not in QUALIFIERS and not PLUS_RE.fullmatch(qualifier):
+            failures.append(f"{key(r)}: corrected_qualifier {qualifier!r} not allowed")
+        if qualifier in VAGUE_TERMS and status != "vague":
+            failures.append(f"{key(r)}: vague term {qualifier!r} with status {status!r}")
         if not r.reason.strip():
             failures.append(f"{key(r)}: empty reason")
     return failures
+
+
+def check_conflict_review(review: pd.DataFrame, corrections: pd.DataFrame) -> list[str]:
+    """Keys whose decision in the conflict review starts "Corrected" must be exactly the corrections whose
+    reason names CONFLICT_REVIEW_TAG."""
+    corrected = review[review["decision"].str.startswith("Corrected")]
+    tagged = corrections[corrections["reason"].str.contains(CONFLICT_REVIEW_TAG, case=False, regex=False)]
+    have, want = set(zip(corrected["briefing_id"], corrected["outcome"])), set(zip(tagged["briefing_id"], tagged["outcome"]))
+    return ([f"{b} {o}: corrected in the conflict review but no tagged correction" for b, o in sorted(have - want)]
+            + [f"{b} {o}: tagged correction not marked corrected in the conflict review" for b, o in sorted(want - have)])
 
 
 def final_table(auto: pd.DataFrame, hand: pd.DataFrame, briefings: pd.DataFrame,

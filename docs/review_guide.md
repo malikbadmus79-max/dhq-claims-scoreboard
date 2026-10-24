@@ -66,7 +66,7 @@ These conventions apply to data/review/figures_hand_coded.csv, which covers ever
 - When a copy lists arrest categories in one sentence with no stated total, the value is their sum and the qualifier is "summed categories".
 - When independent copies differ, the value carried by more independent copies is kept.
 - A stated total resolves a conflict when it equals the sum of categories listed in one sentence of another copy.
-- vague: the copies make a national claim for the outcome with no number. The qualifier records the term used, or is blank when none is used.
+- vague: the copies make a national claim for the outcome with no number. The qualifier records the term used, or is blank when none is used. The vague terms are "several", "scores", "dozens", "many" and "thousands".
 - unresolved: two national values with equal support among independent copies. The value is left blank, and checks that depend on it are not testable.
 - A qualifier is recorded only when every independent copy carrying the value uses it.
 - Counts of named commanders or kingpins are not totals.

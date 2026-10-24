@@ -60,6 +60,7 @@ def test_allowed_qualifiers_pass(frames):
     auto, hand, _ = frames
     for q in ("over", "no fewer than", "at least", "summed categories", "plus 2"):
         assert check(hand.assign(confirmed_qualifier=[q, "", "", ""]), auto) == []
+    assert check(hand.assign(confirmed_qualifier=["", "thousands", "", ""]), auto) == []
 
 
 def test_merge_gives_one_row_per_key_with_hand_overriding(frames):
@@ -127,6 +128,11 @@ def test_clean_corrections_file_passes(frames, corrections):
     assert ff.check_corrections(corrections, auto) == []
     reported = corrections.assign(corrected_value=["40", ""], corrected_status=["reported", "vague"])
     assert ff.check_corrections(reported, auto) == []
+    unresolved = corrections.assign(corrected_status=["unresolved", "vague"])
+    assert ff.check_corrections(unresolved, auto) == []
+    qualified = corrections.assign(corrected_value=["40", ""], corrected_qualifier=["summed categories", "thousands"],
+                                   corrected_status=["reported", "vague"])
+    assert ff.check_corrections(qualified, auto) == []
 
 
 @pytest.mark.parametrize("change,message", [
@@ -135,7 +141,11 @@ def test_clean_corrections_file_passes(frames, corrections):
     (lambda c: c.assign(outcome=["arrested", "arrested"], auto_value=["115", "20"]),
      "B1 arrested: status 'majority' in briefing_figures.csv, not agreed"),
     (lambda c: c.assign(auto_value=["42", "20"]), "B1 neutralised: auto_value '42' but briefing_figures.csv has '43'"),
-    (lambda c: c.assign(corrected_status=["unresolved", "vague"]), "corrected_status 'unresolved' not one of"),
+    (lambda c: c.assign(corrected_status=["probable", "vague"]), "corrected_status 'probable' not one of"),
+    (lambda c: c.assign(corrected_value=["40", ""], corrected_status=["unresolved", "vague"]),
+     "corrected_value '40' given with status 'unresolved'"),
+    (lambda c: c.assign(corrected_qualifier=["about", "several"]), "corrected_qualifier 'about' not allowed"),
+    (lambda c: c.assign(corrected_qualifier=["thousands", "several"]), "vague term 'thousands' with status 'not reported'"),
     (lambda c: c.assign(corrected_status=["reported", "vague"]), "reported but corrected_value '' is not a positive"),
     (lambda c: c.assign(corrected_value=["43", ""]), "corrected_value '43' given with status 'not reported'"),
     (lambda c: c.assign(reason=["r", "  "]), "B2 arrested: empty reason"),
@@ -172,3 +182,22 @@ def test_failing_corrections_file_writes_nothing(frames, corrections, tmp_path, 
     write_frames(tmp_path, corrections=corrections)
     table, failures = ff.build(*paths, corrections_path=tmp_path / "corrections.csv")
     assert failures == [] and paths[-1].exists() and (table["source"] == "correction").sum() == 2
+
+
+def test_conflict_review_keys_match_tagged_corrections(corrections):
+    review = pd.DataFrame([("B1", "neutralised", "Corrected: multi-theatre figure"), ("B2", "arrested", "Kept: national")],
+                          columns=["briefing_id", "outcome", "decision"])
+    tagged = corrections.assign(reason=["Found in the round-2 conflict review.", "Found in validation round 2."])
+    assert ff.check_conflict_review(review, tagged) == []
+    assert ff.check_conflict_review(review, corrections) == [
+        "B1 neutralised: corrected in the conflict review but no tagged correction"]
+    both = corrections.assign(reason="Found in the round-2 conflict review.")
+    assert ff.check_conflict_review(review, both) == [
+        "B2 arrested: tagged correction not marked corrected in the conflict review"]
+
+
+def test_project_conflict_review_matches_follow_up_corrections():
+    read = lambda p: pd.read_csv(p, keep_default_na=False, dtype=str)
+    review, corrections = read(ff.CONFLICT_REVIEW), read(ff.CORRECTIONS)
+    assert ff.check_conflict_review(review, corrections) == []
+    assert review["decision"].str.startswith("Corrected").sum() == 9
