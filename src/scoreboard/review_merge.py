@@ -9,10 +9,15 @@ every coded row matches the sheet on review_id, batch and url; every code is yes
 row without text is coded unsure and every unsure row is a row without text; no row has empty notes.
 
 The merged codes are then joined with the triage "yes" and "no" items in outputs/tables/full_triage_<year>.csv
-to give one row per item in data/review/full_classification.csv (decided_by auto_yes, auto_no or hand),
-and counts by year, outlet, decided_by and code in outputs/tables/full_classification_summary.csv.
-Discovered items (outputs/tables/full_inventory_<year>.csv) in neither set are counted by reason; the
-run stops if any item is both auto-decided and hand-coded.
+and the 2024 pilot items in data/review/full_labels.csv (label_source "pilot"; review_id holds the pilot
+item ID) to give one row per item in data/review/full_classification.csv (decided_by auto_yes, auto_no,
+hand or pilot). Pilot items take recheck_code from data/review/pilot_recheck_coded.csv, checked against
+data/review/pilot_recheck_sheet.csv: RECHECK_ITEMS rows numbered P001 upward, urls matching the sheet,
+recheck_code yes or no, changed "yes" exactly when recheck_code differs from pilot_code, no empty notes.
+The original pilot label is kept in original_pilot_code; the label files are not changed. Counts by year,
+outlet, decided_by and code go to outputs/tables/full_classification_summary.csv.
+Discovered items (outputs/tables/full_inventory_<year>.csv) in none of these sets are counted by reason;
+the run stops if any item falls in more than one.
 """
 
 import argparse
@@ -20,18 +25,23 @@ import argparse
 import pandas as pd
 
 from scoreboard.discover import TABLES_DIR
+from scoreboard.pilot_recheck import RECHECK_SHEET
 from scoreboard.review_sheet import SHEET
 from scoreboard.triage import FULL_LABELS
 from scoreboard.triage_check import REVIEW_DIR, YEARS
 
 EXPECTED_ITEMS = 1005
+RECHECK_ITEMS = 230
 CODES = ("yes", "no", "unsure")
+RECHECK_CODES = ("yes", "no")
 MERGED = REVIEW_DIR / "full_review_coded.csv"
+RECHECK_CODED = REVIEW_DIR / "pilot_recheck_coded.csv"
 CLASSIFICATION = REVIEW_DIR / "full_classification.csv"
 SUMMARY = TABLES_DIR / "full_classification_summary.csv"
 MERGED_COLUMNS = ["review_id", "batch", "year", "outlet", "date", "title", "url", "has_text",
                   "is_operational_briefing", "notes"]
-CLASSIFICATION_COLUMNS = ["year", "outlet", "date", "url", "decided_by", "is_operational_briefing", "review_id"]
+CLASSIFICATION_COLUMNS = ["year", "outlet", "date", "url", "decided_by", "is_operational_briefing", "review_id",
+                          "original_pilot_code"]
 SUMMARY_COLUMNS = ["year", "outlet", "decided_by", "is_operational_briefing", "items"]
 AUTO = {"yes": "auto_yes", "no": "auto_no"}
 
@@ -86,12 +96,36 @@ def merge(sheet: pd.DataFrame, coded: pd.DataFrame, expected=EXPECTED_ITEMS) -> 
     return both.sort_values("review_id", ignore_index=True)[MERGED_COLUMNS]
 
 
+def check_recheck(sheet: pd.DataFrame, coded: pd.DataFrame, expected=RECHECK_ITEMS) -> pd.DataFrame:
+    """Checks the pilot recheck against its sheet and returns it unchanged."""
+    if len(coded) != expected:
+        raise MergeError(f"expected {expected} pilot recheck rows, found {len(coded)}")
+    wanted = [f"P{i:03d}" for i in range(1, expected + 1)]
+    if coded["review_id"].duplicated().any() or sorted(coded["review_id"]) != wanted:
+        raise MergeError(f"pilot recheck review_id is not P001 to P{expected:03d} without gaps or duplicates")
+    both = coded.merge(sheet[["review_id", "url"]], on="review_id", how="left", suffixes=("", "_sheet"))
+    mismatch = both[both["url"] != both["url_sheet"]]
+    if len(mismatch):
+        raise MergeError(f"pilot recheck urls differ from the sheet: {', '.join(mismatch['review_id'].head(10))}")
+    bad = coded[~coded["recheck_code"].isin(RECHECK_CODES)]
+    if len(bad):
+        raise MergeError(f"recheck_code not yes or no: {', '.join(bad['review_id'].head(10))}")
+    wrong = coded[(coded["changed"] == "yes") != (coded["recheck_code"] != coded["pilot_code"])]
+    if len(wrong) or not coded["changed"].isin(["yes", "no"]).all():
+        raise MergeError(f"changed does not match recheck_code against pilot_code: {', '.join(wrong['review_id'].head(10))}")
+    empty = coded["notes"].str.strip() == ""
+    if empty.any():
+        raise MergeError(f"pilot recheck rows with empty notes: {', '.join(coded.loc[empty, 'review_id'].head(10))}")
+    return coded
+
+
 def read_years(tables_dir, stem: str) -> pd.DataFrame:
     return pd.concat([pd.read_csv(tables_dir / f"{stem}_{y}.csv", keep_default_na=False, dtype=str).assign(year=str(y))
                       for y in YEARS], ignore_index=True)
 
 
-def classify(merged: pd.DataFrame, tables_dir=TABLES_DIR, labels_path=FULL_LABELS) -> tuple[pd.DataFrame, pd.DataFrame]:
+def classify(merged: pd.DataFrame, recheck: pd.DataFrame, tables_dir=TABLES_DIR,
+             labels_path=FULL_LABELS) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Returns one classification row per auto-decided or hand-coded item, and the discovered items in
     neither set counted by year and reason."""
     triage = read_years(tables_dir, "full_triage")
@@ -106,18 +140,35 @@ def classify(merged: pd.DataFrame, tables_dir=TABLES_DIR, labels_path=FULL_LABEL
         raise MergeError(f"{len(stray)} hand-coded items are not undecided triage items, e.g. {stray[:5]}")
     auto_rows = auto.assign(decided_by=auto["decision"].map(AUTO), is_operational_briefing=auto["decision"], review_id="")
     hand_rows = merged.assign(decided_by="hand")
-    out = (pd.concat([auto_rows, hand_rows], ignore_index=True)[CLASSIFICATION_COLUMNS]
-           .sort_values(["date", "outlet", "url"], ignore_index=True))
 
     inventory = read_years(tables_dir, "full_inventory")
+    labels = pd.read_csv(labels_path, keep_default_na=False, dtype=str) if labels_path.exists() else pd.DataFrame(
+        columns=["url", "is_operational_briefing", "label_source", "pilot_item_id"])
+    pilot = labels[labels["label_source"] == "pilot"]
+    taken = set(auto["url"]) | set(merged["url"])
+    clash = sorted(set(pilot["url"]) & taken)
+    if clash:
+        raise MergeError(f"{len(clash)} pilot-labelled items are also auto-decided or hand-coded, e.g. {clash[:5]}")
+    if sorted(recheck["url"]) != sorted(pilot["url"]):
+        raise MergeError("pilot recheck urls are not the pilot-labelled items in the label file")
+    pilot = (pilot.rename(columns={"is_operational_briefing": "original_pilot_code"})
+             .merge(recheck[["url", "recheck_code"]], on="url", validate="one_to_one"))
+    pilot_rows = (inventory[inventory["url"].isin(pilot["url"])].rename(columns={"publish_date": "date"})
+                  .merge(pilot[["url", "recheck_code", "original_pilot_code", "pilot_item_id"]], on="url",
+                         validate="one_to_one")
+                  .assign(decided_by="pilot", review_id=lambda d: d["pilot_item_id"],
+                          is_operational_briefing=lambda d: d["recheck_code"]))
+    out = (pd.concat([auto_rows, hand_rows, pilot_rows], ignore_index=True)
+           .assign(original_pilot_code=lambda d: d["original_pilot_code"].fillna(""))[CLASSIFICATION_COLUMNS]
+           .sort_values(["date", "outlet", "url"], ignore_index=True))
+
     rest = inventory[~inventory["url"].isin(out["url"])]
-    labels = pd.read_csv(labels_path, keep_default_na=False, dtype=str) if labels_path.exists() else pd.DataFrame(columns=["url", "label_source"])
-    source = rest["url"].map(labels.set_index("url")["label_source"])
     in_triage = rest["url"].isin(triage["url"])
     reason = pd.Series("not in triage table, no label", index=rest.index)
-    reason[source.notna()] = "not triaged; labelled from " + source[source.notna()] + " review"
     reason[in_triage] = "triage decision " + rest["url"].map(triage.set_index("url")["decision"])[in_triage] + " without hand code"
     unclassified = rest.assign(reason=reason).groupby(["year", "reason"]).size().rename("items").reset_index()
+    if out["url"].duplicated().any() or not set(out["url"]) <= set(inventory["url"]):
+        raise MergeError("classification does not hold each discovered item at most once")
     return out, unclassified
 
 
@@ -126,10 +177,13 @@ def summary(classification: pd.DataFrame) -> pd.DataFrame:
 
 
 def run(sheet_path=SHEET, review_dir=REVIEW_DIR, tables_dir=TABLES_DIR, labels_path=FULL_LABELS,
-        merged_path=MERGED, classification_path=CLASSIFICATION, summary_path=SUMMARY, expected=EXPECTED_ITEMS):
+        merged_path=MERGED, classification_path=CLASSIFICATION, summary_path=SUMMARY, expected=EXPECTED_ITEMS,
+        recheck_sheet_path=RECHECK_SHEET, recheck_path=RECHECK_CODED, recheck_expected=RECHECK_ITEMS):
     sheet = pd.read_csv(sheet_path, keep_default_na=False, dtype=str)
     merged = merge(sheet, read_batches(sheet, review_dir), expected)
-    classification, unclassified = classify(merged, tables_dir, labels_path)
+    recheck = check_recheck(pd.read_csv(recheck_sheet_path, keep_default_na=False, dtype=str),
+                            pd.read_csv(recheck_path, keep_default_na=False, dtype=str), recheck_expected)
+    classification, unclassified = classify(merged, recheck, tables_dir, labels_path)
     table = summary(classification)
     merged.to_csv(merged_path, index=False)
     classification.to_csv(classification_path, index=False)
@@ -143,7 +197,9 @@ def main(argv=None):
         merged, classification, table, unclassified = run()
     except MergeError as e:
         raise SystemExit(f"review merge failed: {e}")
-    print(f"merged rows: {len(merged)}; classified items: {len(classification)}")
+    pilot = classification[classification["decided_by"] == "pilot"]
+    changed = int((pilot["is_operational_briefing"] != pilot["original_pilot_code"]).sum())
+    print(f"merged rows: {len(merged)}; classified items: {len(classification)}; pilot codes changed by recheck: {changed}")
     print(pd.crosstab([classification["year"], classification["decided_by"]],
                       classification["is_operational_briefing"], margins=True).to_string())
     print("\nnot classified:")

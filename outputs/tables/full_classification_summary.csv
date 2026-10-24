@@ -110,6 +110,10 @@ year,outlet,decided_by,is_operational_briefing,items
 2023,Voice of Nigeria,auto_no,no,3
 2023,Voice of Nigeria,hand,no,2
 2023,Voice of Nigeria,hand,yes,5
+2024,21st Century Chronicle,pilot,no,13
+2024,21st Century Chronicle,pilot,yes,33
+2024,Blueprint,pilot,no,14
+2024,Blueprint,pilot,yes,45
 2024,Channels TV,auto_no,no,3
 2024,Channels TV,hand,no,4
 2024,Channels TV,hand,yes,6
@@ -121,10 +125,18 @@ year,outlet,decided_by,is_operational_briefing,items
 2024,Daily Trust,auto_yes,yes,10
 2024,Daily Trust,hand,no,9
 2024,Daily Trust,hand,yes,7
+2024,Gazette,pilot,no,9
+2024,Gazette,pilot,yes,45
 2024,Leadership,auto_no,no,5
 2024,Leadership,auto_yes,yes,5
 2024,Leadership,hand,no,33
 2024,Leadership,hand,yes,57
+2024,News Agency of Nigeria,pilot,no,3
+2024,News Agency of Nigeria,pilot,yes,11
+2024,Premium Times,pilot,no,3
+2024,Premium Times,pilot,yes,25
+2024,TheWill,pilot,no,16
+2024,TheWill,pilot,yes,13
 2025,21st Century Chronicle,auto_no,no,1
 2025,21st Century Chronicle,hand,no,2
 2025,21st Century Chronicle,hand,unsure,15
