@@ -1,0 +1,661 @@
+briefing_id,briefing_date,period_class,outcome,value,qualifier,final_status,source,auto_value,auto_status,notes
+B2021-001,2021-01-06,cumulative,neutralised,,,not reported,hand,,needs hand extraction,"Operation-only briefing: Operation Sahel Sanity, North West, second half of 2020, 220 neutralised; no national total."
+B2021-001,2021-01-06,cumulative,arrested,,,not reported,hand,,needs hand extraction,"Operation-only briefing: Operation Sahel Sanity, North West, 892 arrested (VON gives a 46 sub-category); no national total."
+B2021-001,2021-01-06,cumulative,rescued,,,not reported,hand,,needs hand extraction,"Operation-only briefing: Operation Sahel Sanity, North West, 642 rescued; no national total."
+B2021-002,2021-01-07,weekly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre vague term only: Operation Lafiya Dole air strikes, ""several""."
+B2021-002,2021-01-07,weekly,arrested,,,not reported,hand,,needs hand extraction,"Zone figure only: North Central, 3 arrested."
+B2021-002,2021-01-07,weekly,rescued,,,not reported,hand,,needs hand extraction,"Zone figure only: North West, 7 rescued."
+B2021-003,2021-01-14,weekly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figures only: North East 64 (Daily Trust), North West Kuriya encounter 50 (VON); the 21st Century Chronicle ""over 50"" refers to Boko Haram, so North East."
+B2021-003,2021-01-14,weekly,arrested,,,not reported,hand,,needs hand extraction,"Zone figure only: Operation Safe Haven, 4 arrested."
+B2021-003,2021-01-14,weekly,rescued,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2021-004,2021-01-21,weekly,neutralised,,,not reported,hand,,needs hand extraction,"Zone figure only: North West, 35 neutralised."
+B2021-004,2021-01-21,weekly,arrested,,,not reported,hand,,needs hand extraction,"Zone figure only: Niger Delta section, 24 arrested."
+B2021-004,2021-01-21,weekly,rescued,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2021-005,2021-05-20,monthly,neutralised,,several,vague,hand,,needs hand extraction,"National vague claim: ""troops in various theatres of operations across the country have killed several terrorists""; a second Blueprint copy says ""scores""."
+B2021-005,2021-05-20,monthly,arrested,,,vague,hand,,needs hand extraction,"National vague claim: arrests ""in different parts of the country"" with no number."
+B2021-005,2021-05-20,monthly,rescued,,several,vague,hand,,needs hand extraction,"National vague claim: ""rescued several kidnapped victims ... in different parts of the country""."
+B2021-006,2021-06-17,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre vague terms only: Operation Hadin Kai ""several"" or ""many""."
+B2021-006,2021-06-17,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre vague term only: Operation Hadin Kai arrests, no number."
+B2021-006,2021-06-17,biweekly,rescued,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2021-007,2021-07-01,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 73 neutralised."
+B2021-007,2021-07-01,biweekly,arrested,,,not reported,hand,,needs hand extraction,Zone vague terms only: North West and North Central section.
+B2021-007,2021-07-01,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 55 rescued."
+B2021-008,2021-07-29,biweekly,neutralised,42,,reported,automatic,42,agreed,
+B2021-008,2021-07-29,biweekly,arrested,41,,reported,automatic,41,agreed,
+B2021-008,2021-07-29,biweekly,rescued,93,,reported,automatic,93,agreed,
+B2021-009,2021-08-12,biweekly,neutralised,27,,reported,automatic,27,agreed,
+B2021-009,2021-08-12,biweekly,arrested,51,,reported,automatic,51,agreed,
+B2021-009,2021-08-12,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figure only: North East, 29 rescued; VON 4 is an incident figure."
+B2021-010,2021-09-02,monthly 3; cumulative 1,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figures only: Operation Hadarin Daji 15 (Daily Post 25 across the North West), North East 48."
+B2021-010,2021-09-02,monthly 3; cumulative 1,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: North West 13 informants and 66 criminal elements, North East 20."
+B2021-010,2021-09-02,monthly 3; cumulative 1,rescued,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadarin Daji, 33 rescued."
+B2021-011,2021-09-30,monthly,neutralised,343,over,reported,automatic,343,agreed,
+B2021-011,2021-09-30,monthly,arrested,,,not reported,hand,,needs hand extraction,Theatre figures only: Operation Hadin Kai cumulative 43; TheWill 103 bandits and terrorists is from a zone section.
+B2021-011,2021-09-30,monthly,rescued,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2021-012,2021-10-14,cumulative 6; biweekly 1,neutralised,,,not reported,hand,,needs hand extraction,Theatre figures only: Operation Hadin Kai 29; Blueprint 250 is a North West cumulative.
+B2021-012,2021-10-14,cumulative 6; biweekly 1,arrested,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 13 arrested."
+B2021-012,2021-10-14,cumulative 6; biweekly 1,rescued,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2021-013,2021-10-28,biweekly,neutralised,70,no fewer than,reported,automatic,70,agreed,
+B2021-013,2021-10-28,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Zone figure only: North West bandit section, 34 arrested."
+B2021-013,2021-10-28,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Zone figure only: North West bandit section, 15 rescued."
+B2021-014,2021-11-11,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figures only: North East 31 or 49, North West and North Central 15."
+B2021-014,2021-11-11,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: North East 71, Niger Delta 8, North West and North Central 48."
+B2021-014,2021-11-11,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figures only: North East 13, North West and North Central 42; Daily Post 97 is unattributed."
+B2021-015,2021-11-25,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figures only: North East 90, North West and North Central 128."
+B2021-015,2021-11-25,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: North East 21, North West and North Central 64."
+B2021-015,2021-11-25,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figure only: North East, 7 rescued."
+B2021-016,2021-12-09,biweekly,neutralised,177,,reported,automatic,177,agreed,
+B2021-016,2021-12-09,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figure only: Adamawa and Borno, 28 arrested."
+B2021-016,2021-12-09,biweekly,rescued,,,not reported,hand,,needs hand extraction,Incident figure only: 20 police officers rescued in Buni Yadi.
+B2021-017,2021-12-23,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figures only: North East 51 (TheWill combines North East and North West), Niger State 12 or 4."
+B2021-017,2021-12-23,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: North East 19, Operation Whirl Stroke 16, Niger State 6."
+B2021-017,2021-12-23,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figures only: North West 28 (TheWill), other zone 13."
+B2021-018,2021-12-30,year,neutralised,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2021-018,2021-12-30,year,arrested,,,not reported,hand,,needs hand extraction,"Operation-only briefing: Operation Delta Safe, South-South, 567 arrested in 2021."
+B2021-018,2021-12-30,year,rescued,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2022-001,2022-01-06,cumulative 7; year 1,neutralised,1910,,reported,automatic,1910,agreed,
+B2022-001,2022-01-06,cumulative 7; year 1,arrested,912,,reported,automatic,912,agreed,
+B2022-001,2022-01-06,cumulative 7; year 1,rescued,729,,reported,automatic,729,agreed,
+B2022-002,2022-01-20,biweekly,neutralised,49,,reported,hand,,needs hand extraction,"National figure: ""49 terrorists and bandits across theaters of operations"" (Premium Times, TheWill); the US spelling ""theaters"" is missed by the national-marker rule. North East section gives 37."
+B2022-002,2022-01-20,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 17 arrested."
+B2022-002,2022-01-20,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figures only: North East 16, North West 3."
+B2022-003,2022-02-10,cumulative,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, North East, more than 120 in three weeks."
+B2022-003,2022-02-10,cumulative,arrested,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 50 arrested."
+B2022-003,2022-02-10,cumulative,rescued,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 25 rescued."
+B2022-004,2022-02-24,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figures only: Operation Hadin Kai 63, Operation Thunder Strike 55; 466 is surrenders."
+B2022-004,2022-02-24,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: Operation Hadin Kai 86, another operation 26."
+B2022-004,2022-02-24,biweekly,rescued,,,not reported,hand,,needs hand extraction,Theatre figures only: 20 and 10 from separate operation sections.
+B2022-005,2022-03-10,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figure only: North East, 12 neutralised."
+B2022-005,2022-03-10,biweekly,arrested,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2022-005,2022-03-10,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figure only: zone section, 8 rescued."
+B2022-006,2022-03-24,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figures only: air strike 27, Operation Whirl Stroke 10."
+B2022-006,2022-03-24,biweekly,arrested,,,not reported,hand,,needs hand extraction,Theatre figures only: zone sections 7 and 19.
+B2022-006,2022-03-24,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figures only: zone section 56, North East 27."
+B2022-007,2022-04-07,biweekly,neutralised,80,no fewer than,reported,automatic,80,agreed,
+B2022-007,2022-04-07,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figure only: North East section (ISWAP context), 22 spies, 11 terrorists and 3 suppliers arrested."
+B2022-007,2022-04-07,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figure only: North East section, 30 rescued."
+B2022-008,2022-04-28,monthly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, more than 23; Daily Trust 62 plus 1 named commander is ISWAP, North East."
+B2022-008,2022-04-28,monthly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 19 arrested."
+B2022-008,2022-04-28,monthly,rescued,798,,reported,automatic,798,agreed,
+B2022-009,2022-05-19,monthly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 43 neutralised."
+B2022-009,2022-05-19,monthly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: Operation Hadin Kai 20, another zone 18."
+B2022-009,2022-05-19,monthly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 63 rescued."
+B2022-010,2022-05-20,cumulative,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 43 neutralised."
+B2022-010,2022-05-20,cumulative,arrested,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 20 arrested."
+B2022-010,2022-05-20,cumulative,rescued,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 63 rescued."
+B2022-011,2022-06-02,biweekly,neutralised,38,,reported,automatic,38,agreed,
+B2022-011,2022-06-02,biweekly,arrested,40,,reported,automatic,40,agreed,
+B2022-011,2022-06-02,biweekly,rescued,252,,reported,automatic,252,agreed,
+B2022-012,2022-06-16,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, at least 47."
+B2022-012,2022-06-16,biweekly,arrested,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2022-012,2022-06-16,biweekly,rescued,,,not reported,hand,,needs hand extraction,Incident figure only: 5 rescued on 6 June 2022.
+B2022-013,2022-06-30,biweekly,neutralised,89,no fewer than,reported,automatic,89,agreed,
+B2022-013,2022-06-30,biweekly,arrested,26,,reported,automatic,26,agreed,
+B2022-013,2022-06-30,biweekly,rescued,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2022-014,2022-07-14,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 42 in two weeks; TheWill 21 is one air strike."
+B2022-014,2022-07-14,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 10 arrested."
+B2022-014,2022-07-14,biweekly,rescued,,,not reported,hand,,needs hand extraction,Incident figure only: 9 bus passengers rescued in Kaduna State.
+B2022-015,2022-07-28,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Incident figure only: about 30 neutralised in the Bwari, FCT, clearance."
+B2022-015,2022-07-28,biweekly,arrested,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2022-015,2022-07-28,biweekly,rescued,,,not reported,hand,,needs hand extraction,Incident figure only: 2 Chibok girls rescued.
+B2022-016,2022-08-06,biweekly,neutralised,,,not reported,hand,,needs hand extraction,Incident figure only: 20 neutralised near Monguno.
+B2022-016,2022-08-06,biweekly,arrested,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2022-016,2022-08-06,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Incident figure only: 2 rescued at Kayamade, Borno."
+B2022-017,2022-08-11,biweekly,neutralised,45,over,reported,automatic,45,agreed,
+B2022-017,2022-08-11,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: Operation Hadin Kai 55, Operation Delta Safe 10."
+B2022-017,2022-08-11,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 52 rescued."
+B2022-018,2022-08-25,biweekly,neutralised,,,not reported,hand,,needs hand extraction,Multi-theatre figure only: Operation Hadin Kai and Operation Hadarin Daji combined 57 (Premium Times and Daily Trust attribute it to the North East); no national total.
+B2022-018,2022-08-25,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre and incident figures only: raid 8, Kaduna State 37."
+B2022-018,2022-08-25,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figures only: North East 4, Kaduna State 12."
+B2022-019,2022-09-08,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre and multi-theatre figures only: Operation Hadin Kai more than 252 (21st Century Chronicle places it in the North East), North East and North West combined 293 (Blueprint), single operation 52, weekly section 17."
+B2022-019,2022-09-08,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: North East 14, another section 38."
+B2022-019,2022-09-08,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre and incident figures only: 3 Chibok girls, section 61, Leadership 19 other victims."
+B2022-020,2022-09-22,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figures only: Operation Hadin Kai 36 (TheWill over 35), North West 16."
+B2022-020,2022-09-22,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: Operation Hadin Kai 46, Operation Delta Safe 17, Kaduna State 10."
+B2022-020,2022-09-22,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figures only: Operation Hadin Kai 130, Kaduna State 21."
+B2022-021,2022-10-06,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 19 neutralised."
+B2022-021,2022-10-06,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: Guards Brigade FCT 64, Operation Hadin Kai at least 79 or 42 logistics suppliers."
+B2022-021,2022-10-06,biweekly,rescued,,,not reported,hand,,needs hand extraction,Theatre figures only: North East 14 or 3.
+B2022-022,2022-10-20,biweekly,neutralised,,,not reported,hand,,needs hand extraction,Theatre figures only: Operation Hadin Kai 31; Leadership 139 Boko Haram and ISWAP with no region named and TheWill over 49 conflict with it and cannot be placed.
+B2022-022,2022-10-20,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: Operation Hadin Kai 70, Operation Delta Safe 42; Leadership 132 cannot be placed."
+B2022-022,2022-10-20,biweekly,rescued,,,not reported,hand,,needs hand extraction,Theatre figures only: Leadership 60 cannot be placed; TheWill 2 is a section figure.
+B2022-023,2022-11-03,biweekly,neutralised,59,,reported,automatic,59,agreed,
+B2022-023,2022-11-03,biweekly,arrested,90,over,reported,automatic,90,agreed,
+B2022-023,2022-11-03,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figure only: zone section, 19 rescued."
+B2022-024,2022-11-17,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Multi-theatre figures only: North East and North West combined 29 (Leadership, TheWill), over 32 (Blueprint), more than 50 (Premium Times); South East 13."
+B2022-024,2022-11-17,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre and multi-theatre figures only: North East and North West combined 10, oil theft 29, logistics suppliers 8."
+B2022-024,2022-11-17,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Multi-theatre figures only: Leadership 60, Premium Times 50 (North East and North West), Gwoza 29."
+B2022-025,2022-12-01,biweekly,neutralised,54,,reported,automatic,54,agreed,
+B2022-025,2022-12-01,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: Operation Hadin Kai 47, Operation Octopus Grip 81, North West 54, Katsina 5."
+B2022-025,2022-12-01,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 10 rescued."
+B2022-026,2022-12-22,,neutralised,60,more than,reported,automatic,60,agreed,
+B2022-026,2022-12-22,,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: North West and North Central more than 50 (Premium Times), North East 22, Operation Delta Safe 21, FCT 5, 21st Century Chronicle 40."
+B2022-026,2022-12-22,,rescued,,,not reported,hand,,needs hand extraction,"Theatre figures only: North East 30, North West and North Central 27."
+B2023-001,2023-01-12,monthly 1; biweekly 1,neutralised,50,more than,reported,automatic,50,agreed,
+B2023-001,2023-01-12,monthly 1; biweekly 1,arrested,,,not reported,hand,,needs hand extraction,"Multi-theatre figures only: Operation Hadin Kai and Operation Hadarin Daji 18 terrorists plus 21 suppliers, 2 informants and 5 kidnappers (Blueprint 37); 21st Century Chronicle 65 cannot be placed."
+B2023-001,2023-01-12,monthly 1; biweekly 1,rescued,47,,reported,automatic,47,agreed,
+B2023-002,2023-01-26,biweekly,neutralised,114,,reported,automatic,114,agreed,
+B2023-002,2023-01-26,biweekly,arrested,115,,reported,hand,,needs hand extraction,"National figure from one copy: Blueprint, ""troops deployed to various parts of the country"", 115 terrorists, logistics suppliers and suspected vandals; other copies give theatre figures (North East 14, Niger Delta 40). The phrase is not on the national-marker list."
+B2023-002,2023-01-26,biweekly,rescued,101,,reported,hand,,needs hand extraction,"National figure from one copy: Blueprint, same national lead, 101 rescued; Daily Trust 122 covers North East and North West; other copies give theatre figures."
+B2023-003,2023-02-09,biweekly,neutralised,77,,reported,automatic,77,agreed,
+B2023-003,2023-02-09,biweekly,arrested,41,,reported,automatic,41,agreed,
+B2023-003,2023-02-09,biweekly,rescued,59,,reported,automatic,59,agreed,
+B2023-004,2023-02-23,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre and multi-theatre figures only: Operation Hadin Kai more than 100, Operation Hadarin Daji 23; Blueprint 133 combines North East, North Central and North West; Leadership 69 combines four named zones."
+B2023-004,2023-02-23,biweekly,arrested,,,not reported,hand,,needs hand extraction,Theatre and multi-theatre figures only: North East 18 or 80; Leadership 71 combines four named zones.
+B2023-004,2023-02-23,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figures only: North East 20, Operation Hadarin Daji 23; Blueprint 41 and Leadership 47 follow multi-theatre leads and cannot be placed."
+B2023-005,2023-03-09,biweekly,neutralised,21,,reported,automatic,21,agreed,
+B2023-005,2023-03-09,biweekly,arrested,35,,reported,automatic,35,agreed,
+B2023-005,2023-03-09,biweekly,rescued,42,,reported,automatic,42,agreed,
+B2023-006,2023-03-23,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Multi-theatre figures only: North East, North Central and North West combined 46 (NAN, Premium Times), 35 (Leadership); North East and North West 45 (Blueprint); Operation Hadin Kai 18, Operation Whirl Stroke 14."
+B2023-006,2023-03-23,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Multi-theatre figures only: more than 50 in a North East, North Central and North West story (NAN, Premium Times), Blueprint 34; Leadership 46 suppliers; Rivers 12."
+B2023-006,2023-03-23,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Multi-theatre figures only: North East, North West and North Central 220 (Leadership), 97 (NAN, Premium Times); Operation Hadin Kai 119; Borno and Kaduna 201."
+B2023-007,2023-04-06,biweekly 10; weekly 1,neutralised,53,,reported,automatic,53,agreed,
+B2023-007,2023-04-06,biweekly 10; weekly 1,arrested,59,no fewer than,reported,automatic,59,agreed,
+B2023-007,2023-04-06,biweekly 10; weekly 1,rescued,118,,reported,automatic,118,agreed,
+B2023-008,2023-04-20,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Multi-theatre figure only: 54 across the North East, North Central and North West (NAN, Premium Times; Blueprint and Leadership name the North East and North West)."
+B2023-008,2023-04-20,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Multi-theatre figures only: no fewer than 122 ""across the zones"" in a North East, North Central and North West story (NAN, Premium Times); Blueprint 73 within ""the general area of operations""."
+B2023-008,2023-04-20,biweekly,rescued,216,,reported,automatic,216,agreed,
+B2023-009,2023-05-04,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Multi-theatre figures only: North East and North West 65 (Leadership, TheWill) or 70 (Blueprint); North Central and North West 30; section 40."
+B2023-009,2023-05-04,biweekly,arrested,6,,reported,automatic,6,agreed,
+B2023-009,2023-05-04,biweekly,rescued,158,,reported,automatic,158,agreed,
+B2023-010,2023-05-18,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 26 neutralised."
+B2023-010,2023-05-18,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: Operation Hadin Kai 25, Operation Delta Safe 29; Leadership 89 cannot be placed."
+B2023-010,2023-05-18,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Incident and section figures only: 1 Chibok girl (Blueprint), Leadership 28."
+B2023-011,2023-06-01,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Multi-theatre figures only: 58 in operations ""in the North East, North Central and North West"" (Gazette, Premium Times); North East and North West 51 (Blueprint); Operation Hadin Kai 26 or 25."
+B2023-011,2023-06-01,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Multi-theatre figures only: 161 in the North East, North Central and North West (Gazette, Premium Times); Blueprint 63 ""in different theatres""; Operation Delta Safe 65; Operation Hadin Kai 22."
+B2023-011,2023-06-01,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Multi-theatre figures only: 66 ""across the zones"" in the same story (Gazette, Premium Times); Blueprint 42; North East 16."
+B2023-012,2023-06-15,biweekly,neutralised,,,not reported,hand,,needs hand extraction,Multi-theatre figures only: North East and North West 58; North Central and North West 42; section 20.
+B2023-012,2023-06-15,biweekly,arrested,,,not reported,hand,,needs hand extraction,Multi-theatre figures only: North East and North West 57 (Leadership); suppliers 40; Kogi 13; economic saboteurs 16.
+B2023-012,2023-06-15,biweekly,rescued,,,not reported,hand,,needs hand extraction,Multi-theatre figures only: North East and North West 39; Operation Hadarin Daji 24; section 15.
+B2023-013,2023-07-06,monthly 3; biweekly 2,neutralised,,,not reported,hand,,needs hand extraction,"Multi-theatre figures only: North East, North West, North Central and South East 51 (Leadership); North East and North West 43; North West 35. Leadership ""2023"" is a date read as a count."
+B2023-013,2023-07-06,monthly 3; biweekly 2,arrested,,,not reported,hand,,needs hand extraction,Multi-theatre figures only: four named zones 168 (Leadership); North East and North West 39; Operation Delta Safe 42; North East 15.
+B2023-013,2023-07-06,monthly 3; biweekly 2,rescued,,,not reported,hand,,needs hand extraction,Multi-theatre figure only: four named zones 89 (Leadership).
+B2023-014,2023-07-20,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"Multi-theatre figures only: ""several"" across the theatres in the North East, North Central and North West; Leadership 21 for four named zones."
+B2023-014,2023-07-20,biweekly,arrested,,,not reported,hand,,needs hand extraction,Multi-theatre figures only: Leadership 40 for four named zones; section 10.
+B2023-014,2023-07-20,biweekly,rescued,,,not reported,hand,,needs hand extraction,Multi-theatre figures only: Leadership 19 for four named zones; section 10.
+B2023-015,2023-07-21,weekly,neutralised,23,,reported,hand,,needs hand extraction,"National figure from one copy (Blueprint): 23 terrorists, bandits and IPOB militants in one week, all zones combined, no region named."
+B2023-015,2023-07-21,weekly,arrested,32,,reported,hand,,needs hand extraction,"National figure from one copy (Blueprint): 32 criminal elements including collaborators, suppliers and oil thieves."
+B2023-015,2023-07-21,weekly,rescued,17,,reported,hand,,needs hand extraction,National figure from one copy (Blueprint): 17 rescued.
+B2023-016,2023-07-28,weekly,neutralised,59,,reported,automatic,59,agreed,
+B2023-016,2023-07-28,weekly,arrested,137,summed categories,reported,hand,,needs hand extraction,"National statement lists 88 criminals, 10 kidnappers, 20 gunmen and 19 suspected oil thieves arrested, with no stated total; value is the sum. All copies agree on the categories."
+B2023-016,2023-07-28,weekly,rescued,88,,reported,automatic,88,agreed,
+B2023-017,2023-08-03,biweekly,neutralised,36,,reported,automatic,36,agreed,
+B2023-017,2023-08-03,biweekly,arrested,163,,reported,hand,163,majority,"National figure: 163 from two independent copies (NAN wire with ""no fewer than"", Leadership without a qualifier); Blueprint lists 137 gunmen, 6 collaborators and 15 oil-theft arrests (sum 158)."
+B2023-017,2023-08-03,biweekly,rescued,140,,reported,automatic,140,agreed,
+B2023-018,2023-08-11,weekly,neutralised,38,,reported,automatic,38,agreed,
+B2023-018,2023-08-11,weekly,arrested,242,,reported,hand,,conflict,"Conflict resolved: NAN wire gives 242; Blueprint, Leadership and TheWill list 175 gunmen, 20 kidnappers, 30 collaborators and 17 vandals, which sum to 242. The 30 and 175 values are category figures."
+B2023-018,2023-08-11,weekly,rescued,89,,reported,automatic,89,agreed,
+B2023-019,2023-08-17,biweekly,neutralised,28,,reported,automatic,28,agreed,
+B2023-019,2023-08-17,biweekly,arrested,92,,reported,hand,113,majority,"Conflict: Blueprint states 92 arrested, then lists 6 gunrunners, 3 kidnappers, 6 collaborators and 7 oil-theft arrests in a separate sentence; sum with separately listed arrests 114 (Leadership 114, NAN wire 113). Headline figure kept under the separately-listed-arrests convention."
+B2023-019,2023-08-17,biweekly,rescued,82,,reported,automatic,82,agreed,
+B2023-020,2023-08-25,,neutralised,23,,reported,automatic,23,agreed,
+B2023-020,2023-08-25,,arrested,22,,reported,automatic,22,agreed,
+B2023-020,2023-08-25,,rescued,41,,reported,hand,,needs hand extraction,"National statement: 41 hostages rescued, all copies agree."
+B2023-021,2023-08-31,biweekly,neutralised,39,,reported,automatic,39,agreed,
+B2023-021,2023-08-31,biweekly,arrested,157,,reported,hand,157,majority,"Majority of national copies: 157 (Blueprint, Leadership) against 159 (NAN wire); Blueprint lists 16 oil-theft arrests in a separate sentence (sum 173). Daily Trust 159 attributes the figure to Operation Hadin Kai."
+B2023-021,2023-08-31,biweekly,rescued,109,,reported,automatic,109,agreed,
+B2023-022,2023-09-07,quarterly,neutralised,814,,reported,hand,814,majority,"Majority of national copies: 814 (Blueprint, Leadership) against 817 (NAN wire, carried by Premium Times and Daily Trust)."
+B2023-022,2023-09-07,quarterly,arrested,1326,,reported,hand,1326,majority,"National figure 1,326 (Blueprint, NAN wire); Leadership 1,903 is described as six months and does not match the three-month period."
+B2023-022,2023-09-07,quarterly,rescued,721,,reported,automatic,721,agreed,
+B2023-023,2023-09-14,biweekly 6; weekly 2,neutralised,151,,reported,automatic,151,agreed,
+B2023-023,2023-09-14,biweekly 6; weekly 2,arrested,456,,reported,automatic,456,agreed,
+B2023-023,2023-09-14,biweekly 6; weekly 2,rescued,76,,reported,automatic,76,agreed,
+B2023-024,2023-09-22,weekly,neutralised,52,,reported,automatic,52,agreed,
+B2023-024,2023-09-22,weekly,arrested,60,,reported,hand,53,majority,"Conflict resolved: NAN wire and TheWill give 60; Blueprint and Leadership give 53 criminals plus 7 suspected oil thieves, which sum to 60."
+B2023-024,2023-09-22,weekly,rescued,61,,reported,hand,61,majority,"National figure 61 (Blueprint, NAN wire, TheWill); Leadership gives 62."
+B2023-025,2023-09-28,biweekly 7; weekly 1,neutralised,191,,reported,automatic,191,agreed,
+B2023-025,2023-09-28,biweekly 7; weekly 1,arrested,184,,reported,automatic,184,agreed,
+B2023-025,2023-09-28,biweekly 7; weekly 1,rescued,91,,reported,automatic,91,agreed,
+B2023-026,2023-10-07,weekly,neutralised,31,,reported,automatic,31,agreed,
+B2023-026,2023-10-07,weekly,arrested,81,,reported,automatic,81,agreed,
+B2023-026,2023-10-07,weekly,rescued,10,,reported,automatic,10,agreed,
+B2023-027,2023-10-12,weekly,neutralised,50,no fewer than,reported,automatic,50,agreed,
+B2023-027,2023-10-12,weekly,arrested,114,,reported,automatic,114,agreed,
+B2023-027,2023-10-12,weekly,rescued,49,,reported,hand,,needs hand extraction,"National figure: 49 hostages rescued in the week, all copies agree; Leadership lead is national."
+B2023-028,2023-10-20,weekly,neutralised,37,,reported,automatic,37,agreed,
+B2023-028,2023-10-20,weekly,arrested,95,,reported,hand,,conflict,"Conflict: Blueprint and Leadership give 95, and Blueprint lists 19 oil-theft arrests in a separate sentence (sum 114); NAN wire gives 124, which matches neither. Headline figure kept."
+B2023-028,2023-10-20,weekly,rescued,53,,reported,automatic,53,agreed,
+B2023-029,2023-10-26,weekly,neutralised,73,,reported,hand,,needs hand extraction,"National figure from one copy (Leadership, internal operations, one week); the NAN wire leads on an air interdiction of more than 100 on the Niger-Zamfara border, an incident figure."
+B2023-029,2023-10-26,weekly,arrested,182,,reported,automatic,182,agreed,
+B2023-029,2023-10-26,weekly,rescued,68,,reported,hand,,needs hand extraction,"National figure: 68 hostages rescued (Leadership, Blueprint); NAN wire places it in the South-South, a wire gloss on the national summary sentence."
+B2023-030,2023-11-03,weekly,neutralised,67,,reported,automatic,67,agreed,
+B2023-030,2023-11-03,weekly,arrested,190,,reported,automatic,190,agreed,
+B2023-030,2023-11-03,weekly,rescued,47,,reported,automatic,47,agreed,
+B2023-031,2023-11-09,weekly 5; biweekly 1,neutralised,113,,reported,automatic,113,agreed,
+B2023-031,2023-11-09,weekly 5; biweekly 1,arrested,300,,reported,automatic,300,agreed,
+B2023-031,2023-11-09,weekly 5; biweekly 1,rescued,91,,reported,hand,,needs hand extraction,"National figure: 91 rescued, all copies agree."
+B2023-032,2023-11-17,weekly,neutralised,50,,reported,automatic,50,agreed,
+B2023-032,2023-11-17,weekly,arrested,122,,reported,automatic,122,agreed,
+B2023-032,2023-11-17,weekly,rescued,182,,reported,hand,,needs hand extraction,"National figure: 182 rescued, all copies agree."
+B2023-033,2023-11-23,weekly 10; monthly 1,neutralised,99,,reported,automatic,99,agreed,
+B2023-033,2023-11-23,weekly 10; monthly 1,arrested,198,,reported,automatic,198,agreed,
+B2023-033,2023-11-23,weekly 10; monthly 1,rescued,139,,reported,automatic,139,agreed,
+B2023-034,2023-12-01,weekly,neutralised,52,,reported,automatic,52,agreed,
+B2023-034,2023-12-01,weekly,arrested,204,,reported,automatic,204,agreed,
+B2023-034,2023-12-01,weekly,rescued,234,,reported,automatic,234,agreed,
+B2023-035,2023-12-07,weekly,neutralised,80,,reported,automatic,80,agreed,
+B2023-035,2023-12-07,weekly,arrested,304,,reported,automatic,304,agreed,
+B2023-035,2023-12-07,weekly,rescued,44,,reported,hand,,needs hand extraction,"National figure: 44 rescued (Blueprint, Leadership); 36 is North Central."
+B2023-036,2023-12-15,weekly,neutralised,38,,reported,automatic,38,agreed,
+B2023-036,2023-12-15,weekly,arrested,,,not reported,hand,,needs hand extraction,Incident figure only: 159 arrested attributed to Niger State air strikes; no national weekly arrest figure in the copies.
+B2023-036,2023-12-15,weekly,rescued,89,,reported,hand,,needs hand extraction,National figure: 89 hostages rescued; 66 is oil-theft arrests.
+B2023-037,2023-12-21,weekly,neutralised,40,,reported,automatic,40,agreed,
+B2023-037,2023-12-21,weekly,arrested,191,,reported,hand,,conflict,"Conflict: Blueprint and Leadership give 191, and Blueprint lists 68 oil-theft arrests in a separate sentence; NAN wire gives 259, the sum with separately listed arrests. Headline figure kept."
+B2023-037,2023-12-21,weekly,rescued,80,,reported,hand,,needs hand extraction,"National figure: 80 rescued, all copies agree."
+B2023-038,2023-12-29,year,neutralised,6886,,reported,automatic,6886,agreed,
+B2023-038,2023-12-29,year,arrested,6970,,reported,automatic,6970,agreed,
+B2023-038,2023-12-29,year,rescued,4488,,reported,hand,,needs hand extraction,"National annual figure for 2023: 4,488 rescued, all copies agree."
+B2024-001,2024-01-05,weekly,neutralised,43,,reported,automatic,43,agreed,
+B2024-001,2024-01-05,weekly,arrested,115,,reported,automatic,115,agreed,
+B2024-001,2024-01-05,weekly,rescued,39,,reported,hand,,needs hand extraction,"National summary sentence: 39 rescued (Blueprint); NAN wire places it in the South-South, a wire gloss."
+B2024-002,2024-01-11,weekly,neutralised,86,no fewer than,reported,automatic,86,agreed,
+B2024-002,2024-01-11,weekly,arrested,101,,reported,automatic,101,agreed,
+B2024-002,2024-01-11,weekly,rescued,21,,reported,automatic,21,agreed,
+B2024-003,2024-01-19,weekly,neutralised,43,,reported,hand,,needs hand extraction,"National figure: 43 neutralised (Leadership, NAN wire); one Daily Post headline misplaces it in the South-South."
+B2024-003,2024-01-19,weekly,arrested,76,,reported,hand,,needs hand extraction,"National figure: 76 arrested, all copies agree."
+B2024-003,2024-01-19,weekly,rescued,27,,reported,hand,,needs hand extraction,"National figure: 27 rescued, all copies agree."
+B2024-004,2024-01-25,weekly 3; biweekly 1,neutralised,94,,reported,automatic,94,agreed,
+B2024-004,2024-01-25,weekly 3; biweekly 1,arrested,171,,reported,automatic,171,agreed,
+B2024-004,2024-01-25,weekly 3; biweekly 1,rescued,29,,reported,hand,,needs hand extraction,"National figure: 29 rescued, all copies agree."
+B2024-005,2024-02-02,weekly,neutralised,185,no fewer than,reported,automatic,185,agreed,
+B2024-005,2024-02-02,weekly,arrested,212,,reported,automatic,212,agreed,
+B2024-005,2024-02-02,weekly,rescued,71,,reported,automatic,71,agreed,
+B2024-006,2024-02-08,biweekly 3; monthly 1,neutralised,266,,reported,hand,,needs hand extraction,"National monthly figure for January 2024: 266 neutralised, all copies agree."
+B2024-006,2024-02-08,biweekly 3; monthly 1,arrested,463,,reported,hand,,needs hand extraction,"National monthly figure for January 2024: 463 arrested, all copies agree."
+B2024-006,2024-02-08,biweekly 3; monthly 1,rescued,116,,reported,automatic,116,agreed,
+B2024-007,2024-02-08,weekly,neutralised,105,,reported,automatic,105,agreed,
+B2024-007,2024-02-08,weekly,arrested,140,,reported,automatic,140,agreed,
+B2024-007,2024-02-08,weekly,rescued,86,,reported,hand,,needs hand extraction,"National summary sentence: 86 rescued; only NAN-derived copies, which place it in the South-South, a wire gloss on the national summary."
+B2024-008,2024-02-16,weekly,neutralised,254,,reported,automatic,254,agreed,
+B2024-008,2024-02-16,weekly,arrested,264,,reported,hand,264,majority,"Majority of national copies: DHQ statement quoted by Daily Trust reads ""arrested 264 of them including 104 perpetrators of oil theft""; NAN wire 368 adds the 104 a second time."
+B2024-008,2024-02-16,weekly,rescued,73,,reported,automatic,73,agreed,
+B2024-009,2024-02-22,weekly,neutralised,286,no fewer than,reported,automatic,286,agreed,
+B2024-009,2024-02-22,weekly,arrested,244,,reported,automatic,244,agreed,
+B2024-009,2024-02-22,weekly,rescued,122,,reported,automatic,122,agreed,
+B2024-010,2024-02-29,monthly,neutralised,974,no fewer than,reported,automatic,974,agreed,
+B2024-010,2024-02-29,monthly,arrested,621,,reported,automatic,621,agreed,
+B2024-010,2024-02-29,monthly,rescued,466,,reported,automatic,466,agreed,
+B2024-011,2024-03-08,weekly,neutralised,210,,reported,automatic,210,agreed,
+B2024-011,2024-03-08,weekly,arrested,142,,reported,automatic,142,agreed,
+B2024-011,2024-03-08,weekly,rescued,46,,reported,automatic,46,agreed,
+B2024-012,2024-03-14,weekly,neutralised,213,no fewer than,reported,automatic,213,agreed,
+B2024-012,2024-03-14,weekly,arrested,283,,reported,automatic,283,agreed,
+B2024-012,2024-03-14,weekly,rescued,26,,reported,hand,,needs hand extraction,"National figure: 26 rescued (Leadership lead is national: 213 neutralised, 216 arrested)."
+B2024-013,2024-03-22,weekly,neutralised,106,,reported,automatic,106,agreed,
+B2024-013,2024-03-22,weekly,arrested,103,,reported,automatic,103,agreed,
+B2024-013,2024-03-22,weekly,rescued,96,,reported,hand,,needs hand extraction,"National summary sentence: 96 rescued, all copies agree."
+B2024-014,2024-03-28,weekly,neutralised,121,,reported,hand,121,majority,"National figure: 121 (NAN wire, Blueprint); Leadership 212 transposes the digits."
+B2024-014,2024-03-28,weekly,arrested,253,,reported,hand,253,majority,"National figure: 253 (NAN wire, Blueprint); Leadership gives 252."
+B2024-014,2024-03-28,weekly,rescued,244,,reported,automatic,244,agreed,
+B2024-015,2024-04-04,quarterly,neutralised,2351,,reported,hand,2351,majority,"Majority of national copies: 2,351 (Blueprint, Channels TV, Leadership, TheWill, and the body of Daily Post); NAN wire states no fewer than 2,352."
+B2024-015,2024-04-04,quarterly,arrested,2308,,reported,automatic,2308,agreed,
+B2024-015,2024-04-04,quarterly,rescued,1241,,reported,automatic,1241,agreed,
+B2024-016,2024-04-12,weekly,neutralised,188,,reported,automatic,188,agreed,
+B2024-016,2024-04-12,weekly,arrested,330,,reported,automatic,330,agreed,
+B2024-016,2024-04-12,weekly,rescued,133,,reported,automatic,133,agreed,
+B2024-017,2024-04-18,weekly,neutralised,192,,reported,automatic,192,agreed,
+B2024-017,2024-04-18,weekly,arrested,341,,reported,automatic,341,agreed,
+B2024-017,2024-04-18,weekly,rescued,62,,reported,automatic,62,agreed,
+B2024-018,2024-04-27,weekly,neutralised,216,,reported,automatic,216,agreed,
+B2024-018,2024-04-27,weekly,arrested,332,,reported,automatic,332,agreed,
+B2024-018,2024-04-27,weekly,rescued,161,,reported,automatic,161,agreed,
+B2024-019,2024-05-02,monthly,neutralised,715,,reported,automatic,715,agreed,
+B2024-019,2024-05-02,monthly,arrested,146,,reported,automatic,146,agreed,
+B2024-019,2024-05-02,monthly,rescued,465,,reported,automatic,465,agreed,
+B2024-020,2024-05-10,weekly,neutralised,135,,reported,automatic,135,agreed,
+B2024-020,2024-05-10,weekly,arrested,182,,reported,automatic,182,agreed,
+B2024-020,2024-05-10,weekly,rescued,140,,reported,automatic,140,agreed,
+B2024-021,2024-05-16,weekly 3; biweekly 2,neutralised,227,no fewer than,reported,automatic,227,agreed,
+B2024-021,2024-05-16,weekly 3; biweekly 2,arrested,529,,reported,automatic,529,agreed,
+B2024-021,2024-05-16,weekly 3; biweekly 2,rescued,253,,reported,automatic,253,agreed,
+B2024-022,2024-05-24,weekly,neutralised,253,,reported,automatic,253,agreed,
+B2024-022,2024-05-24,weekly,arrested,172,,reported,automatic,172,agreed,
+B2024-022,2024-05-24,weekly,rescued,206,,reported,automatic,206,agreed,
+B2024-023,2024-05-30,monthly,neutralised,624,,reported,automatic,624,agreed,
+B2024-023,2024-05-30,monthly,arrested,1051,,reported,automatic,1051,agreed,
+B2024-023,2024-05-30,monthly,rescued,563,,reported,hand,,needs hand extraction,"National monthly figure for May 2024: 563 rescued, all copies agree."
+B2024-024,2024-06-06,year 2; cumulative 2,neutralised,9303,,reported,hand,,needs hand extraction,"National 12-month figure, May 2023 to May 2024: 9,303 killed by security forces (NAN wire with ""no fewer than"", Leadership without a qualifier)."
+B2024-024,2024-06-06,year 2; cumulative 2,arrested,6998,,reported,hand,,needs hand extraction,"National 12-month figure, May 2023 to May 2024: 6,998 arrested; 1,437 oil-theft arrests are reported separately."
+B2024-024,2024-06-06,year 2; cumulative 2,rescued,4641,,reported,hand,,needs hand extraction,"National 12-month figure, May 2023 to May 2024: 4,641 rescued (NAN wire with ""no fewer than"", Leadership without a qualifier)."
+B2024-025,2024-06-07,weekly,neutralised,202,,reported,automatic,202,agreed,
+B2024-025,2024-06-07,weekly,arrested,437,,reported,automatic,437,agreed,
+B2024-025,2024-06-07,weekly,rescued,209,,reported,hand,,needs hand extraction,"National figure: 209 rescued (Blueprint, Leadership)."
+B2024-026,2024-06-13,weekly 7; monthly 2,neutralised,197,no fewer than,reported,automatic,197,agreed,
+B2024-026,2024-06-13,weekly 7; monthly 2,arrested,310,,reported,automatic,310,agreed,
+B2024-026,2024-06-13,weekly 7; monthly 2,rescued,251,,reported,hand,,needs hand extraction,National figure: 251 rescued; Gazette 15 is Operation UDO KA.
+B2024-027,2024-06-21,weekly,neutralised,220,,reported,automatic,220,agreed,
+B2024-027,2024-06-21,weekly,arrested,395,,reported,automatic,395,agreed,
+B2024-027,2024-06-21,weekly,rescued,202,,reported,hand,,needs hand extraction,"National figure: 202 rescued, all copies agree."
+B2024-028,2024-06-27,quarterly,neutralised,2245,,reported,automatic,2245,agreed,
+B2024-028,2024-06-27,quarterly,arrested,3682,,reported,automatic,3682,agreed,
+B2024-028,2024-06-27,quarterly,rescued,1993,,reported,automatic,1993,agreed,
+B2024-029,2024-07-05,weekly,neutralised,177,,reported,automatic,177,agreed,
+B2024-029,2024-07-05,weekly,arrested,263,,reported,automatic,263,agreed,
+B2024-029,2024-07-05,weekly,rescued,158,,reported,automatic,158,agreed,
+B2024-030,2024-07-11,weekly,neutralised,187,,reported,automatic,187,agreed,
+B2024-030,2024-07-11,weekly,arrested,183,,reported,automatic,183,agreed,
+B2024-030,2024-07-11,weekly,rescued,109,,reported,automatic,109,agreed,
+B2024-031,2024-07-19,weekly,neutralised,125,,reported,automatic,125,agreed,
+B2024-031,2024-07-19,weekly,arrested,200,,reported,automatic,200,agreed,
+B2024-031,2024-07-19,weekly,rescued,140,,reported,automatic,140,agreed,
+B2024-032,2024-07-25,weekly,neutralised,106,,reported,automatic,106,agreed,
+B2024-032,2024-07-25,weekly,arrested,164,,reported,automatic,164,agreed,
+B2024-032,2024-07-25,weekly,rescued,103,,reported,automatic,103,agreed,
+B2024-033,2024-08-02,monthly,neutralised,572,,reported,automatic,572,agreed,
+B2024-033,2024-08-02,monthly,arrested,790,,reported,automatic,790,agreed,
+B2024-033,2024-08-02,monthly,rescued,479,,reported,automatic,479,agreed,
+B2024-034,2024-08-09,weekly,neutralised,108,,reported,automatic,108,agreed,
+B2024-034,2024-08-09,weekly,arrested,172,,reported,automatic,172,agreed,
+B2024-034,2024-08-09,weekly,rescued,214,,reported,automatic,214,agreed,
+B2024-035,2024-08-15,weekly,neutralised,147,,reported,automatic,147,agreed,
+B2024-035,2024-08-15,weekly,arrested,381,,reported,automatic,381,agreed,
+B2024-035,2024-08-15,weekly,rescued,113,,reported,automatic,113,agreed,
+B2024-036,2024-08-23,weekly,neutralised,171,,reported,automatic,171,agreed,
+B2024-036,2024-08-23,weekly,arrested,302,,reported,hand,,conflict,"Conflict: Blueprint and Leadership give 302, and Blueprint lists 25 oil-theft arrests in a separate sentence; TheWill 327 ""including crude oil thieves"" is the sum. Headline figure kept."
+B2024-036,2024-08-23,weekly,rescued,134,,reported,hand,,needs hand extraction,"National figure: 134 rescued, all copies agree."
+B2024-037,2024-08-29,monthly,neutralised,1166,,reported,automatic,1166,agreed,
+B2024-037,2024-08-29,monthly,arrested,1096,,reported,automatic,1096,agreed,
+B2024-037,2024-08-29,monthly,rescued,721,,reported,hand,,needs hand extraction,"National monthly figure for August 2024: 721 rescued, all copies agree."
+B2024-038,2024-09-06,weekly,neutralised,152,,reported,automatic,152,agreed,
+B2024-038,2024-09-06,weekly,arrested,109,,reported,automatic,109,agreed,
+B2024-038,2024-09-06,weekly,rescued,91,,reported,automatic,91,agreed,
+B2024-039,2024-09-10,cumulative,neutralised,,,not reported,hand,,needs hand extraction,"Theatre vague term only: South East, ""a large number of IPOB members""."
+B2024-039,2024-09-10,cumulative,arrested,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2024-039,2024-09-10,cumulative,rescued,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2024-040,2024-09-20,weekly,neutralised,159,,reported,hand,,needs hand extraction,"National figure: 159 neutralised, all copies agree."
+B2024-040,2024-09-20,weekly,arrested,174,,reported,hand,,needs hand extraction,"National figure: 174 arrested; Daily Post adds ""about""."
+B2024-040,2024-09-20,weekly,rescued,188,,reported,hand,,needs hand extraction,"National figure: 188 rescued, all copies agree."
+B2024-041,2024-09-26,quarterly,neutralised,65,,reported,automatic,65,agreed,
+B2024-041,2024-09-26,quarterly,arrested,2782,,reported,hand,,needs hand extraction,"National quarterly figure, third quarter 2024: 2,782 arrested, all copies agree."
+B2024-041,2024-09-26,quarterly,rescued,1854,,reported,automatic,1854,agreed,
+B2024-042,2024-10-04,weekly,neutralised,118,,reported,automatic,118,agreed,
+B2024-042,2024-10-04,weekly,arrested,97,,reported,automatic,97,agreed,
+B2024-042,2024-10-04,weekly,rescued,96,,reported,automatic,96,agreed,
+B2024-043,2024-10-10,weekly,neutralised,165,,reported,automatic,165,agreed,
+B2024-043,2024-10-10,weekly,arrested,238,,reported,automatic,238,agreed,
+B2024-043,2024-10-10,weekly,rescued,188,,reported,automatic,188,agreed,
+B2024-044,2024-10-11,biweekly,neutralised,,,not reported,hand,,needs hand extraction,"No period total; Channels TV quotes a separate cumulative claim of over 300 terrorist commanders eliminated over three quarters, a named subset."
+B2024-044,2024-10-11,biweekly,arrested,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2024-044,2024-10-11,biweekly,rescued,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2024-045,2024-10-18,weekly,neutralised,101,,reported,automatic,101,agreed,
+B2024-045,2024-10-18,weekly,arrested,182,plus 1 named,reported,automatic,182,agreed,
+B2024-045,2024-10-18,weekly,rescued,157,,reported,hand,,needs hand extraction,"National figure: 157 rescued, all copies agree."
+B2024-046,2024-10-24,weekly 5; biweekly 4,neutralised,140,,reported,automatic,140,agreed,
+B2024-046,2024-10-24,weekly 5; biweekly 4,arrested,135,,reported,automatic,135,agreed,
+B2024-046,2024-10-24,weekly 5; biweekly 4,rescued,76,,reported,automatic,76,agreed,
+B2024-047,2024-11-02,weekly,neutralised,187,no fewer than,reported,automatic,187,agreed,
+B2024-047,2024-11-02,weekly,arrested,262,,reported,hand,,conflict,Conflict resolved: 262 stated by NAN wire and Leadership; Blueprint 39 is oil-theft arrests listed separately.
+B2024-047,2024-11-02,weekly,rescued,147,,reported,automatic,147,agreed,
+B2024-048,2024-11-07,monthly,neutralised,481,,reported,automatic,481,agreed,
+B2024-048,2024-11-07,monthly,arrested,741,,reported,automatic,741,agreed,
+B2024-048,2024-11-07,monthly,rescued,492,,reported,automatic,492,agreed,
+B2024-049,2024-11-09,weekly,neutralised,169,,reported,automatic,169,agreed,
+B2024-049,2024-11-09,weekly,arrested,641,,reported,automatic,641,agreed,
+B2024-049,2024-11-09,weekly,rescued,181,,reported,hand,,needs hand extraction,"National figure: 181 rescued, all copies agree."
+B2024-050,2024-11-14,,neutralised,88,,reported,automatic,88,agreed,
+B2024-050,2024-11-14,,arrested,228,,reported,automatic,228,agreed,
+B2024-050,2024-11-14,,rescued,181,,reported,automatic,181,agreed,
+B2024-051,2024-11-21,weekly,neutralised,114,plus 1 named,reported,automatic,114,agreed,
+B2024-051,2024-11-21,weekly,arrested,238,,reported,hand,,needs hand extraction,National figure: 238 arrested; Daily Post 138 is the rescued figure in a run-on list.
+B2024-051,2024-11-21,weekly,rescued,138,,reported,hand,,needs hand extraction,National figure: 138 rescued; Daily Post 48 is the North Central section.
+B2024-052,2024-11-29,weekly,neutralised,135,,reported,automatic,135,agreed,
+B2024-052,2024-11-29,weekly,arrested,185,,reported,automatic,185,agreed,
+B2024-052,2024-11-29,weekly,rescued,129,,reported,automatic,129,agreed,
+B2024-053,2024-12-05,year 7; cumulative 1,neutralised,8034,,reported,automatic,8034,agreed,
+B2024-053,2024-12-05,year 7; cumulative 1,arrested,11623,,reported,automatic,11623,agreed,
+B2024-053,2024-12-05,year 7; cumulative 1,rescued,6376,,reported,automatic,6376,agreed,
+B2024-054,2024-12-14,weekly,neutralised,181,,reported,hand,,needs hand extraction,National figure from one copy (Leadership): 181 neutralised in the week.
+B2024-054,2024-12-14,weekly,arrested,203,,reported,hand,,needs hand extraction,"National figure from one copy (Leadership): 203 arrested, including a named gunrunner in Plateau State."
+B2024-054,2024-12-14,weekly,rescued,161,,reported,hand,,needs hand extraction,National summary sentence from one copy (Leadership): 161 rescued; 50 oil-theft arrests listed separately.
+B2024-055,2024-12-20,weekly,neutralised,212,,reported,automatic,212,agreed,
+B2024-055,2024-12-20,weekly,arrested,317,,reported,automatic,317,agreed,
+B2024-055,2024-12-20,weekly,rescued,152,,reported,automatic,152,agreed,
+B2024-056,2024-12-28,weekly,neutralised,148,,reported,automatic,148,agreed,
+B2024-056,2024-12-28,weekly,arrested,258,,reported,automatic,258,agreed,
+B2024-056,2024-12-28,weekly,rescued,291,,reported,automatic,291,agreed,
+B2024-057,2024-12-31,year,neutralised,10937,,reported,automatic,10937,agreed,
+B2024-057,2024-12-31,year,arrested,12538,,reported,automatic,12538,agreed,
+B2024-057,2024-12-31,year,rescued,7063,,reported,automatic,7063,agreed,
+B2025-001,2025-01-10,weekly,neutralised,109,,reported,automatic,109,agreed,
+B2025-001,2025-01-10,weekly,arrested,81,,reported,automatic,81,agreed,
+B2025-001,2025-01-10,weekly,rescued,43,,reported,automatic,43,agreed,
+B2025-002,2025-01-16,weekly,neutralised,156,,reported,automatic,156,agreed,
+B2025-002,2025-01-16,weekly,arrested,464,,reported,automatic,464,agreed,
+B2025-002,2025-01-16,weekly,rescued,181,,reported,automatic,181,agreed,
+B2025-003,2025-01-24,weekly,neutralised,96,plus 1 named,reported,automatic,96,agreed,
+B2025-003,2025-01-24,weekly,arrested,224,,reported,automatic,224,agreed,
+B2025-003,2025-01-24,weekly,rescued,67,,reported,automatic,67,agreed,
+B2025-004,2025-01-31,monthly,neutralised,358,,reported,automatic,358,agreed,
+B2025-004,2025-01-31,monthly,arrested,431,,reported,automatic,431,agreed,
+B2025-004,2025-01-31,monthly,rescued,249,,reported,automatic,249,agreed,
+B2025-005,2025-02-07,weekly,neutralised,27,,reported,automatic,27,agreed,
+B2025-005,2025-02-07,weekly,arrested,62,,reported,automatic,62,agreed,
+B2025-005,2025-02-07,weekly,rescued,44,,reported,automatic,44,agreed,
+B2025-006,2025-02-13,weekly,neutralised,75,,reported,automatic,75,agreed,
+B2025-006,2025-02-13,weekly,arrested,138,,reported,automatic,138,agreed,
+B2025-006,2025-02-13,weekly,rescued,46,,reported,automatic,46,agreed,
+B2025-007,2025-02-21,weekly,neutralised,82,,reported,automatic,82,agreed,
+B2025-007,2025-02-21,weekly,arrested,198,,reported,automatic,198,agreed,
+B2025-007,2025-02-21,weekly,rescued,93,,reported,automatic,93,agreed,
+B2025-008,2025-02-28,monthly,neutralised,217,,reported,hand,,needs hand extraction,"National monthly figure for February 2025: 217 neutralised, all copies agree."
+B2025-008,2025-02-28,monthly,arrested,574,,reported,hand,,needs hand extraction,"National monthly figure for February 2025: 574 arrested, all copies agree."
+B2025-008,2025-02-28,monthly,rescued,320,,reported,hand,,needs hand extraction,"National monthly figure for February 2025: 320 rescued, all copies agree."
+B2025-009,2025-03-06,weekly,neutralised,92,,reported,hand,,needs hand extraction,"National figure: 92 neutralised, all copies agree."
+B2025-009,2025-03-06,weekly,arrested,111,,reported,hand,,needs hand extraction,"National figure: 111 arrested (NAN wire, Leadership); Channels TV and Daily Post 18 is oil-theft arrests listed separately."
+B2025-009,2025-03-06,weekly,rescued,75,,reported,hand,,needs hand extraction,"National figure: 75 rescued, all copies agree."
+B2025-010,2025-03-14,weekly,neutralised,74,,reported,hand,,needs hand extraction,"National figure: 74 neutralised, 5 to 13 March 2025, all copies agree."
+B2025-010,2025-03-14,weekly,arrested,130,,reported,hand,,needs hand extraction,"National figure: 130 arrested, all copies agree."
+B2025-010,2025-03-14,weekly,rescued,61,,reported,hand,,needs hand extraction,"National figure: 61 rescued, all copies agree."
+B2025-011,2025-03-20,biweekly,neutralised,,scores,vague,hand,,needs hand extraction,"National vague claim: ""scores of terrorists were neutralised this week"" (Leadership); Daily Post gives ""several""."
+B2025-011,2025-03-20,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Only oil-theft arrests are given (23, Niger Delta); no national arrest figure."
+B2025-011,2025-03-20,biweekly,rescued,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2025-012,2025-03-28,weekly,neutralised,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2025-012,2025-03-28,weekly,arrested,,,not reported,hand,,needs hand extraction,"Only oil-theft arrests are given (11, Niger Delta); no national arrest figure."
+B2025-012,2025-03-28,weekly,rescued,,,vague,hand,,needs hand extraction,National summary mentions rescues with no number; Daily Post 48 is smuggling boats.
+B2025-013,2025-04-03,quarterly,neutralised,,many,vague,hand,,needs hand extraction,"National vague claim for the first quarter of 2025: ""We have neutralised many of them""; named leaders listed separately."
+B2025-013,2025-04-03,quarterly,arrested,,scores,vague,hand,,needs hand extraction,"National vague claim for the first quarter of 2025: ""the arrest of scores of them""."
+B2025-013,2025-04-03,quarterly,rescued,,many,vague,hand,,needs hand extraction,"National vague claim for the first quarter of 2025: ""many kidnapped hostages were rescued""."
+B2025-014,2025-04-11,weekly,neutralised,,scores,vague,hand,,needs hand extraction,"Vague claim: ""killed scores of terrorists in North East and other areas within the week"" (Leadership)."
+B2025-014,2025-04-11,weekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre and incident figures only: Operation Delta Safe 49 oil-theft arrests, Kebbi and Sokoto 2."
+B2025-014,2025-04-11,weekly,rescued,,several,vague,hand,,needs hand extraction,"Vague claim: ""several kidnapped hostages were also rescued""."
+B2025-015,2025-04-17,weekly,neutralised,,scores,vague,hand,,needs hand extraction,"Vague claim: Leadership lead places a named kingpin ""among the scores of terrorists neutralised"" between 10 and 16 April 2025; Gazette gives ""many""."
+B2025-015,2025-04-17,weekly,arrested,39,,reported,hand,,needs hand extraction,"National figure from one copy (Leadership): 39 suspected terrorists arrested, in a statement covering several named states ""among others""; Gazette 42 is oil thieves and other criminals."
+B2025-015,2025-04-17,weekly,rescued,38,,reported,hand,,needs hand extraction,"National figure from one copy (Leadership): 38 hostages rescued, same sentence as the arrest figure."
+B2025-016,2025-04-25,weekly,neutralised,100,over,reported,automatic,100,agreed,
+B2025-016,2025-04-25,weekly,arrested,70,,reported,hand,,conflict,"National figure: 70 arrested (Leadership, two copies of one outlet); Daily Post ""100 suspects arrested"" appears in a garbled lead that also claims ""over 100 terrorists killed"" where DHQ gave ""several""."
+B2025-016,2025-04-25,weekly,rescued,21,,reported,automatic,21,agreed,
+B2025-017,2025-05-03,weekly,neutralised,,scores,vague,hand,,needs hand extraction,"National vague claim: ""troops deployed to different theatres across the country neutralized scores of terrorists""."
+B2025-017,2025-05-03,weekly,arrested,75,,reported,hand,,needs hand extraction,"National figure from one copy (Leadership): 75 suspected terrorists, kidnappers and other criminal elements arrested in the week."
+B2025-017,2025-05-03,weekly,rescued,33,,reported,hand,,needs hand extraction,National summary sentence from one copy (Leadership): 33 rescued; Blueprint 6 is an incident figure.
+B2025-018,2025-05-08,monthly,neutralised,,,not reported,hand,,needs hand extraction,"Theatre vague term only: South East, ""scores"" of IPOB members."
+B2025-018,2025-05-08,monthly,arrested,430,,reported,hand,,needs hand extraction,"National monthly figure for April 2025: 430 ""suspected oil thieves and other criminal elements"" arrested (Daily Post, Leadership); 29 is a North East section figure. The figure includes oil-theft arrests."
+B2025-018,2025-05-08,monthly,rescued,173,,reported,hand,,needs hand extraction,"National monthly figure for April 2025: 173 rescued, all copies agree."
+B2025-019,2025-05-12,monthly,neutralised,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2025-019,2025-05-12,monthly,arrested,430,,reported,automatic,430,agreed,
+B2025-019,2025-05-12,monthly,rescued,173,,reported,hand,,needs hand extraction,"National figure from one copy (Blueprint): 173 rescued in the period, matching B2025-018."
+B2025-020,2025-05-17,weekly,neutralised,,,not reported,hand,,needs hand extraction,"Section vague term only: North Central, ""scores""."
+B2025-020,2025-05-17,weekly,arrested,,,not reported,hand,,needs hand extraction,Section only: two named suspects in Suleja.
+B2025-020,2025-05-17,weekly,rescued,,,not reported,hand,,needs hand extraction,Section vague term only; North West section gives 129 rescued.
+B2025-021,2025-05-24,weekly,neutralised,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2025-021,2025-05-24,weekly,arrested,28,plus 5,reported,hand,,needs hand extraction,"National figure from one copy (Leadership): 3 foreign migrants and 2 Chadians arrested in Jos North, then ""28 other terrorists, logistics suppliers and other criminal elements"" within the period; value follows the named-plus-others rule, with 5 unnamed foreign nationals."
+B2025-021,2025-05-24,weekly,rescued,47,,reported,hand,,needs hand extraction,National figure from one copy (Leadership): 47 hostages rescued within the same period as the national arrest figure.
+B2025-022,2025-06-13,weekly,neutralised,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2025-022,2025-06-13,weekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: Operation Delta Safe 23 oil-theft arrests, Operation Hadin Kai 5."
+B2025-022,2025-06-13,weekly,rescued,,,not reported,hand,,needs hand extraction,Incident figure only: 3 rescued in one encounter.
+B2025-023,2025-06-19,cumulative,neutralised,6260,,reported,automatic,6260,agreed,
+B2025-023,2025-06-19,cumulative,arrested,14138,,reported,automatic,14138,agreed,
+B2025-023,2025-06-19,cumulative,rescued,5365,,reported,hand,,needs hand extraction,"National cumulative figure: 5,365 rescued by the armed forces in different operations, all copies agree."
+B2025-024,2025-06-20,weekly,neutralised,,,not reported,hand,,needs hand extraction,"Section vague term only: ""scores"" in a North East statement."
+B2025-024,2025-06-20,weekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: Operation Hadin Kai 7 or 11, Borno State."
+B2025-024,2025-06-20,weekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figure only: North East, 2 rescued."
+B2025-025,2025-06-29,weekly,neutralised,,,not reported,hand,,needs hand extraction,Incident figure only: one named kingpin in Zamfara State.
+B2025-025,2025-06-29,weekly,arrested,,several,vague,hand,,needs hand extraction,"National vague claim: arrests in ""operations across various theatres"" with ""several""."
+B2025-025,2025-06-29,weekly,rescued,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2025-026,2025-07-03,quarterly,neutralised,,several,vague,hand,,needs hand extraction,"National vague claim for the second quarter of 2025: ""several terrorists' kingpins and their foot soldiers"" (Blueprint, Leadership, TheWill, VON); NAN wire gives ""scores""."
+B2025-026,2025-07-03,quarterly,arrested,1191,over,reported,automatic,1191,agreed,
+B2025-026,2025-07-03,quarterly,rescued,543,,reported,automatic,543,agreed,
+B2025-027,2025-07-11,weekly,neutralised,,,not reported,hand,,needs hand extraction,Section vague term only: North West air operation.
+B2025-027,2025-07-11,weekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: North Central 18, Operation Delta Safe 8 oil-theft arrests (Leadership 15 is refining sites)."
+B2025-027,2025-07-11,weekly,rescued,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2025-028,2025-07-17,weekly,neutralised,,,not reported,hand,,needs hand extraction,Section vague term only.
+B2025-028,2025-07-17,weekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figures only: North East 11, Daily Trust section 12; VON 42 is oil thieves and other criminals."
+B2025-028,2025-07-17,weekly,rescued,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2025-029,2025-07-25,weekly,neutralised,,scores,vague,hand,,needs hand extraction,"National vague claim: ""troops deployed across various theatres of operation have killed scores of terrorists""."
+B2025-029,2025-07-25,weekly,arrested,,,not reported,hand,,needs hand extraction,Only oil-theft arrests are given nationally (Leadership 237); 13 is a section figure.
+B2025-029,2025-07-25,weekly,rescued,170,over,reported,automatic,170,agreed,
+B2025-030,2025-08-01,monthly,neutralised,,,not reported,hand,,needs hand extraction,"Only a named subset: ""several high-profile terror commanders""; no general neutralised claim."
+B2025-030,2025-08-01,monthly,arrested,578,,reported,hand,,needs hand extraction,"National monthly figure for July 2025: 578 suspected terrorists, kidnappers and other criminal elements arrested."
+B2025-030,2025-08-01,monthly,rescued,134,,reported,hand,,needs hand extraction,National monthly figure for July 2025: 134 rescued.
+B2025-031,2025-08-10,weekly,neutralised,,several,vague,hand,,needs hand extraction,"National vague claim from one copy (Blueprint): ""killed several terrorists"" in the week."
+B2025-031,2025-08-10,weekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Whirl Stroke, North Central, 17 arrested."
+B2025-031,2025-08-10,weekly,rescued,22,,reported,hand,,needs hand extraction,National figure from one copy (Blueprint): 22 rescued in the week.
+B2025-032,2025-08-14,weekly 5; biweekly 1,neutralised,,,not reported,hand,,needs hand extraction,"Only a named subset nationally: ""several terrorist commanders""; North East section gives ""several""."
+B2025-032,2025-08-14,weekly 5; biweekly 1,arrested,107,,reported,automatic,107,agreed,
+B2025-032,2025-08-14,weekly 5; biweekly 1,rescued,,,unresolved,hand,,conflict,"Two national values: 37 (NAN wire, carried by Daily Post and Gazette) and 20 (Leadership, two copies, ""across the country"", 7 to 14 August). One independent copy each; value left blank."
+B2025-033,2025-08-22,weekly,neutralised,,,not reported,hand,,needs hand extraction,Section vague term only.
+B2025-033,2025-08-22,weekly,arrested,96,,reported,hand,,needs hand extraction,National figure from one copy (Leadership): 96 arrested; Daily Post 11 is the North West section.
+B2025-033,2025-08-22,weekly,rescued,89,,reported,hand,,needs hand extraction,National figure from one copy (Leadership): 89 rescued; Daily Post 46 is the North West section.
+B2025-034,2025-08-29,weekly,neutralised,,,not reported,hand,,needs hand extraction,Theatre vague term only: Operation Hadin Kai.
+B2025-034,2025-08-29,weekly,arrested,150,,reported,automatic,150,agreed,
+B2025-034,2025-08-29,weekly,rescued,117,,reported,automatic,117,agreed,
+B2025-035,2025-09-04,monthly,neutralised,,several,vague,hand,,needs hand extraction,"National vague claim for August 2025: ""killed several terrorists ... across the country""."
+B2025-035,2025-09-04,monthly,arrested,85,,reported,automatic,85,agreed,
+B2025-035,2025-09-04,monthly,rescued,66,,reported,automatic,66,agreed,
+B2025-036,2025-09-25,weekly,neutralised,,dozens,vague,hand,,needs hand extraction,"National vague claim: ""dozens of terrorists"" across different parts of the country."
+B2025-036,2025-09-25,weekly,arrested,147,,reported,hand,120,majority,"Conflict: 147 (Leadership, two copies, and Daily Trust) against no fewer than 120 (NAN wire; the Blueprint sentence repeats the NAN wording). Independent copies favour 147; the automatic table chose 120 because Leadership carries no national marker."
+B2025-036,2025-09-25,weekly,rescued,41,,reported,automatic,41,agreed,
+B2025-037,2025-10-04,cumulative,neutralised,5000,more than,reported,automatic,5000,agreed,
+B2025-037,2025-10-04,cumulative,arrested,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2025-037,2025-10-04,cumulative,rescued,1200,over,reported,hand,,needs hand extraction,"National cumulative claim from one copy (Daily Post): over 1,200 abducted civilians rescued; period not stated."
+B2025-038,2025-10-04,monthly,neutralised,,several,vague,hand,,needs hand extraction,"National vague claim for September 2025: ""neutralised several terrorists""."
+B2025-038,2025-10-04,monthly,arrested,450,,reported,automatic,450,agreed,
+B2025-038,2025-10-04,monthly,rescued,180,,reported,automatic,180,agreed,
+B2025-039,2025-10-16,weekly 3; biweekly 2,neutralised,,dozens,vague,hand,,needs hand extraction,"National vague claim: ""dozens of insurgents"" in two weeks ""across all theatres""."
+B2025-039,2025-10-16,weekly 3; biweekly 2,arrested,62,,reported,automatic,62,agreed,
+B2025-039,2025-10-16,weekly 3; biweekly 2,rescued,30,,reported,automatic,30,agreed,
+B2025-040,2025-10-24,weekly,neutralised,,dozens,vague,hand,,needs hand extraction,"National vague claim: ""dozens of terrorists ... across the country""."
+B2025-040,2025-10-24,weekly,arrested,86,,reported,automatic,86,agreed,
+B2025-040,2025-10-24,weekly,rescued,26,,reported,automatic,26,agreed,
+B2025-041,2025-11-14,biweekly,neutralised,,scores,vague,hand,,needs hand extraction,"National vague claim: ""neutralised scores of terrorists"" in two weeks (Gazette); other copies give North West section terms."
+B2025-041,2025-11-14,biweekly,arrested,88,,reported,automatic,88,agreed,
+B2025-041,2025-11-14,biweekly,rescued,,,unresolved,hand,,needs hand extraction,Two national values: 67 rescued in two weeks (Gazette) and 72 (Leadership); Daily Post and Premium Times 13 is a section figure. Value left blank.
+B2025-042,2025-11-28,weekly,neutralised,,dozens,vague,hand,,needs hand extraction,"National vague claim: ""dozens of terrorists ... across the country in one week""."
+B2025-042,2025-11-28,weekly,arrested,57,,reported,automatic,57,agreed,
+B2025-042,2025-11-28,weekly,rescued,45,,reported,automatic,45,agreed,
+B2025-043,2025-12-04,monthly,neutralised,,scores,vague,hand,,needs hand extraction,"National vague claim for November 2025: ""scores were neutralised"" (Blueprint, Leadership, NAN wire)."
+B2025-043,2025-12-04,monthly,arrested,74,,reported,hand,,needs hand extraction,"National monthly figure for November 2025 (Leadership): 74 terrorists' collaborators, oil thieves and other criminals arrested; other values are sections."
+B2025-043,2025-12-04,monthly,rescued,318,,reported,automatic,318,agreed,
+B2025-044,2025-12-15,weekly,neutralised,,scores,vague,hand,,needs hand extraction,"National vague claim: ""scores of terrorists ... across theatres of operation"", 3 to 12 December 2025."
+B2025-044,2025-12-15,weekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figure only: Operation Hadin Kai, 22 arrested."
+B2025-044,2025-12-15,weekly,rescued,80,more than,reported,automatic,80,agreed,
+B2025-045,2025-12-22,weekly,neutralised,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2025-045,2025-12-22,weekly,arrested,,,not reported,hand,,needs hand extraction,Only oil-theft arrests are given (5).
+B2025-045,2025-12-22,weekly,rescued,69,,reported,automatic,69,agreed,
+B2025-046,2025-12-31,year,neutralised,,,not reported,hand,,needs hand extraction,"No national annual figure: ""over 20 top terrorists' commanders, their lieutenants and their foot soldiers"" counts commanders; sections give Operation Fansan Yamma ""scores"", Operation Delta Safe ""several""; NAF 2,351 is an Air Force figure from a separate release."
+B2025-046,2025-12-31,year,arrested,4375,,reported,hand,,needs hand extraction,"National annual figure for 2025: 4,375 arrested (Blueprint, NAN wire); 778 is Operation Delta Safe."
+B2025-046,2025-12-31,year,rescued,2336,,reported,hand,,needs hand extraction,"National annual figure for 2025: 2,336 rescued (Blueprint, NAN wire); 53 is Operation Delta Safe."
+B2026-001,2026-01-20,biweekly,neutralised,,,not reported,hand,,needs hand extraction,Theatre vague term only: North East.
+B2026-001,2026-01-20,biweekly,arrested,,,not reported,hand,,needs hand extraction,"Theatre figure only: North East, 34 arrested."
+B2026-001,2026-01-20,biweekly,rescued,,,not reported,hand,,needs hand extraction,"Theatre figure only: North East, 17 rescued."
+B2026-002,2026-01-26,weekly,neutralised,,dozens,vague,hand,,needs hand extraction,"National vague claim: ""dozens of terrorists ... across the country"" (NAN wire); Leadership gives ""scores""."
+B2026-002,2026-01-26,weekly,arrested,100,no fewer than,reported,automatic,100,agreed,
+B2026-002,2026-01-26,weekly,rescued,29,at least,reported,automatic,29,agreed,
+B2026-003,2026-01-30,monthly,neutralised,,scores,vague,hand,,needs hand extraction,"Vague claim for January 2026: ""scores of terrorists"" across the North East, North West and North Central; other copies give ""scores"" or ""dozens"" in sections."
+B2026-003,2026-01-30,monthly,arrested,452,,reported,automatic,452,agreed,
+B2026-003,2026-01-30,monthly,rescued,284,,reported,automatic,284,agreed,
+B2026-004,2026-02-10,weekly,neutralised,60,over,reported,hand,,needs hand extraction,"National figure from one copy (Blueprint, ""troops across multiple theatres""): over 60 neutralised; other copies give Operation Hadin Kai over 30."
+B2026-004,2026-02-10,weekly,arrested,121,,reported,hand,,needs hand extraction,"National figure: ""arrest of 121 criminal elements, including terrorists' collaborators and oil thieves"" (Blueprint, Premium Times); the extraction missed the noun form ""arrest of""."
+B2026-004,2026-02-10,weekly,rescued,134,,reported,hand,,needs hand extraction,National figure from one copy (Blueprint): 134 rescued.
+B2026-005,2026-02-13,weekly,neutralised,,scores,vague,hand,,needs hand extraction,"National vague claim: ""scores of terrorists"" (21st Century Chronicle, Leadership)."
+B2026-005,2026-02-13,weekly,arrested,,,unresolved,hand,,conflict,Two national values: 38 (21st Century Chronicle) and 42 (Leadership). Value left blank.
+B2026-005,2026-02-13,weekly,rescued,,,unresolved,hand,,conflict,Two national values: over 50 (21st Century Chronicle) and 43 (Leadership). Value left blank.
+B2026-006,2026-02-20,weekly,neutralised,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2026-006,2026-02-20,weekly,arrested,,,unresolved,hand,,conflict,"Two national values: 43 plus 1 named (Leadership, ""within the past week"") and 20 (Daily Post, 13 to 19 February 2026). Value left blank."
+B2026-006,2026-02-20,weekly,rescued,45,,reported,automatic,45,agreed,
+B2026-007,2026-02-27,monthly,neutralised,,scores,vague,hand,,needs hand extraction,"National vague claim for February 2026: ""killed scores of terrorists"" (Leadership); Blueprint gives ""scores"" for the North East section."
+B2026-007,2026-02-27,monthly,arrested,354,,reported,hand,,conflict,"Conflict: 354 terrorists, criminals and illegal miners (Premium Times) and over 350 (TheWill) against 312 (Blueprint) and 248 (Leadership). Value supported by two independent copies kept."
+B2026-007,2026-02-27,monthly,rescued,409,,reported,automatic,409,agreed,
+B2026-008,2026-03-06,weekly,neutralised,,scores,vague,hand,,needs hand extraction,"Vague only: ""scores"" neutralised; Leadership ""2026"" is a date read as a count, and its 18 ring leaders and 42 fighters are one precision strike."
+B2026-008,2026-03-06,weekly,arrested,62,,reported,hand,,needs hand extraction,National figure from one copy (Leadership): 62 suspected terrorists and other criminals arrested; Daily Post 20 is the Operation Hadin Kai section.
+B2026-008,2026-03-06,weekly,rescued,33,,reported,hand,,needs hand extraction,"National figure from one copy (Leadership): 33 rescued; other copies give ""dozens""."
+B2026-009,2026-03-13,weekly,neutralised,,several,vague,hand,,needs hand extraction,"Vague only: ""several"" neutralised; Blueprint over 20 is one engagement."
+B2026-009,2026-03-13,weekly,arrested,,,not reported,hand,,needs hand extraction,"No arrest figure; Leadership ""2026"" is a date read as a count."
+B2026-009,2026-03-13,weekly,rescued,,dozens,vague,hand,,needs hand extraction,"Vague claim: ""rescued dozens of abducted victims during the coordinated operations between March 7 and March 12""."
+B2026-010,2026-03-20,weekly,neutralised,,,not reported,hand,,needs hand extraction,Theatre vague term only: Operation Hadin Kai; 74 bodies is one incident.
+B2026-010,2026-03-20,weekly,arrested,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2026-010,2026-03-20,weekly,rescued,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2026-011,2026-03-28,weekly,neutralised,,,not reported,hand,,needs hand extraction,Section vague term only (NAN wire).
+B2026-011,2026-03-28,weekly,arrested,,,not reported,hand,,needs hand extraction,Section vague term only: North East towns.
+B2026-011,2026-03-28,weekly,rescued,,,not reported,hand,,needs hand extraction,Section vague term only (NAN wire).
+B2026-012,2026-03-31,quarterly 5; monthly 2,neutralised,103,,reported,hand,,needs hand extraction,National figure from one copy (Blueprint): 103 terrorists and other criminals killed; 21st Century Chronicle over 100 is Operation Hadin Kai; VON 17 is one incident. Outlets label the period as March or the first quarter of 2026.
+B2026-012,2026-03-31,quarterly 5; monthly 2,arrested,1000,more than,reported,automatic,1000,agreed,
+B2026-012,2026-03-31,quarterly 5; monthly 2,rescued,813,,reported,hand,,conflict,"Conflict resolved: 813 (Blueprint) and over 800 (VON, rounded); Premium Times 409 repeats the February figure. Outlets label the period as March or the first quarter of 2026."
+B2026-013,2026-04-04,weekly,neutralised,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2026-013,2026-04-04,weekly,arrested,20,over,reported,hand,,needs hand extraction,"National figure from one copy (Leadership): over 20 arrested ""across the seven theatres""."
+B2026-013,2026-04-04,weekly,rescued,,several,vague,hand,,needs hand extraction,"National vague claim: ""rescued several kidnap victims across the seven theatres""."
+B2026-014,2026-04-24,weekly,neutralised,31,no fewer than,reported,automatic,31,agreed,
+B2026-014,2026-04-24,weekly,arrested,42,,reported,hand,,needs hand extraction,"National figure from one copy (Leadership): 42 arrested in the weekly statement for 17 to 23 April 2026; the outlet writes ""across the theatre"" for an all-theatre statement."
+B2026-014,2026-04-24,weekly,rescued,16,,reported,hand,,needs hand extraction,"National figure from one copy (Leadership): 16 rescued, same sentence; other copies give ""several""."
+B2026-015,2026-04-30,monthly 5; year 1,neutralised,,,unresolved,hand,201,majority,"Two national values with two independent copies each: 201 (Blueprint, Daily Post) and 216 (Leadership, NAN wire); TheWill over 100. Value left blank; the automatic table chose 201."
+B2026-015,2026-04-30,monthly 5; year 1,arrested,284,,reported,automatic,284,agreed,
+B2026-015,2026-04-30,monthly 5; year 1,rescued,188,,reported,automatic,188,agreed,
+B2026-016,2026-05-09,weekly,neutralised,,scores,vague,hand,,needs hand extraction,"National vague claim: ""scores of terrorists ... in nationwide operations""."
+B2026-016,2026-05-09,weekly,arrested,,dozens,vague,hand,,needs hand extraction,"National vague claim: ""arrested dozens of criminal suspects ... in nationwide operations""."
+B2026-016,2026-05-09,weekly,rescued,50,over,reported,automatic,50,agreed,
+B2026-017,2026-05-16,weekly,neutralised,16,,reported,automatic,16,agreed,
+B2026-017,2026-05-16,weekly,arrested,14,,reported,automatic,14,agreed,
+B2026-017,2026-05-16,weekly,rescued,63,,reported,automatic,63,agreed,
+B2026-018,2026-05-23,weekly,neutralised,,scores,vague,hand,,needs hand extraction,"National vague claim: ""killed scores of terrorists ... in nationwide operations""."
+B2026-018,2026-05-23,weekly,arrested,40,over,reported,automatic,40,agreed,
+B2026-018,2026-05-23,weekly,rescued,9,at least,reported,hand,,needs hand extraction,"National figure from one copy (Gazette): ""rescued at least nine kidnap victims in nationwide operations""; the extraction missed the spelled-out number."
+B2026-019,2026-05-26,monthly,neutralised,317,,reported,automatic,317,agreed,
+B2026-019,2026-05-26,monthly,arrested,314,,reported,automatic,314,agreed,
+B2026-019,2026-05-26,monthly,rescued,221,,reported,automatic,221,agreed,
+B2026-020,2026-05-29,weekly,neutralised,,several,vague,hand,,needs hand extraction,"National vague claim: ""neutralised several terrorists"", 25 to 28 May 2026."
+B2026-020,2026-05-29,weekly,arrested,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2026-020,2026-05-29,weekly,rescued,179,no fewer than,reported,hand,,needs hand extraction,"National figure: no fewer than 179 rescued, 25 to 28 May 2026, all copies agree."
+B2026-021,2026-06-05,weekly,neutralised,,scores,vague,hand,,needs hand extraction,"National vague claim: ""scores of terrorists ... nationwide"", 28 May to 4 June 2026."
+B2026-021,2026-06-05,weekly,arrested,,dozens,vague,hand,,needs hand extraction,"National vague claim: ""apprehended dozens of suspects ... nationwide""."
+B2026-021,2026-06-05,weekly,rescued,,several,vague,hand,,needs hand extraction,"National vague claim: ""rescued several kidnapped victims nationwide""."
+B2026-022,2026-06-17,,neutralised,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2026-022,2026-06-17,,arrested,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2026-022,2026-06-17,,rescued,,,not reported,hand,,needs hand extraction,Incident figure only: 360 civilians rescued in one operation.
+B2026-023,2026-07-01,quarterly,neutralised,662,,reported,automatic,662,agreed,
+B2026-023,2026-07-01,quarterly,arrested,1084,,reported,automatic,1084,agreed,
+B2026-023,2026-07-01,quarterly,rescued,951,,reported,automatic,951,agreed,
+B2026-024,2026-07-18,weekly,neutralised,,several,vague,hand,,needs hand extraction,"Vague claim: ""troops also killed several terrorists"" in the statement summary."
+B2026-024,2026-07-18,weekly,arrested,20,over,reported,automatic,20,agreed,
+B2026-024,2026-07-18,weekly,rescued,40,more than,reported,automatic,40,agreed,
+B2026-025,2026-07-31,monthly,neutralised,102,more than,reported,automatic,102,agreed,
+B2026-025,2026-07-31,monthly,arrested,345,,reported,hand,345,majority,National monthly figure for July 2026: 345 arrested; Premium Times 486 is a single outlier.
+B2026-025,2026-07-31,monthly,rescued,393,,reported,automatic,393,agreed,
+B2026-026,2026-08-08,weekly,neutralised,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2026-026,2026-08-08,weekly,arrested,,scores,vague,hand,,needs hand extraction,"National vague claim: ""arrested scores of terrorists, informants, logistics suppliers and other criminal suspects ... nationwide""."
+B2026-026,2026-08-08,weekly,rescued,363,,reported,automatic,363,agreed,
+B2026-027,2026-08-15,weekly,neutralised,65,,reported,automatic,65,agreed,
+B2026-027,2026-08-15,weekly,arrested,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2026-027,2026-08-15,weekly,rescued,34,,reported,automatic,34,agreed,
+B2026-028,2026-08-22,weekly,neutralised,11,,reported,automatic,11,agreed,
+B2026-028,2026-08-22,weekly,arrested,,,vague,hand,,needs hand extraction,"National vague claim: ""troops arrested suspects"" in the statement lead, no number."
+B2026-028,2026-08-22,weekly,rescued,59,at least,reported,automatic,59,agreed,
+B2026-029,2026-08-31,monthly,neutralised,324,,reported,automatic,324,agreed,
+B2026-029,2026-08-31,monthly,arrested,373,,reported,automatic,373,agreed,
+B2026-029,2026-08-31,monthly,rescued,610,,reported,automatic,610,agreed,
+B2026-030,2026-09-05,weekly,neutralised,,several,vague,hand,,needs hand extraction,"National vague claim: ""neutralised several terrorists in fresh operations across the country""."
+B2026-030,2026-09-05,weekly,arrested,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2026-030,2026-09-05,weekly,rescued,36,,reported,automatic,36,agreed,
+B2026-031,2026-09-11,weekly,neutralised,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2026-031,2026-09-11,weekly,arrested,,,not reported,hand,,needs hand extraction,Incident figure only: 12 arrested in a follow-up operation in Sokoto.
+B2026-031,2026-09-11,weekly,rescued,,,vague,hand,,needs hand extraction,"Vague claim: ""rescued victims of kidnapping across several theatres"", no number."
+B2026-032,2026-09-20,weekly,neutralised,,several,vague,hand,,needs hand extraction,"National vague claim: ""neutralised several terrorists"" (VON, Leadership)."
+B2026-032,2026-09-20,weekly,arrested,,,vague,hand,,needs hand extraction,"National vague claim: ""arrested suspected terrorist collaborators and informants"", no number; theatre sections give North East 8 and North West 4."
+B2026-032,2026-09-20,weekly,rescued,,several,vague,hand,,needs hand extraction,"National vague claim: ""rescued several kidnapped persons""; theatre sections give North East 18, North West 20, North Central 22."
+B2026-033,2026-09-26,weekly,neutralised,,,not reported,hand,,needs hand extraction,No figure or vague claim for this outcome in any copy.
+B2026-033,2026-09-26,weekly,arrested,44,,reported,automatic,44,agreed,
+B2026-033,2026-09-26,weekly,rescued,60,more than,reported,automatic,60,agreed,
+B2026-034,2026-09-30,quarterly,neutralised,554,,reported,automatic,554,agreed,
+B2026-034,2026-09-30,quarterly,arrested,1333,,reported,automatic,1333,agreed,
+B2026-034,2026-09-30,quarterly,rescued,1736,,reported,automatic,1736,agreed,
+B2026-035,2026-10-10,weekly,neutralised,36,,reported,automatic,36,agreed,
+B2026-035,2026-10-10,weekly,arrested,,several,vague,hand,,needs hand extraction,"National vague claim: ""arrested several suspected terrorists and collaborators during operations across the country""."
+B2026-035,2026-10-10,weekly,rescued,50,no fewer than,reported,automatic,50,agreed,

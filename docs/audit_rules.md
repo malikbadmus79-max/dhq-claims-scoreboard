@@ -116,4 +116,4 @@ These rules are committed before the full collection begins. The audits run only
 
 ## Deviations
 
-None recorded.
+- 2026-10-24: hand-extracted figures replace the automatic values for the 357 briefing-outcome rows whose automatic status in data/briefings/briefing_figures.csv is conflict, majority or needs hand extraction (data/review/figures_hand_coded.csv). For these rows the national-scope test was applied by hand where the national-marker list under Extraction rules missed national wording: "theaters", "various parts of the country", "across the seven theatres", spelled-out numbers, and noun forms such as "the arrest of 121". Rows with automatic status agreed keep the automatic values. Conventions: docs/review_guide.md, "Hand extraction of briefing figures, 2026-10-24".

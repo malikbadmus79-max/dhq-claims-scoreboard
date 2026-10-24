@@ -29,3 +29,11 @@ Validation. A blind human validation sample of 15 percent, including auto-no ite
 Pilot items. The 230 items of the 2024 pilot are included in data/review/full_classification.csv with decided_by "pilot". They were rechecked by hand against conventions 1 to 8 in docs/review_guide.md (data/review/pilot_recheck_sheet.csv, coded in data/review/pilot_recheck_coded.csv), and the recheck code is the one used. 17 of 230 codes changed, all from no to yes: mostly reports of periodic briefings that led with a single incident, arrest or remark (convention 1), plus four where the body carried weekly or biweekly figures (P141, P143, P154, P187). The original pilot labels are kept unchanged in data/review/pilot_review_2024.csv and data/review/full_labels.csv, and in the column original_pilot_code.
 
 Override. One auto-yes item, a police statement, was recoded to no at grouping (Daily Post, 2021-01-01, "Katsina Police rescued 393 kidnap victims, neutralized 29 bandits in 2020 – CP Buba"). The change is recorded in data/review/classification_overrides.csv and applied by src/scoreboard/review_merge.py, which keeps decided_by "auto_yes" and marks the row overridden "yes" in data/review/full_classification.csv.
+
+## 2026-10-24: hand extraction of briefing figures
+
+Change. The 357 briefing-outcome rows whose automatic status in data/briefings/briefing_figures.csv is not agreed were extracted by hand in data/review/figures_hand_coded.csv: 331 needing hand extraction, 14 majority and 12 conflict. Majority and conflict are counted on independent copies (same_wire threshold 0.3, with News Agency of Nigeria copies counted once).
+
+Result. Of the 357 rows, 107 are reported with a value, 195 not reported, 49 vague and 6 unresolved (confirmed_status in data/review/figures_hand_coded.csv). src/scoreboard/final_figures.py combines them with the 303 automatic agreed rows in data/briefings/briefing_figures_final.csv, keeping the automatic value and status beside each hand value.
+
+Conventions. docs/review_guide.md, "Hand extraction of briefing figures, 2026-10-24". The replacement of automatic values is logged under Deviations in docs/audit_rules.md.

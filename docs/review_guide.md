@@ -56,3 +56,18 @@ Record "not stated" when the headline figure appears nowhere in the outlet's bod
 ## notes
 
 A short note is required for every unsure code and for any item whose briefing date or period differs from its group. Notes record what the article states, in DHQ's terms ("neutralised" unless DHQ's own text says killed), and contain no quoted body text beyond one evidence sentence.
+
+## Hand extraction of briefing figures, 2026-10-24
+
+These conventions apply to data/review/figures_hand_coded.csv, which covers every briefing and outcome whose automatic status in data/briefings/briefing_figures.csv is conflict, majority or needs hand extraction.
+
+- Only national figures are recorded. A figure is national when a copy attributes it to operations across the country, to all theatres, or to a national summary that names no region, zone or operation. Figures for one theatre, one operation, one incident or a named set of zones are recorded as not reported, with the figures in figure_notes.
+- Arrests reported in a separate sentence, usually oil-theft arrests, are not added to the headline arrest figure; the sum is given in figure_notes.
+- When a copy lists arrest categories in one sentence with no stated total, the value is their sum and the qualifier is "summed categories".
+- When independent copies differ, the value carried by more independent copies is kept.
+- A stated total resolves a conflict when it equals the sum of categories listed in one sentence of another copy.
+- vague: the copies make a national claim for the outcome with no number. The qualifier records the term used, or is blank when none is used.
+- unresolved: two national values with equal support among independent copies. The value is left blank, and checks that depend on it are not testable.
+- A qualifier is recorded only when every independent copy carrying the value uses it.
+- Counts of named commanders or kingpins are not totals.
+- Persons arrested in a named or listed group beside a count of "others" follow the named-plus-others rule, with the qualifier "plus N".
