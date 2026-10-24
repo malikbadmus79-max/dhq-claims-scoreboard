@@ -246,18 +246,19 @@ def is_regional(sentence: str) -> bool:
     return bool(REGION_RE.search(sentence) or OPERATION_RE.search(sentence))
 
 
-def national_total(text: str, outcome: str) -> dict | None:
-    """Apply the extraction rule to one body text. Adds "rule" and "evidence" to the figure."""
+def national_total(text: str, outcome: str, regional=is_regional) -> dict | None:
+    """Apply the extraction rule to one body text. Adds "rule" and "evidence" to the figure.
+    `regional` decides whether a sentence names a region or operation; the pilot used is_regional."""
     sentences = split_sentences(text)
     # A copy that opens on a region or operation and never reports a national figure is a
     # section report (e.g. the Operation Delta Safe part of a weekly briefing): its sentences
     # that name no region still belong to that section.
-    section_copy = bool(sentences) and is_regional(sentences[0]) and not any(NATIONAL_RE.search(s) for s in sentences)
+    section_copy = bool(sentences) and regional(sentences[0]) and not any(NATIONAL_RE.search(s) for s in sentences)
     found = []
     for s in sentences:
         f = find_figure(s, outcome)
         if f is not None:
-            found.append((s, f, bool(NATIONAL_RE.search(s)), not section_copy and not is_regional(s)))
+            found.append((s, f, bool(NATIONAL_RE.search(s)), not section_copy and not regional(s)))
     passes = [
         ("national marker", lambda f, national, unregioned: f["value"] is not None and national),
         ("no region named", lambda f, national, unregioned: f["value"] is not None and unregioned),

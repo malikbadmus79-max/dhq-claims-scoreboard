@@ -1,0 +1,661 @@
+briefing_id,outcome,value,qualifier,copies_with_value,copies_other,other_values,national_copies,items,status
+B2021-001,neutralised,,,0,0,,0,3,needs hand extraction
+B2021-001,arrested,,,0,0,,0,3,needs hand extraction
+B2021-001,rescued,,,0,0,,0,3,needs hand extraction
+B2021-002,neutralised,,,0,0,,0,1,needs hand extraction
+B2021-002,arrested,,,0,0,,0,1,needs hand extraction
+B2021-002,rescued,,,0,0,,0,1,needs hand extraction
+B2021-003,neutralised,,,0,0,,0,4,needs hand extraction
+B2021-003,arrested,,,0,0,,0,4,needs hand extraction
+B2021-003,rescued,,,0,0,,0,4,needs hand extraction
+B2021-004,neutralised,,,0,0,,0,2,needs hand extraction
+B2021-004,arrested,,,0,0,,0,2,needs hand extraction
+B2021-004,rescued,,,0,0,,0,2,needs hand extraction
+B2021-005,neutralised,,,0,0,,0,2,needs hand extraction
+B2021-005,arrested,,,0,0,,0,2,needs hand extraction
+B2021-005,rescued,,,0,0,,0,2,needs hand extraction
+B2021-006,neutralised,,,0,0,,0,3,needs hand extraction
+B2021-006,arrested,,,0,0,,0,3,needs hand extraction
+B2021-006,rescued,,,0,0,,0,3,needs hand extraction
+B2021-007,neutralised,,,0,0,,0,7,needs hand extraction
+B2021-007,arrested,,,0,0,,0,7,needs hand extraction
+B2021-007,rescued,,,0,0,,0,7,needs hand extraction
+B2021-008,neutralised,42,,2,0,,2,2,agreed
+B2021-008,arrested,41,,2,0,,2,2,agreed
+B2021-008,rescued,93,,2,0,,2,2,agreed
+B2021-009,neutralised,27,,1,0,,1,5,agreed
+B2021-009,arrested,51,,1,0,,1,5,agreed
+B2021-009,rescued,,,0,0,,0,5,needs hand extraction
+B2021-010,neutralised,,,0,0,,0,8,needs hand extraction
+B2021-010,arrested,,,0,0,,0,8,needs hand extraction
+B2021-010,rescued,,,0,0,,0,8,needs hand extraction
+B2021-011,neutralised,343,over,1,0,,1,4,agreed
+B2021-011,arrested,,,0,0,,0,4,needs hand extraction
+B2021-011,rescued,,,0,0,,0,4,needs hand extraction
+B2021-012,neutralised,,,0,0,,0,7,needs hand extraction
+B2021-012,arrested,,,0,0,,0,7,needs hand extraction
+B2021-012,rescued,,,0,0,,0,7,needs hand extraction
+B2021-013,neutralised,70,no fewer than,2,0,,2,4,agreed
+B2021-013,arrested,,,0,0,,0,4,needs hand extraction
+B2021-013,rescued,,,0,0,,0,4,needs hand extraction
+B2021-014,neutralised,,,0,0,,0,5,needs hand extraction
+B2021-014,arrested,,,0,0,,0,5,needs hand extraction
+B2021-014,rescued,,,0,0,,0,5,needs hand extraction
+B2021-015,neutralised,,,0,0,,0,4,needs hand extraction
+B2021-015,arrested,,,0,0,,0,4,needs hand extraction
+B2021-015,rescued,,,0,0,,0,4,needs hand extraction
+B2021-016,neutralised,177,,1,0,,1,4,agreed
+B2021-016,arrested,,,0,0,,0,4,needs hand extraction
+B2021-016,rescued,,,0,0,,0,4,needs hand extraction
+B2021-017,neutralised,,,0,0,,0,4,needs hand extraction
+B2021-017,arrested,,,0,0,,0,4,needs hand extraction
+B2021-017,rescued,,,0,0,,0,4,needs hand extraction
+B2021-018,neutralised,,,0,0,,0,1,needs hand extraction
+B2021-018,arrested,,,0,0,,0,1,needs hand extraction
+B2021-018,rescued,,,0,0,,0,1,needs hand extraction
+B2022-001,neutralised,1910,,3,0,,3,8,agreed
+B2022-001,arrested,912,,1,0,,1,8,agreed
+B2022-001,rescued,729,,3,0,,3,8,agreed
+B2022-002,neutralised,,,0,0,,0,4,needs hand extraction
+B2022-002,arrested,,,0,0,,0,4,needs hand extraction
+B2022-002,rescued,,,0,0,,0,4,needs hand extraction
+B2022-003,neutralised,,,0,0,,0,6,needs hand extraction
+B2022-003,arrested,,,0,0,,0,6,needs hand extraction
+B2022-003,rescued,,,0,0,,0,6,needs hand extraction
+B2022-004,neutralised,,,0,0,,0,5,needs hand extraction
+B2022-004,arrested,,,0,0,,0,5,needs hand extraction
+B2022-004,rescued,,,0,0,,0,5,needs hand extraction
+B2022-005,neutralised,,,0,0,,0,2,needs hand extraction
+B2022-005,arrested,,,0,0,,0,2,needs hand extraction
+B2022-005,rescued,,,0,0,,0,2,needs hand extraction
+B2022-006,neutralised,,,0,0,,0,3,needs hand extraction
+B2022-006,arrested,,,0,0,,0,3,needs hand extraction
+B2022-006,rescued,,,0,0,,0,3,needs hand extraction
+B2022-007,neutralised,80,no fewer than,2,0,,2,6,agreed
+B2022-007,arrested,,,0,0,,0,6,needs hand extraction
+B2022-007,rescued,,,0,0,,0,6,needs hand extraction
+B2022-008,neutralised,,,0,0,,0,3,needs hand extraction
+B2022-008,arrested,,,0,0,,0,3,needs hand extraction
+B2022-008,rescued,798,,1,0,,1,3,agreed
+B2022-009,neutralised,,,0,0,,0,5,needs hand extraction
+B2022-009,arrested,,,0,0,,0,5,needs hand extraction
+B2022-009,rescued,,,0,0,,0,5,needs hand extraction
+B2022-010,neutralised,,,0,0,,0,1,needs hand extraction
+B2022-010,arrested,,,0,0,,0,1,needs hand extraction
+B2022-010,rescued,,,0,0,,0,1,needs hand extraction
+B2022-011,neutralised,38,,1,0,,1,7,agreed
+B2022-011,arrested,40,,1,0,,1,7,agreed
+B2022-011,rescued,252,,1,0,,1,7,agreed
+B2022-012,neutralised,,,0,0,,0,3,needs hand extraction
+B2022-012,arrested,,,0,0,,0,3,needs hand extraction
+B2022-012,rescued,,,0,0,,0,3,needs hand extraction
+B2022-013,neutralised,89,no fewer than,1,0,,1,9,agreed
+B2022-013,arrested,26,,1,0,,1,9,agreed
+B2022-013,rescued,,,0,0,,0,9,needs hand extraction
+B2022-014,neutralised,,,0,0,,0,7,needs hand extraction
+B2022-014,arrested,,,0,0,,0,7,needs hand extraction
+B2022-014,rescued,,,0,0,,0,7,needs hand extraction
+B2022-015,neutralised,,,0,0,,0,7,needs hand extraction
+B2022-015,arrested,,,0,0,,0,7,needs hand extraction
+B2022-015,rescued,,,0,0,,0,7,needs hand extraction
+B2022-016,neutralised,,,0,0,,0,1,needs hand extraction
+B2022-016,arrested,,,0,0,,0,1,needs hand extraction
+B2022-016,rescued,,,0,0,,0,1,needs hand extraction
+B2022-017,neutralised,45,over,2,0,,2,9,agreed
+B2022-017,arrested,,,0,0,,0,9,needs hand extraction
+B2022-017,rescued,,,0,0,,0,9,needs hand extraction
+B2022-018,neutralised,,,0,0,,0,6,needs hand extraction
+B2022-018,arrested,,,0,0,,0,6,needs hand extraction
+B2022-018,rescued,,,0,0,,0,6,needs hand extraction
+B2022-019,neutralised,,,0,0,,0,7,needs hand extraction
+B2022-019,arrested,,,0,0,,0,7,needs hand extraction
+B2022-019,rescued,,,0,0,,0,7,needs hand extraction
+B2022-020,neutralised,,,0,0,,0,6,needs hand extraction
+B2022-020,arrested,,,0,0,,0,6,needs hand extraction
+B2022-020,rescued,,,0,0,,0,6,needs hand extraction
+B2022-021,neutralised,,,0,0,,0,4,needs hand extraction
+B2022-021,arrested,,,0,0,,0,4,needs hand extraction
+B2022-021,rescued,,,0,0,,0,4,needs hand extraction
+B2022-022,neutralised,,,0,0,,0,10,needs hand extraction
+B2022-022,arrested,,,0,0,,0,10,needs hand extraction
+B2022-022,rescued,,,0,0,,0,10,needs hand extraction
+B2022-023,neutralised,59,,1,0,,1,5,agreed
+B2022-023,arrested,90,over,1,0,,1,5,agreed
+B2022-023,rescued,,,0,0,,0,5,needs hand extraction
+B2022-024,neutralised,,,0,0,,0,5,needs hand extraction
+B2022-024,arrested,,,0,0,,0,5,needs hand extraction
+B2022-024,rescued,,,0,0,,0,5,needs hand extraction
+B2022-025,neutralised,54,,1,0,,1,4,agreed
+B2022-025,arrested,,,0,0,,0,4,needs hand extraction
+B2022-025,rescued,,,0,0,,0,4,needs hand extraction
+B2022-026,neutralised,60,more than,1,0,,1,6,agreed
+B2022-026,arrested,,,0,0,,0,6,needs hand extraction
+B2022-026,rescued,,,0,0,,0,6,needs hand extraction
+B2023-001,neutralised,50,more than,2,0,,2,7,agreed
+B2023-001,arrested,,,0,0,,0,7,needs hand extraction
+B2023-001,rescued,47,,2,0,,2,7,agreed
+B2023-002,neutralised,114,,1,0,,1,6,agreed
+B2023-002,arrested,,,0,0,,0,6,needs hand extraction
+B2023-002,rescued,,,0,0,,0,6,needs hand extraction
+B2023-003,neutralised,77,,4,0,,4,9,agreed
+B2023-003,arrested,41,,1,0,,1,9,agreed
+B2023-003,rescued,59,,1,0,,1,9,agreed
+B2023-004,neutralised,,,0,0,,0,7,needs hand extraction
+B2023-004,arrested,,,0,0,,0,7,needs hand extraction
+B2023-004,rescued,,,0,0,,0,7,needs hand extraction
+B2023-005,neutralised,21,,1,0,,1,5,agreed
+B2023-005,arrested,35,,1,0,,1,5,agreed
+B2023-005,rescued,42,,1,0,,1,5,agreed
+B2023-006,neutralised,,,0,0,,0,8,needs hand extraction
+B2023-006,arrested,,,0,0,,0,8,needs hand extraction
+B2023-006,rescued,,,0,0,,0,8,needs hand extraction
+B2023-007,neutralised,53,,1,0,,1,11,agreed
+B2023-007,arrested,59,no fewer than,5,0,,5,11,agreed
+B2023-007,rescued,118,,4,0,,4,11,agreed
+B2023-008,neutralised,,,0,0,,0,4,needs hand extraction
+B2023-008,arrested,,,0,0,,0,4,needs hand extraction
+B2023-008,rescued,216,,1,0,,1,4,agreed
+B2023-009,neutralised,,,0,0,,0,6,needs hand extraction
+B2023-009,arrested,6,,1,0,,1,6,agreed
+B2023-009,rescued,158,,1,0,,1,6,agreed
+B2023-010,neutralised,,,0,0,,0,5,needs hand extraction
+B2023-010,arrested,,,0,0,,0,5,needs hand extraction
+B2023-010,rescued,,,0,0,,0,5,needs hand extraction
+B2023-011,neutralised,,,0,0,,0,10,needs hand extraction
+B2023-011,arrested,,,0,0,,0,10,needs hand extraction
+B2023-011,rescued,,,0,0,,0,10,needs hand extraction
+B2023-012,neutralised,,,0,0,,0,5,needs hand extraction
+B2023-012,arrested,,,0,0,,0,5,needs hand extraction
+B2023-012,rescued,,,0,0,,0,5,needs hand extraction
+B2023-013,neutralised,,,0,0,,0,7,needs hand extraction
+B2023-013,arrested,,,0,0,,0,7,needs hand extraction
+B2023-013,rescued,,,0,0,,0,7,needs hand extraction
+B2023-014,neutralised,,,0,0,,0,7,needs hand extraction
+B2023-014,arrested,,,0,0,,0,7,needs hand extraction
+B2023-014,rescued,,,0,0,,0,7,needs hand extraction
+B2023-015,neutralised,,,0,0,,0,1,needs hand extraction
+B2023-015,arrested,,,0,0,,0,1,needs hand extraction
+B2023-015,rescued,,,0,0,,0,1,needs hand extraction
+B2023-016,neutralised,59,,2,0,,2,5,agreed
+B2023-016,arrested,,,0,0,,0,5,needs hand extraction
+B2023-016,rescued,88,,2,0,,2,5,agreed
+B2023-017,neutralised,36,,5,0,,5,7,agreed
+B2023-017,arrested,163,no fewer than,4,1,137 (1),5,7,majority
+B2023-017,rescued,140,,1,0,,1,7,agreed
+B2023-018,neutralised,38,,7,0,,7,8,agreed
+B2023-018,arrested,242,,4,3,30 (3),7,8,majority
+B2023-018,rescued,89,,7,0,,7,8,agreed
+B2023-019,neutralised,28,,8,0,,8,9,agreed
+B2023-019,arrested,113,,4,4,92 (2); 114 (2),8,9,majority
+B2023-019,rescued,82,,6,0,,6,9,agreed
+B2023-020,neutralised,23,,1,0,,1,6,agreed
+B2023-020,arrested,22,,5,0,,5,6,agreed
+B2023-020,rescued,,,0,0,,0,6,needs hand extraction
+B2023-021,neutralised,39,,3,0,,3,4,agreed
+B2023-021,arrested,157,,2,1,159 (1),3,4,majority
+B2023-021,rescued,109,,2,0,,2,4,agreed
+B2023-022,neutralised,814,,4,3,817 (3),7,7,majority
+B2023-022,arrested,1326,,5,2,"1,903 (2)",7,7,majority
+B2023-022,rescued,721,,3,0,,3,7,agreed
+B2023-023,neutralised,151,,7,0,,7,8,agreed
+B2023-023,arrested,456,,7,0,,7,8,agreed
+B2023-023,rescued,76,,2,0,,2,8,agreed
+B2023-024,neutralised,52,,3,0,,3,6,agreed
+B2023-024,arrested,53,,2,1,60 (1),3,6,majority
+B2023-024,rescued,61,,2,1,62 (1),3,6,majority
+B2023-025,neutralised,191,,7,0,,7,8,agreed
+B2023-025,arrested,184,,7,0,,7,8,agreed
+B2023-025,rescued,91,,7,0,,7,8,agreed
+B2023-026,neutralised,31,,1,0,,1,7,agreed
+B2023-026,arrested,81,,1,0,,1,7,agreed
+B2023-026,rescued,10,,2,0,,2,7,agreed
+B2023-027,neutralised,50,no fewer than,2,0,,2,10,agreed
+B2023-027,arrested,114,,1,0,,1,10,agreed
+B2023-027,rescued,,,0,0,,0,10,needs hand extraction
+B2023-028,neutralised,37,,5,0,,5,6,agreed
+B2023-028,arrested,124,,4,1,95 (1),5,6,majority
+B2023-028,rescued,53,,4,0,,4,6,agreed
+B2023-029,neutralised,,,0,0,,0,8,needs hand extraction
+B2023-029,arrested,182,,1,0,,1,8,agreed
+B2023-029,rescued,,,0,0,,0,8,needs hand extraction
+B2023-030,neutralised,67,,2,0,,2,3,agreed
+B2023-030,arrested,190,,2,0,,2,3,agreed
+B2023-030,rescued,47,,1,0,,1,3,agreed
+B2023-031,neutralised,113,,2,0,,2,6,agreed
+B2023-031,arrested,300,,2,0,,2,6,agreed
+B2023-031,rescued,,,0,0,,0,6,needs hand extraction
+B2023-032,neutralised,50,,1,0,,1,3,agreed
+B2023-032,arrested,122,,1,0,,1,3,agreed
+B2023-032,rescued,,,0,0,,0,3,needs hand extraction
+B2023-033,neutralised,99,,5,0,,5,11,agreed
+B2023-033,arrested,198,,5,0,,5,11,agreed
+B2023-033,rescued,139,,5,0,,5,11,agreed
+B2023-034,neutralised,52,,1,0,,1,6,agreed
+B2023-034,arrested,204,,1,0,,1,6,agreed
+B2023-034,rescued,234,,1,0,,1,6,agreed
+B2023-035,neutralised,80,,3,0,,3,4,agreed
+B2023-035,arrested,304,,3,0,,3,4,agreed
+B2023-035,rescued,,,0,0,,0,4,needs hand extraction
+B2023-036,neutralised,38,,1,0,,1,7,agreed
+B2023-036,arrested,,,0,0,,0,7,needs hand extraction
+B2023-036,rescued,,,0,0,,0,7,needs hand extraction
+B2023-037,neutralised,40,,5,0,,5,7,agreed
+B2023-037,arrested,259,,4,1,191 (1),5,7,majority
+B2023-037,rescued,,,0,0,,0,7,needs hand extraction
+B2023-038,neutralised,6886,,1,0,,1,10,agreed
+B2023-038,arrested,6970,,1,0,,1,10,agreed
+B2023-038,rescued,,,0,0,,0,10,needs hand extraction
+B2024-001,neutralised,43,,1,0,,1,8,agreed
+B2024-001,arrested,115,,1,0,,1,8,agreed
+B2024-001,rescued,,,0,0,,0,8,needs hand extraction
+B2024-002,neutralised,86,no fewer than,6,0,,6,10,agreed
+B2024-002,arrested,101,,6,0,,6,10,agreed
+B2024-002,rescued,21,,1,0,,1,10,agreed
+B2024-003,neutralised,,,0,0,,0,7,needs hand extraction
+B2024-003,arrested,,,0,0,,0,7,needs hand extraction
+B2024-003,rescued,,,0,0,,0,7,needs hand extraction
+B2024-004,neutralised,94,,1,0,,1,4,agreed
+B2024-004,arrested,171,,1,0,,1,4,agreed
+B2024-004,rescued,,,0,0,,0,4,needs hand extraction
+B2024-005,neutralised,185,no fewer than,8,0,,8,8,agreed
+B2024-005,arrested,212,,8,0,,8,8,agreed
+B2024-005,rescued,71,,2,0,,2,8,agreed
+B2024-006,neutralised,,,0,0,,0,4,needs hand extraction
+B2024-006,arrested,,,0,0,,0,4,needs hand extraction
+B2024-006,rescued,116,,1,0,,1,4,agreed
+B2024-007,neutralised,105,,5,0,,5,5,agreed
+B2024-007,arrested,140,,5,0,,5,5,agreed
+B2024-007,rescued,,,0,0,,0,5,needs hand extraction
+B2024-008,neutralised,254,,6,0,,6,6,agreed
+B2024-008,arrested,368,,4,2,264 (2),6,6,majority
+B2024-008,rescued,73,,1,0,,1,6,agreed
+B2024-009,neutralised,286,no fewer than,5,0,,5,7,agreed
+B2024-009,arrested,244,,5,0,,5,7,agreed
+B2024-009,rescued,122,,6,0,,6,7,agreed
+B2024-010,neutralised,974,no fewer than,6,0,,6,9,agreed
+B2024-010,arrested,621,,6,0,,6,9,agreed
+B2024-010,rescued,466,,5,0,,5,9,agreed
+B2024-011,neutralised,210,,2,0,,2,2,agreed
+B2024-011,arrested,142,,2,0,,2,2,agreed
+B2024-011,rescued,46,,2,0,,2,2,agreed
+B2024-012,neutralised,213,no fewer than,2,0,,2,3,agreed
+B2024-012,arrested,283,,2,0,,2,3,agreed
+B2024-012,rescued,,,0,0,,0,3,needs hand extraction
+B2024-013,neutralised,106,,4,0,,4,4,agreed
+B2024-013,arrested,103,,4,0,,4,4,agreed
+B2024-013,rescued,,,0,0,,0,4,needs hand extraction
+B2024-014,neutralised,121,,3,1,212 (1),4,4,majority
+B2024-014,arrested,253,,3,1,252 (1),4,4,majority
+B2024-014,rescued,244,,4,0,,4,4,agreed
+B2024-015,neutralised,2352,no fewer than,4,3,"2,351 (3)",7,12,majority
+B2024-015,arrested,2308,,6,0,,6,12,agreed
+B2024-015,rescued,1241,,4,0,,4,12,agreed
+B2024-016,neutralised,188,,4,0,,4,6,agreed
+B2024-016,arrested,330,,4,0,,4,6,agreed
+B2024-016,rescued,133,,2,0,,2,6,agreed
+B2024-017,neutralised,192,,3,0,,3,8,agreed
+B2024-017,arrested,341,,3,0,,3,8,agreed
+B2024-017,rescued,62,,3,0,,3,8,agreed
+B2024-018,neutralised,216,,1,0,,1,1,agreed
+B2024-018,arrested,332,,1,0,,1,1,agreed
+B2024-018,rescued,161,,1,0,,1,1,agreed
+B2024-019,neutralised,715,,5,0,,5,5,agreed
+B2024-019,arrested,146,,1,0,,1,5,agreed
+B2024-019,rescued,465,,5,0,,5,5,agreed
+B2024-020,neutralised,135,,6,0,,6,6,agreed
+B2024-020,arrested,182,,6,0,,6,6,agreed
+B2024-020,rescued,140,,5,0,,5,6,agreed
+B2024-021,neutralised,227,no fewer than,3,0,,3,5,agreed
+B2024-021,arrested,529,,3,0,,3,5,agreed
+B2024-021,rescued,253,,3,0,,3,5,agreed
+B2024-022,neutralised,253,,3,0,,3,5,agreed
+B2024-022,arrested,172,,3,0,,3,5,agreed
+B2024-022,rescued,206,,3,0,,3,5,agreed
+B2024-023,neutralised,624,,1,0,,1,7,agreed
+B2024-023,arrested,1051,,1,0,,1,7,agreed
+B2024-023,rescued,,,0,0,,0,7,needs hand extraction
+B2024-024,neutralised,,,0,0,,0,4,needs hand extraction
+B2024-024,arrested,,,0,0,,0,4,needs hand extraction
+B2024-024,rescued,,,0,0,,0,4,needs hand extraction
+B2024-025,neutralised,202,,1,0,,1,3,agreed
+B2024-025,arrested,437,,1,0,,1,3,agreed
+B2024-025,rescued,,,0,0,,0,3,needs hand extraction
+B2024-026,neutralised,197,no fewer than,3,0,,3,10,agreed
+B2024-026,arrested,310,,3,0,,3,10,agreed
+B2024-026,rescued,,,0,0,,0,10,needs hand extraction
+B2024-027,neutralised,220,,1,0,,1,4,agreed
+B2024-027,arrested,395,,1,0,,1,4,agreed
+B2024-027,rescued,,,0,0,,0,4,needs hand extraction
+B2024-028,neutralised,2245,,1,0,,1,4,agreed
+B2024-028,arrested,3682,,1,0,,1,4,agreed
+B2024-028,rescued,1993,,1,0,,1,4,agreed
+B2024-029,neutralised,177,,2,0,,2,4,agreed
+B2024-029,arrested,263,,3,0,,3,4,agreed
+B2024-029,rescued,158,,2,0,,2,4,agreed
+B2024-030,neutralised,187,,7,0,,7,7,agreed
+B2024-030,arrested,183,,7,0,,7,7,agreed
+B2024-030,rescued,109,,5,0,,5,7,agreed
+B2024-031,neutralised,125,,4,0,,4,4,agreed
+B2024-031,arrested,200,,4,0,,4,4,agreed
+B2024-031,rescued,140,,3,0,,3,4,agreed
+B2024-032,neutralised,106,,2,0,,2,5,agreed
+B2024-032,arrested,164,,2,0,,2,5,agreed
+B2024-032,rescued,103,,2,0,,2,5,agreed
+B2024-033,neutralised,572,,4,0,,4,6,agreed
+B2024-033,arrested,790,,3,0,,3,6,agreed
+B2024-033,rescued,479,,3,0,,3,6,agreed
+B2024-034,neutralised,108,,4,0,,4,4,agreed
+B2024-034,arrested,172,,1,0,,1,4,agreed
+B2024-034,rescued,214,,3,0,,3,4,agreed
+B2024-035,neutralised,147,,3,0,,3,5,agreed
+B2024-035,arrested,381,,4,0,,4,5,agreed
+B2024-035,rescued,113,,3,0,,3,5,agreed
+B2024-036,neutralised,171,,2,0,,2,3,agreed
+B2024-036,arrested,,,1,1,302 (1); 327 (1),2,3,conflict
+B2024-036,rescued,,,0,0,,0,3,needs hand extraction
+B2024-037,neutralised,1166,,7,0,,7,9,agreed
+B2024-037,arrested,1096,,7,0,,7,9,agreed
+B2024-037,rescued,,,0,0,,0,9,needs hand extraction
+B2024-038,neutralised,152,,6,0,,6,8,agreed
+B2024-038,arrested,109,,6,0,,6,8,agreed
+B2024-038,rescued,91,,5,0,,5,8,agreed
+B2024-039,neutralised,,,0,0,,0,2,needs hand extraction
+B2024-039,arrested,,,0,0,,0,2,needs hand extraction
+B2024-039,rescued,,,0,0,,0,2,needs hand extraction
+B2024-040,neutralised,,,0,0,,0,5,needs hand extraction
+B2024-040,arrested,,,0,0,,0,5,needs hand extraction
+B2024-040,rescued,,,0,0,,0,5,needs hand extraction
+B2024-041,neutralised,65,,1,0,,1,6,agreed
+B2024-041,arrested,,,0,0,,0,6,needs hand extraction
+B2024-041,rescued,1854,,1,0,,1,6,agreed
+B2024-042,neutralised,118,,3,0,,3,3,agreed
+B2024-042,arrested,97,,3,0,,3,3,agreed
+B2024-042,rescued,96,,1,0,,1,3,agreed
+B2024-043,neutralised,165,,4,0,,4,4,agreed
+B2024-043,arrested,238,,4,0,,4,4,agreed
+B2024-043,rescued,188,,3,0,,3,4,agreed
+B2024-044,neutralised,,,0,0,,0,1,needs hand extraction
+B2024-044,arrested,,,0,0,,0,1,needs hand extraction
+B2024-044,rescued,,,0,0,,0,1,needs hand extraction
+B2024-045,neutralised,101,,3,0,,3,5,agreed
+B2024-045,arrested,182,plus 1 named,3,0,,3,5,agreed
+B2024-045,rescued,,,0,0,,0,5,needs hand extraction
+B2024-046,neutralised,140,,5,0,,5,9,agreed
+B2024-046,arrested,135,,5,0,,5,9,agreed
+B2024-046,rescued,76,,5,0,,5,9,agreed
+B2024-047,neutralised,187,no fewer than,3,0,,3,8,agreed
+B2024-047,arrested,262,,3,1,39 (1),4,8,majority
+B2024-047,rescued,147,,4,0,,4,8,agreed
+B2024-048,neutralised,481,,5,0,,5,7,agreed
+B2024-048,arrested,741,,5,0,,5,7,agreed
+B2024-048,rescued,492,,5,0,,5,7,agreed
+B2024-049,neutralised,169,,1,0,,1,4,agreed
+B2024-049,arrested,641,,1,0,,1,4,agreed
+B2024-049,rescued,,,0,0,,0,4,needs hand extraction
+B2024-050,neutralised,88,,1,0,,1,1,agreed
+B2024-050,arrested,228,,1,0,,1,1,agreed
+B2024-050,rescued,181,,1,0,,1,1,agreed
+B2024-051,neutralised,114,plus 1 named,3,0,,3,6,agreed
+B2024-051,arrested,,,0,0,,0,6,needs hand extraction
+B2024-051,rescued,,,0,0,,0,6,needs hand extraction
+B2024-052,neutralised,135,,3,0,,3,4,agreed
+B2024-052,arrested,185,,3,0,,3,4,agreed
+B2024-052,rescued,129,,2,0,,2,4,agreed
+B2024-053,neutralised,8034,,4,0,,4,8,agreed
+B2024-053,arrested,11623,,3,0,,3,8,agreed
+B2024-053,rescued,6376,,1,0,,1,8,agreed
+B2024-054,neutralised,,,0,0,,0,1,needs hand extraction
+B2024-054,arrested,,,0,0,,0,1,needs hand extraction
+B2024-054,rescued,,,0,0,,0,1,needs hand extraction
+B2024-055,neutralised,212,,2,0,,2,4,agreed
+B2024-055,arrested,317,,2,0,,2,4,agreed
+B2024-055,rescued,152,,3,0,,3,4,agreed
+B2024-056,neutralised,148,,1,0,,1,7,agreed
+B2024-056,arrested,258,,1,0,,1,7,agreed
+B2024-056,rescued,291,,1,0,,1,7,agreed
+B2024-057,neutralised,10937,,6,0,,6,8,agreed
+B2024-057,arrested,12538,,6,0,,6,8,agreed
+B2024-057,rescued,7063,,5,0,,5,8,agreed
+B2025-001,neutralised,109,,5,0,,5,7,agreed
+B2025-001,arrested,81,,5,0,,5,7,agreed
+B2025-001,rescued,43,,3,0,,3,7,agreed
+B2025-002,neutralised,156,,5,0,,5,5,agreed
+B2025-002,arrested,464,,5,0,,5,5,agreed
+B2025-002,rescued,181,,4,0,,4,5,agreed
+B2025-003,neutralised,96,plus 1 named,1,0,,1,5,agreed
+B2025-003,arrested,224,,1,0,,1,5,agreed
+B2025-003,rescued,67,,1,0,,1,5,agreed
+B2025-004,neutralised,358,,1,0,,1,6,agreed
+B2025-004,arrested,431,,1,0,,1,6,agreed
+B2025-004,rescued,249,,1,0,,1,6,agreed
+B2025-005,neutralised,27,,1,0,,1,2,agreed
+B2025-005,arrested,62,,1,0,,1,2,agreed
+B2025-005,rescued,44,,1,0,,1,2,agreed
+B2025-006,neutralised,75,,1,0,,1,5,agreed
+B2025-006,arrested,138,,1,0,,1,5,agreed
+B2025-006,rescued,46,,2,0,,2,5,agreed
+B2025-007,neutralised,82,,1,0,,1,5,agreed
+B2025-007,arrested,198,,1,0,,1,5,agreed
+B2025-007,rescued,93,,1,0,,1,5,agreed
+B2025-008,neutralised,,,0,0,,0,5,needs hand extraction
+B2025-008,arrested,,,0,0,,0,5,needs hand extraction
+B2025-008,rescued,,,0,0,,0,5,needs hand extraction
+B2025-009,neutralised,,,0,0,,0,5,needs hand extraction
+B2025-009,arrested,,,0,0,,0,5,needs hand extraction
+B2025-009,rescued,,,0,0,,0,5,needs hand extraction
+B2025-010,neutralised,,,0,0,,0,6,needs hand extraction
+B2025-010,arrested,,,0,0,,0,6,needs hand extraction
+B2025-010,rescued,,,0,0,,0,6,needs hand extraction
+B2025-011,neutralised,,,0,0,,0,2,needs hand extraction
+B2025-011,arrested,,,0,0,,0,2,needs hand extraction
+B2025-011,rescued,,,0,0,,0,2,needs hand extraction
+B2025-012,neutralised,,,0,0,,0,3,needs hand extraction
+B2025-012,arrested,,,0,0,,0,3,needs hand extraction
+B2025-012,rescued,,,0,0,,0,3,needs hand extraction
+B2025-013,neutralised,,,0,0,,0,2,needs hand extraction
+B2025-013,arrested,,,0,0,,0,2,needs hand extraction
+B2025-013,rescued,,,0,0,,0,2,needs hand extraction
+B2025-014,neutralised,,,0,0,,0,3,needs hand extraction
+B2025-014,arrested,,,0,0,,0,3,needs hand extraction
+B2025-014,rescued,,,0,0,,0,3,needs hand extraction
+B2025-015,neutralised,,,0,0,,0,3,needs hand extraction
+B2025-015,arrested,,,0,0,,0,3,needs hand extraction
+B2025-015,rescued,,,0,0,,0,3,needs hand extraction
+B2025-016,neutralised,100,over,1,0,,1,3,agreed
+B2025-016,arrested,70,,2,1,100 (1),3,3,majority
+B2025-016,rescued,21,,3,0,,3,3,agreed
+B2025-017,neutralised,,,0,0,,0,2,needs hand extraction
+B2025-017,arrested,,,0,0,,0,2,needs hand extraction
+B2025-017,rescued,,,0,0,,0,2,needs hand extraction
+B2025-018,neutralised,,,0,0,,0,5,needs hand extraction
+B2025-018,arrested,,,0,0,,0,5,needs hand extraction
+B2025-018,rescued,,,0,0,,0,5,needs hand extraction
+B2025-019,neutralised,,,0,0,,0,1,needs hand extraction
+B2025-019,arrested,430,,1,0,,1,1,agreed
+B2025-019,rescued,,,0,0,,0,1,needs hand extraction
+B2025-020,neutralised,,,0,0,,0,1,needs hand extraction
+B2025-020,arrested,,,0,0,,0,1,needs hand extraction
+B2025-020,rescued,,,0,0,,0,1,needs hand extraction
+B2025-021,neutralised,,,0,0,,0,1,needs hand extraction
+B2025-021,arrested,,,0,0,,0,1,needs hand extraction
+B2025-021,rescued,,,0,0,,0,1,needs hand extraction
+B2025-022,neutralised,,,0,0,,0,8,needs hand extraction
+B2025-022,arrested,,,0,0,,0,8,needs hand extraction
+B2025-022,rescued,,,0,0,,0,8,needs hand extraction
+B2025-023,neutralised,6260,,5,0,,5,5,agreed
+B2025-023,arrested,14138,,4,0,,4,5,agreed
+B2025-023,rescued,,,0,0,,0,5,needs hand extraction
+B2025-024,neutralised,,,0,0,,0,2,needs hand extraction
+B2025-024,arrested,,,0,0,,0,2,needs hand extraction
+B2025-024,rescued,,,0,0,,0,2,needs hand extraction
+B2025-025,neutralised,,,0,0,,0,1,needs hand extraction
+B2025-025,arrested,,,0,0,,0,1,needs hand extraction
+B2025-025,rescued,,,0,0,,0,1,needs hand extraction
+B2025-026,neutralised,,,0,0,,0,8,needs hand extraction
+B2025-026,arrested,1191,over,2,0,,2,8,agreed
+B2025-026,rescued,543,,2,0,,2,8,agreed
+B2025-027,neutralised,,,0,0,,0,2,needs hand extraction
+B2025-027,arrested,,,0,0,,0,2,needs hand extraction
+B2025-027,rescued,,,0,0,,0,2,needs hand extraction
+B2025-028,neutralised,,,0,0,,0,5,needs hand extraction
+B2025-028,arrested,,,0,0,,0,5,needs hand extraction
+B2025-028,rescued,,,0,0,,0,5,needs hand extraction
+B2025-029,neutralised,,,0,0,,0,3,needs hand extraction
+B2025-029,arrested,,,0,0,,0,3,needs hand extraction
+B2025-029,rescued,170,over,2,0,,2,3,agreed
+B2025-030,neutralised,,,0,0,,0,4,needs hand extraction
+B2025-030,arrested,,,0,0,,0,4,needs hand extraction
+B2025-030,rescued,,,0,0,,0,4,needs hand extraction
+B2025-031,neutralised,,,0,0,,0,1,needs hand extraction
+B2025-031,arrested,,,0,0,,0,1,needs hand extraction
+B2025-031,rescued,,,0,0,,0,1,needs hand extraction
+B2025-032,neutralised,,,0,0,,0,6,needs hand extraction
+B2025-032,arrested,107,,2,0,,2,6,agreed
+B2025-032,rescued,37,,4,1,20 (1),5,6,majority
+B2025-033,neutralised,,,0,0,,0,2,needs hand extraction
+B2025-033,arrested,,,0,0,,0,2,needs hand extraction
+B2025-033,rescued,,,0,0,,0,2,needs hand extraction
+B2025-034,neutralised,,,0,0,,0,4,needs hand extraction
+B2025-034,arrested,150,,1,0,,1,4,agreed
+B2025-034,rescued,117,,1,0,,1,4,agreed
+B2025-035,neutralised,,,0,0,,0,2,needs hand extraction
+B2025-035,arrested,85,,1,0,,1,2,agreed
+B2025-035,rescued,66,,1,0,,1,2,agreed
+B2025-036,neutralised,,,0,0,,0,9,needs hand extraction
+B2025-036,arrested,120,no fewer than,3,1,147 (1),4,9,majority
+B2025-036,rescued,41,,3,0,,3,9,agreed
+B2025-037,neutralised,5000,more than,1,0,,1,1,agreed
+B2025-037,arrested,,,0,0,,0,1,needs hand extraction
+B2025-037,rescued,,,0,0,,0,1,needs hand extraction
+B2025-038,neutralised,,,0,0,,0,3,needs hand extraction
+B2025-038,arrested,450,,2,0,,2,3,agreed
+B2025-038,rescued,180,,2,0,,2,3,agreed
+B2025-039,neutralised,,,0,0,,0,5,needs hand extraction
+B2025-039,arrested,62,,1,0,,1,5,agreed
+B2025-039,rescued,30,,1,0,,1,5,agreed
+B2025-040,neutralised,,,0,0,,0,2,needs hand extraction
+B2025-040,arrested,86,,2,0,,2,2,agreed
+B2025-040,rescued,26,,2,0,,2,2,agreed
+B2025-041,neutralised,,,0,0,,0,5,needs hand extraction
+B2025-041,arrested,88,,1,0,,1,5,agreed
+B2025-041,rescued,,,0,0,,0,5,needs hand extraction
+B2025-042,neutralised,,,0,0,,0,3,needs hand extraction
+B2025-042,arrested,57,,3,0,,3,3,agreed
+B2025-042,rescued,45,,3,0,,3,3,agreed
+B2025-043,neutralised,,,0,0,,0,5,needs hand extraction
+B2025-043,arrested,,,0,0,,0,5,needs hand extraction
+B2025-043,rescued,318,,3,0,,3,5,agreed
+B2025-044,neutralised,,,0,0,,0,1,needs hand extraction
+B2025-044,arrested,,,0,0,,0,1,needs hand extraction
+B2025-044,rescued,80,more than,1,0,,1,1,agreed
+B2025-045,neutralised,,,0,0,,0,1,needs hand extraction
+B2025-045,arrested,,,0,0,,0,1,needs hand extraction
+B2025-045,rescued,69,,1,0,,1,1,agreed
+B2025-046,neutralised,,,0,0,,0,6,needs hand extraction
+B2025-046,arrested,,,0,0,,0,6,needs hand extraction
+B2025-046,rescued,,,0,0,,0,6,needs hand extraction
+B2026-001,neutralised,,,0,0,,0,1,needs hand extraction
+B2026-001,arrested,,,0,0,,0,1,needs hand extraction
+B2026-001,rescued,,,0,0,,0,1,needs hand extraction
+B2026-002,neutralised,,,0,0,,0,5,needs hand extraction
+B2026-002,arrested,100,no fewer than,4,0,,4,5,agreed
+B2026-002,rescued,29,at least,4,0,,4,5,agreed
+B2026-003,neutralised,,,0,0,,0,10,needs hand extraction
+B2026-003,arrested,452,,1,0,,1,10,agreed
+B2026-003,rescued,284,,1,0,,1,10,agreed
+B2026-004,neutralised,,,0,0,,0,4,needs hand extraction
+B2026-004,arrested,,,0,0,,0,4,needs hand extraction
+B2026-004,rescued,,,0,0,,0,4,needs hand extraction
+B2026-005,neutralised,,,0,0,,0,2,needs hand extraction
+B2026-005,arrested,,,1,1,38 (1); 42 (1),2,2,conflict
+B2026-005,rescued,,,1,1,43 (1); 50 (1),2,2,conflict
+B2026-006,neutralised,,,0,0,,0,4,needs hand extraction
+B2026-006,arrested,43,plus 1 named,2,1,20 (1),3,4,majority
+B2026-006,rescued,45,,2,0,,2,4,agreed
+B2026-007,neutralised,,,0,0,,0,4,needs hand extraction
+B2026-007,arrested,,,1,1,312 (1); 350 (1),2,4,conflict
+B2026-007,rescued,409,,2,0,,2,4,agreed
+B2026-008,neutralised,,,0,0,,0,3,needs hand extraction
+B2026-008,arrested,,,0,0,,0,3,needs hand extraction
+B2026-008,rescued,,,0,0,,0,3,needs hand extraction
+B2026-009,neutralised,,,0,0,,0,4,needs hand extraction
+B2026-009,arrested,,,0,0,,0,4,needs hand extraction
+B2026-009,rescued,,,0,0,,0,4,needs hand extraction
+B2026-010,neutralised,,,0,0,,0,2,needs hand extraction
+B2026-010,arrested,,,0,0,,0,2,needs hand extraction
+B2026-010,rescued,,,0,0,,0,2,needs hand extraction
+B2026-011,neutralised,,,0,0,,0,1,needs hand extraction
+B2026-011,arrested,,,0,0,,0,1,needs hand extraction
+B2026-011,rescued,,,0,0,,0,1,needs hand extraction
+B2026-012,neutralised,,,0,0,,0,7,needs hand extraction
+B2026-012,arrested,1000,more than,1,0,,1,7,agreed
+B2026-012,rescued,,,1,1,409 (1); 800 (1),2,7,conflict
+B2026-013,neutralised,,,0,0,,0,1,needs hand extraction
+B2026-013,arrested,,,0,0,,0,1,needs hand extraction
+B2026-013,rescued,,,0,0,,0,1,needs hand extraction
+B2026-014,neutralised,31,no fewer than,3,0,,3,5,agreed
+B2026-014,arrested,,,0,0,,0,5,needs hand extraction
+B2026-014,rescued,,,0,0,,0,5,needs hand extraction
+B2026-015,neutralised,201,,3,2,100 (1); 216 (1),5,6,majority
+B2026-015,arrested,284,,1,0,,1,6,agreed
+B2026-015,rescued,188,,1,0,,1,6,agreed
+B2026-016,neutralised,,,0,0,,0,1,needs hand extraction
+B2026-016,arrested,,,0,0,,0,1,needs hand extraction
+B2026-016,rescued,50,over,1,0,,1,1,agreed
+B2026-017,neutralised,16,,2,0,,2,2,agreed
+B2026-017,arrested,14,,2,0,,2,2,agreed
+B2026-017,rescued,63,,1,0,,1,2,agreed
+B2026-018,neutralised,,,0,0,,0,1,needs hand extraction
+B2026-018,arrested,40,over,1,0,,1,1,agreed
+B2026-018,rescued,,,0,0,,0,1,needs hand extraction
+B2026-019,neutralised,317,,3,0,,3,3,agreed
+B2026-019,arrested,314,,1,0,,1,3,agreed
+B2026-019,rescued,221,,1,0,,1,3,agreed
+B2026-020,neutralised,,,0,0,,0,3,needs hand extraction
+B2026-020,arrested,,,0,0,,0,3,needs hand extraction
+B2026-020,rescued,,,0,0,,0,3,needs hand extraction
+B2026-021,neutralised,,,0,0,,0,2,needs hand extraction
+B2026-021,arrested,,,0,0,,0,2,needs hand extraction
+B2026-021,rescued,,,0,0,,0,2,needs hand extraction
+B2026-022,neutralised,,,0,0,,0,1,needs hand extraction
+B2026-022,arrested,,,0,0,,0,1,needs hand extraction
+B2026-022,rescued,,,0,0,,0,1,needs hand extraction
+B2026-023,neutralised,662,,1,0,,1,6,agreed
+B2026-023,arrested,1084,,1,0,,1,6,agreed
+B2026-023,rescued,951,,1,0,,1,6,agreed
+B2026-024,neutralised,,,0,0,,0,2,needs hand extraction
+B2026-024,arrested,20,over,2,0,,2,2,agreed
+B2026-024,rescued,40,more than,2,0,,2,2,agreed
+B2026-025,neutralised,102,more than,9,0,,9,9,agreed
+B2026-025,arrested,345,,6,1,486 (1),7,9,majority
+B2026-025,rescued,393,,7,0,,7,9,agreed
+B2026-026,neutralised,,,0,0,,0,3,needs hand extraction
+B2026-026,arrested,,,0,0,,0,3,needs hand extraction
+B2026-026,rescued,363,,3,0,,3,3,agreed
+B2026-027,neutralised,65,,1,0,,1,1,agreed
+B2026-027,arrested,,,0,0,,0,1,needs hand extraction
+B2026-027,rescued,34,,1,0,,1,1,agreed
+B2026-028,neutralised,11,,2,0,,2,3,agreed
+B2026-028,arrested,,,0,0,,0,3,needs hand extraction
+B2026-028,rescued,59,at least,2,0,,2,3,agreed
+B2026-029,neutralised,324,,4,0,,4,7,agreed
+B2026-029,arrested,373,,3,0,,3,7,agreed
+B2026-029,rescued,610,,3,0,,3,7,agreed
+B2026-030,neutralised,,,0,0,,0,2,needs hand extraction
+B2026-030,arrested,,,0,0,,0,2,needs hand extraction
+B2026-030,rescued,36,,2,0,,2,2,agreed
+B2026-031,neutralised,,,0,0,,0,1,needs hand extraction
+B2026-031,arrested,,,0,0,,0,1,needs hand extraction
+B2026-031,rescued,,,0,0,,0,1,needs hand extraction
+B2026-032,neutralised,,,0,0,,0,2,needs hand extraction
+B2026-032,arrested,,,0,0,,0,2,needs hand extraction
+B2026-032,rescued,,,0,0,,0,2,needs hand extraction
+B2026-033,neutralised,,,0,0,,0,1,needs hand extraction
+B2026-033,arrested,44,,1,0,,1,1,agreed
+B2026-033,rescued,60,more than,1,0,,1,1,agreed
+B2026-034,neutralised,554,,2,0,,2,4,agreed
+B2026-034,arrested,1333,,2,0,,2,4,agreed
+B2026-034,rescued,1736,,2,0,,2,4,agreed
+B2026-035,neutralised,36,,1,0,,1,1,agreed
+B2026-035,arrested,,,0,0,,0,1,needs hand extraction
+B2026-035,rescued,50,no fewer than,1,0,,1,1,agreed

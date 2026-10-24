@@ -110,3 +110,77 @@ def test_refuses_to_overwrite_hand_entries(coded, tmp_path):
     sheet.to_csv(out, index=False)
     with pytest.raises(RuntimeError):
         es.build(coded_path=path, sheet_path=out, snippets_path=private, text_path=lookup)
+
+
+@pytest.mark.parametrize("text,outcome,value", [
+    ("Similarly, on June 24 troops arrested four suspected kidnappers. Troops arrested 37 suspects in the period.", "arrested", 37),
+    ("In the North East, troops on September 11 arrested suspected collaborators across the theatre.", "arrested", None),
+    ("He said troops between 17 November and 24 November neutralised nine terrorists. "
+     "Troops equally neutralised 11 terrorist elements.", "neutralised", 11),
+    ("On the 24th, troops arrested suspects. Troops arrested 52 suspects in the past week.", "arrested", 52),
+    ("Troops of Operation Hadin Kai between 11-12 July killed six terrorists.", "neutralised", None),
+])
+def test_day_numbers_are_not_counts(text, outcome, value):
+    assert es.body_figure(text, outcome)["value"] == value
+
+
+@pytest.mark.parametrize("text,outcome,value,qualifier", [
+    ("He said troops also arrested Four Thousand, Three Hundred and Seventy-Five (4,375) suspects nationwide.",
+     "arrested", 4375, ""),
+    ("Troops rescued over Eighty Two (82) kidnapped victims across the country.", "rescued", 82, "over"),
+    ("He added that Two Thousand, Three Hundred and Thirty-Six (2,336) kidnapped hostages were successfully rescued.",
+     "rescued", 2336, ""),
+])
+def test_numbers_in_words_take_bracketed_digits(text, outcome, value, qualifier):
+    f = es.body_figure(text, outcome)
+    assert (f["value"], f["qualifier"]) == (value, qualifier)
+    assert "(" in f["evidence"]  # the snippet is the sentence as published
+
+
+def test_normalise_keeps_years_and_counts():
+    text = "In May 2024 troops arrested 1,051 suspects and neutralised 624 terrorists."
+    assert es.normalise(text) == text
+
+
+@pytest.mark.parametrize("sentence", [
+    "Troops of Hadin Kai neutralised 20 terrorists.", "Fansan Yamma troops arrested 5 suspects.",
+    "Troops of Operation Delta Safe arrested 12 oil thieves.", "Troops of Udo Ka arrested 9 suspects.",
+    "Safe Haven troops rescued 4 victims.", "Whirl Stroke troops neutralised 3 bandits.",
+    "In the North-East, troops neutralised 30 terrorists.", "Troops apprehended 18 terrorists across the theatre.",
+    "OPHK troops neutralised 7 terrorists.",
+])
+def test_theatre_or_operation_is_regional(sentence):
+    assert es.is_regional_v2(sentence)
+
+
+@pytest.mark.parametrize("sentence", [
+    "Troops across the theatres of operation neutralised 98 terrorists.",
+    "The Defence Headquarters said troops neutralised 98 terrorists in the past week.",
+])
+def test_national_or_unnamed_sentence_is_not_regional(sentence):
+    assert not es.is_regional_v2(sentence)
+
+
+def test_theatre_sentence_does_not_count_as_no_region_named():
+    text = ("The Defence Headquarters gave the results of operations on Thursday. "
+            "He said troops also apprehended 18 terrorists across the theatre during the period. "
+            "He said the troops had within the period apprehended 19 terrorists.")
+    f = es.body_figure(text, "arrested")
+    assert (f["value"], f["rule"]) == (19, "no region named")
+    only_theatre = "Troops of Hadin Kai arrested 18 terrorists."
+    assert es.body_figure(only_theatre, "arrested")["rule"] == "first mention"
+
+
+def test_check_coded_counts_and_failures():
+    sheet = pd.DataFrame({"url": ["a", "b", "c", "d"]})
+    coded = sheet.assign(confirmed_headline_body_check=["differs", "rounded", "not stated", ""],
+                         extraction_notes=["n"] * 4)
+    assert es.check_coded(sheet, coded).to_dict() == {"differs": 1, "rounded": 1, "not stated": 1, "(blank)": 1}
+    with pytest.raises(ValueError, match="do not match"):
+        es.check_coded(sheet, coded.iloc[:3])
+    with pytest.raises(ValueError, match="do not match"):
+        es.check_coded(sheet, coded.assign(url=["a", "b", "c", "e"]))
+    with pytest.raises(ValueError, match="not in"):
+        es.check_coded(sheet, coded.assign(confirmed_headline_body_check=["differs", "same", "", ""]))
+    with pytest.raises(ValueError, match="empty extraction_notes"):
+        es.check_coded(sheet, coded.assign(extraction_notes=["n", " ", "n", "n"]))
