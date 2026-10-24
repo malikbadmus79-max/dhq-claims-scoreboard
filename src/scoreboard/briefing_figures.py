@@ -18,6 +18,14 @@ copies credited to the News Agency of Nigeria. The value and status come from sc
 - status: "agreed" when all national-marker copies give one value, "majority" when one value has the most
   independent copies, "conflict" when values tie on independent copies, "needs hand extraction" when no
   copy has a national-marker value.
+
+Also writes data/review/figures_hand_sheet.csv, one row per briefing and outcome not "agreed", for hand
+extraction: status, the briefing's period class (data/briefings/full_briefings.csv; period_classes when
+its members carry more than one), and every copy in sheet order as parallel "; "-separated lists of
+outlet, value, qualifier, rule and url. snippet_keys gives, per copy, the key ("url::outcome") of its
+evidence sentence in the private snippets file (data_private/extraction_snippets_v3.csv), or "none".
+confirmed_value, confirmed_qualifier, confirmed_status (reported, vague, not reported) and figure_notes
+are left blank; the hand sheet is not overwritten once any of them is filled.
 """
 
 import argparse
@@ -26,12 +34,19 @@ import pandas as pd
 
 from scoreboard.briefings import BRIEFINGS
 from scoreboard.extract import OUTCOMES, count_independent, majority, same_wire_pairs
-from scoreboard.extraction_sheet import EXTRACTION_SHEET
+from scoreboard.extraction_sheet import EXTRACTION_SHEET, SNIPPETS
+from scoreboard.triage_check import REVIEW_DIR
 from scoreboard.wirecheck import has_nan_credit, load_bodies
 
 BRIEFING_FIGURES = BRIEFINGS.parent / "briefing_figures.csv"
 NATIONAL_RULE = "national marker"
 STATUSES = ("agreed", "majority", "conflict", "needs hand extraction")
+HAND_SHEET = REVIEW_DIR / "figures_hand_sheet.csv"
+HAND_COLUMNS = ["confirmed_value", "confirmed_qualifier", "confirmed_status", "figure_notes"]
+CONFIRMED_STATUSES = ("reported", "vague", "not reported")
+COPY_FIELDS = ["outlet", "value", "qualifier", "rule", "url"]
+HAND_SHEET_COLUMNS = ["briefing_id", "outcome", "status", "period_class", "copies", "national_copies",
+                      *[f"copy_{f}s" for f in COPY_FIELDS], "snippet_keys", *HAND_COLUMNS]
 FIGURE_COLUMNS = ["briefing_id", "outcome", "value", "qualifier", "copies_with_value",
                   "independent_copies_with_value", "copies_other", "independent_copies_other", "other_values",
                   "national_copies", "items", "status"]
@@ -81,18 +96,44 @@ def briefing_figures(sheet: pd.DataFrame, bodies: pd.Series) -> pd.DataFrame:
     return pd.DataFrame(rows, columns=FIGURE_COLUMNS)
 
 
-def build(sheet_path=EXTRACTION_SHEET, out_path=BRIEFING_FIGURES, load_bodies=load_bodies) -> pd.DataFrame:
-    sheet = pd.read_csv(sheet_path, keep_default_na=False, dtype=str)
+def hand_sheet(figures: pd.DataFrame, sheet: pd.DataFrame, briefings: pd.DataFrame,
+               snippet_keys: set[tuple[str, str]]) -> pd.DataFrame:
+    period = briefings.set_index("briefing_id").apply(
+        lambda b: b["period_class"] or b["period_classes"], axis=1)
+    rows = []
+    for f in figures[figures["status"] != "agreed"].itertuples():
+        copies = sheet[sheet["briefing_id"] == f.briefing_id]
+        o = f.outcome
+        lists = {"outlet": copies["outlet"], "value": copies[f"body_{o}"], "qualifier": copies[f"body_{o}_qualifier"],
+                 "rule": copies[f"body_{o}_rule"], "url": copies["url"]}
+        rows.append({"briefing_id": f.briefing_id, "outcome": o, "status": f.status,
+                     "period_class": period.get(f.briefing_id, ""), "copies": len(copies),
+                     "national_copies": f.national_copies,
+                     **{f"copy_{k}s": "; ".join(v.replace("", "-") if k != "url" else v) for k, v in lists.items()},
+                     "snippet_keys": "; ".join(f"{u}::{o}" if (u, o) in snippet_keys else "none" for u in copies["url"]),
+                     **{c: "" for c in HAND_COLUMNS}})
+    return pd.DataFrame(rows, columns=HAND_SHEET_COLUMNS)
+
+
+def build(sheet_path=EXTRACTION_SHEET, out_path=BRIEFING_FIGURES, load_bodies=load_bodies,
+          briefings_path=BRIEFINGS, snippets_path=SNIPPETS, hand_path=HAND_SHEET) -> tuple[pd.DataFrame, pd.DataFrame]:
+    read = lambda p: pd.read_csv(p, keep_default_na=False, dtype=str)
+    if hand_path.exists() and (read(hand_path)[HAND_COLUMNS] != "").any().any():
+        raise RuntimeError(f"{hand_path} has hand entries in it; not overwritten")
+    sheet = read(sheet_path).sort_values(["briefing_id", "date", "outlet", "url"], ignore_index=True)
     table = briefing_figures(sheet, load_bodies(sheet["url"]))
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    table.to_csv(out_path, index=False)
-    return table
+    snippets = read(snippets_path)
+    hand = hand_sheet(table, sheet, read(briefings_path), set(zip(snippets["url"], snippets["outcome"])))
+    for path, df in ((out_path, table), (hand_path, hand)):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        df.to_csv(path, index=False)
+    return table, hand
 
 
 def main(argv=None):
     argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter).parse_args(argv)
-    table = build()
-    print(f"briefings: {table['briefing_id'].nunique()}; rows: {len(table)}")
+    table, hand = build()
+    print(f"briefings: {table['briefing_id'].nunique()}; rows: {len(table)}; hand sheet rows: {len(hand)}")
     print(pd.crosstab(table["status"], table["outcome"], margins=True).reindex([*STATUSES, "All"]).fillna(0)
           .astype(int).to_string())
 

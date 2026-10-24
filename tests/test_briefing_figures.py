@@ -1,4 +1,5 @@
 import pandas as pd
+import pytest
 
 import scoreboard.briefing_figures as bf
 
@@ -77,12 +78,57 @@ def test_only_national_marker_values_count():
     assert (r2["value"], r2["national_copies"], r2["status"]) == ("", 0, "needs hand extraction")
 
 
+def write_inputs(tmp_path, *rows):
+    df, bodies = sheet(*rows)
+    df = df.assign(date="2024-01-05", outlet=[f"O{i}" for i in range(len(df))])
+    df.to_csv(tmp_path / "sheet.csv", index=False)
+    pd.DataFrame({"briefing_id": ["B1", "B2"], "period_class": ["weekly", ""],
+                  "period_classes": ["weekly 2", "weekly 1; biweekly 1"]}).to_csv(tmp_path / "briefings.csv", index=False)
+    pd.DataFrame({"briefing_id": ["B1"], "url": ["u0"], "outcome": ["neutralised"], "snippet": ["s"]}).to_csv(
+        tmp_path / "snippets.csv", index=False)
+    paths = {"sheet_path": tmp_path / "sheet.csv", "out_path": tmp_path / "out" / "figures.csv",
+             "briefings_path": tmp_path / "briefings.csv", "snippets_path": tmp_path / "snippets.csv",
+             "hand_path": tmp_path / "hand.csv", "load_bodies": lambda urls: bodies}
+    return paths
+
+
 def test_one_row_per_briefing_and_outcome(tmp_path):
-    df, bodies = sheet(("B2", "5", "", NM, None), ("B1", "7", "", NM, None))
-    path = tmp_path / "sheet.csv"
-    df.to_csv(path, index=False)
-    table = bf.build(sheet_path=path, out_path=tmp_path / "out" / "figures.csv", load_bodies=lambda urls: bodies)
+    paths = write_inputs(tmp_path, ("B2", "5", "", NM, None), ("B1", "7", "", NM, None))
+    table, _ = bf.build(**paths)
     assert list(table.columns) == bf.FIGURE_COLUMNS and len(table) == 6
     assert table["briefing_id"].tolist() == ["B1"] * 3 + ["B2"] * 3
     assert table.loc[table["outcome"] == "arrested", "status"].eq("needs hand extraction").all()
     assert (tmp_path / "out" / "figures.csv").exists()
+
+
+def test_hand_sheet_lists_every_copy_for_rows_not_agreed(tmp_path):
+    paths = write_inputs(tmp_path, ("B1", "43", "over", NM, None), ("B1", "40", "", "first mention", None),
+                         ("B2", "5", "", NM, None), ("B2", "6", "", NM, None))
+    _, hand = bf.build(**paths)
+    assert list(hand.columns) == bf.HAND_SHEET_COLUMNS
+    # B1 neutralised is agreed (one national-marker copy); B2 neutralised is a conflict; arrested and
+    # rescued need hand extraction in both briefings.
+    assert len(hand) == 5 and "agreed" not in set(hand["status"])
+    b1 = hand.set_index(["briefing_id", "outcome"]).loc[("B1", "arrested")]
+    assert (b1["status"], b1["period_class"], b1["copies"]) == ("needs hand extraction", "weekly", 2)
+    assert b1["copy_values"] == "-; -" and b1["copy_rules"] == "not reported; not reported"
+    assert b1["copy_urls"] == "u0; u1" and b1["copy_outlets"] == "O0; O1" and b1["snippet_keys"] == "none; none"
+    b2 = hand.set_index(["briefing_id", "outcome"]).loc[("B2", "neutralised")]
+    assert (b2["status"], b2["period_class"], b2["copy_values"]) == ("conflict", "weekly 1; biweekly 1", "5; 6")
+    assert hand[bf.HAND_COLUMNS].eq("").all().all()
+
+
+def test_snippet_keys_point_into_the_private_file(tmp_path):
+    paths = write_inputs(tmp_path, ("B1", "43", "", "first mention", None), ("B1", "44", "", "first mention", None))
+    _, hand = bf.build(**paths)
+    row = hand.set_index(["briefing_id", "outcome"]).loc[("B1", "neutralised")]
+    assert row["snippet_keys"] == "u0::neutralised; none"
+
+
+def test_hand_sheet_with_entries_is_not_overwritten(tmp_path):
+    paths = write_inputs(tmp_path, ("B1", "43", "", "first mention", None))
+    _, hand = bf.build(**paths)
+    hand.loc[0, "confirmed_status"] = "reported"
+    hand.to_csv(paths["hand_path"], index=False)
+    with pytest.raises(RuntimeError):
+        bf.build(**paths)
