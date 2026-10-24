@@ -36,6 +36,11 @@ Borderline items for the validation coder to check:
 
 Items share a confirmed_group_id when they report the same briefing: the same briefing date and the same reporting period. Headline figures do not decide the group; copies of one briefing that lead with different figures belong together. Items coded no are left blank. IDs follow the form B2024-001, numbered in briefing date order.
 
+### Grouping conventions, 2026-10-24
+
+- An outlet's misstated period (for example, a cumulative figure headlined as two weeks) does not move its item out of the briefing it reports. Such cases are recorded in group_notes and checked in the headline-body review.
+- Cumulative or annual claims made on the same day as period results form their own group.
+
 ## headline_body_check
 
 Record "differs" when a headline figure differs from the figure in the same outlet's body, and give both figures in notes. These are media-relay observations, not DHQ inconsistencies. Left blank when headline and body agree.
