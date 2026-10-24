@@ -99,10 +99,76 @@ def test_non_agreed_row_without_hand_row_stops_the_merge(frames):
         ff.final_table(auto, hand.iloc[1:], briefings)
 
 
-def test_failing_hand_file_writes_nothing(frames, tmp_path):
-    auto, hand, briefings = frames
-    for name, df in (("auto", auto), ("hand", hand), ("briefings", briefings)):
+def write_frames(tmp_path, **frames):
+    for name, df in frames.items():
         df.to_csv(tmp_path / f"{name}.csv", index=False)
-    out = tmp_path / "final.csv"
-    table, failures = ff.build(tmp_path / "hand.csv", tmp_path / "auto.csv", tmp_path / "briefings.csv", out)
-    assert table is None and failures == ["row count 4, expected 357"] and not out.exists()
+    return [tmp_path / f"{n}.csv" for n in ("hand", "auto", "briefings")] + [tmp_path / "final.csv"]
+
+
+def test_failing_hand_file_writes_nothing(frames, corrections, tmp_path):
+    auto, hand, briefings = frames
+    paths = write_frames(tmp_path, auto=auto, hand=hand, briefings=briefings, corrections=corrections)
+    table, failures = ff.build(*paths, corrections_path=tmp_path / "corrections.csv")
+    assert table is None and failures == ["row count 4, expected 357"] and not paths[-1].exists()
+
+
+@pytest.fixture
+def corrections():
+    return pd.DataFrame([
+        ("B1", "neutralised", "43", "no fewer than", "agreed", "", "", "not reported",
+         "Multi-theatre figure for the North-West and North-Central theatres"),
+        ("B2", "arrested", "20", "", "agreed", "", "several", "vague", "National claim without a number"),
+    ], columns=["briefing_id", "outcome", "auto_value", "auto_qualifier", "auto_status", "corrected_value",
+                "corrected_qualifier", "corrected_status", "reason"])
+
+
+def test_clean_corrections_file_passes(frames, corrections):
+    auto, _, _ = frames
+    assert ff.check_corrections(corrections, auto) == []
+    reported = corrections.assign(corrected_value=["40", ""], corrected_status=["reported", "vague"])
+    assert ff.check_corrections(reported, auto) == []
+
+
+@pytest.mark.parametrize("change,message", [
+    (lambda c: pd.concat([c, c.iloc[[0]]]), "B1 neutralised: duplicate key"),
+    (lambda c: c.assign(briefing_id=["B9", "B2"]), "B9 neutralised: not in briefing_figures.csv"),
+    (lambda c: c.assign(outcome=["arrested", "arrested"], auto_value=["115", "20"]),
+     "B1 arrested: status 'majority' in briefing_figures.csv, not agreed"),
+    (lambda c: c.assign(auto_value=["42", "20"]), "B1 neutralised: auto_value '42' but briefing_figures.csv has '43'"),
+    (lambda c: c.assign(corrected_status=["unresolved", "vague"]), "corrected_status 'unresolved' not one of"),
+    (lambda c: c.assign(corrected_status=["reported", "vague"]), "reported but corrected_value '' is not a positive"),
+    (lambda c: c.assign(corrected_value=["43", ""]), "corrected_value '43' given with status 'not reported'"),
+    (lambda c: c.assign(reason=["r", "  "]), "B2 arrested: empty reason"),
+])
+def test_each_corrections_failure_is_reported(frames, corrections, change, message):
+    auto, _, _ = frames
+    failures = ff.check_corrections(change(corrections).reset_index(drop=True), auto)
+    assert any(message in f for f in failures), failures
+
+
+def test_corrections_override_automatic_rows(frames, corrections):
+    auto, hand, briefings = frames
+    r = ff.final_table(auto, hand, briefings, corrections).set_index(["briefing_id", "outcome"])
+    c = r.loc[("B1", "neutralised")]
+    assert (c["value"], c["qualifier"], c["final_status"], c["source"]) == ("", "", "not reported", "correction")
+    assert (c["auto_value"], c["auto_status"]) == ("43", "agreed")
+    assert c["notes"] == "Multi-theatre figure for the North-West and North-Central theatres"
+    v = r.loc[("B2", "arrested")]
+    assert (v["value"], v["qualifier"], v["final_status"], v["source"]) == ("", "several", "vague", "correction")
+    assert r.loc[("B1", "arrested"), "source"] == "hand" and len(r) == len(auto)
+    assert ff.final_table(auto, hand, briefings).set_index(["briefing_id", "outcome"]).loc[
+        ("B1", "neutralised"), "source"] == "automatic"
+
+
+def test_failing_corrections_file_writes_nothing(frames, corrections, tmp_path, monkeypatch):
+    auto, hand, briefings = frames
+    monkeypatch.setattr(ff, "HAND_ROWS", 4)
+    monkeypatch.setattr(ff.check_hand, "__defaults__", (4,))
+    paths = write_frames(tmp_path, auto=auto, hand=hand, briefings=briefings,
+                         corrections=corrections.assign(auto_value=["42", "20"]))
+    table, failures = ff.build(*paths, corrections_path=tmp_path / "corrections.csv")
+    assert table is None and not paths[-1].exists()
+    assert failures == ["corrections.csv: B1 neutralised: auto_value '42' but briefing_figures.csv has '43'"]
+    write_frames(tmp_path, corrections=corrections)
+    table, failures = ff.build(*paths, corrections_path=tmp_path / "corrections.csv")
+    assert failures == [] and paths[-1].exists() and (table["source"] == "correction").sum() == 2

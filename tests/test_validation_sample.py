@@ -67,3 +67,26 @@ def test_coded_sheet_is_not_overwritten(tmp_path):
     pd.DataFrame({"item_id": ["V001"], "code": ["no"], "notes": [""]}).to_csv(path, index=False)
     with pytest.raises(RuntimeError):
         vs.write_blank(pd.DataFrame({"item_id": ["V001"], "code": [""], "notes": [""]}), path, ["code", "notes"])
+
+
+def test_round2_draw_excludes_round1_and_is_reproducible(briefings):
+    round1 = vs.draw_briefings(briefings)["briefing_id"]
+    a = vs.draw_briefings(briefings, seed=vs.ROUND2_SEED, exclude=round1)
+    b = vs.draw_briefings(briefings, seed=vs.ROUND2_SEED, exclude=round1)
+    assert a["briefing_id"].tolist() == b["briefing_id"].tolist()
+    assert not a["briefing_id"].isin(round1).any() and len(a) == 33 and not a["briefing_id"].duplicated().any()
+    assert a.groupby("year").size().to_dict() == vs.allocate(pd.Series(YEAR_COUNTS)).to_dict()
+
+
+def test_round2_sheet_has_the_round1_format(briefings, tmp_path):
+    briefings.to_csv(tmp_path / "b.csv", index=False)
+    round1 = vs.draw_briefings(briefings)
+    round1.to_csv(tmp_path / "r1.csv", index=False)
+    coded = pd.DataFrame([{"confirmed_group_id": b, "date": "2024-01-01", "outlet": "O", "url": f"{b}/1"}
+                          for b in briefings["briefing_id"]])
+    coded.to_csv(tmp_path / "c.csv", index=False)
+    drawn = vs.build_round2(tmp_path / "b.csv", tmp_path / "c.csv", tmp_path / "r1.csv", tmp_path / "r2.csv")
+    sheet = pd.read_csv(tmp_path / "r2.csv", keep_default_na=False, dtype=str)
+    assert list(sheet.columns) == vs.BRIEFING_COLUMNS and sheet[vs.BRIEFING_CODE_COLUMNS].eq("").all().all()
+    assert sheet["briefing_id"].tolist() == drawn["briefing_id"].tolist()
+    assert not sheet["briefing_id"].isin(round1["briefing_id"]).any()

@@ -61,7 +61,7 @@ A short note is required for every unsure code and for any item whose briefing d
 
 These conventions apply to data/review/figures_hand_coded.csv, which covers every briefing and outcome whose automatic status in data/briefings/briefing_figures.csv is conflict, majority or needs hand extraction.
 
-- Only national figures are recorded. A figure is national when a copy attributes it to operations across the country, to all theatres, or to a national summary that names no region, zone or operation. Figures for one theatre, one operation, one incident or a named set of zones are recorded as not reported, with the figures in figure_notes.
+- Only national figures are recorded. A figure is national when a copy attributes it to operations across the country, to all theatres, or to a national summary that names no region, zone or operation. Figures for one theatre, one operation, one incident or a named set of zones are recorded as not reported, with the figures in figure_notes. "Theatres of operation" followed or preceded by named zones (for example "the North-West and North-Central theatres") is not national.
 - Arrests reported in a separate sentence, usually oil-theft arrests, are not added to the headline arrest figure; the sum is given in figure_notes.
 - When a copy lists arrest categories in one sentence with no stated total, the value is their sum and the qualifier is "summed categories".
 - When independent copies differ, the value carried by more independent copies is kept.

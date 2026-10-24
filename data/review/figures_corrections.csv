@@ -1,0 +1,39 @@
+briefing_id,outcome,auto_value,auto_qualifier,auto_status,corrected_value,corrected_qualifier,corrected_status,reason
+B2021-008,neutralised,42,,agreed,,,not reported,"Multi-theatre figure: ""in the Northeast, Northwest and North Central theatres of operation"" (Daily Post); Gazette ""across theatres of operations in the North""."
+B2021-008,arrested,41,,agreed,,,not reported,Same multi-theatre sentence as neutralised.
+B2021-008,rescued,93,,agreed,,,not reported,Same multi-theatre sentence as neutralised.
+B2021-013,neutralised,70,no fewer than,agreed,,,not reported,"Multi-theatre figure: ""various theatres of operation across the North-West and North-Central zones"". Found in the validation sample."
+B2022-007,neutralised,80,no fewer than,agreed,,,not reported,"Multi-theatre figure: ""across theatres of operation in the North-west and North-central""."
+B2022-011,neutralised,38,,agreed,,,not reported,"Multi-theatre figure: ""troops operating in the North-East and North-West parts of the country"" (Leadership)."
+B2022-011,arrested,40,,agreed,,,not reported,Same multi-theatre sentence as neutralised.
+B2022-011,rescued,252,,agreed,,,not reported,Same multi-theatre sentence as neutralised.
+B2022-013,neutralised,89,no fewer than,agreed,,,not reported,"Multi-theatre figure: ""across North West and North Central theatres of operation""."
+B2022-013,arrested,26,,agreed,,,not reported,Operation figure: 26 oil thieves arrested by one operation (TheWill).
+B2022-017,neutralised,45,over,agreed,,,not reported,"Multi-theatre figure: ""operating in the North West and the North Central theatres of operations""."
+B2022-025,neutralised,54,,agreed,,,not reported,Multi-theatre figure: Operation Hadin Kai in the North-East and Hadarin Daji in the North-West.
+B2022-026,neutralised,60,more than,agreed,,,not reported,"Multi-theatre figure: ""in the North-west and North-central parts of the country""."
+B2023-001,neutralised,50,more than,agreed,,,not reported,"Multi-theatre figure: ""in North East and North West theatres of operation""."
+B2023-003,neutralised,77,,agreed,,,not reported,"Multi-theatre figure: ""across theatres of operations in Northeast, North-Central and Northwest""."
+B2023-003,arrested,41,,agreed,,,not reported,"Multi-theatre figure: ""troops operating in the North-East, North-West and North-Central parts of the country"" (TheWill)."
+B2023-003,rescued,59,,agreed,,,not reported,Same multi-theatre sentence as arrested.
+B2023-005,neutralised,21,,agreed,,,not reported,"Multi-theatre figure: ""internal security operations in the North-East and North-West parts of the country""."
+B2023-005,arrested,35,,agreed,,,not reported,Same multi-theatre sentence as neutralised.
+B2023-005,rescued,42,,agreed,,,not reported,Same multi-theatre sentence as neutralised.
+B2023-007,neutralised,53,,agreed,,,not reported,"Multi-theatre figure: ""in Northeast, North-Central and Northwest parts of the country"" (TheWill)."
+B2023-007,arrested,59,no fewer than,agreed,,,not reported,"""Across the theatres of operation"" in a story covering the North East, North Central and North West only."
+B2023-007,rescued,118,,agreed,,,not reported,Same sentence as arrested.
+B2023-009,arrested,6,,agreed,,,not reported,"Parsing error: the value 6 is ""6 geo-political zones""; the lead covers the North East and North West only. Found in the validation sample."
+B2023-009,rescued,158,,agreed,,,not reported,Follows a North East and North West lead (Blueprint). Found in the validation sample.
+B2023-033,rescued,139,,agreed,,,not reported,"Multi-theatre figure: rescued 139 ""across North East, North Central and North West theatres of operation"" (NAN wire, Gazette); the neutralised and arrested figures are national."
+B2025-016,neutralised,100,over,agreed,,several,vague,"Daily Post ""over 100 terrorists killed"" is a garbled lead (it also gives ""100 suspects arrested""); Leadership, two copies, gives ""several"" across the country. Found in the validation sample."
+B2023-020,arrested,22,,agreed,137,summed categories,reported,"One-sentence list with no stated total (Blueprint): 109 criminals, 5 kidnappers, 1 informant and 22 suspected oil thieves arrested; value is the sum. The automatic value 22 is the oil-theft category only. Found in the round-2 conflict review."
+B2024-019,arrested,146,,agreed,,,unresolved,"Two national values for April 2024: 146 (Leadership, ""across the country"") and no fewer than 1,146 (NAN wire). One independent copy each; 146 may drop a digit, but the texts do not settle it. Found in the round-2 conflict review."
+B2024-041,neutralised,65,,agreed,1937,,reported,"The automatic value 65 counts ""high profile terrorist leaders"" (Leadership), a named subset. The national third-quarter figure is 1,937 (NAN wire, Blueprint). Found in the round-2 conflict review."
+B2024-045,neutralised,101,,agreed,,,unresolved,"Two national values: 101 (21st Century Chronicle, ""across the country"") and 96 (Leadership). One independent copy each. Found in the round-2 conflict review."
+B2024-045,arrested,182,plus 1 named,agreed,,,unresolved,Two national values: a named commander and 182 others (21st Century Chronicle) and the commander with 226 suspected terrorists (Leadership). One independent copy each. Found in the round-2 conflict review.
+B2024-056,arrested,258,,agreed,256,plus 2,reported,"Named-plus-others rule: ""two terrorist ammunition couriers and 256 other suspects"" (NAN wire, Leadership, two independent copies); Blueprint 258 is the sum. Found in the round-2 conflict review."
+B2025-029,rescued,170,over,agreed,,,unresolved,"Two national values: over 170 (NAN wire, Gazette) and 139 (Leadership, national summary for 10 to 17 July 2025). One independent copy each. Found in the round-2 conflict review."
+B2025-036,rescued,41,,agreed,39,,reported,"Majority of independent copies: 39 (Leadership, Daily Trust) against 41 (NAN wire; the Blueprint sentence repeats the NAN wording), matching the arrested row (147 against 120). Found in the round-2 conflict review."
+B2025-041,arrested,88,,agreed,,,unresolved,"Two national values: 88 (Leadership, ""across the country"") and 94 in two weeks (Gazette). One independent copy each; the rescued row is unresolved for the same reason. Found in the round-2 conflict review."
+B2026-002,arrested,100,no fewer than,agreed,,,unresolved,"Two national values: no fewer than 100 (NAN wire) and 67 (Leadership, ""troops on internal operations""). One independent copy each. Found in validation round 2."
+B2026-002,rescued,29,at least,agreed,,,unresolved,Two national values: at least 29 (NAN wire) and 25 (Leadership). One independent copy each. Found in validation round 2.

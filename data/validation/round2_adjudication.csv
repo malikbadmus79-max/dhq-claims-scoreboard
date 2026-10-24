@@ -1,0 +1,100 @@
+briefing_id,outcome,coder,coder_value,coder_qualifier,coder_status,table_value,table_qualifier,table_status,adj_value,adj_qualifier,adj_status,table_correct,table_value_correct,coder_correct
+B2021-004,neutralised,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2021-004,arrested,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2021-004,rescued,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2021-011,neutralised,AI-assisted (independent agent),343,over,reported,343,over,reported,343,over,reported,True,True,True
+B2021-011,arrested,AI-assisted (independent agent),103,,reported,,,not reported,103,,reported,False,False,True
+B2021-011,rescued,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2021-016,neutralised,AI-assisted (independent agent),177,,reported,177,,reported,177,,reported,True,True,True
+B2021-016,arrested,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2021-016,rescued,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2022-007,neutralised,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2022-007,arrested,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2022-007,rescued,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2022-009,neutralised,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2022-009,arrested,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2022-009,rescued,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2022-015,neutralised,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2022-015,arrested,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2022-015,rescued,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2022-017,neutralised,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2022-017,arrested,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2022-017,rescued,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2023-003,neutralised,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2023-003,arrested,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2023-003,rescued,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2023-010,neutralised,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2023-010,arrested,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2023-010,rescued,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2023-011,neutralised,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2023-011,arrested,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2023-011,rescued,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2023-021,neutralised,AI-assisted (independent agent),39,,reported,39,,reported,39,,reported,True,True,True
+B2023-021,arrested,AI-assisted (independent agent),157,,reported,157,,reported,157,,reported,True,True,True
+B2023-021,rescued,AI-assisted (independent agent),109,,reported,109,,reported,109,,reported,True,True,True
+B2023-023,neutralised,AI-assisted (independent agent),151,,reported,151,,reported,151,,reported,True,True,True
+B2023-023,arrested,AI-assisted (independent agent),456,,reported,456,,reported,456,,reported,True,True,True
+B2023-023,rescued,AI-assisted (independent agent),76,,reported,76,,reported,76,,reported,True,True,True
+B2023-031,neutralised,AI-assisted (independent agent),113,,reported,113,,reported,113,,reported,True,True,True
+B2023-031,arrested,AI-assisted (independent agent),300,,reported,300,,reported,300,,reported,True,True,True
+B2023-031,rescued,AI-assisted (independent agent),91,,reported,91,,reported,91,,reported,True,True,True
+B2024-002,neutralised,AI-assisted (independent agent),86,,reported,86,no fewer than,reported,86,no fewer than,reported,True,True,True
+B2024-002,arrested,AI-assisted (independent agent),101,,reported,101,,reported,101,,reported,True,True,True
+B2024-002,rescued,AI-assisted (independent agent),21,,reported,21,,reported,21,,reported,True,True,True
+B2024-007,neutralised,AI-assisted (independent agent),105,,reported,105,,reported,105,,reported,True,True,True
+B2024-007,arrested,AI-assisted (independent agent),140,,reported,140,,reported,140,,reported,True,True,True
+B2024-007,rescued,AI-assisted (independent agent),,,not reported,86,,reported,86,,reported,True,True,False
+B2024-009,neutralised,AI-assisted (independent agent),286,,reported,286,no fewer than,reported,286,no fewer than,reported,True,True,True
+B2024-009,arrested,AI-assisted (independent agent),244,,reported,244,,reported,244,,reported,True,True,True
+B2024-009,rescued,AI-assisted (independent agent),122,,reported,122,,reported,122,,reported,True,True,True
+B2024-013,neutralised,AI-assisted (independent agent),106,,reported,106,,reported,106,,reported,True,True,True
+B2024-013,arrested,AI-assisted (independent agent),103,,reported,103,,reported,103,,reported,True,True,True
+B2024-013,rescued,AI-assisted (independent agent),96,,reported,96,,reported,96,,reported,True,True,True
+B2024-024,neutralised,AI-assisted (independent agent),9303,,reported,9303,,reported,9303,,reported,True,True,True
+B2024-024,arrested,AI-assisted (independent agent),6998,,reported,6998,,reported,6998,,reported,True,True,True
+B2024-024,rescued,AI-assisted (independent agent),4641,,reported,4641,,reported,4641,,reported,True,True,True
+B2024-034,neutralised,AI-assisted (independent agent),108,,reported,108,,reported,108,,reported,True,True,True
+B2024-034,arrested,AI-assisted (independent agent),,,unresolved,172,,reported,172,,reported,True,True,False
+B2024-034,rescued,AI-assisted (independent agent),214,,reported,214,,reported,214,,reported,True,True,True
+B2024-049,neutralised,AI-assisted (independent agent),169,,reported,169,,reported,169,,reported,True,True,True
+B2024-049,arrested,AI-assisted (independent agent),641,,reported,641,,reported,641,,reported,True,True,True
+B2024-049,rescued,AI-assisted (independent agent),181,,reported,181,,reported,181,,reported,True,True,True
+B2024-050,neutralised,AI-assisted (independent agent),88,,reported,88,,reported,88,,reported,True,True,True
+B2024-050,arrested,AI-assisted (independent agent),228,,reported,228,,reported,228,,reported,True,True,True
+B2024-050,rescued,AI-assisted (independent agent),181,,reported,181,,reported,181,,reported,True,True,True
+B2025-010,neutralised,AI-assisted (independent agent),74,,reported,74,,reported,74,,reported,True,True,True
+B2025-010,arrested,AI-assisted (independent agent),130,,reported,130,,reported,130,,reported,True,True,True
+B2025-010,rescued,AI-assisted (independent agent),61,,reported,61,,reported,61,,reported,True,True,True
+B2025-017,neutralised,AI-assisted (independent agent),,scores,vague,,scores,vague,,scores,vague,True,True,True
+B2025-017,arrested,AI-assisted (independent agent),75,,reported,75,,reported,75,,reported,True,True,True
+B2025-017,rescued,AI-assisted (independent agent),33,,reported,33,,reported,33,,reported,True,True,True
+B2025-023,neutralised,AI-assisted (independent agent),6260,,reported,6260,,reported,6260,,reported,True,True,True
+B2025-023,arrested,AI-assisted (independent agent),14138,,reported,14138,,reported,14138,,reported,True,True,True
+B2025-023,rescued,AI-assisted (independent agent),5365,,reported,5365,,reported,5365,,reported,True,True,True
+B2025-027,neutralised,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2025-027,arrested,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2025-027,rescued,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2025-030,neutralised,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2025-030,arrested,AI-assisted (independent agent),578,,reported,578,,reported,578,,reported,True,True,True
+B2025-030,rescued,AI-assisted (independent agent),134,,reported,134,,reported,134,,reported,True,True,True
+B2025-044,neutralised,AI-assisted (independent agent),,scores,vague,,scores,vague,,scores,vague,True,True,True
+B2025-044,arrested,AI-assisted (independent agent),,dozens,vague,,,not reported,,dozens,vague,False,True,True
+B2025-044,rescued,AI-assisted (independent agent),80,more than,reported,80,more than,reported,80,more than,reported,True,True,True
+B2025-046,neutralised,AI-assisted (independent agent),,thousands,vague,,,not reported,,thousands,vague,False,True,True
+B2025-046,arrested,AI-assisted (independent agent),4375,,reported,4375,,reported,4375,,reported,True,True,True
+B2025-046,rescued,AI-assisted (independent agent),2336,,reported,2336,,reported,2336,,reported,True,True,True
+B2026-002,neutralised,AI-assisted (independent agent),,,vague,,dozens,vague,,dozens,vague,True,True,True
+B2026-002,arrested,AI-assisted (independent agent),,,unresolved,100,no fewer than,reported,,,unresolved,False,False,True
+B2026-002,rescued,AI-assisted (independent agent),,,unresolved,29,at least,reported,,,unresolved,False,False,True
+B2026-013,neutralised,AI-assisted (independent agent),,,not reported,,,not reported,,,not reported,True,True,True
+B2026-013,arrested,AI-assisted (independent agent),20,over,reported,20,over,reported,20,over,reported,True,True,True
+B2026-013,rescued,AI-assisted (independent agent),,several,vague,,several,vague,,several,vague,True,True,True
+B2026-016,neutralised,AI-assisted (independent agent),,scores,vague,,scores,vague,,scores,vague,True,True,True
+B2026-016,arrested,AI-assisted (independent agent),,dozens,vague,,dozens,vague,,dozens,vague,True,True,True
+B2026-016,rescued,AI-assisted (independent agent),50,over,reported,50,over,reported,50,over,reported,True,True,True
+B2026-023,neutralised,AI-assisted (independent agent),662,,reported,662,,reported,662,,reported,True,True,True
+B2026-023,arrested,AI-assisted (independent agent),1084,,reported,1084,,reported,1084,,reported,True,True,True
+B2026-023,rescued,AI-assisted (independent agent),951,,reported,951,,reported,951,,reported,True,True,True
+B2026-026,neutralised,AI-assisted (independent agent),,,vague,,,not reported,,,vague,False,True,True
+B2026-026,arrested,AI-assisted (independent agent),,scores,vague,,scores,vague,,scores,vague,True,True,True
+B2026-026,rescued,AI-assisted (independent agent),363,,reported,363,,reported,363,,reported,True,True,True

@@ -1,6 +1,6 @@
 """Blind validation sample (docs/audit_rules.md, Validation): coding sheets without any extracted figure.
 
-Usage: python -m scoreboard.validation_sample
+Usage: python -m scoreboard.validation_sample [--round 2]
 
 Briefings: SAMPLE_SHARE of the confirmed briefings in data/briefings/full_briefings.csv, drawn at random
 by briefing and stratified by briefing year. Each year gets SAMPLE_SHARE of its briefings; the shares are
@@ -16,7 +16,12 @@ Auto-no items: SAMPLE_SHARE of the items with decided_by "auto_no" in data/revie
 blind_auto_no_sheet.csv gives an item_id (V001 upward in url order), outlet, url and headline (from
 outputs/tables/full_inventory_<year>.csv) and blank code and notes columns; decided_by is not included.
 
-Neither sheet is overwritten once the author has started coding it.
+Round 2 (--round 2), drawn after round 1 fell below target: SAMPLE_SHARE of the confirmed briefings again,
+with the per-year sizes allocated on all confirmed briefings as in round 1, drawn with a Generator seeded with
+ROUND2_SEED from the briefings not in the round 1 sheet. data/validation/round2_briefing_sheet.csv has the
+round 1 sheet's format.
+
+No sheet is overwritten once coding has started in it.
 """
 
 import argparse
@@ -31,11 +36,13 @@ from scoreboard.review_merge import CLASSIFICATION
 from scoreboard.triage_check import YEARS
 
 SEED = 20261024
+ROUND2_SEED = 20261025
 SAMPLE_SHARE = 0.15
 STRATUM = "year"
 VALIDATION_DIR = PROJECT_ROOT / "data" / "validation"
 BRIEFING_SHEET = VALIDATION_DIR / "blind_briefing_sheet.csv"
 AUTO_NO_SHEET = VALIDATION_DIR / "blind_auto_no_sheet.csv"
+ROUND2_SHEET = VALIDATION_DIR / "round2_briefing_sheet.csv"
 OUTCOMES = ("neutralised", "arrested", "rescued")
 BRIEFING_CODE_COLUMNS = [c for o in OUTCOMES for c in (o, f"{o}_qualifier", f"{o}_status")] + [
     "period_start", "period_end", "notes"]
@@ -54,13 +61,15 @@ def allocate(counts: pd.Series, share: float = SAMPLE_SHARE) -> pd.Series:
     return sizes
 
 
-def draw_briefings(briefings: pd.DataFrame, seed: int = SEED) -> pd.DataFrame:
+def draw_briefings(briefings: pd.DataFrame, seed: int = SEED, exclude=()) -> pd.DataFrame:
+    """Sizes are allocated on all briefings; the draw is from the briefings not in exclude."""
     rng = np.random.default_rng(seed)
     counts = briefings.groupby(STRATUM).size().sort_index()
     sizes = allocate(counts)
+    pool = briefings[~briefings["briefing_id"].isin(set(exclude))]
     picked = []
     for stratum, n in sizes.items():
-        ids = sorted(briefings.loc[briefings[STRATUM] == stratum, "briefing_id"])
+        ids = sorted(pool.loc[pool[STRATUM] == stratum, "briefing_id"])
         picked += list(rng.choice(ids, size=n, replace=False))
     return briefings[briefings["briefing_id"].isin(picked)].sort_values("briefing_id", ignore_index=True)
 
@@ -106,8 +115,21 @@ def build(briefings_path=BRIEFINGS, coded_path=GROUP_CODED, classification_path=
     return briefings, items
 
 
+def build_round2(briefings_path=BRIEFINGS, coded_path=GROUP_CODED, round1_path=BRIEFING_SHEET, out=ROUND2_SHEET):
+    read = lambda p: pd.read_csv(p, keep_default_na=False, dtype=str)
+    briefings = draw_briefings(read(briefings_path), seed=ROUND2_SEED, exclude=read(round1_path)["briefing_id"])
+    write_blank(briefing_sheet(briefings, read(coded_path)), out, BRIEFING_CODE_COLUMNS)
+    return briefings
+
+
 def main(argv=None):
-    argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter).parse_args(argv)
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--round", type=int, choices=(1, 2), default=1)
+    if parser.parse_args(argv).round == 2:
+        briefings = build_round2()
+        # Counts only: the sample is coded blind.
+        print("round 2 briefings drawn per year:", briefings.groupby(STRATUM).size().to_dict(), f"total {len(briefings)}")
+        return
     briefings, items = build()
     # Counts only: the sample is coded blind.
     print("briefings drawn per year:", briefings.groupby(STRATUM).size().to_dict(), f"total {len(briefings)}")

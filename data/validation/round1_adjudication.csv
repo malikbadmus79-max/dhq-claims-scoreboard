@@ -1,0 +1,118 @@
+briefing_id,outcome,coder,coder_value,coder_qualifier,coder_status,table_value,table_qualifier,table_status,adj_value,adj_qualifier,adj_status,table_correct,coder_correct
+B2021-001,neutralised,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2021-001,arrested,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2021-001,rescued,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2021-013,neutralised,AI-assisted,,,not reported,70,no fewer than,reported,,,not reported,False,True
+B2021-013,arrested,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2021-013,rescued,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2021-017,neutralised,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2021-017,arrested,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2021-017,rescued,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2022-004,neutralised,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2022-004,arrested,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2022-004,rescued,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2022-008,neutralised,AI-assisted,23,,reported,,,not reported,,,not reported,True,False
+B2022-008,arrested,AI-assisted,19,,reported,,,not reported,,,not reported,True,False
+B2022-008,rescued,AI-assisted,619,,reported,798,,reported,798,,reported,True,False
+B2022-018,neutralised,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2022-018,arrested,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2022-018,rescued,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2022-020,neutralised,AI-assisted,36,,reported,,,not reported,,,not reported,True,False
+B2022-020,arrested,AI-assisted,58,summed,reported,,,not reported,,,not reported,True,False
+B2022-020,rescued,AI-assisted,130,,reported,,,not reported,,,not reported,True,False
+B2023-002,neutralised,AI-assisted,114,,reported,114,,reported,114,,reported,True,True
+B2023-002,arrested,AI-assisted,115,,reported,115,,reported,115,,reported,True,True
+B2023-002,rescued,AI-assisted,101,,reported,101,,reported,101,,reported,True,True
+B2023-009,neutralised,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2023-009,arrested,AI-assisted,,,not reported,6,,reported,,,not reported,False,True
+B2023-009,rescued,AI-assisted,,,not reported,158,,reported,,,not reported,False,True
+B2023-012,neutralised,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2023-012,arrested,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2023-012,rescued,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2023-015,neutralised,AI-assisted,23,,reported,23,,reported,23,,reported,True,True
+B2023-015,arrested,AI-assisted,32,,reported,32,,reported,32,,reported,True,True
+B2023-015,rescued,AI-assisted,17,,reported,17,,reported,17,,reported,True,True
+B2023-027,neutralised,AI-assisted,50,,reported,50,no fewer than,reported,50,no fewer than,reported,True,True
+B2023-027,arrested,AI-assisted,114,,reported,114,,reported,114,,reported,True,True
+B2023-027,rescued,AI-assisted,49,,reported,49,,reported,49,,reported,True,True
+B2023-037,neutralised,AI-assisted,40,,reported,40,,reported,40,,reported,True,True
+B2023-037,arrested,AI-assisted,191,,reported,191,,reported,191,,reported,True,True
+B2023-037,rescued,AI-assisted,80,,reported,80,,reported,80,,reported,True,True
+B2024-005,neutralised,AI-assisted,185,,reported,185,no fewer than,reported,185,no fewer than,reported,True,True
+B2024-005,arrested,AI-assisted,212,,reported,212,,reported,212,,reported,True,True
+B2024-005,rescued,AI-assisted,71,,reported,71,,reported,71,,reported,True,True
+B2024-014,neutralised,AI-assisted,212,,reported,121,,reported,212,,reported,False,True
+B2024-014,arrested,AI-assisted,252,,reported,253,,reported,252,,reported,False,True
+B2024-014,rescued,AI-assisted,244,,reported,244,,reported,244,,reported,True,True
+B2024-022,neutralised,AI-assisted,253,,reported,253,,reported,253,,reported,True,True
+B2024-022,arrested,AI-assisted,172,,reported,172,,reported,172,,reported,True,True
+B2024-022,rescued,AI-assisted,206,,reported,206,,reported,206,,reported,True,True
+B2024-025,neutralised,AI-assisted,202,,reported,202,,reported,202,,reported,True,True
+B2024-025,arrested,AI-assisted,437,,reported,437,,reported,437,,reported,True,True
+B2024-025,rescued,AI-assisted,209,,reported,209,,reported,209,,reported,True,True
+B2024-031,neutralised,AI-assisted,125,,reported,125,,reported,125,,reported,True,True
+B2024-031,arrested,AI-assisted,200,,reported,200,,reported,200,,reported,True,True
+B2024-031,rescued,AI-assisted,140,,reported,140,,reported,140,,reported,True,True
+B2024-032,neutralised,AI-assisted,106,,reported,106,,reported,106,,reported,True,True
+B2024-032,arrested,AI-assisted,164,,reported,164,,reported,164,,reported,True,True
+B2024-032,rescued,AI-assisted,103,,reported,103,,reported,103,,reported,True,True
+B2024-046,neutralised,AI-assisted,140,,reported,140,,reported,140,,reported,True,True
+B2024-046,arrested,AI-assisted,135,,reported,135,,reported,135,,reported,True,True
+B2024-046,rescued,AI-assisted,76,,reported,76,,reported,76,,reported,True,True
+B2024-047,neutralised,AI-assisted,187,,reported,187,no fewer than,reported,187,no fewer than,reported,True,True
+B2024-047,arrested,AI-assisted,262,,reported,262,,reported,262,,reported,True,True
+B2024-047,rescued,AI-assisted,147,,reported,147,,reported,147,,reported,True,True
+B2025-004,neutralised,AI-assisted,358,,reported,358,,reported,358,,reported,True,True
+B2025-004,arrested,AI-assisted,431,,reported,431,,reported,431,,reported,True,True
+B2025-004,rescued,AI-assisted,249,,reported,249,,reported,249,,reported,True,True
+B2025-009,neutralised,AI-assisted,92,,reported,92,,reported,92,,reported,True,True
+B2025-009,arrested,AI-assisted,111,,reported,111,,reported,111,,reported,True,True
+B2025-009,rescued,AI-assisted,75,,reported,75,,reported,75,,reported,True,True
+B2025-012,neutralised,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2025-012,arrested,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2025-012,rescued,AI-assisted,,,not reported,,,vague,,,vague,True,False
+B2025-016,neutralised,AI-assisted,,several,vague,100,over,reported,,several,vague,False,True
+B2025-016,arrested,AI-assisted,70,,reported,70,,reported,70,,reported,True,True
+B2025-016,rescued,AI-assisted,21,,reported,21,,reported,21,,reported,True,True
+B2025-032,neutralised,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2025-032,arrested,AI-assisted,,dozens,vague,107,,reported,107,,reported,True,False
+B2025-032,rescued,AI-assisted,37,,reported,,,unresolved,,,unresolved,True,False
+B2025-037,neutralised,AI-assisted,,,,5000,more than,reported,5000,more than,reported,True,
+B2025-037,arrested,AI-assisted,,,,,,not reported,,,not reported,True,
+B2025-037,rescued,AI-assisted,,,,1200,over,reported,1200,over,reported,True,
+B2025-038,neutralised,AI-assisted,,scores,vague,,several,vague,,several,vague,True,True
+B2025-038,arrested,AI-assisted,450,,reported,450,,reported,450,,reported,True,True
+B2025-038,rescued,AI-assisted,180,,reported,180,,reported,180,,reported,True,True
+B2026-003,neutralised,AI-assisted,,scores,vague,,scores,vague,,scores,vague,True,True
+B2026-003,arrested,AI-assisted,270,over,reported,452,,reported,452,,reported,True,False
+B2026-003,rescued,AI-assisted,230,,reported,284,,reported,284,,reported,True,False
+B2026-006,neutralised,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2026-006,arrested,AI-assisted,44,summed,reported,,,unresolved,,,unresolved,True,False
+B2026-006,rescued,AI-assisted,45,,reported,45,,reported,45,,reported,True,True
+B2026-010,neutralised,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2026-010,arrested,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2026-010,rescued,AI-assisted,,,not reported,,,not reported,,,not reported,True,True
+B2026-019,neutralised,AI-assisted,317,,reported,317,,reported,317,,reported,True,True
+B2026-019,arrested,AI-assisted,314,,reported,314,,reported,314,,reported,True,True
+B2026-019,rescued,AI-assisted,221,,reported,221,,reported,221,,reported,True,True
+B2026-028,neutralised,AI-assisted,11,,reported,11,,reported,11,,reported,True,True
+B2026-028,arrested,AI-assisted,,,not reported,,,vague,,,vague,True,False
+B2026-028,rescued,AI-assisted,59,at least,reported,59,at least,reported,59,at least,reported,True,True
+B2021-001,neutralised,author,,,not reported,,,not reported,,,not reported,True,True
+B2021-001,arrested,author,,,not reported,,,not reported,,,not reported,True,True
+B2021-001,rescued,author,,,not reported,,,not reported,,,not reported,True,True
+B2021-013,neutralised,author,,,not reported,70,no fewer than,reported,,,not reported,False,True
+B2021-013,arrested,author,,,not reported,,,not reported,,,not reported,True,True
+B2021-013,rescued,author,,,not reported,,,not reported,,,not reported,True,True
+B2021-017,neutralised,author,,,not reported,,,not reported,,,not reported,True,True
+B2021-017,arrested,author,,,not reported,,,not reported,,,not reported,True,True
+B2021-017,rescued,author,,,not reported,,,not reported,,,not reported,True,True
+B2022-004,neutralised,author,,,not reported,,,not reported,,,not reported,True,True
+B2022-004,arrested,author,,,not reported,,,not reported,,,not reported,True,True
+B2022-004,rescued,author,,,not reported,,,not reported,,,not reported,True,True
+B2022-008,neutralised,author,,,not reported,,,not reported,,,not reported,True,True
+B2022-008,arrested,author,,,not reported,,,not reported,,,not reported,True,True
+B2022-008,rescued,author,,,not reported,798,,reported,798,,reported,True,False
+B2022-018,neutralised,author,57,,reported,,,not reported,,,not reported,True,False
+B2022-018,arrested,author,33,,reported,,,not reported,,,not reported,True,False
+B2022-018,rescued,author,12,,reported,,,not reported,,,not reported,True,False
