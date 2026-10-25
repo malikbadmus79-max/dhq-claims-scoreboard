@@ -1,0 +1,221 @@
+briefing_id,briefing_date,period_class,proposed_start,proposed_end,proposed_basis,evidence_url,evidence_sentence,needs_reading,confirmed_start,confirmed_end,confirmed_basis,period_notes
+B2021-001,2021-01-06,cumulative,,,cumulative,,,yes,2020-07-01,2020-12-31,stated range,"""in the second half of 2020"" (NAN wire, Daily Trust); Operation Sahel Sanity only."
+B2021-002,2021-01-07,weekly,2021-01-01,2021-01-07,inferred weekly,,,no,,,,
+B2021-003,2021-01-14,weekly,2021-01-08,2021-01-14,inferred weekly,,,no,,,,
+B2021-004,2021-01-21,weekly,2021-01-15,2021-01-21,inferred weekly,,,no,,,,
+B2021-005,2021-05-20,monthly,,,none,,,yes,2021-05-01,2021-05-20,stated range,"""between 1 and 20 May 2021"" (Blueprint)."
+B2021-006,2021-06-17,biweekly,2021-06-04,2021-06-17,inferred biweekly,,,no,,,,
+B2021-007,2021-07-01,biweekly,2021-06-18,2021-07-01,inferred biweekly,,,no,,,,
+B2021-008,2021-07-29,biweekly,2021-07-16,2021-07-29,inferred biweekly,,,no,,,,
+B2021-009,2021-08-12,biweekly,2021-07-29,2021-08-12,stated range,https://blueprint.ng/123-bandits-27-terrorists-killed-over-1-000-surrender-in-2-weeks-dhq/,"Director, Defence Media Operations (DMO), Brig.-Gen Benard Onyeuko, who stated this while briefing journalists on the updates of various military operations across the country from 29 July to 12 August 2021, said 27 Boko Haram/ISWAP fighters were killed while 51 were arrested.",no,,,,
+B2021-010,2021-09-02,monthly 3; cumulative 1,,,none,,,yes,2021-08-12,2021-09-02,stated range,"""operations between 12th August and 2nd September 2021"" (Channels TV); ""last three weeks"" in other copies."
+B2021-011,2021-09-30,monthly,2021-09-01,2021-09-30,named month,https://thewillnews.com/troops-kill-343-arrest-103-bandits-terrorists-in-september/,"Troops Kill 343, Arrest 103 Bandits, Terrorists In September",no,2021-09-02,2021-09-30,stated range,"""between September 2 and 30, 2021"" (TheWill); other copies say one month. The stated range replaces the named month."
+B2021-012,2021-10-14,cumulative 6; biweekly 1,,,none,,,yes,2021-10-01,2021-10-14,inferred biweekly,"Copies say ""the last two weeks""; ""cumulative"" in the class refers to surrender totals, not to the figures."
+B2021-013,2021-10-28,biweekly,2021-10-15,2021-10-28,inferred biweekly,,,no,,,,
+B2021-014,2021-11-11,biweekly,2021-10-29,2021-11-11,inferred biweekly,,,no,,,,
+B2021-015,2021-11-25,biweekly,2021-11-12,2021-11-25,inferred biweekly,,,no,,,,
+B2021-016,2021-12-09,biweekly,2021-11-26,2021-12-09,inferred biweekly,,,no,,,,
+B2021-017,2021-12-23,biweekly,2021-12-10,2021-12-23,inferred biweekly,,,no,,,,
+B2021-018,2021-12-30,year,,,year,,,yes,2021-01-01,2021-12-31,year,"""during the outgoing year 2021"" (Daily Trust), Operation Delta Safe only; announced 2021-12-30."
+B2022-001,2022-01-06,cumulative 7; year 1,,,none,,,yes,2021-05-20,2022-01-06,stated range,"""from 20 May 2021 to 6 January 2022"" (Blueprint, Daily Trust, TheWill)."
+B2022-002,2022-01-20,biweekly,2022-01-07,2022-01-20,inferred biweekly,,,no,,,,
+B2022-003,2022-02-10,cumulative,,,cumulative,,,yes,2022-01-21,2022-02-10,stated duration,"""in the last three weeks"" (all copies); 21 days ending on the briefing date."
+B2022-004,2022-02-24,biweekly,2022-02-10,2022-02-24,stated range,https://blueprint.ng/another-466-terrorists-surrender-several-others-killed-in-2-weeks-dhq/,"Director, Defence Media Operation Maj.-Gen. Benard Onyeuko stated this while briefing journalists on the successes of various military operations across the six geo-political zones of the country between 10 to 24 February 2022.",no,,,,
+B2022-005,2022-03-10,biweekly,2022-02-25,2022-03-10,inferred biweekly,,,no,,,,
+B2022-006,2022-03-24,biweekly,2022-03-11,2022-03-24,inferred biweekly,,,no,,,,
+B2022-007,2022-04-07,biweekly,2022-03-25,2022-04-07,inferred biweekly,,,no,,,,
+B2022-008,2022-04-28,monthly,,,none,,,yes,2022-04-07,2022-04-28,stated range,"""between 7 and 28 April 2022"" (Blueprint); ""three weeks"" in other copies."
+B2022-009,2022-05-19,monthly,,,none,,,yes,2022-04-29,2022-05-19,stated duration,"""within three weeks"" (Daily Post, TheWill, Premium Times); 21 days ending on the briefing date."
+B2022-010,2022-05-20,cumulative,,,cumulative,,,yes,2022-04-29,2022-05-19,stated duration,"Daily Trust copy of the B2022-009 statement, published a day later (""within three weeks""); same period as B2022-009."
+B2022-011,2022-06-02,biweekly,2022-05-20,2022-06-02,inferred biweekly,,,no,,,,
+B2022-012,2022-06-16,biweekly,2022-06-03,2022-06-16,inferred biweekly,,,no,,,,
+B2022-013,2022-06-30,biweekly,2022-06-16,2022-06-30,stated range,https://blueprint.ng/military-airstrikes-kill-82-terrorists-in-zamfara-as-troops-arrest-26-oil-thieves-in-niger-delta/,Director Defence Media Operations Maj.-Gen Benard Onyeuko stated this while briefing journalists on the successes recorded by various military operations in the country from 16 to 30 June 2022.,no,,,,
+B2022-014,2022-07-14,biweekly,2022-06-30,2022-07-14,stated range,https://blueprint.ng/6-top-terrorists-commanders-3858-others-surrender-42-killed-in-2-weeks-dhq/,"Director Defence Media Operations Maj.-Gen Benard Onyeuko who stated this in Abuja while briefing journalists on the successes of military operations across the between 30 June to 14 July 2022, said the surrendered are; Mallam Mala Hassan (Wali), Ali Madagali (Munzur), Musa Bashir (Chief anur), Buba",no,,,,
+B2022-015,2022-07-28,biweekly,2022-07-15,2022-07-28,inferred biweekly,,,no,,,,
+B2022-016,2022-08-06,biweekly,2022-07-24,2022-08-06,inferred biweekly,,,no,,,,
+B2022-017,2022-08-11,biweekly,2022-07-28,2022-08-11,stated range,https://dailytrust.com/1755-terrorists-surrender-29-killed-in-two-weeks-military/,"The Director, Defence Media Operations Maj.-Gen. Benard Onyeuko, who disclosed this during the biweekly update on military operations between 28 July to 11 August 2022, said troops recovered 128 rounds of 7.62mm ammunition, five bicycles, 12 AK-47 rifles, four motorcycles and five mobile phones.",no,,,,
+B2022-018,2022-08-25,biweekly,2022-08-12,2022-08-25,inferred biweekly,,,no,,,,
+B2022-019,2022-09-08,biweekly,2022-08-26,2022-09-08,inferred biweekly,,,no,,,,
+B2022-020,2022-09-22,biweekly,2022-09-09,2022-09-22,inferred biweekly,,,no,,,,
+B2022-021,2022-10-06,biweekly,2022-09-23,2022-10-06,inferred biweekly,,,no,,,,
+B2022-022,2022-10-20,biweekly,2022-10-06,2022-10-20,stated range,https://blueprint.ng/troops-kill-31-terrorists-arrest-70/,The military high command also said a total of 366 terrorists and their families surrendered to troops between 6 to 20 October 2022.,no,,,,
+B2022-023,2022-11-03,biweekly,2022-10-20,2022-11-02,stated range,https://thewillnews.com/troops-neutralize-59-terrorists-kidnappers-recover-n2-4bn-stolen-petroleum-products/,"He noted that the troops of operation HADIN KAI in the North East Zone, “sustained operational activities in villages, mountains, towns and cities within their area of responsibility, adding that between 20 October to 2 November 2022, troops conducted ambushes, cl",yes,2022-10-20,2022-11-03,stated range,"""between 20 October to 3 November 2022"" (Leadership); the proposal ended a day early."
+B2022-024,2022-11-17,biweekly,2022-11-03,2022-11-17,stated range,https://blueprint.ng/troops-kill-32-terrorists-seize-over-n16m-from-collaborators-logistics-suppliers/,"Director Defence Media Operations Maj.-Gen Musa Danmadami who stated this in Abuja while updating journalists on military operations across the country between 3 to 17 November 2022, said 250 terrorists and their families comprising of 43 males, 80 females and 121 children surrendered to the troops ",no,,,,
+B2022-025,2022-12-01,biweekly,2022-11-17,2022-12-01,stated range,https://blueprint.ng/troops-kill-54-terrorists-seize-n19m-from-collaborators/,"Director Director Defence Media Operations Maj. – Gen Musa Danmadami who stated this while briefing journalists on successes of military operations across the country between the 17 November to 1 December 2022, added that a total of 139 terrorists and member of their families comprising of 27 males,",no,,,,
+B2022-026,2022-12-22,,,,none,,,yes,2022-12-02,2022-12-22,stated duration,"""in the last three weeks"" / ""past three weeks"" (all copies)."
+B2023-001,2023-01-12,monthly 1; biweekly 1,,,none,,,yes,2022-12-22,2023-01-12,stated range,"""from 22nd December 2022 to 12th January 2023"" (VON, 21st Century Chronicle)."
+B2023-002,2023-01-26,biweekly,2023-01-13,2023-01-26,inferred biweekly,,,no,,,,
+B2023-003,2023-02-09,biweekly,2023-01-26,2023-02-09,stated range,https://blueprint.ng/troops-neutralize-87-terrorists-rescue-59-civilians/,Director Defence Media Operations (DDMO) Maj.-Gen. Musa Danmadami stated this in Abuja at the biweekly briefing on troop’s activities and operational successes recorded in the various operational theaters within the 6 geo-political zones of the country between of 26 January to 9 February 2023.,no,,,,
+B2023-004,2023-02-23,biweekly,2023-02-10,2023-02-23,inferred biweekly,,,no,,,,
+B2023-005,2023-03-09,biweekly,2023-02-23,2023-03-09,stated range,https://leadership.ng/troops-arrest-35-terrorists-kill-21/,The director of Defence Media Operations Major General Musa Danmadami disclosed this yesterday at the biweekly update on the Armed Forces of Nigeria Operations between 23 February to 9 March 2023.,no,,,,
+B2023-006,2023-03-23,biweekly,2023-03-10,2023-03-23,inferred biweekly,,,no,,,,
+B2023-007,2023-04-06,biweekly 10; weekly 1,,,none,,,yes,2023-03-23,2023-04-06,stated range,"""23rd of March to 6th of April, 2023"" (VON, Leadership)."
+B2023-008,2023-04-20,biweekly,2023-04-07,2023-04-20,inferred biweekly,,,no,,,,
+B2023-009,2023-05-04,biweekly,2023-04-21,2023-05-04,inferred biweekly,,,no,,,,
+B2023-010,2023-05-18,biweekly,2023-05-03,2023-05-12,stated range,https://blueprint.ng/troops-neutralize-26-terrorists-apprehend-25-logistics-suppliers/,"“Between 3 to 12 May 2023, troops conducted offensive and clearance operations at terrorists’ enclaves and camps at different locations in Sambisa forest and villages within Bama, Damboa, Gwoza and Kaga Local Government Areas of Borno State.",no,2023-05-04,2023-05-18,stated range,"""between May 4- May 18, 2023"" (Leadership); the proposed 3 to 12 May range came from a single incident sentence."
+B2023-011,2023-06-01,biweekly,2023-05-18,2023-06-01,stated range,https://blueprint.ng/troops-neutralise-51-terrorists-arrest-63-in-2-weeks/,"Danmadami said: “Relatedly, between 19 and 31 May 2023, troops intercepted and arrested 12 Terrorist logistics suppliers at different locations within the theatre of operation while conveying logistics items to terrorists “In furtherance to this, between 18 May to 1 June 2023, troops conducted vario",no,,,,
+B2023-012,2023-06-15,biweekly,2023-06-02,2023-06-15,inferred biweekly,,,no,,,,
+B2023-013,2023-07-06,monthly 3; biweekly 2,,,none,,,yes,2023-06-16,2023-07-06,stated duration,"""in the last three weeks"" / ""three weeks operations"" (Premium Times, Leadership)."
+B2023-014,2023-07-20,biweekly,2023-07-07,2023-07-20,inferred biweekly,,,no,,,,
+B2023-015,2023-07-21,weekly,2023-07-15,2023-07-21,inferred weekly,,,no,,,,
+B2023-016,2023-07-28,weekly,2023-07-22,2023-07-28,inferred weekly,,,no,,,,
+B2023-017,2023-08-03,biweekly,2023-07-21,2023-08-03,inferred biweekly,,,no,,,,
+B2023-018,2023-08-11,weekly,2023-08-05,2023-08-11,inferred weekly,,,no,,,,
+B2023-019,2023-08-17,biweekly,2023-08-04,2023-08-17,inferred biweekly,,,no,,,,
+B2023-020,2023-08-25,,,,none,,,yes,,,unclear,"NAN wire copies say ""within nine weeks"", which does not fit a weekly statement and is not confirmed elsewhere; Blueprint gives no period. Not testable in period checks."
+B2023-021,2023-08-31,biweekly,2023-08-18,2023-08-31,inferred biweekly,,,no,,,,
+B2023-022,2023-09-07,quarterly,,,named quarter,,,yes,2023-06-01,2023-08-31,stated range,"""from June to August 2023"" (Leadership quoting the statement); ""past three months"" elsewhere."
+B2023-023,2023-09-14,biweekly 6; weekly 2,,,none,,,yes,2023-09-08,2023-09-14,stated duration,"""one week"" (Blueprint, Leadership, TheWill) against ""two weeks"" (NAN wire, one independent copy); one week kept."
+B2023-024,2023-09-22,weekly,2023-09-16,2023-09-22,inferred weekly,,,no,,,,
+B2023-025,2023-09-28,biweekly 7; weekly 1,,,none,,,yes,2023-09-15,2023-09-28,stated duration,"""the last two weeks"" (NAN wire, Leadership ""biweekly update"") against ""one week"" (Blueprint); two weeks kept."
+B2023-026,2023-10-07,weekly,2023-10-01,2023-10-07,inferred weekly,,,no,,,,
+B2023-027,2023-10-12,weekly,2023-10-06,2023-10-12,inferred weekly,,,no,,,,
+B2023-028,2023-10-20,weekly,2023-10-14,2023-10-20,inferred weekly,,,no,,,,
+B2023-029,2023-10-26,weekly,2023-10-20,2023-10-26,inferred weekly,,,no,,,,
+B2023-030,2023-11-03,weekly,2023-10-28,2023-11-03,inferred weekly,,,no,,,,
+B2023-031,2023-11-09,weekly 5; biweekly 1,,,none,,,yes,2023-11-03,2023-11-09,stated duration,"""one week"" (Daily Post, Gazette, Leadership, Premium Times); TheWill says two weeks."
+B2023-032,2023-11-17,weekly,2023-11-11,2023-11-17,inferred weekly,,,no,,,,
+B2023-033,2023-11-23,weekly 10; monthly 1,,,none,,,yes,2023-11-17,2023-11-23,stated duration,"""in the last week"" / ""one week"" (all copies)."
+B2023-034,2023-12-01,weekly,2023-11-25,2023-12-01,inferred weekly,,,no,,,,
+B2023-035,2023-12-07,weekly,2023-12-01,2023-12-07,inferred weekly,,,no,,,,
+B2023-036,2023-12-15,weekly,2023-12-09,2023-12-15,inferred weekly,,,no,,,,
+B2023-037,2023-12-21,weekly,2023-12-15,2023-12-21,inferred weekly,,,no,,,,
+B2023-038,2023-12-29,year,,,year,,,yes,2023-01-01,2023-12-31,year,"""in 2023"" / ""between January to December 2023""; announced 2023-12-29."
+B2024-001,2024-01-05,weekly,2023-12-30,2024-01-05,inferred weekly,,,no,,,,Pilot B2024-001: weekly 2023-12-30 to 2024-01-05 (inferred: 7 days ending on the briefing date).
+B2024-002,2024-01-11,weekly,2024-01-05,2024-01-11,inferred weekly,,,no,,,,Pilot B2024-002: weekly 2024-01-05 to 2024-01-11 (inferred: 7 days ending on the briefing date).
+B2024-003,2024-01-19,weekly,2024-01-13,2024-01-19,inferred weekly,,,no,,,,Pilot B2024-003: weekly 2024-01-13 to 2024-01-19 (inferred: 7 days ending on the briefing date).
+B2024-004,2024-01-25,weekly 3; biweekly 1,,,none,,,yes,2024-01-19,2024-01-25,stated duration,"""in one week"" / ""in the past week"" (Blueprint, NAN wire); Leadership calls it the biweekly update. | Pilot B2024-004: weekly 2024-01-19 to 2024-01-25 (inferred: 7 days ending on the briefing date)."
+B2024-005,2024-02-02,weekly,2024-01-27,2024-02-02,inferred weekly,,,no,,,,Pilot B2024-005: weekly 2024-01-27 to 2024-02-02 (inferred: 7 days ending on the briefing date).
+B2024-006,2024-02-08,biweekly 3; monthly 1,,,none,,,yes,2024-01-01,2024-01-31,named month,"""in the month of January 2024"" (Leadership, Blueprint). | Pilot B2024-006: monthly 2024-01-01 to 2024-01-31 (stated: month named)."
+B2024-007,2024-02-08,weekly,2024-02-02,2024-02-08,inferred weekly,,,no,,,,Pilot B2024-007: weekly 2024-02-02 to 2024-02-08 (inferred: 7 days ending on the briefing date).
+B2024-008,2024-02-16,weekly,2024-02-10,2024-02-16,inferred weekly,,,no,2024-02-10,2024-02-16,inferred weekly,"Proposal kept: 7 days ending on the earliest copy (Channels TV, 2024-02-16); the pilot used the next day. | Pilot B2024-008: weekly 2024-02-11 to 2024-02-17 (inferred: 7 days ending on the briefing date)."
+B2024-009,2024-02-22,weekly,2024-02-16,2024-02-22,inferred weekly,,,no,,,,Pilot B2024-009: weekly 2024-02-16 to 2024-02-22 (inferred: 7 days ending on the briefing date).
+B2024-010,2024-02-29,monthly,2024-02-01,2024-02-29,named month,https://blueprint.ng/troops-neutralised-974-terrorists-arrest-621-in-february-dhq/,"Troops neutralised 974 terrorists, arrest 621 in February – DHQ",no,,,,Pilot B2024-010: monthly 2024-02-01 to 2024-02-29 (stated: month named).
+B2024-011,2024-03-08,weekly,2024-03-02,2024-03-08,inferred weekly,,,no,,,,
+B2024-012,2024-03-14,weekly,2024-03-08,2024-03-14,inferred weekly,,,no,,,,
+B2024-013,2024-03-22,weekly,2024-03-16,2024-03-22,inferred weekly,,,no,,,,Pilot B2024-011: weekly 2024-03-16 to 2024-03-22 (inferred: 7 days ending on the briefing date).
+B2024-014,2024-03-28,weekly,2024-03-22,2024-03-28,inferred weekly,,,no,,,,Pilot B2024-012: weekly 2024-03-22 to 2024-03-28 (inferred: 7 days ending on the briefing date).
+B2024-015,2024-04-04,quarterly,2024-01-01,2024-03-31,named quarter,https://gazettengr.com/2351-terrorists-eliminated-in-nigeria-from-january-to-march-dhq/,"2,351 terrorists eliminated in Nigeria from January to March: DHQ",yes,2024-01-01,2024-03-31,named quarter,"""in the first quarter of 2024"" / ""between January and March"". | Pilot B2024-013: quarterly 2024-01-01 to 2024-03-31 (stated: quarter named)."
+B2024-016,2024-04-12,weekly,2024-04-06,2024-04-12,inferred weekly,,,no,,,,Pilot B2024-014: weekly 2024-04-06 to 2024-04-12 (inferred: 7 days ending on the briefing date).
+B2024-017,2024-04-18,weekly,2024-04-12,2024-04-18,inferred weekly,,,no,,,,Pilot B2024-015: weekly 2024-04-12 to 2024-04-18 (inferred: 7 days ending on the briefing date).
+B2024-018,2024-04-27,weekly,2024-04-21,2024-04-27,inferred weekly,,,no,,,,Pilot B2024-016: weekly 2024-04-21 to 2024-04-27 (inferred: 7 days ending on the briefing date).
+B2024-019,2024-05-02,monthly,2024-04-01,2024-04-30,named month,https://21stcenturychronicle.com/military-kills-715-terrorists-rescues-465-kidnap-victims-in-april-dhq/,"Military kills 715 terrorists, rescues 465 kidnap victims in April – DHQ",no,,,,Pilot B2024-017: monthly 2024-04-01 to 2024-04-30 (stated: month named).
+B2024-020,2024-05-10,weekly,2024-05-04,2024-05-10,inferred weekly,,,no,,,,Pilot B2024-018: weekly 2024-05-04 to 2024-05-10 (inferred: 7 days ending on the briefing date).
+B2024-021,2024-05-16,weekly 3; biweekly 2,,,none,,,yes,2024-05-10,2024-05-16,stated duration,"""in the last one week"" (NAN wire, Premium Times); Channels TV says two weeks for the rescues. | Pilot B2024-019: weekly 2024-05-10 to 2024-05-16 (inferred: 7 days ending on the briefing date)."
+B2024-022,2024-05-24,weekly,2024-05-18,2024-05-24,inferred weekly,,,no,,,,Pilot B2024-020: weekly 2024-05-18 to 2024-05-24 (inferred: 7 days ending on the briefing date).
+B2024-023,2024-05-30,monthly,2024-05-01,2024-05-31,named month,https://blueprint.ng/troops-neutralised-624-terrorists-arrest-1051-in-may/,"Troops neutralise 624 terrorists, arrest 1,051 in May",no,,,,Pilot B2024-021: monthly 2024-05-01 to 2024-05-31 (stated: month named).
+B2024-024,2024-06-06,year 2; cumulative 2,,,none,,,yes,2023-05-01,2024-05-31,cumulative,"""between May 2023 to May 2024"" / ""in the last one year""; treated as cumulative, not as a total for the period rule. | Pilot B2024-022: one year 2023-06-07 to 2024-06-06 (inferred: 12 months ending on the briefing date)."
+B2024-025,2024-06-07,weekly,2024-06-01,2024-06-07,inferred weekly,,,no,,,,Pilot B2024-023: weekly 2024-06-01 to 2024-06-07 (inferred: 7 days ending on the briefing date).
+B2024-026,2024-06-13,weekly 7; monthly 2,,,none,,,yes,2024-06-07,2024-06-13,stated duration,"""in the last week"" / ""in one week"" (all copies). | Pilot B2024-024: weekly 2024-06-07 to 2024-06-13 (inferred: 7 days ending on the briefing date)."
+B2024-027,2024-06-21,weekly,2024-06-15,2024-06-21,inferred weekly,,,no,,,,Pilot B2024-025: weekly 2024-06-15 to 2024-06-21 (inferred: 7 days ending on the briefing date).
+B2024-028,2024-06-27,quarterly,,,named quarter,,,yes,2024-04-01,2024-06-30,named quarter,"""second quarter of 2024"" / ""between April ..."" ; announced 2024-06-27, before the quarter ended. | Pilot B2024-026: quarterly 2024-04-01 to 2024-06-30 (stated: quarter named)."
+B2024-029,2024-07-05,weekly,2024-06-29,2024-07-05,inferred weekly,,,no,,,,Pilot B2024-027: weekly 2024-06-29 to 2024-07-05 (inferred: 7 days ending on the briefing date).
+B2024-030,2024-07-11,weekly,2024-07-05,2024-07-11,inferred weekly,,,no,,,,Pilot B2024-028: weekly 2024-07-05 to 2024-07-11 (inferred: 7 days ending on the briefing date).
+B2024-031,2024-07-19,weekly,2024-07-13,2024-07-19,inferred weekly,,,no,,,,Pilot B2024-029: weekly 2024-07-13 to 2024-07-19 (inferred: 7 days ending on the briefing date).
+B2024-032,2024-07-25,weekly,2024-07-19,2024-07-25,inferred weekly,,,no,,,,Pilot B2024-030: weekly 2024-07-19 to 2024-07-25 (inferred: 7 days ending on the briefing date).
+B2024-033,2024-08-02,monthly,2024-07-01,2024-07-31,named month,https://21stcenturychronicle.com/military-kills-572-terrorists-arrests-790-in-july-dhq/,"Military kills 572 terrorists, arrests 790 in July – DHQ",no,,,,Pilot B2024-031: monthly 2024-07-01 to 2024-07-31 (stated: month named).
+B2024-034,2024-08-09,weekly,2024-08-03,2024-08-09,inferred weekly,,,no,,,,Pilot B2024-032: weekly 2024-08-03 to 2024-08-09 (inferred: 7 days ending on the briefing date).
+B2024-035,2024-08-15,weekly,2024-08-09,2024-08-15,inferred weekly,,,no,,,,Pilot B2024-033: weekly 2024-08-09 to 2024-08-15 (inferred: 7 days ending on the briefing date).
+B2024-036,2024-08-23,weekly,2024-08-17,2024-08-23,inferred weekly,,,no,,,,Pilot B2024-034: weekly 2024-08-17 to 2024-08-23 (inferred: 7 days ending on the briefing date).
+B2024-037,2024-08-29,monthly,2024-08-01,2024-08-31,named month,https://blueprint.ng/troops-neutralised-over-16-terrorists-commanders-1166-others-in-august-dhq/,"Troops neutralised over 16 terrorists’ commanders, 1,166 others in August – DHQ",no,,,,Pilot B2024-035: monthly 2024-08-01 to 2024-08-31 (stated: month named).
+B2024-038,2024-09-06,weekly,2024-08-31,2024-09-06,inferred weekly,,,no,,,,Pilot B2024-036: weekly 2024-08-31 to 2024-09-06 (inferred: 7 days ending on the briefing date).
+B2024-039,2024-09-10,cumulative,,,cumulative,,,yes,,,cumulative,IPOB-related cumulative statement with no stated start; no reported national values.
+B2024-040,2024-09-20,weekly,2024-09-14,2024-09-20,inferred weekly,,,no,,,,Pilot B2024-037: weekly 2024-09-14 to 2024-09-20 (inferred: 7 days ending on the briefing date).
+B2024-041,2024-09-26,quarterly,2024-07-01,2024-09-30,named quarter,https://gazettengr.com/military-killed-1937-terrorists-arrested-2782-suspects-rescued-1854-hostages-in-third-quarter-dhq/,"Military killed 1,937 terrorists, arrested 2,782 suspects, rescued 1,854 hostages in third quarter: DHQ",yes,2024-07-01,2024-09-30,named quarter,"""third quarter"" / ""July to September 2024""; announced 2024-09-26, before the quarter ended. | Pilot B2024-038: quarterly 2024-07-01 to 2024-09-30 (stated: quarter named)."
+B2024-042,2024-10-04,weekly,2024-09-28,2024-10-04,inferred weekly,,,no,,,,Pilot B2024-039: weekly 2024-09-28 to 2024-10-04 (inferred: 7 days ending on the briefing date).
+B2024-043,2024-10-10,weekly,2024-10-04,2024-10-10,inferred weekly,,,no,,,,Pilot B2024-040: weekly 2024-10-04 to 2024-10-10 (inferred: 7 days ending on the briefing date).
+B2024-044,2024-10-11,biweekly,2024-09-28,2024-10-11,inferred biweekly,,,no,,,,
+B2024-045,2024-10-18,weekly,2024-10-12,2024-10-18,inferred weekly,,,no,,,,Pilot B2024-041: weekly 2024-10-12 to 2024-10-18 (inferred: 7 days ending on the briefing date).
+B2024-046,2024-10-24,weekly 5; biweekly 4,,,none,,,yes,2024-10-18,2024-10-24,stated duration,"""in the last one week"" / ""week under review"" (all copies). | Pilot B2024-042: weekly 2024-10-18 to 2024-10-24 (inferred: 7 days ending on the briefing date)."
+B2024-047,2024-11-02,weekly,2024-10-27,2024-11-02,inferred weekly,,,no,,,,Pilot B2024-043: weekly 2024-10-27 to 2024-11-02 (inferred: 7 days ending on the briefing date).
+B2024-048,2024-11-07,monthly,2024-10-01,2024-10-31,named month,https://leadership.ng/troops-kill-481-terrorists-arrest-741-others-rescue-492-in-october/,"Troops Kill 481 Terrorists, Arrest 741 Others, Rescue 492 In October",no,,,,Pilot B2024-044: monthly 2024-10-01 to 2024-10-31 (stated: month named).
+B2024-049,2024-11-09,weekly,2024-11-03,2024-11-09,inferred weekly,,,no,,,,
+B2024-050,2024-11-14,,,,none,,,yes,2024-11-08,2024-11-14,stated duration,"""in the past week"" (Daily Post, Leadership)."
+B2024-051,2024-11-21,weekly,2024-11-15,2024-11-21,inferred weekly,,,no,,,,Pilot B2024-045: weekly 2024-11-15 to 2024-11-21 (inferred: 7 days ending on the briefing date).
+B2024-052,2024-11-29,weekly,2024-11-23,2024-11-29,inferred weekly,,,no,,,,Pilot B2024-046: weekly 2024-11-23 to 2024-11-29 (inferred: 7 days ending on the briefing date).
+B2024-053,2024-12-05,year 7; cumulative 1,,,none,,,yes,2024-01-01,2024-12-05,year to date,"Copies say ""from January to December"" and ""since the beginning of the year"", but headlines say ""in 11 months"" and the statement was made on 2024-12-05; coded year to date. Compare with the annual total B2024-057. | Pilot B2024-047: year to date 2024-01-01 to 2024-11-30 (inferred: 11 months to date)."
+B2024-054,2024-12-14,weekly,2024-12-08,2024-12-14,inferred weekly,,,no,,,,
+B2024-055,2024-12-20,weekly,2024-12-14,2024-12-20,inferred weekly,,,no,,,,Pilot B2024-048: weekly 2024-12-14 to 2024-12-20 (inferred: 7 days ending on the briefing date).
+B2024-056,2024-12-28,weekly,2024-12-22,2024-12-28,inferred weekly,,,no,,,,Pilot B2024-049: weekly 2024-12-22 to 2024-12-28 (inferred: 7 days ending on the briefing date).
+B2024-057,2024-12-31,year,,,year,,,yes,2024-01-01,2024-12-31,year,"""in the year 2024"" / ""in the last 12 months"". | Pilot B2024-050: annual 2024-01-01 to 2024-12-31 (stated: year named)."
+B2025-001,2025-01-10,weekly,2025-01-04,2025-01-10,inferred weekly,,,no,,,,
+B2025-002,2025-01-16,weekly,2025-01-10,2025-01-16,inferred weekly,,,no,,,,
+B2025-003,2025-01-24,weekly,2025-01-18,2025-01-24,inferred weekly,,,no,,,,
+B2025-004,2025-01-31,monthly,2025-01-01,2025-01-31,named month,https://21stcenturychronicle.com/military-kills-358-terrorists-arrests-431-in-january/,"Military kills 358 terrorists, arrests 431 in January",no,,,,
+B2025-005,2025-02-07,weekly,2025-02-01,2025-02-07,inferred weekly,,,no,,,,
+B2025-006,2025-02-13,weekly,2025-02-07,2025-02-13,inferred weekly,,,no,,,,
+B2025-007,2025-02-21,weekly,2025-02-15,2025-02-21,inferred weekly,,,no,,,,
+B2025-008,2025-02-28,monthly,2025-02-01,2025-02-28,named month,https://dailypost.ng/2025/02/28/nigerian-troops-eliminate-217-terrorists-arrest-574-others-in-february-dhq/,"Nigerian troops eliminate 217 terrorists, arrest 574 others in February – DHQ",no,,,,
+B2025-009,2025-03-06,weekly,2025-02-28,2025-03-06,inferred weekly,,,no,,,,
+B2025-010,2025-03-14,weekly,2025-03-08,2025-03-14,inferred weekly,,,no,,,,
+B2025-011,2025-03-20,biweekly,2025-03-07,2025-03-20,inferred biweekly,,,no,,,,
+B2025-012,2025-03-28,weekly,2025-03-22,2025-03-28,inferred weekly,,,no,,,,
+B2025-013,2025-04-03,quarterly,,,named quarter,,,yes,2025-01-01,2025-03-31,named quarter,"""in the first quarter of 2025"" (Leadership)."
+B2025-014,2025-04-11,weekly,2025-04-05,2025-04-11,inferred weekly,,,no,,,,
+B2025-015,2025-04-17,weekly,2025-04-11,2025-04-17,inferred weekly,,,no,,,,
+B2025-016,2025-04-25,weekly,2025-04-19,2025-04-25,inferred weekly,,,no,,,,
+B2025-017,2025-05-03,weekly,2025-04-27,2025-05-03,inferred weekly,,,no,,,,
+B2025-018,2025-05-08,monthly,,,none,,,yes,2025-04-01,2025-04-30,named month,"""for the month of April"" (Leadership, Daily Post)."
+B2025-019,2025-05-12,monthly,,,none,,,yes,2025-04-01,2025-04-30,named month,Blueprint copy (2025-05-12) of the April figures (173 rescued) also in B2025-018.
+B2025-020,2025-05-17,weekly,2025-05-11,2025-05-17,inferred weekly,,,no,,,,
+B2025-021,2025-05-24,weekly,2025-05-18,2025-05-24,inferred weekly,,,no,,,,
+B2025-022,2025-06-13,weekly,2025-06-07,2025-06-13,inferred weekly,,,no,,,,
+B2025-023,2025-06-19,cumulative,,,cumulative,,,yes,2023-06-19,2025-06-19,cumulative,"""in the past two years"" at the parley marking two years of the Chief of Defence Staff; start inferred as two years before the statement."
+B2025-024,2025-06-20,weekly,2025-06-14,2025-06-20,inferred weekly,,,no,,,,
+B2025-025,2025-06-29,weekly,2025-06-23,2025-06-29,inferred weekly,,,no,,,,
+B2025-026,2025-07-03,quarterly,,,named quarter,,,yes,2025-04-01,2025-06-30,named quarter,"""from April to June"" / ""second quarter""."
+B2025-027,2025-07-11,weekly,2025-07-05,2025-07-11,inferred weekly,,,no,,,,
+B2025-028,2025-07-17,weekly,2025-07-11,2025-07-17,inferred weekly,,,no,,,,
+B2025-029,2025-07-25,weekly,2025-07-19,2025-07-25,inferred weekly,,,no,,,,
+B2025-030,2025-08-01,monthly,2025-07-01,2025-07-31,named month,https://dailypost.ng/2025/08/01/troops-eliminate-top-terror-commanders-rescue-134-victims-in-july-dhq/,"Troops eliminate top terror commanders, rescue 134 victims in July — DHQ",no,,,,
+B2025-031,2025-08-10,weekly,2025-08-04,2025-08-10,inferred weekly,,,no,,,,
+B2025-032,2025-08-14,weekly 5; biweekly 1,,,none,,,yes,2025-08-07,2025-08-13,stated range,"""between August 7 and August 13"" (NAN wire); Leadership gives 7 to 14 August."
+B2025-033,2025-08-22,weekly,2025-08-16,2025-08-22,inferred weekly,,,no,,,,
+B2025-034,2025-08-29,weekly,2025-08-23,2025-08-29,inferred weekly,,,no,,,,
+B2025-035,2025-09-04,monthly,2025-08-01,2025-08-31,named month,https://gazettengr.com/troops-foiled-oil-theft-worth-n545-8-million-in-august-dhq/,Troops foiled oil theft worth N545.8 million in August: DHQ,no,,,,
+B2025-036,2025-09-25,weekly,2025-09-19,2025-09-25,inferred weekly,,,no,,,,
+B2025-037,2025-10-04,cumulative,,,cumulative,,,yes,2023-05-29,2025-10-03,cumulative,"""since President Bola Tinubu assumed office in May 2023""; cumulative, not a total for the period rule."
+B2025-038,2025-10-04,monthly,2025-09-01,2025-09-30,named month,https://dailypost.ng/2025/10/04/troops-neutralize-scores-of-terrorists-arrest-450-suspects-rescues-180-victims-in-september-dhq/,"Troops neutralize scores of terrorists, arrest 450 suspects, rescues 180 victims in September – DHQ",no,,,,
+B2025-039,2025-10-16,weekly 3; biweekly 2,,,none,,,yes,2025-10-03,2025-10-16,stated duration,"""within the past two weeks"" (Premium Times, the copy carrying the national values); Channels TV and VON describe the week under review."
+B2025-040,2025-10-24,weekly,2025-10-18,2025-10-24,inferred weekly,,,no,,,,
+B2025-041,2025-11-14,biweekly,2025-11-01,2025-11-14,inferred biweekly,,,no,,,,
+B2025-042,2025-11-28,weekly,2025-11-22,2025-11-28,inferred weekly,,,no,,,,
+B2025-043,2025-12-04,monthly,2025-11-01,2025-11-30,named month,https://blueprint.ng/troops-rescued-318-kidnapped-victims-foiled-oil-theft-in-november-dhq/,"Troops rescued 318 kidnapped victims, foiled oil theft in November – DHQ",no,,,,
+B2025-044,2025-12-15,weekly,2025-12-09,2025-12-15,inferred weekly,,,no,,,,
+B2025-045,2025-12-22,weekly,2025-12-16,2025-12-22,inferred weekly,,,no,,,,
+B2025-046,2025-12-31,year,,,year,,,yes,2025-01-01,2025-12-31,year,"""in 2025"" / ""within the year""."
+B2026-001,2026-01-20,biweekly,2026-01-07,2026-01-20,inferred biweekly,,,no,,,,
+B2026-002,2026-01-26,weekly,2026-01-20,2026-01-26,inferred weekly,,,no,,,,
+B2026-003,2026-01-30,monthly,2026-01-01,2026-01-31,named month,https://21stcenturychronicle.com/troops-destroy-53-illegal-refineries-in-january-dhq/,Troops destroy 53 illegal refineries in January – DHQ,no,,,,
+B2026-004,2026-02-10,weekly,2026-02-04,2026-02-10,inferred weekly,,,no,,,,
+B2026-005,2026-02-13,weekly,2026-02-07,2026-02-13,inferred weekly,,,no,,,,
+B2026-006,2026-02-20,weekly,2026-02-14,2026-02-20,inferred weekly,,,no,,,,
+B2026-007,2026-02-27,monthly,2026-02-01,2026-02-28,named month,https://blueprint.ng/troops-arrested-312-terrorists-rescued-409-hostages-in-february-dhq/,"Troops arrested 312 terrorists, rescued 409 hostages in February – DHQ",no,,,,
+B2026-008,2026-03-06,weekly,2026-02-28,2026-03-06,inferred weekly,,,no,,,,
+B2026-009,2026-03-13,weekly,2026-03-07,2026-03-13,inferred weekly,,,no,,,,
+B2026-010,2026-03-20,weekly,2026-03-14,2026-03-20,inferred weekly,,,no,,,,
+B2026-011,2026-03-28,weekly,2026-03-22,2026-03-28,inferred weekly,,,no,,,,
+B2026-012,2026-03-31,quarterly 5; monthly 2,,,none,,,yes,2026-01-01,2026-03-31,named quarter,"""between January and March 2026"" (VON) / ""first quarter""; some copies describe March operations."
+B2026-013,2026-04-04,weekly,2026-03-30,2026-04-02,stated range,https://leadership.ng/troops-arrest-over-20-terrorists-rescue-kidnap-victims-foil-attempts/,The Director Defence Media Operations Major General Michael Onoja gave the figures in an update on military operations between 30 March to 2 April 2026 on Friday.,no,,,,
+B2026-014,2026-04-24,weekly,2026-04-18,2026-04-24,inferred weekly,,,no,,,,
+B2026-015,2026-04-30,monthly 5; year 1,,,none,,,yes,2026-04-01,2026-04-30,named month,"""in April"" (all copies)."
+B2026-016,2026-05-09,weekly,2026-05-03,2026-05-09,inferred weekly,,,no,,,,
+B2026-017,2026-05-16,weekly,2026-05-10,2026-05-16,inferred weekly,,,no,,,,
+B2026-018,2026-05-23,weekly,2026-05-17,2026-05-23,inferred weekly,,,no,,,,
+B2026-019,2026-05-26,monthly,2026-05-01,2026-05-31,named month,https://blueprint.ng/troops-eliminated-317-terrorists-rescued-221-civilians-in-may-dhq/,"Troops eliminated 317 terrorists, rescued 221 civilians in May – DHQ",no,,,,
+B2026-020,2026-05-29,weekly,2026-05-23,2026-05-29,inferred weekly,,,no,,,,
+B2026-021,2026-06-05,weekly,2026-05-30,2026-06-05,inferred weekly,,,no,,,,
+B2026-022,2026-06-17,,,,none,,,yes,2026-06-04,2026-06-11,stated range,"""between 4 and 11 June"" (Daily Post)."
+B2026-023,2026-07-01,quarterly,,,named quarter,,,yes,2026-04-01,2026-06-30,named quarter,"""second quarter of 2026""."
+B2026-024,2026-07-18,weekly,2026-07-12,2026-07-18,inferred weekly,,,no,,,,
+B2026-025,2026-07-31,monthly,2026-07-01,2026-07-31,named month,https://blueprint.ng/troops-neutralised-102-terrorists-arrested-345-in-july-dhq/,"Troops neutralised 102 terrorists, arrested 345 in July – DHQ",no,,,,
+B2026-026,2026-08-08,weekly,2026-08-02,2026-08-08,inferred weekly,,,no,,,,
+B2026-027,2026-08-15,weekly,2026-08-09,2026-08-15,inferred weekly,,,no,,,,
+B2026-028,2026-08-22,weekly,2026-08-16,2026-08-22,inferred weekly,,,no,,,,
+B2026-029,2026-08-31,monthly,2026-08-01,2026-08-31,named month,https://gazettengr.com/dhq-says-troops-killed-324-terrorists-rescued-610-kidnap-victims-in-august/,"DHQ says troops killed 324 terrorists, rescued 610 kidnap victims in August",no,,,,
+B2026-030,2026-09-05,weekly,2026-08-30,2026-09-05,inferred weekly,,,no,,,,
+B2026-031,2026-09-11,weekly,2026-09-05,2026-09-11,inferred weekly,,,no,,,,
+B2026-032,2026-09-20,weekly,2026-09-14,2026-09-20,inferred weekly,,,no,,,,
+B2026-033,2026-09-26,weekly,2026-09-20,2026-09-26,inferred weekly,,,no,,,,
+B2026-034,2026-09-30,quarterly,,,named quarter,,,yes,2026-07-01,2026-09-30,named quarter,"""in the third quarter of 2026""; announced 2026-09-30."
+B2026-035,2026-10-10,weekly,2026-10-04,2026-10-10,inferred weekly,,,no,,,,

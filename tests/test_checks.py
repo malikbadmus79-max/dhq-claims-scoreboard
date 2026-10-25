@@ -24,6 +24,7 @@ from scoreboard.checks import (
     week_coverage,
     within_briefing_checks,
 )
+from scoreboard.checks import OVERLAP_REASON, best_disjoint_sum, overlapping_pairs
 from scoreboard.extract import OUTCOMES
 
 
@@ -355,3 +356,67 @@ def test_rows_labelled_development_year():
             briefing("M", date(2024, 2, 8), "monthly", date(2024, 1, 1), date(2024, 1, 31), {"neutralised": 30})]
     out = run_checks(frame(rows), NO_OPS, [])
     assert (out["label"] == "development year").all()
+
+
+# Overlapping parts (Deviations, 2026-10-25)
+
+
+def part(gid, start, end, n):
+    return briefing(gid, end, "biweekly", start, end, {"neutralised": n, "arrested": n, "rescued": n})
+
+
+def test_overlap_of_one_day_is_adjacent():
+    a, b = part("A", date(2024, 1, 1), date(2024, 1, 14), 5), part("B", date(2024, 1, 14), date(2024, 1, 27), 5)
+    c = part("C", date(2024, 1, 12), date(2024, 1, 25), 9)
+    assert overlapping_pairs([a, b], 1) == []
+    assert overlapping_pairs([a, b, c], 1) == [("A", "C"), ("B", "C")]
+    assert best_disjoint_sum([a, b, c], "neutralised", 1) == 10
+    assert best_disjoint_sum([a, part("D", date(2024, 1, 10), date(2024, 1, 20), 12)], "neutralised", 1) == 12
+
+
+def month_with(parts, total):
+    m = briefing("M", date(2024, 1, 31), "monthly", date(2024, 1, 1), date(2024, 1, 31),
+                 {"neutralised": total, "arrested": total, "rescued": total}, stated_end=date(2024, 1, 31))
+    return frame([m, *parts])
+
+
+def test_overlapping_parts_not_testable_unless_disjoint_parts_exceed():
+    parts = [part("A", date(2024, 1, 1), date(2024, 1, 14), 50), part("B", date(2024, 1, 10), date(2024, 1, 23), 50),
+             part("C", date(2024, 1, 18), date(2024, 1, 31), 50)]
+    for total, status in ((150, "not testable"), (90, "gap")):
+        rows = month_week_checks(month_with(parts, total), overlap_days=1)
+        r = only(rows)
+        assert r["status"] == status
+        if status == "not testable":
+            assert r["reason"] == OVERLAP_REASON and "A/B" in r["note"] and "B/C" in r["note"]
+        else:
+            assert r["side_b_value"] == 100 and r["reason"] == ""
+    # Pilot behaviour (no overlap rule): the parts are summed.
+    assert only(month_week_checks(month_with(parts, 150)))["status"] == "consistent"
+
+
+def test_adjacent_parts_sum_normally():
+    parts = [part("A", date(2024, 1, 1), date(2024, 1, 14), 50), part("B", date(2024, 1, 14), date(2024, 1, 27), 50),
+             part("C", date(2024, 1, 28), date(2024, 1, 31), 50)]
+    r = only(month_week_checks(month_with(parts, 150), overlap_days=1))
+    assert (r["status"], r["reason"]) == ("consistent", "")
+
+
+def test_overlap_rule_in_coverage_variant_and_residual():
+    parts = [part("A", date(2024, 1, 1), date(2024, 1, 14), 50), part("B", date(2024, 1, 10), date(2024, 1, 23), 50)]
+    df = month_with(parts, 500)
+    cov = only(coverage_variant_checks(df, "period", overlap_days=1))
+    assert (cov["status"], cov["reason"]) == ("not testable", OVERLAP_REASON)
+    df = pd.concat([df, frame([weekly("W", date(2024, 3, 7), 40)])], ignore_index=True)
+    res = only(residual_checks(df, overlap_days=1))
+    assert (res["status"], res["reason"], res["implied_per_missing_week"]) == ("not testable", OVERLAP_REASON, "")
+
+
+def test_coverage_variant_missing_weeks_by_period():
+    parts = [part("A", date(2024, 1, 1), date(2024, 1, 14), 50), part("B", date(2024, 1, 15), date(2024, 1, 28), 50)]
+    by_date = only(coverage_variant_checks(month_with(parts, 100), "date"))
+    by_period = only(coverage_variant_checks(month_with(parts, 100), "period"))
+    # Weeks of January 2024 by Thursday: 4, 11, 18, 25. The briefings are dated in the weeks of the 11th
+    # and 25th; their periods cover all four Thursdays.
+    assert by_date["missing_parts"] == 2 and by_period["missing_parts"] == 0
+    assert by_period["status"] == "consistent"

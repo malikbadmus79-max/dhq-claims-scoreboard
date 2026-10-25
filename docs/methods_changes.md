@@ -59,3 +59,41 @@ Round 2 result. The numeric values in the final table were correct on 96 of the 
 Follow-up review. 32 automatic agreed values had a copy giving a different figure without naming a region (64 conflicting copies, marked "no region named" in data/review/extraction_sheet_v3.csv), excluding the one such value already corrected in round 1. Each was checked against the article texts and recorded in data/review/conflict_review_round2.csv; 9 were corrected and 23 kept. The 9 corrections are: 5 conflicts between two national values with one independent copy each, recorded as unresolved; 1 named-subset figure ("high profile terrorist leaders") replaced by the national total; 1 sum of arrest categories listed in one sentence with no stated total; 1 named-plus-others value; and 1 change to the majority of independent copies. Round 2 added 2 further corrections in sampled briefings, both unresolved, and changed 5 rows of data/review/figures_hand_coded.csv (B2021-011 arrested, B2025-029 arrested, B2025-044 arrested, B2025-046 neutralised and B2026-026 neutralised). Across the two rounds, data/review/figures_corrections.csv holds 38 corrections and 7 hand-file rows were changed (2 in round 1, 5 in round 2). src/scoreboard/final_figures.py now accepts unresolved as a corrected status, with the value blank, and "thousands" as a vague qualifier in both files. The rebuilt data/briefings/briefing_figures_final.csv has 265 automatic, 357 hand and 38 correction rows. The change is logged under Deviations in docs/audit_rules.md.
 
 Auto-no recheck. The 47 sampled auto_no items (data/validation/blind_auto_no_sheet.csv, seed 20261024, drawn with the round 1 sample) were recoded by a separate AI agent that read the full article texts with only the inclusion rule in docs/review_guide.md and no access to the classification output (data/validation/auto_no_ai_coded.csv). It coded 46 items no and 1 yes, a false-negative rate of 1 of 47 (2.1%) among auto_no items. The yes, V021 (Daily Trust, dated 2024-09-07 in data/review/full_classification.csv), was confirmed against the text: it is a copy of the weekly statement grouped as B2024-038, whose 8 other copies give the same figures. The item is not added, because re-running grouping would change copy counts without changing any value. An earlier attempt to code this sheet from headlines only was not used.
+
+## 2026-10-25: Audit v1.0
+
+Run. The checks in docs/audit_rules.md were run on 2026-10-25 on the frozen v1.0 data (docs/freeze_v1.0.md) by src/scoreboard/audit_v1.py. Results are in outputs/audit_v1.0/: results.csv (every check row with status, evidence_grade and grade_label), one file per check, and week_coverage.csv.
+
+Inputs. data/briefings/check_briefings.csv, built by src/scoreboard/audit_inputs.py from data/briefings/briefing_figures_final.csv, data/briefings/briefing_periods_sheet.csv and data/briefings/value_grades.csv. The periods sheet proposes a period for each of the 220 briefings; the 49 rows marked needs_reading, and B2021-011, B2023-010 and B2024-008, were confirmed against the article texts. Confirmed dates are used where present, otherwise the proposed dates. value_grades.csv grades the 378 reported values by one rule for every source (Deviations, 2026-10-25): the independent copies whose body value under the "national marker" or "no region named" rule equals the final value. The 22 values with no matching copy were reviewed by hand (review_note) and keep their reviewed grade. Under this rule 269 values are grade 2 and 109 grade 3. The first run on 2026-10-25 counted automatic values from national-marker copies only (data/briefings/briefing_figures.csv), which gave 187 grade 2 and 191 grade 3; regrading moved 82 automatic values from grade 3 to grade 2 and none the other way, and the audits and sensitivity runs were rerun.
+
+Choices made during the run, logged under Deviations in docs/audit_rules.md (2026-10-24 and 2026-10-25):
+- Weekly, biweekly and other periods of up to 27 days count as parts in the period rule and the coverage variant; stated totals other than a calendar month, quarter or year are compared with the parts inside them (check "b. period_parts").
+- Missing weeks in the coverage variant are the weeks whose Thursday no part's period covers.
+- Parts overlapping by 1 day or less are summed as adjacent. A row whose parts overlap by more than 1 day is not testable (reason "overlapping parts"), unless a set of non-overlapping parts alone exceeds the total.
+- Confirmed periods with basis "unclear" or "cumulative" are never totals or parts; cumulative periods with an end date go through the period-end check.
+- In the quarter check, two monthly totals for one month are used only when they agree.
+- The implied-residual reference figure is the largest weekly figure of the same calendar year; years with no weekly briefing are not testable for it.
+- The within-briefing check is the 2024 pilot result for B2024-037 and B2024-041 (pilot IDs B2024-035 and B2024-038), taken from outputs/tables/pilot_checks_2024.csv.
+- The pilot run is reproduced unchanged by the same code with the v1.0 options off.
+
+Counts. 332 check rows (outputs/audit_v1.0/results.csv):
+
+| Check | Consistent | Gap | Gap (parts exceed total) | Shortfall | Minor difference | Implausible residual | Not testable | Rows |
+|---|---|---|---|---|---|---|---|---|
+| a. within_briefing | 0 | 0 | 1 | 3 | 0 | 0 | 0 | 4 |
+| b. quarter_months | 0 | 0 | 0 | 0 | 0 | 0 | 24 | 24 |
+| b. month_weeks | 0 | 7 | 0 | 0 | 1 | 0 | 55 | 63 |
+| b. period_parts | 0 | 0 | 0 | 0 | 0 | 0 | 12 | 12 |
+| b. annual | 0 | 0 | 0 | 0 | 0 | 0 | 3 | 3 |
+| b. implied_residual | 28 | 6 | 0 | 0 | 1 | 2 | 41 | 78 |
+| b. coverage_variant | 3 | 11 | 0 | 0 | 1 | 0 | 72 | 87 |
+| c. period_end | 52 | 9 | 0 | 0 | 0 | 0 | 0 | 61 |
+| All | 83 | 33 | 1 | 3 | 3 | 2 | 207 | 332 |
+
+Of the 207 not-testable rows, 22 are not testable because of overlapping parts. By evidence grade, 119 rows are grade 2 and 213 grade 3; no row is grade 1. Against the first run, no row changed status and 41 rows moved from grade 3 to grade 2, among them A195 (B2024-037 neutralised, implied residual).
+
+Review. outputs/audit_v1.0/audit_review_v1.0.csv records the author's review of the key rows against the article texts: A045 (B2024-010 arrested, month_weeks) not upheld; A052 (B2024-023 rescued, month_weeks) upheld with caveat; A195 (B2024-037 neutralised, implied residual) upheld at grade 3; A243 (B2024-057 neutralised, implied residual) upheld on grade 2 figures alone; the 9 period-end gaps (rows A112 to A162 of check c. period_end) upheld. The verdicts and their evidence are those stated in the review file.
+
+Sensitivity runs (src/scoreboard/audit_sensitivity.py, outputs/audit_v1.0/sensitivity/):
+- Arrested excluding oil-theft arrests (oil_theft_arrested.csv): B2024-008 arrested set to 160 (264 including 104 oil-theft arrests) and the month_weeks, coverage_variant and implied_residual checks rerun for arrested. Of 80 rows, 2 change status: A045 (B2024-010 month_weeks) from gap to not testable, and A184 (B2024-010 implied residual) from gap to consistent.
+- Implied residual with grade 2 figures only (grade2_residual.csv): briefings whose figure for an outcome is grade 3 are left out for that outcome, so their periods count as missing; totals, base and reference figure are grade 2. 50 rows result: 33 consistent, 8 implausible residual, 6 not testable, 3 gap. A195 remains implausible with a ratio of 2.01, as in the main run. A243 is implausible with a ratio of 5.19 (9.64 in the main run): the known parts are the year-to-date total of B2024-053 and the grade 2 weekly figures of B2024-055 and B2024-056, with 1.71 weeks uncovered. Six rows in 2026 (A230, A234, A237, A239, A240, A242) are implausible in this run only; their reference figures rest on the grade 2 weekly figures of 2026, one for neutralised and two for rescued.
